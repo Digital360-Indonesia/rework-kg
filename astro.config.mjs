@@ -6,6 +6,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://kustomgarment.com',
   integrations: [react()],
   image: {
     domains: ['kustomgarment.com'],
