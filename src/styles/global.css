@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  /* Custom colors */
+  --color-primary: #1a1a1a;
+  --color-primary-light: #2a2a2a;
+  --color-primary-dark: #0a0a0a;
+
+  --color-accent: #f97316;
+  --color-accent-light: #fb923c;
+  --color-accent-dark: #ea580c;
+}
+
 @layer base {
   @font-face {
     font-family: 'SF Pro Display';

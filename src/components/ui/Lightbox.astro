@@ -122,16 +122,16 @@ const imagesJson = JSON.stringify(images);
   let currentIndex = 0;
   let isActive = false;
 
-  const lightbox = document.getElementById('lightbox') as HTMLElement;
-  const lightboxBackdrop = document.getElementById('lightbox-backdrop') as HTMLElement;
-  const lightboxClose = document.getElementById('lightbox-close') as HTMLElement;
-  const lightboxPrev = document.getElementById('lightbox-prev') as HTMLElement;
-  const lightboxNext = document.getElementById('lightbox-next') as HTMLElement;
-  const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
-  const lightboxTitle = document.getElementById('lightbox-title') as HTMLElement;
-  const lightboxCounter = document.getElementById('lightbox-counter') as HTMLElement;
+  const lightbox = document.getElementById('lightbox');
+  const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxCounter = document.getElementById('lightbox-counter');
 
-  function openLightbox(index: number) {
+  function openLightbox(index) {
     currentIndex = index;
     isActive = true;
     updateImage();

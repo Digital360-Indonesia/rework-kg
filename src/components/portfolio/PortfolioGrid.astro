@@ -125,8 +125,8 @@ const filteredItems = activeCategory === 'all'
     portfolioItems.forEach((item) => {
       item.addEventListener('click', () => {
         const index = parseInt(item.getAttribute('data-index') || '0');
-        if ((window as any).openLightbox) {
-          (window as any).openLightbox(index);
+        if (window.openLightbox) {
+          window.openLightbox(index);
         }
       });
     });

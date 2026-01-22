@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/sections/Header.astro';
 import Footer from '../components/sections/Footer.astro';
-import ProductCard from '../components/ui/ProductCard.astro';
 
 // SEO Meta
 const title = 'Campus - Konveksi Satuan Surabaya Kustom Garment';
@@ -13,85 +12,100 @@ const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '6285161202499'
 const bulkOrderMessage = 'Saya%20dapat%20informasi%20pembelian%20jumlah%20besar%20dari%20website.%20Mohon%20informasi%20lebih%20lengkap,%20ya.%20Terima%20kasih.';
 const bulkOrderUrl = `https://wa.me/${whatsappNumber}?text=${bulkOrderMessage}`;
 
-// Product Data - Campus Category
-const campusProducts = {
-  'T-Shirt': [
-    {
-      title: 'T-Shirt',
-      variant: 'Basic',
-      description: 'Pakaian sehari-hari yang nyaman untuk aktivitas kampus. Bahan adem dan tahan lama, cocok untuk kuliah, organisasi mahasiswa, atau event kampus. Tersedia berbagai warna dengan opsi customisasi logo jurusan atau organisasi.',
-      images: [
-        '/images/products/campus/20250428-Campus_T-Shirts_Basic_1.webp',
-        '/images/products/campus/20250428-Campus_T-Shirts_Basic_2.webp',
-        '/images/products/campus/20250428-Campus_T-Shirts_Basic_3.webp',
-        '/images/products/campus/20250428-Campus_T-Shirts_Basic_4.webp'
-      ]
-    }
-  ],
-  'Kemeja': [
-    {
-      title: 'Kemeja',
-      variant: 'Basic',
-      description: 'Kemeja kasual yang elegan untuk kegiatan akademik kampus. Potongan modern dengan kualitas premium, cocok untuk presentasi, seminar, atau kegiatan formal lainnya. Dilengkapi opsi customisasi logo dan atribut kampus.',
-      images: [
-        '/images/products/campus/20250428-Campus_Kemeja_Basic_1.webp',
-        '/images/products/campus/20250428-Campus_Kemeja_Basic_2.webp',
-        '/images/products/campus/20250428-Campus_Kemeja_Basic_3.webp',
-        '/images/products/campus/20250428-Campus_Kemeja_Basic_4.webp'
-      ]
-    },
-    {
-      title: 'Kemeja',
-      variant: 'Workshirt PDH',
-      description: 'Pakaian dinas harian yang praktis untuk kegiatan organisasi mahasiswa. Jahitan rapi dengan detail fungsional untuk mobilitas tinggi. Ideal untuk panitia acara, BEM, atau unit kegiatan mahasiswa.',
-      images: [
-        '/images/products/campus/20250428-Campus_Kemeja_PDH_1.webp',
-        '/images/products/campus/20250428-Campus_Kemeja_PDH_2.webp',
-        '/images/products/campus/20250428-Campus_Kemeja_PDH_3.webp',
-        '/images/products/campus/20250428-Campus_Kemeja_PDH_4.webp'
-      ]
-    }
-  ],
-  'Jaket': [
-    {
-      title: 'Jaket',
-      variant: 'Varsity',
-      description: 'Desain ikonik yang mencerminkan semangat dan identitas kampus. Dengan detail premium dan jahitan berkualitas tinggi, jaket ini sempurna untuk momen kelulusan atau identitas program studi. Dilengkapi sistem penutup kancing kokoh dan saku dalam fungsional.',
-      images: [
-        '/images/products/campus/20250428-Campus_Jaket_Varsity_1.webp',
-        '/images/products/campus/20250428-Campus_Jaket_Varsity_2.webp',
-        '/images/products/campus/20250428-Campus_Jaket_Varsity_3.webp',
-        '/images/products/campus/20250428-Campus_Jaket_Varsity_4.webp'
-      ]
-    },
-    {
-      title: 'Jaket',
-      variant: 'Bomber',
-      description: 'Perlindungan optimal dengan desain stylish untuk aktivitas kampus. Konstruksi berlapis dengan detail fungsional untuk menyimpan perlengkapan kuliah. Cocok untuk kegiatan sehari-hari di lingkungan kampus.',
-      images: [
-        '/images/products/campus/20250428-Campus_Jaket_Bomber_1.webp'
-      ]
-    },
-    {
-      title: 'Jaket',
-      variant: 'Parka',
-      description: 'Perlindungan optimal dengan detail fungsional untuk kegiatan outdoor kampus. Konstruksi berlapis dengan kantong multifungsi untuk menyimpan perlengkapan kuliah. Cocok untuk kegiatan lapangan, penelitian, atau ekspedisi akademis.',
-      images: [
-        '/images/products/campus/20250428-Campus_Jaket_Parka_1.webp',
-        '/images/products/campus/20250428-Campus_Jaket_Parka_2.webp'
-      ]
-    },
-    {
-      title: 'Jaket',
-      variant: 'Coach',
-      description: 'Desain ringan dan praktis dengan opsi waterproof untuk aktivitas dinamis di lingkungan kampus. Dilengkapi dengan detail reflektif untuk keamanan di malam hari. Pilihan ideal untuk koordinator acara, panitia, atau kegiatan olahraga kampus.',
-      images: [
-        '/images/products/campus/20250428-Campus_Jaket_Coach_1.webp',
-        '/images/products/campus/20250428-Campus_Jaket_Coach_2.webp'
-      ]
-    }
-  ]
-};
+// Product Line Up Data
+const productLineUp = [
+  { name: 'T-Shirt', href: '#t-shirt', image: '/images/lineup/20250428-Business_Line-Up_Kaos-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
+  { name: 'Kemeja', href: '#kemeja', image: '/images/lineup/20250428-Business_Line-Up_Kemeja-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
+  { name: 'Jaket', href: '#jaket', image: '/images/lineup/20250428-Business_Line-Up_Jaket-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' }
+];
+
+// Products Data
+const products = [
+  {
+    id: 't-shirt',
+    title: 'T-Shirt',
+    anchor: 'one',
+    variants: [
+      {
+        name: 'Basic',
+        description: 'Pakaian sehari-hari yang nyaman untuk aktivitas kampus. Bahan adem dan tahan lama, cocok untuk kuliah, organisasi mahasiswa, atau event kampus. Tersedia berbagai warna dengan opsi customisasi logo jurusan atau organisasi.',
+        images: [
+          '/images/products/campus/20250428-Campus_T-Shirts_Basic_1.webp',
+          '/images/products/campus/20250428-Campus_T-Shirts_Basic_2.webp',
+          '/images/products/campus/20250428-Campus_T-Shirts_Basic_3.webp',
+          '/images/products/campus/20250428-Campus_T-Shirts_Basic_4.webp'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'kemeja',
+    title: 'Kemeja',
+    anchor: 'two',
+    variants: [
+      {
+        name: 'Basic',
+        description: 'Kemeja kasual yang elegan untuk kegiatan akademik kampus. Potongan modern dengan kualitas premium, cocok untuk presentasi, seminar, atau kegiatan formal lainnya. Dilengkapi opsi customisasi logo dan atribut kampus.',
+        images: [
+          '/images/products/campus/20250428-Campus_Kemeja_Basic_1.webp',
+          '/images/products/campus/20250428-Campus_Kemeja_Basic_2.webp',
+          '/images/products/campus/20250428-Campus_Kemeja_Basic_3.webp',
+          '/images/products/campus/20250428-Campus_Kemeja_Basic_4.webp'
+        ]
+      },
+      {
+        name: 'Workshirt PDH',
+        description: 'Pakaian dinas harian yang praktis untuk kegiatan organisasi mahasiswa. Jahitan rapi dengan detail fungsional untuk mobilitas tinggi. Ideal untuk panitia acara, BEM, atau unit kegiatan mahasiswa.',
+        images: [
+          '/images/products/campus/20250428-Campus_Kemeja_PDH_1.webp',
+          '/images/products/campus/20250428-Campus_Kemeja_PDH_2.webp',
+          '/images/products/campus/20250428-Campus_Kemeja_PDH_3.webp',
+          '/images/products/campus/20250428-Campus_Kemeja_PDH_4.webp'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'jaket',
+    title: 'Jaket',
+    anchor: 'three',
+    variants: [
+      {
+        name: 'Varsity',
+        description: 'Desain ikonik yang mencerminkan semangat dan identitas kampus. Dengan detail premium dan jahitan berkualitas tinggi, jaket ini sempurna untuk momen kelulusan atau identitas program studi. Dilengkapi sistem penutup kancing kokoh dan saku dalam fungsional.',
+        images: [
+          '/images/products/campus/20250428-Campus_Jaket_Varsity_1.webp',
+          '/images/products/campus/20250428-Campus_Jaket_Varsity_2.webp',
+          '/images/products/campus/20250428-Campus_Jaket_Varsity_3.webp',
+          '/images/products/campus/20250428-Campus_Jaket_Varsity_4.webp'
+        ]
+      },
+      {
+        name: 'Bomber',
+        description: 'Perlindungan optimal dengan desain stylish untuk aktivitas kampus. Konstruksi berlapis dengan detail fungsional untuk menyimpan perlengkapan kuliah. Cocok untuk kegiatan sehari-hari di lingkungan kampus.',
+        images: [
+          '/images/products/campus/20250428-Campus_Jaket_Bomber_1.webp'
+        ]
+      },
+      {
+        name: 'Parka',
+        description: 'Perlindungan optimal dengan detail fungsional untuk kegiatan outdoor kampus. Konstruksi berlapis dengan kantong multifungsi untuk menyimpan perlengkapan kuliah. Cocok untuk kegiatan lapangan, penelitian, atau ekspedisi akademis.',
+        images: [
+          '/images/products/campus/20250428-Campus_Jaket_Parka_1.webp',
+          '/images/products/campus/20250428-Campus_Jaket_Parka_2.webp'
+        ]
+      },
+      {
+        name: 'Coach',
+        description: 'Desain ringan dan praktis dengan opsi waterproof untuk aktivitas dinamis di lingkungan kampus. Dilengkapi dengan detail reflektif untuk keamanan di malam hari. Pilihan ideal untuk koordinator acara, panitia, atau kegiatan olahraga kampus.',
+        images: [
+          '/images/products/campus/20250428-Campus_Jaket_Coach_1.webp',
+          '/images/products/campus/20250428-Campus_Jaket_Coach_2.webp'
+        ]
+      }
+    ]
+  }
+];
 
 // Benefits data
 const benefits = [
@@ -121,21 +135,29 @@ const benefits = [
 <BaseLayout title={title} description={description}>
   <Header currentPath="/campus/" />
 
-  <!-- Hero Section -->
-  <section class="category-hero">
+  <!-- Hero Section - Full Height, Hidden on Mobile -->
+  <section class="category-hero elementor-hidden-mobile">
     <div class="hero-container">
       <h1 class="hero-title">Campus</h1>
     </div>
   </section>
 
   <!-- Product Line Up Section -->
-  <section class="product-lineup" aria-label="Product Line Up">
+  <section class="product-lineup">
     <div class="lineup-container">
       <h2 class="lineup-title">Product Line Up</h2>
-      <div class="lineup-scroll">
-        {Object.entries(campusProducts).map(([category, products]) => (
-          <a href={`#${category.toLowerCase()}`} class="lineup-item">
-            <span>{category}</span>
+      <div class="lineup-grid">
+        {productLineUp.map((item) => (
+          <a href={item.href} class="lineup-item">
+            <img
+              src={item.image}
+              alt={item.name}
+              width="100"
+              height="100"
+              loading="lazy"
+              decoding="async"
+            />
+            <p>{item.name}</p>
           </a>
         ))}
       </div>
@@ -144,17 +166,55 @@ const benefits = [
 
   <!-- Products Section -->
   <main class="products-section">
-    {Object.entries(campusProducts).map(([category, products]) => (
-      <section id={category.toLowerCase()} class="product-category">
-        <div class="category-container">
-          <h2 class="category-title">{category}</h2>
-          <div class="products-grid">
-            {products.map((product) => (
-              <ProductCard {...product} />
-            ))}
+    {products.map((product) => (
+      <>
+        <!-- Category Title Section -->
+        <section id={product.id} class="category-title-section">
+          <div class="category-title-container">
+            <div class="menu-anchor" id={product.anchor}></div>
+            <h2 class="category-title">{product.title}</h2>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <!-- Product Variants -->
+        {product.variants.map((variant) => (
+          <section class="product-variant-section">
+            <div class="variant-container">
+              <h4 class="variant-name">{variant.name}</h4>
+              <p class="variant-description">{variant.description}</p>
+
+              <!-- Image Carousel -->
+              <div class="image-carousel" data-product-id={`${product.id}-${variant.name}`}>
+                {variant.images.map((image, index) => (
+                  <a
+                    href={`https://wa.me/${whatsappNumber}?text=Saya%20dapat%20informasi%20${encodeURIComponent(product.title)}%20${encodeURIComponent(variant.name)}%20dari%20website.%20Mohon%20informasi%20lebih%20lengkap,%20ya.%20Terima%20kasih.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="carousel-slide"
+                    class:active={index === 0}
+                  >
+                    <img
+                      src={image}
+                      alt={`${product.title} ${variant.name} - ${index + 1}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
+                ))}
+              </div>
+
+              <!-- Carousel Pagination -->
+              {variant.images.length > 1 && (
+                <div class="carousel-pagination" data-product-id={`${product.id}-${variant.name}`}>
+                  {variant.images.map((_, index) => (
+                    <span class="pagination-bullet" class:active={index === 0}></span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </section>
+        ))}
+      </>
     ))}
   </main>
 
@@ -222,91 +282,87 @@ const benefits = [
 </BaseLayout>
 
 <style>
-  /* Hero Section */
+  /* Hero Section - Full Height, Hidden on Mobile */
   .category-hero {
+    display: none;
     background: #ffffff;
-    padding: 4rem 0 3rem;
+    min-height: 60vh;
+    align-items: center;
+    justify-content: center;
     text-align: center;
   }
 
+  @media (min-width: 768px) {
+    .category-hero.elementor-hidden-mobile {
+      display: flex;
+    }
+  }
+
   .hero-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    width: 100%;
+    padding: 0;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
     color: #333333;
     margin: 0;
-    line-height: 1.2;
+    line-height: 1;
   }
 
-  /* Product Line Up */
+  /* Product Line Up Section */
   .product-lineup {
-    background: #f8f9fa;
-    padding: 1.5rem 0;
-    position: sticky;
-    top: 72px;
-    z-index: 90;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background: #f8f8f8;
+    padding: 2rem 0;
   }
 
   .lineup-container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
 
   .lineup-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #333333;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0;
+    text-align: center;
   }
 
-  .lineup-scroll {
-    display: flex;
-    gap: 0.75rem;
-    overflow-x: auto;
-    padding-bottom: 0.5rem;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .lineup-scroll::-webkit-scrollbar {
-    height: 4px;
-  }
-
-  .lineup-scroll::-webkit-scrollbar-track {
-    background: #e5e7eb;
-    border-radius: 2px;
-  }
-
-  .lineup-scroll::-webkit-scrollbar-thumb {
-    background: #0066cc;
-    border-radius: 2px;
+  .lineup-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    justify-items: center;
   }
 
   .lineup-item {
-    flex-shrink: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 0.625rem 1.25rem;
-    background: #ffffff;
-    border: 2px solid #e5e7eb;
-    border-radius: 24px;
-    color: #333333;
     text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-    white-space: nowrap;
+    transition: transform 0.2s ease;
   }
 
   .lineup-item:hover {
-    border-color: #0066cc;
-    color: #0066cc;
+    transform: translateY(-4px);
+  }
+
+  .lineup-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+  }
+
+  .lineup-item p {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333333;
+    margin: 0;
+    text-align: center;
   }
 
   /* Products Section */
@@ -314,32 +370,110 @@ const benefits = [
     background: #ffffff;
   }
 
-  .product-category {
-    padding: 3rem 0;
+  /* Category Title Section */
+  .category-title-section {
+    background: #f8f8f8;
+    padding: 1.5rem 0;
   }
 
-  .category-container {
-    max-width: 1400px;
+  .category-title-container {
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
+    position: relative;
   }
 
   .category-title {
     font-size: 2rem;
     font-weight: 600;
     color: #333333;
-    margin: 0 0 2rem 0;
+    margin: 0;
   }
 
-  .products-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  /* Product Variant Section */
+  .product-variant-section {
+    background: #ffffff;
+    padding: 2rem 0;
+  }
+
+  .variant-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .variant-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 1rem 0;
+  }
+
+  .variant-description {
+    font-size: 1rem;
+    color: #666666;
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+  }
+
+  /* Image Carousel */
+  .image-carousel {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    background: #f5f5f5;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    text-decoration: none;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #f5f5f5;
+  }
+
+  /* Carousel Pagination */
+  .carousel-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .pagination-bullet {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .pagination-bullet.active {
+    background: #0066cc;
   }
 
   /* Bulk Order CTA */
   .bulk-order-cta {
-    background: #f8f9fa;
+    background: #f8f8f8;
     padding: 3rem 0;
   }
 
@@ -393,11 +527,11 @@ const benefits = [
   }
 
   .benefits-container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.5rem;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
 
@@ -407,7 +541,7 @@ const benefits = [
     align-items: center;
     text-align: center;
     padding: 1.5rem;
-    background: #f8f9fa;
+    background: #f8f8f8;
     border-radius: 12px;
   }
 
@@ -451,30 +585,7 @@ const benefits = [
 
   /* Tablet Styles */
   @media (min-width: 768px) {
-    .hero-title {
-      font-size: 3rem;
-    }
-
-    .products-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .benefits-container {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .product-category {
-      padding: 4rem 0;
-    }
-  }
-
-  /* Desktop Styles */
-  @media (min-width: 1024px) {
-    .hero-title {
-      font-size: 4rem;
-    }
-
-    .products-grid {
+    .lineup-grid {
       grid-template-columns: repeat(3, 1fr);
     }
 
@@ -482,10 +593,53 @@ const benefits = [
       grid-template-columns: repeat(4, 1fr);
     }
 
-    .category-container,
+    .category-title {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 1024px) {
     .lineup-container,
-    .hero-container {
+    .category-title-container,
+    .variant-container,
+    .cta-container,
+    .benefits-container {
       padding: 0 2rem;
+    }
+
+    .category-title {
+      font-size: 3rem;
     }
   }
 </style>
+
+<script>
+  const carousels = document.querySelectorAll('.image-carousel');
+  carousels.forEach((carousel) => {
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const productId = carousel.dataset.productId;
+    const pagination = document.querySelector(`.carousel-pagination[data-product-id="${productId}"]`);
+    if (slides.length > 1) {
+      let currentIndex = 0;
+      let interval: number | null = null;
+      const showSlide = (index: number) => {
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+        if (pagination) {
+          const bullets = pagination.querySelectorAll('.pagination-bullet');
+          bullets.forEach((bullet, i) => bullet.classList.toggle('active', i === index));
+        }
+      };
+      const nextSlide = () => { currentIndex = (currentIndex + 1) % slides.length; showSlide(currentIndex); };
+      const startAutoplay = () => { interval = window.setInterval(nextSlide, 4500); };
+      const stopAutoplay = () => { if (interval) { clearInterval(interval); interval = null; } };
+      startAutoplay();
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+      if (pagination) {
+        const bullets = pagination.querySelectorAll('.pagination-bullet');
+        bullets.forEach((bullet, index) => bullet.addEventListener('click', () => { currentIndex = index; showSlide(currentIndex); }));
+      }
+    }
+  });
+</script>

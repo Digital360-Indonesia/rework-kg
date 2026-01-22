@@ -1,0 +1,14 @@
+# robots.txt for Kustom Garment
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kustomgarment.com/sitemap-index.xml
+
+# Disallow admin areas (if any in future)
+Disallow: /api/
+Disallow: /_astro/
+
+# Crawl-delay (optional)
+Crawl-delay: 1

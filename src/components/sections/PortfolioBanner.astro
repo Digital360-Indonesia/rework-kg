@@ -1,0 +1,93 @@
+---
+/**
+ * Portfolio Banner Section Component
+ * Large banner image linking to portfolio.kustomgarment.com
+ * Missing section between Benefits and Video Portfolio
+ * Static Clone Reference: assets-source/kg-static-clone/kustomgarment.com/index.html (lines 499-512)
+ * Section ID: 07ac3ad
+ */
+---
+
+<section class="portfolio-banner-section" aria-label="View Our Portfolio">
+  <div class="portfolio-banner-container">
+    <a
+      href="https://portfolio.kustomgarment.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="portfolio-banner-link"
+      aria-label="Visit our portfolio gallery"
+    >
+      <img
+        src="/images/hero/bulk-order-hero.png"
+        alt="Portfolio Gallery - Lihat Karya Kami"
+        width="2000"
+        height="1000"
+        loading="lazy"
+        decoding="async"
+        class="portfolio-banner-image"
+      />
+    </a>
+  </div>
+</section>
+
+<style>
+  .portfolio-banner-section {
+    width: 100%;
+    background: #ffffff;
+    overflow: hidden;
+  }
+
+  .portfolio-banner-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .portfolio-banner-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+
+  .portfolio-banner-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .portfolio-banner-link:hover .portfolio-banner-image {
+    transform: scale(1.01);
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .portfolio-banner-image {
+      min-height: 200px;
+      object-fit: cover;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate portfolio banner on scroll
+  const portfolioBanner = document.querySelector('.portfolio-banner-image');
+
+  if (portfolioBanner) {
+    gsap.from(portfolioBanner, {
+      scrollTrigger: {
+        trigger: '.portfolio-banner-section',
+        start: 'top 80%',
+        toggleActions: 'play none none none'
+      },
+      opacity: 0,
+      scale: 1.05,
+      duration: 0.8,
+      ease: 'power2.out',
+    });
+  }
+</script>
