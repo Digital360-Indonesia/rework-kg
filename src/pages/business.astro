@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/sections/Header.astro';
-import Footer from '../components/sections/Footer.astro';
 
 // SEO Meta
 const title = 'Business - Konveksi Satuan Surabaya Kustom Garment';
@@ -14,12 +12,12 @@ const bulkOrderUrl = `https://wa.me/${whatsappNumber}?text=${bulkOrderMessage}`;
 
 // Product Line Up Data - with images
 const productLineUp = [
-  { name: 'T-Shirt', href: '#t-shirt', image: '/images/lineup/20250428-Business_Line-Up_Kaos-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
-  { name: 'Kemeja', href: '#kemeja', image: '/images/lineup/20250428-Business_Line-Up_Kemeja-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
-  { name: 'Jaket', href: '#jaket', image: '/images/lineup/20250428-Business_Line-Up_Jaket-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
-  { name: 'Poloshirt', href: '#poloshirt', image: '/images/lineup/20250428-Business_Line-Up_Polo-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
-  { name: 'Wearpack', href: '#wearpack', image: '/images/lineup/20250428-Business_Line-Up_Wearpack-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
-  { name: 'Rompi', href: '#rompi', image: '/images/lineup/20250428-Business_Line-Up_Rompi-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' }
+  { name: 'T-Shirt', href: '#one', image: '/images/lineup/20250428-Business_Line-Up_Kaos-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
+  { name: 'Kemeja', href: '#two', image: '/images/lineup/20250428-Business_Line-Up_Kemeja-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
+  { name: 'Jaket', href: '#three', image: '/images/lineup/20250428-Business_Line-Up_Jaket-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
+  { name: 'Poloshirt', href: '#four', image: '/images/lineup/20250428-Business_Line-Up_Polo-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
+  { name: 'Wearpack', href: '#five', image: '/images/lineup/20250428-Business_Line-Up_Wearpack-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' },
+  { name: 'Rompi', href: '#six', image: '/images/lineup/20250428-Business_Line-Up_Rompi-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp' }
 ];
 
 // Products Data
@@ -51,8 +49,8 @@ const products = [
         name: 'Workshirt PDH',
         description: 'Jahitan rapi dan tahan lama dengan kualitas premium di setiap detail. Dilengkapi dengan saku dan atribut yang dapat disesuaikan dengan kebutuhan perusahaan. Sangat cocok untuk pakaian dinas harian yang formal namun tetap nyaman.',
         images: [
-          '/images/products/business/20250428-Kemeja_Workshirt-PDH_1.webp',
-          '/images/products/business/20250428-Kemeja_Workshirt-PDH_2.webp'
+          '/images/products/business/20250428-Kemeja_Workshirt-PDH_2.webp',
+          '/images/products/business/20250428-Kemeja_Workshirt-PDH_1.webp'
         ]
       },
       {
@@ -82,8 +80,8 @@ const products = [
         description: 'Desain ikonik dengan detail premium dan jahitan berkualitas tinggi. Dilengkapi dengan sistem penutup kancing yang kokoh dan saku dalam yang fungsional. Sempurna untuk tampilan profesional dengan sentuhan sporty yang timeless.',
         images: [
           '/images/products/business/20250428-Jaket_Varsity_1.webp',
-          '/images/products/business/20250428-Jaket_Varsity_2.webp',
-          '/images/products/business/20250428-Jaket_Varsity_3.webp'
+          '/images/products/business/20250428-Jaket_Varsity_3.webp',
+          '/images/products/business/20250428-Jaket_Varsity_2.webp'
         ]
       },
       {
@@ -97,9 +95,9 @@ const products = [
         name: 'Jumper Hoodie',
         description: 'Desain modern dengan hoodie yang fungsional dan nyaman dipakai. Dilengkapi dengan kantong depan yang praktis dan pilihan customisasi logo yang beragam. Cocok untuk kegiatan outdoor maupun casual day di kantor.',
         images: [
+          '/images/products/business/20250428-Jaket_Jumper-Hoodie_3.webp',
           '/images/products/business/20250428-Jaket_Jumper-Hoodie_1.webp',
-          '/images/products/business/20250428-Jaket_Jumper-Hoodie_2.webp',
-          '/images/products/business/20250428-Jaket_Jumper-Hoodie_3.webp'
+          '/images/products/business/20250428-Jaket_Jumper-Hoodie_2.webp'
         ]
       },
       {
@@ -120,9 +118,9 @@ const products = [
         name: 'Basic',
         description: 'Desain clean cut dengan kerah dan manset yang memberikan kesan rapi dan profesional. Tersedia dalam berbagai pilihan warna dan opsi customisasi logo. Ideal untuk seragam perusahaan dengan kombinasi kenyamanan dan formalitas.',
         images: [
+          '/images/products/business/20250428-Polo-Shirt_Basic_3.webp',
           '/images/products/business/20250428-Polo-Shirt_Basic_1.webp',
-          '/images/products/business/20250428-Polo-Shirt_Basic_2.webp',
-          '/images/products/business/20250428-Polo-Shirt_Basic_3.webp'
+          '/images/products/business/20250428-Polo-Shirt_Basic_2.webp'
         ]
       }
     ]
@@ -136,16 +134,16 @@ const products = [
         name: 'Basic',
         description: 'Dibuat dengan standar kualitas tinggi untuk durabilitas maksimal. Dilengkapi dengan kantong multifungsi dan detail reflektif untuk keamanan. Sempurna untuk tim operasional dengan prioritas keamanan dan kenyamanan.',
         images: [
-          '/images/products/business/20250428-Wearpack_Basic_1.webp',
-          '/images/products/business/20250428-Wearpack_Basic_2.webp'
+          '/images/products/business/20250428-Wearpack_Basic_2.webp',
+          '/images/products/business/20250428-Wearpack_Basic_1.webp'
         ]
       },
       {
         name: 'Coverall',
         description: 'Desain one-piece yang memberikan perlindungan optimal dan mobilitas tinggi. Feature kantong utilitas strategis dan sistem penutup yang kokoh. Solusi terbaik untuk pekerja teknis dengan kebutuhan perlindungan menyeluruh.',
         images: [
-          '/images/products/business/20250428-Wearpack_Coverall_1.webp',
-          '/images/products/business/20250428-Wearpack_Coverall_2.webp'
+          '/images/products/business/20250428-Wearpack_Coverall_2.webp',
+          '/images/products/business/20250428-Wearpack_Coverall_1.webp'
         ]
       }
     ]
@@ -153,7 +151,7 @@ const products = [
   {
     id: 'rompi',
     title: 'Rompi',
-    anchor: 'five',
+    anchor: 'six',
     variants: [
       {
         name: 'Indoor',
@@ -166,8 +164,8 @@ const products = [
         name: 'Outdoor',
         description: 'Konstruksi kokoh dengan detail tahan cuaca dan kantong multifungsi. Sistem ventilasi optimal memberikan kenyamanan sepanjang hari. Didesain khusus untuk tim lapangan dengan prioritas fungsi dan visibilitas.',
         images: [
-          '/images/products/business/20250428-Rompi_Outdoor_1.webp',
-          '/images/products/business/20250428-Rompi_Outdoor_2.webp'
+          '/images/products/business/20250428-Rompi_Outdoor_2.webp',
+          '/images/products/business/20250428-Rompi_Outdoor_1.webp'
         ]
       }
     ]
@@ -177,22 +175,22 @@ const products = [
 // Benefits data
 const benefits = [
   {
-    icon: '/images/benefits/harga-bersahabat.webp',
+    icon: '/images/benefits/section6-1.webp',
     title: 'Harga Bersahabat',
     description: 'Dapatkan harga eksklusif dengan pembelian jumlah besar'
   },
   {
-    icon: '/images/benefits/team-profesional.webp',
+    icon: '/images/benefits/section6-2.webp',
     title: 'Team Profesional',
     description: 'Konsultasi langsung sesuai kebutuhan dengan team berpengalaman kami'
   },
   {
-    icon: '/images/benefits/pickup-delivery.webp',
+    icon: '/images/benefits/section6-3.webp',
     title: 'Pick Up or Delivery',
     description: 'Opsi pengiriman atau pengambilan barang di lokasi'
   },
   {
-    icon: '/images/benefits/invoice-pajak.webp',
+    icon: '/images/benefits/section6-4.webp',
     title: 'Invoice & Pajak',
     description: 'Tersedia invoice dan faktur pajak'
   }
@@ -200,507 +198,633 @@ const benefits = [
 ---
 
 <BaseLayout title={title} description={description}>
-  <Header currentPath="/business/" />
-
-  <!-- Hero Section - Full Height, Hidden on Mobile -->
-  <section class="category-hero elementor-hidden-mobile">
-    <div class="hero-container">
-      <h1 class="hero-title">Business</h1>
-    </div>
-  </section>
-
-  <!-- Product Line Up Section -->
-  <section class="product-lineup">
-    <div class="lineup-container">
-      <h2 class="lineup-title">Product Line Up</h2>
-      <div class="lineup-grid">
-        {productLineUp.map((item) => (
-          <a href={item.href} class="lineup-item">
-            <img
-              src={item.image}
-              alt={item.name}
-              width="100"
-              height="100"
-              loading="lazy"
-              decoding="async"
-            />
-            <p>{item.name}</p>
-          </a>
-        ))}
+  <!-- Elementor Section: Hero - Full Height, Hidden on Mobile -->
+  <section class="elementor-section elementor-top-section elementor-section-content-middle elementor-section-full_width elementor-section-height-full elementor-hidden-mobile elementor-section-height-default elementor-section-items-middle" data-id="7886f0c" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-column elementor-col-100 elementor-top-column">
+        <div class="elementor-widget-wrap elementor-element-populated">
+          <div class="elementor-element elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading">
+            <div class="elementor-widget-container">
+              <h2 class="elementor-heading-title elementor-size-default">Business</h2>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Products Section -->
-  <main class="products-section">
-    {products.map((product) => (
-      <>
-        <!-- Category Title Section -->
-        <section id={product.id} class="category-title-section">
-          <div class="category-title-container">
-            <div class="menu-anchor" id={product.anchor}></div>
-            <h2 class="category-title">{product.title}</h2>
-          </div>
-        </section>
-
-        <!-- Product Variants -->
-        {product.variants.map((variant) => (
-          <section class="product-variant-section">
-            <div class="variant-container">
-              <h4 class="variant-name">{variant.name}</h4>
-              <p class="variant-description">{variant.description}</p>
-
-              <!-- Image Carousel -->
-              <div class="image-carousel" data-product-id={`${product.id}-${variant.name}`}>
-                {variant.images.map((image, index) => (
-                  <a
-                    href={`https://wa.me/${whatsappNumber}?text=Saya%20dapat%20informasi%20${encodeURIComponent(product.title)}%20${encodeURIComponent(variant.name)}%20dari%20website.%20Mohon%20informasi%20lebih%20lengkap,%20ya.%20Terima%20kasih.`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="carousel-slide"
-                    class:active={index === 0}
-                  >
-                    <img
-                      src={image}
-                      alt={`${product.title} ${variant.name} - ${index + 1}`}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
-                ))}
-              </div>
-
-              <!-- Carousel Pagination -->
-              {variant.images.length > 1 && (
-                <div class="carousel-pagination" data-product-id={`${product.id}-${variant.name}`}>
-                  {variant.images.map((_, index) => (
-                    <span class="pagination-bullet" class:active={index === 0}></span>
-                  ))}
+  <!-- Elementor Section: Product Line Up -->
+  <section class="elementor-section elementor-top-section elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="056c55f" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-column elementor-col-100 elementor-top-column">
+        <div class="elementor-widget-wrap elementor-element-populated">
+          <!-- Product Line Up Title -->
+          <section class="elementor-section elementor-inner-section elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+            <div class="elementor-container elementor-column-gap-default">
+              <div class="elementor-column elementor-col-100 elementor-inner-column">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                  <div class="elementor-element elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading">
+                    <div class="elementor-widget-container">
+                      <h2 class="elementor-heading-title elementor-size-default">Product Line Up</h2>
+                    </div>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           </section>
-        ))}
-      </>
-    ))}
-  </main>
 
-  <!-- Bulk Order CTA Section -->
-  <section class="bulk-order-cta">
-    <div class="cta-container">
-      <div class="cta-content">
-        <h3 class="cta-title">Pembelian Jumlah Besar</h3>
-        <p class="cta-description">
-          Nikmati penawaran spesial untuk pembelian dalam jumlah besar hanya di tempat kami. Dapatkan harga grosir, pelayanan prioritas, dan kemudahan proses transaksi untuk kebutuhan usaha maupun komunitas Anda.
-        </p>
-        <a
-          href={bulkOrderUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-cta-large"
-          aria-label="Pesan Sekarang via WhatsApp"
-        >
-          Pesan Sekarang
-        </a>
+          <!-- Product Line Up Items -->
+          <section class="elementor-section elementor-inner-section elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+            <div class="elementor-container elementor-column-gap-default">
+              {productLineUp.map((item) => (
+                <div class="elementor-column elementor-col-11 elementor-inner-column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-element elementor-widget elementor-widget-image">
+                      <div class="elementor-widget-container">
+                        <a href={item.href}>
+                          <img
+                            decoding="async"
+                            src={item.image}
+                            alt={item.name}
+                            loading="lazy"
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <div class="elementor-element elementor-widget elementor-widget-text-editor">
+                      <div class="elementor-widget-container">
+                        <p>{item.name}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Benefits Section -->
-  <section class="benefits-section">
-    <div class="benefits-container">
-      {benefits.map((benefit) => (
-        <div class="benefit-card">
-          <img
-            src={benefit.icon}
-            alt={benefit.title}
-            width="80"
-            height="80"
-            loading="lazy"
-            decoding="async"
-          />
-          <h4 class="benefit-title">{benefit.title}</h4>
-          <p class="benefit-description">{benefit.description}</p>
+  <!-- Products Section with Exact Elementor Structure -->
+  {products.map((product) => (
+    <>
+      <!-- Elementor Section: Category Title -->
+      <section class="elementor-section elementor-top-section elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3f5958b" data-element_type="section">
+        <div class="elementor-container elementor-column-gap-default">
+          <div class="elementor-column elementor-col-100 elementor-top-column">
+            <div class="elementor-widget-wrap elementor-element-populated">
+              <div class="elementor-element elementor-widget elementor-widget-menu-anchor">
+                <div class="elementor-widget-container">
+                  <div class="elementor-menu-anchor" id={product.anchor}></div>
+                </div>
+              </div>
+              <div class="elementor-element elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading">
+                <div class="elementor-widget-container">
+                  <h2 class="elementor-heading-title elementor-size-default">{product.title}</h2>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <!-- Product Variants -->
+      {product.variants.map((variant) => (
+        <section class="elementor-section elementor-top-section elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3cf97e5" data-element_type="section">
+          <div class="elementor-container elementor-column-gap-default">
+            <div class="elementor-column elementor-col-100 elementor-top-column">
+              <div class="elementor-widget-wrap elementor-element-populated">
+                <div class="elementor-element elementor-widget elementor-widget-heading">
+                  <div class="elementor-widget-container">
+                    <h4 class="elementor-heading-title elementor-size-default">{variant.name}</h4>
+                  </div>
+                </div>
+                <div class="elementor-element elementor-widget elementor-widget-text-editor">
+                  <div class="elementor-widget-container">
+                    <p>{variant.description}</p>
+                  </div>
+                </div>
+                <div class="elementor-element elementor-pagination-position-outside elementor-widget elementor-widget-image-carousel" data-element_type="widget">
+                  <div class="elementor-widget-container">
+                    <div class="elementor-image-carousel-wrapper swiper" role="region" aria-roledescription="carousel" aria-label="Image Carousel" dir="ltr">
+                      <div class="elementor-image-carousel swiper-wrapper" aria-live="off" data-product-id={`${product.id}-${variant.name}`}>
+                        {variant.images.map((image, index) => (
+                          <div class="swiper-slide" role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${variant.images.length}`}>
+                            <a
+                              href={`https://wa.me/${whatsappNumber}?text=Saya%20dapat%20informasi%20${encodeURIComponent(product.title)}%20${encodeURIComponent(variant.name)}%20dari%20website.%20Mohon%20informasi%20lebih%20lengkap,%20ya.%20Terima%20kasih.`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <figure class="swiper-slide-inner">
+                                <img
+                                  decoding="async"
+                                  class="swiper-slide-image"
+                                  src={image}
+                                  alt={`${product.title} ${variant.name} - ${index + 1}`}
+                                  loading="lazy"
+                                />
+                              </figure>
+                            </a>
+                          </div>
+                        ))}
+                      </div>
+                      {variant.images.length > 1 && (
+                        <div class="swiper-pagination" data-product-id={`${product.id}-${variant.name}`}></div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       ))}
+    </>
+  ))}
+
+  <!-- Elementor Section: Bulk Order CTA -->
+  <section class="elementor-section elementor-top-section elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="946306e" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-column elementor-col-100 elementor-top-column">
+        <div class="elementor-widget-wrap elementor-element-populated">
+          <section class="elementor-section elementor-inner-section elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+            <div class="elementor-container elementor-column-gap-default">
+              <div class="elementor-column elementor-col-33 elementor-inner-column">
+                <div class="elementor-widget-wrap"></div>
+              </div>
+              <div class="elementor-column elementor-col-33 elementor-inner-column">
+                <div class="elementor-widget-wrap elementor-element-populated">
+                  <div class="elementor-element elementor-widget elementor-widget-heading">
+                    <div class="elementor-widget-container">
+                      <h4 class="elementor-heading-title elementor-size-default">Pembelian Jumlah Besar</h4>
+                    </div>
+                  </div>
+                  <div class="elementor-element elementor-widget elementor-widget-text-editor">
+                    <div class="elementor-widget-container">
+                      <p>Nikmati penawaran spesial untuk pembelian dalam jumlah besar hanya di tempat kami. Dapatkan harga grosir, pelayanan prioritas, dan kemudahan proses transaksi untuk kebutuhan usaha maupun komunitas Anda.</p>
+                    </div>
+                  </div>
+                  <div class="elementor-element elementor-align-center elementor-widget elementor-widget-bdt-advanced-button">
+                    <div class="elementor-widget-container">
+                      <div class="bdt-ep-button-wrapper">
+                        <a
+                          href={bulkOrderUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          class="bdt-ep-button bdt-ep-button-effect-a bdt-ep-button-size-md"
+                          aria-label="Pesan Sekarang via WhatsApp"
+                        >
+                          <div class="bdt-ep-button-content-wrapper bdt-flex bdt-flex-middle bdt-flex-center" data-text="Pesan Sekarang">
+                            <div class="bdt-ep-button-text">
+                              <span class="avdbtn-text">Pesan Sekarang</span>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="elementor-column elementor-col-33 elementor-inner-column">
+                <div class="elementor-widget-wrap"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Portfolio Banner -->
-  <section class="portfolio-banner">
-    <a
-      href="https://portfolio.kustomgarment.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Lihat Portfolio Kustom Garment"
-    >
-      <img
-        src="/images/portfolio/section7-1.png"
-        alt="Portfolio Kustom Garment"
-        width="2000"
-        height="1000"
-        loading="lazy"
-        decoding="async"
-      />
-    </a>
+  <!-- Elementor Section: Benefits -->
+  <section class="elementor-section elementor-top-section elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f900ba2" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-column elementor-col-100 elementor-top-column">
+        <div class="elementor-widget-wrap elementor-element-populated">
+          <section class="elementor-section elementor-inner-section elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+            <div class="elementor-container elementor-column-gap-default">
+              {benefits.map((benefit) => (
+                <div class="elementor-column elementor-col-25 elementor-inner-column">
+                  <div class="elementor-widget-wrap elementor-element-populated">
+                    <div class="elementor-element elementor-widget elementor-widget-image">
+                      <div class="elementor-widget-container">
+                        <img
+                          decoding="async"
+                          src={benefit.icon}
+                          alt={benefit.title}
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div class="elementor-element elementor-widget elementor-widget-heading">
+                      <div class="elementor-widget-container">
+                        <h4 class="elementor-heading-title elementor-size-default">{benefit.title}</h4>
+                      </div>
+                    </div>
+                    <div class="elementor-element elementor-widget elementor-widget-text-editor">
+                      <div class="elementor-widget-container">
+                        <p>{benefit.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <Footer />
+  <!-- Elementor Section: Portfolio Banner -->
+  <section class="elementor-section elementor-top-section elementor-section-content-middle elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="2c9b3cd" data-element_type="section">
+    <div class="elementor-container elementor-column-gap-default">
+      <div class="elementor-column elementor-col-100 elementor-top-column">
+        <div class="elementor-widget-wrap elementor-element-populated">
+          <div class="elementor-element elementor-widget elementor-widget-image">
+            <div class="elementor-widget-container">
+              <a
+                href="https://portfolio.kustomgarment.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Lihat Portfolio Kustom Garment"
+              >
+                <img
+                  fetchpriority="high"
+                  decoding="async"
+                  width="2000"
+                  height="1000"
+                  src="/images/portfolio/20250414-section7-1.png"
+                  alt="Portfolio Kustom Garment"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  /* Hero Section - Full Height, Hidden on Mobile */
-  .category-hero {
-    display: none;
-    background: #ffffff;
-    min-height: 60vh;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  @media (min-width: 768px) {
-    .category-hero.elementor-hidden-mobile {
-      display: flex;
-    }
-  }
-
-  .hero-container {
-    width: 100%;
-    padding: 0;
-  }
-
-  .hero-title {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 700;
-    color: #333333;
-    margin: 0;
-    line-height: 1;
-  }
-
-  /* Product Line Up Section */
-  .product-lineup {
-    background: #f8f8f8;
-    padding: 2rem 0;
-  }
-
-  .lineup-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  .lineup-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333333;
-    margin: 0 0 1.5rem 0;
-    text-align: center;
-  }
-
-  .lineup-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  .lineup-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    transition: transform 0.2s ease;
-  }
-
-  .lineup-item:hover {
-    transform: translateY(-4px);
-  }
-
-  .lineup-item img {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 0.5rem;
-  }
-
-  .lineup-item p {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #333333;
-    margin: 0;
-    text-align: center;
-  }
-
-  /* Products Section */
-  .products-section {
-    background: #ffffff;
-  }
-
-  /* Category Title Section */
-  .category-title-section {
-    background: #f8f8f8;
-    padding: 1.5rem 0;
-  }
-
-  .category-title-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+  /* Elementor Section Base Styles */
+  .elementor-section {
     position: relative;
   }
 
-  .category-title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #333333;
-    margin: 0;
-  }
-
-  /* Product Variant Section */
-  .product-variant-section {
-    background: #ffffff;
-    padding: 2rem 0;
-  }
-
-  .variant-container {
-    max-width: 1200px;
+  .elementor-section.elementor-section-boxed {
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 0 1.5rem;
   }
 
-  .variant-name {
-    font-size: 1.5rem;
-    font-weight: 600;
+  .elementor-container {
+    display: flex;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .elementor-column-gap-default > .elementor-column {
+    padding: 10px;
+  }
+
+  .elementor-column {
+    position: relative;
+    min-height: 1px;
+    display: flex;
+  }
+
+  .elementor-col-100 {
+    width: 100%;
+  }
+
+  .elementor-col-33 {
+    width: 33%;
+  }
+
+  .elementor-col-25 {
+    width: 25%;
+  }
+
+  .elementor-col-11 {
+    width: 11%;
+  }
+
+  .elementor-widget-wrap {
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
+
+  .elementor-widget-wrap:not(.elementor-element-populated):not(:empty) {
+    content: '';
+  }
+
+  .elementor-element-populated .elementor-widget-wrap {
+    padding: 10px 0;
+  }
+
+  .elementor-widget {
+    position: relative;
+  }
+
+  .elementor-widget-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .elementor-hidden-mobile {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .elementor-hidden-mobile {
+      display: block;
+    }
+  }
+
+  /* Hero Section */
+  .elementor-section-height-full {
+    min-height: 100vh;
+  }
+
+  .elementor-section-content-middle {
+    display: flex;
+    align-items: center;
+  }
+
+  .elementor-section-items-middle {
+    align-items: center;
+  }
+
+  .elementor-section-full_width .elementor-container {
+    max-width: 100%;
+  }
+
+  .elementor-heading-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .elementor-size-default {
+    font-size: 96px;
+  }
+
+  /* Product Line Up */
+  .elementor-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .elementor-text-editor p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 8px 0 0;
+    text-align: center;
     color: #333333;
-    margin: 0 0 1rem 0;
   }
 
-  .variant-description {
-    font-size: 1rem;
-    color: #666666;
-    margin: 0 0 2rem 0;
+  .elementor-inner-section {
+    width: 100%;
+  }
+
+  .elementor-inner-section .elementor-column {
+    padding: 5px;
+  }
+
+  /* Category Title Sections */
+  .elementor-menu-anchor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  /* Product Variant Sections */
+  .elementor-text-editor {
+    text-align: left;
+  }
+
+  .elementor-text-editor p {
+    font-size: 16px;
     line-height: 1.6;
+    color: #666666;
+    margin: 0 0 20px;
+    text-align: left;
   }
 
   /* Image Carousel */
-  .image-carousel {
+  .elementor-image-carousel-wrapper {
     position: relative;
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    aspect-ratio: 16 / 9;
-    background: #f5f5f5;
-    border-radius: 8px;
-    overflow: hidden;
   }
 
-  .carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .elementor-image-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .swiper-slide {
+    flex-shrink: 0;
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    position: relative;
+  }
+
+  .swiper-slide a {
+    display: block;
     text-decoration: none;
   }
 
-  .carousel-slide.active {
-    opacity: 1;
-  }
-
-  .carousel-slide img {
+  .swiper-slide-inner {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    background: #f5f5f5;
   }
 
-  /* Carousel Pagination */
-  .carousel-pagination {
+  .swiper-slide-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .swiper-pagination {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
+    gap: 8px;
+    margin-top: 16px;
   }
 
-  .pagination-bullet {
+  .swiper-pagination-bullet {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #e5e7eb;
+    background: #d3d3d3;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: background 0.3s ease;
   }
 
-  .pagination-bullet.active {
+  .swiper-pagination-bullet-active {
     background: #0066cc;
   }
 
   /* Bulk Order CTA */
-  .bulk-order-cta {
-    background: #f8f8f8;
-    padding: 3rem 0;
+  .bdt-ep-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
   }
 
-  .cta-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  .cta-content {
-    text-align: center;
-  }
-
-  .cta-title {
-    font-size: 1.75rem;
-    font-weight: 600;
-    color: #333333;
-    margin: 0 0 1rem 0;
-  }
-
-  .cta-description {
-    font-size: 1rem;
-    color: #666666;
-    margin: 0 0 1.5rem 0;
-    line-height: 1.6;
-  }
-
-  .btn-cta-large {
+  .bdt-ep-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2.5rem;
-    font-size: 1rem;
+    padding: 16px 40px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
     font-weight: 500;
     color: #ffffff;
     background: #0066cc;
     border: none;
     border-radius: 6px;
     text-decoration: none;
-    transition: background 0.2s ease;
+    transition: background 0.3s ease;
   }
 
-  .btn-cta-large:hover {
+  .bdt-ep-button:hover {
     background: #0052a3;
   }
 
-  /* Benefits Section */
-  .benefits-section {
-    background: #ffffff;
-    padding: 3rem 0;
-  }
-
-  .benefits-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .benefit-card {
+  .bdt-flex {
     display: flex;
-    flex-direction: column;
+  }
+
+  .bdt-flex-middle {
     align-items: center;
-    text-align: center;
-    padding: 1.5rem;
+  }
+
+  .bdt-flex-center {
+    justify-content: center;
+  }
+
+  /* Benefits Section */
+  .elementor-section .elementor-col-25 {
+    padding: 20px;
+  }
+
+  .elementor-section .elementor-col-25 .elementor-widget-wrap {
     background: #f8f8f8;
     border-radius: 12px;
+    padding: 30px 20px;
+    text-align: center;
   }
 
-  .benefit-card img {
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-    margin-bottom: 1rem;
+  .elementor-section .elementor-col-25 .elementor-widget-image img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
   }
 
-  .benefit-title {
-    font-size: 1.125rem;
+  .elementor-section .elementor-col-25 h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
     font-weight: 600;
     color: #333333;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 8px;
   }
 
-  .benefit-description {
-    font-size: 0.875rem;
+  .elementor-section .elementor-col-25 p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
     color: #666666;
     margin: 0;
   }
 
   /* Portfolio Banner */
-  .portfolio-banner {
-    width: 100%;
-    background: #ffffff;
+  .elementor-section-full_width .elementor-container {
+    padding: 0;
   }
 
-  .portfolio-banner a {
-    display: block;
-    width: 100%;
-    text-decoration: none;
-  }
-
-  .portfolio-banner img {
-    display: block;
+  .elementor-section-full_width img {
     width: 100%;
     height: auto;
+    display: block;
   }
 
-  /* Tablet Styles */
-  @media (min-width: 768px) {
-    .lineup-grid {
-      grid-template-columns: repeat(6, 1fr);
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .elementor-section-boxed {
+      max-width: 960px;
     }
 
-    .benefits-container {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .category-title {
-      font-size: 2.5rem;
+    .elementor-size-default {
+      font-size: 72px;
     }
   }
 
-  /* Desktop Styles */
-  @media (min-width: 1024px) {
-    .lineup-container,
-    .category-title-container,
-    .variant-container,
-    .cta-container,
-    .benefits-container {
-      padding: 0 2rem;
+  @media (max-width: 767px) {
+    .elementor-section-boxed {
+      max-width: 100%;
+      padding: 0 20px;
     }
 
-    .category-title {
-      font-size: 3rem;
+    .elementor-col-100,
+    .elementor-col-33,
+    .elementor-col-25,
+    .elementor-col-11 {
+      width: 100%;
+    }
+
+    .elementor-column {
+      margin-bottom: 20px;
+    }
+
+    .elementor-size-default {
+      font-size: 48px;
+    }
+
+    .elementor-image-carousel-wrapper {
+      max-width: 100%;
     }
   }
 </style>
 
 <script>
-  // Image Carousel functionality
-  const carousels = document.querySelectorAll('.image-carousel');
+  // Image Carousel functionality with Swiper-like behavior
+  const carousels = document.querySelectorAll('.elementor-image-carousel-wrapper');
 
   carousels.forEach((carousel) => {
-    const slides = carousel.querySelectorAll('.carousel-slide');
-    const productId = carousel.dataset.productId;
-    const pagination = document.querySelector(`.carousel-pagination[data-product-id="${productId}"]`);
+    const wrapper = carousel.querySelector('.elementor-image-carousel');
+    const slides = carousel.querySelectorAll('.swiper-slide');
+    const productId = wrapper?.dataset.productId;
+    const pagination = carousel.querySelector('.swiper-pagination');
 
-    if (slides.length > 1) {
+    if (slides.length > 1 && wrapper) {
       let currentIndex = 0;
       let interval: number | null = null;
 
       const showSlide = (index: number) => {
         slides.forEach((slide, i) => {
-          slide.classList.toggle('active', i === index);
+          const isActive = i === index;
+          (slide as HTMLElement).style.display = isActive ? 'block' : 'none';
         });
+
         if (pagination) {
-          const bullets = pagination.querySelectorAll('.pagination-bullet');
+          const bullets = pagination.querySelectorAll('.swiper-pagination-bullet');
           bullets.forEach((bullet, i) => {
-            bullet.classList.toggle('active', i === index);
+            if (i === index) {
+              bullet.classList.add('swiper-pagination-bullet-active');
+            } else {
+              bullet.classList.remove('swiper-pagination-bullet-active');
+            }
           });
         }
       };
@@ -721,6 +845,9 @@ const benefits = [
         }
       };
 
+      // Initialize first slide
+      showSlide(0);
+
       // Start autoplay
       startAutoplay();
 
@@ -728,14 +855,20 @@ const benefits = [
       carousel.addEventListener('mouseenter', stopAutoplay);
       carousel.addEventListener('mouseleave', startAutoplay);
 
-      // Pagination click
+      // Create pagination bullets
       if (pagination) {
-        const bullets = pagination.querySelectorAll('.pagination-bullet');
-        bullets.forEach((bullet, index) => {
+        pagination.innerHTML = '';
+        slides.forEach((_, index) => {
+          const bullet = document.createElement('span');
+          bullet.className = 'swiper-pagination-bullet';
+          if (index === 0) {
+            bullet.classList.add('swiper-pagination-bullet-active');
+          }
           bullet.addEventListener('click', () => {
             currentIndex = index;
             showSlide(currentIndex);
           });
+          pagination.appendChild(bullet);
         });
       }
     }

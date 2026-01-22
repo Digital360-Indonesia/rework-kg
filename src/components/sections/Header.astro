@@ -1,16 +1,15 @@
 ---
 /**
- * Header Component
- * Sticky navigation with logo, main navigation, and mobile menu
- * Based on static clone: assets-source/kg-static-clone/kustomgarment.com/index.html
+ * Header Component - EXACT Replica of WordPress Original
+ * Based on: kustomgarment.com original header
+ * Using exact uicore classes and structure
  */
 
 const { currentPath = '/' } = Astro.props;
 
 // WhatsApp from environment
 const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '6285161202499';
-const whatsappMessage = import.meta.env.PUBLIC_WHATSAPP_MESSAGE || 'Saya%20dapat%20informasi%20dari%20website.';
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
 // Navigation items
 const navItems = [
@@ -21,477 +20,181 @@ const navItems = [
 ];
 ---
 
-<header id="header" class="header">
-  <div class="header-container">
-    <!-- Logo -->
-    <a href="/" class="header-logo" aria-label="Kustom Garment Home">
-      <img
-        src="/images/logos/kg-logo.png"
-        alt="Konveksi Satuan Surabaya Kustom Garment"
-        width="192"
-        height="52"
-        loading="eager"
-      />
-    </a>
+<div
+  data-uils="header"
+  data-uils-title="Header"
+  id="wrapper-navbar"
+  itemscope
+  itemtype="http://schema.org/WebSite"
+  class="uicore uicore-navbar uicore-section uicore-box uicore-h-classic uicore-sticky ui-smart-sticky"
+>
+  <div class="uicore-header-wrapper">
+    <nav class="uicore uicore-container">
+      <!-- Logo -->
+      <div class="uicore-branding" data-uils="header-branding" data-uils-title="Site Logo">
+        <a href="/" rel="home">
+          <img
+            fetchpriority="high"
+            class="uicore uicore-logo uicore-main"
+            src="/images/logos/kg-logo.png"
+            alt="Konveksi Satuan Surabaya Kustom Garment"
+            width="1536"
+            height="416"
+          />
+          <img
+            class="uicore uicore-logo uicore-second"
+            src="/images/logos/kg-logo.png"
+            alt="Konveksi Satuan Surabaya Kustom Garment"
+            width="1536"
+            height="416"
+          />
+          <img
+            class="uicore uicore-logo uicore-mobile-main"
+            src="/images/logos/kg-logo.png"
+            alt="Konveksi Satuan Surabaya Kustom Garment"
+            width="1536"
+            height="416"
+          />
+          <img
+            loading="lazy"
+            class="uicore uicore-logo uicore-mobile-second"
+            src="/images/logos/kg-logo.png"
+            alt="Konveksi Satuan Surabaya Kustom Garment"
+            width="1536"
+            height="416"
+          />
+        </a>
+      </div>
 
-    <!-- Desktop Navigation -->
-    <nav class="desktop-nav" aria-label="Main navigation">
-      <ul class="nav-list" role="list">
-        {navItems.map((item) => (
-          <li class="nav-item">
-            <a
-              href={item.href}
-              class:active={currentPath === item.href}
-              aria-current={currentPath === item.href ? 'page' : undefined}
-            >
-              {item.label}
+      <!-- Navigation -->
+      <div class="uicore-nav-menu">
+        <div class="uicore-menu-container uicore-nav">
+          <ul
+            data-uils="header-menu"
+            data-uils-title="Navigation Menu"
+            class="uicore-menu"
+          >
+            {navItems.map((item) => (
+              <li class="menu-item menu-item-type-post_type menu-item-object-page">
+                <a href={item.href}>
+                  <span class="ui-menu-item-wrapper">{item.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="uicore uicore-extra" data-uils="header_extra" data-uils-title="Header Extras">
+          <div class="uicore-cta-wrapper">
+            <a href={whatsappUrl} target="_blank" class="uicore-btn uicore-inverted">
+              <span class="elementor-button-text">Hubungi Kami</span>
             </a>
-          </li>
-        ))}
-      </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Header Right -->
+      <div class="uicore-mobile-head-right">
+        <!-- Mobile CTA -->
+        <div class="uicore-cta-wrapper">
+          <a href={whatsappUrl} target="_blank" class="uicore-btn uicore-inverted">
+            <span class="elementor-button-text">Hubungi Kami</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          type="button"
+          class="uicore-toggle uicore-ham"
+          aria-label="mobile-menu"
+          id="mobile-menu-toggle"
+        >
+          <span class="bars">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </span>
+        </button>
+      </div>
     </nav>
-
-    <!-- CTA Button (Desktop & Mobile) -->
-    <div class="header-cta">
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-cta"
-        aria-label="Hubungi Kami via WhatsApp"
-      >
-        Hubungi Kami
-      </a>
-    </div>
-
-    <!-- Mobile Menu Toggle -->
-    <button
-      id="mobile-menu-toggle"
-      class="mobile-toggle"
-      aria-label="Toggle mobile menu"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-    >
-      <span class="hamburger">
-        <span class="bar bar-1"></span>
-        <span class="bar bar-2"></span>
-        <span class="bar bar-3"></span>
-      </span>
-    </button>
-  </div>
-</header>
-
-<!-- Mobile Menu Overlay -->
-<div id="mobile-menu" class="mobile-menu" aria-hidden="true">
-  <div class="mobile-menu-content">
-    <!-- Mobile Menu Header -->
-    <div class="mobile-menu-header">
-      <a href="/" class="mobile-logo" aria-label="Kustom Garment Home">
-        <img
-          src="/images/logos/kg-logo.png"
-          alt="Konveksi Satuan Surabaya Kustom Garment"
-          width="192"
-          height="52"
-        />
-      </a>
-      <button
-        id="mobile-menu-close"
-        class="mobile-close"
-        aria-label="Close mobile menu"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"></line>
-          <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile Navigation -->
-    <nav class="mobile-nav" aria-label="Mobile navigation">
-      <ul class="mobile-nav-list" role="list">
-        {navItems.map((item) => (
-          <li class="mobile-nav-item">
-            <a
-              href={item.href}
-              class:active={currentPath === item.href}
-              data-mobile-link
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-
-    <!-- Mobile CTA -->
-    <div class="mobile-cta">
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-cta btn-cta-full"
-        data-mobile-link
-      >
-        Hubungi Kami
-      </a>
-    </div>
   </div>
 </div>
 
-<style>
-  /* Header Styles */
-  .header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: #ffffff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  }
+<!-- Mobile Menu Wrapper (uicore structure) -->
+<div class="uicore-navigation-wrapper uicore-navbar uicore-section uicore-box uicore-mobile-menu-wrapper">
+  <nav class="uicore uicore-container">
+    <div class="uicore-branding uicore-mobile">
+      <a href="/" rel="home">
+        <img
+          class="uicore uicore-logo uicore-mobile-main"
+          src="/images/logos/kg-logo.png"
+          alt="Konveksi Satuan Surabaya Kustom Garment"
+          width="1536"
+          height="416"
+        />
+        <img
+          loading="lazy"
+          class="uicore uicore-logo uicore-mobile-second"
+          src="/images/logos/kg-logo.png"
+          alt="Konveksi Satuan Surabaya Kustom Garment"
+          width="1536"
+          height="416"
+        />
+      </a>
+    </div>
+    <div class="uicore-menu-container uicore-nav">
+      <ul class="uicore-menu">
+        {navItems.map((item) => (
+          <li class="menu-item menu-item-type-post_type menu-item-object-page">
+            <a href={item.href}>
+              <span class="ui-menu-item-wrapper">{item.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="uicore uicore-extra" data-uils="header_extra" data-uils-title="Header Extras">
+      <div class="uicore-cta-wrapper">
+        <a href={whatsappUrl} target="_blank" class="uicore-btn uicore-inverted">
+          <span class="elementor-button-text">Hubungi Kami</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
 
-  .header-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-  }
-
-  /* Logo */
-  .header-logo {
-    flex-shrink: 0;
-    display: block;
-  }
-
-  .header-logo img {
-    display: block;
-    width: auto;
-    height: 44px;
-  }
-
-  /* Desktop Navigation */
-  .desktop-nav {
-    display: none;
-  }
-
-  .nav-list {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .nav-item a {
-    display: block;
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    color: #333333;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .nav-item a:hover {
-    color: #0066cc;
-  }
-
-  .nav-item a.active {
-    color: #0066cc;
-  }
-
-  /* CTA Button */
-  .btn-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.625rem 1.5rem;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: #ffffff;
-    background: #0066cc;
-    border: none;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background 0.2s ease;
-    white-space: nowrap;
-  }
-
-  .btn-cta:hover {
-    background: #0052a3;
-  }
-
-  .header-cta {
-    display: none;
-  }
-
-  /* Mobile Toggle */
-  .mobile-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    flex-shrink: 0;
-  }
-
-  .hamburger {
-    position: relative;
-    width: 24px;
-    height: 18px;
-  }
-
-  .bar {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: #333333;
-  }
-
-  .bar-1 {
-    top: 0;
-  }
-
-  .bar-2 {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .bar-3 {
-    bottom: 0;
-  }
-
-  /* Mobile Menu Overlay */
-  .mobile-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 200;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  .mobile-menu-content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    max-width: 320px;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Mobile Menu Header */
-  .mobile-menu-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .mobile-logo img {
-    display: block;
-    width: auto;
-    height: 36px;
-  }
-
-  .mobile-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #333333;
-  }
-
-  /* Mobile Navigation */
-  .mobile-nav {
-    flex: 1;
-    overflow-y: auto;
-    padding: 1.5rem;
-  }
-
-  .mobile-nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .mobile-nav-item a {
-    display: block;
-    padding: 0.875rem 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #333333;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-
-  .mobile-nav-item a:hover,
-  .mobile-nav-item a.active {
-    background: #f3f4f6;
-    color: #0066cc;
-  }
-
-  /* Mobile CTA */
-  .mobile-cta {
-    padding: 1rem 1.5rem;
-    border-top: 1px solid #e5e7eb;
-  }
-
-  .btn-cta-full {
-    width: 100%;
-  }
-
-  /* Desktop Styles */
-  @media (min-width: 1024px) {
-    .desktop-nav {
-      display: block;
-    }
-
-    .header-cta {
-      display: block;
-    }
-
-    .mobile-toggle {
-      display: none;
-    }
-
-    .header-container {
-      padding: 1rem 2rem;
-    }
-  }
-
-  /* Body scroll lock when menu is open */
-  body.menu-open {
-    overflow: hidden;
-  }
-</style>
+<link rel="stylesheet" href="/css/uicore.css" />
 
 <script>
-  import gsap from 'gsap';
-
-  // Mobile menu functionality with GSAP animations
-  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenuClose = document.getElementById('mobile-menu-close');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileMenuContent = mobileMenu?.querySelector('.mobile-menu-content');
-  const mobileLinks = document.querySelectorAll('[data-mobile-link]');
-  const bar1 = mobileMenuToggle?.querySelector('.bar-1');
-  const bar2 = mobileMenuToggle?.querySelector('.bar-2');
-  const bar3 = mobileMenuToggle?.querySelector('.bar-3');
-
-  let menuTimeline = gsap.timeline({ paused: true });
-
-  // Set initial states for GSAP
-  gsap.set(mobileMenu, { opacity: 0, visibility: 'hidden' });
-  gsap.set(mobileMenuContent, { x: '100%' });
-  gsap.set(mobileLinks, { opacity: 0, x: 30 });
-
-  // Build GSAP timeline for menu animation
-  menuTimeline
-    .set(mobileMenu, { visibility: 'visible' })
-    .to(mobileMenu, { opacity: 1, duration: 0.3, ease: 'power2.out' })
-    .to(mobileMenuContent, { x: '0%', duration: 0.4, ease: 'power3.out' }, '-=0.2')
-    .to(mobileLinks, {
-      opacity: 1,
-      x: 0,
-      duration: 0.3,
-      stagger: 0.05,
-      ease: 'power2.out'
-    }, '-=0.2');
-
-  // Hamburger icon animation
-  function animateHamburger(open) {
-    const tl = gsap.timeline();
-    if (open) {
-      tl.to(bar1, { y: 9, rotation: 45, duration: 0.3, ease: 'power2.inOut' })
-        .to(bar2, { opacity: 0, duration: 0.2 }, '-=0.15')
-        .to(bar3, { y: -9, rotation: -45, duration: 0.3, ease: 'power2.inOut' }, '-=0.3');
-    } else {
-      tl.to(bar1, { y: 0, rotation: 0, duration: 0.3, ease: 'power2.inOut' })
-        .to(bar2, { opacity: 1, duration: 0.2 }, '-=0.15')
-        .to(bar3, { y: 0, rotation: 0, duration: 0.3, ease: 'power2.inOut' }, '-=0.3');
-    }
-  }
-
-  function openMenu() {
-    mobileMenuToggle?.setAttribute('aria-expanded', 'true');
-    mobileMenu?.setAttribute('aria-hidden', 'false');
-    document.body.classList.add('menu-open');
-    animateHamburger(true);
-    menuTimeline.play();
-  }
-
-  function closeMenu() {
-    mobileMenuToggle?.setAttribute('aria-expanded', 'false');
-    mobileMenu?.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('menu-open');
-    animateHamburger(false);
-
-    // Reverse animation
-    gsap.to(mobileMenu, {
-      opacity: 0,
-      duration: 0.3,
-      ease: 'power2.in',
-      onComplete: () => {
-        gsap.set(mobileMenu, { visibility: 'hidden' });
-      }
-    });
-    gsap.to(mobileMenuContent, { x: '100%', duration: 0.3, ease: 'power2.in' });
-    gsap.set(mobileLinks, { opacity: 0, x: 30 });
-  }
+  // Mobile menu functionality - using uicore's structure
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenuWrapper = document.querySelector('.uicore-navigation-wrapper');
 
   function toggleMenu() {
-    const isOpen = mobileMenuToggle?.getAttribute('aria-expanded') === 'true';
-    if (isOpen) {
-      closeMenu();
-    } else {
-      openMenu();
-    }
+    mobileMenuWrapper?.classList.toggle('uicore-active');
+    document.body.classList.toggle('uicore-mobile-menu-open');
+    mobileToggle?.classList.toggle('uicore-active');
   }
 
-  // Event listeners
-  mobileMenuToggle?.addEventListener('click', toggleMenu);
-  mobileMenuClose?.addEventListener('click', closeMenu);
-
-  // Close menu when clicking outside
-  mobileMenu?.addEventListener('click', (e) => {
-    if (e.target === mobileMenu) {
-      closeMenu();
-    }
-  });
+  mobileToggle?.addEventListener('click', toggleMenu);
 
   // Close menu when clicking a link
-  mobileLinks.forEach((link) => {
-    link.addEventListener('click', closeMenu);
+  const mobileLinks = mobileMenuWrapper?.querySelectorAll('a');
+  mobileLinks?.forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenuWrapper?.classList.remove('uicore-active');
+      document.body.classList.remove('uicore-mobile-menu-open');
+      mobileToggle?.classList.remove('uicore-active');
+    });
   });
 
   // Close menu on ESC key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeMenu();
+      mobileMenuWrapper?.classList.remove('uicore-active');
+      document.body.classList.remove('uicore-mobile-menu-open');
+      mobileToggle?.classList.remove('uicore-active');
     }
   });
 </script>

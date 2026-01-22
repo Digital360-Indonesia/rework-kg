@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/sections/Header.astro';
-import Footer from '../components/sections/Footer.astro';
 
 // Reuse CategoryCards component if it exists, or create it here
 // For now, let's check if there's a categories folder
@@ -48,7 +46,6 @@ const addOnProducts = [
 ---
 
 <BaseLayout title={title} description={description}>
-  <Header currentPath="/produk/" />
 
   <!-- Pilihan Kategori Section -->
   <section class="category-selection" aria-label="Pilihan Kategori">
@@ -97,7 +94,6 @@ const addOnProducts = [
     </div>
   </section>
 
-  <Footer />
 </BaseLayout>
 
 <style>

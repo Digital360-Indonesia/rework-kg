@@ -1,7 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/sections/Header.astro';
-import Footer from '../components/sections/Footer.astro';
 
 // SEO Meta
 const title = 'Campus - Konveksi Satuan Surabaya Kustom Garment';
@@ -133,7 +131,6 @@ const benefits = [
 ---
 
 <BaseLayout title={title} description={description}>
-  <Header currentPath="/campus/" />
 
   <!-- Hero Section - Full Height, Hidden on Mobile -->
   <section class="category-hero elementor-hidden-mobile">
@@ -278,7 +275,6 @@ const benefits = [
     </a>
   </section>
 
-  <Footer />
 </BaseLayout>
 
 <style>

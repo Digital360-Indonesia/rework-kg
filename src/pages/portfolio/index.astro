@@ -1,14 +1,11 @@
 ---
 /**
- * Portfolio page
- * Displays all portfolio items with category filtering and lightbox
+ * Portfolio page - EXACT replica of original WordPress site
+ * Migrated from portfolio.kustomgarment.com
  */
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import CategoryFilter from '../../components/portfolio/CategoryFilter.astro';
-import PortfolioGrid from '../../components/portfolio/PortfolioGrid.astro';
-import Lightbox from '../../components/ui/Lightbox.astro';
-import { portfolioItems, portfolioCategories } from '../../data/portfolio';
+import { portfolioItems } from '../../data/portfolio';
 
 // Prepare images for lightbox
 const lightboxImages = portfolioItems.map((item) => ({
@@ -19,47 +16,242 @@ const lightboxImages = portfolioItems.map((item) => ({
 ---
 
 <BaseLayout
-  title="Portfolio Kustom Garment | Konveksi Surabaya"
-  description="Lihat portfolio Kustom Garment - konveksi custom satuan di Surabaya. Pembuatan kaos, jaket, kemeja, dan seragam tanpa minimal order."
+  title="Kustom Garment Portfolio Konveksi Satuan Surabaya"
+  description="Portfolio Kustom Garment - Konveksi Surabaya terpercaya sejak lebih dari 10 tahun."
   image="/images/hero/no-min-order-banner.webp"
 >
-  <!-- Page Header -->
-  <section class="page-header bg-gradient-to-br from-gray-50 to-gray-100 section-padding">
-    <div class="section-container text-center">
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-        Portfolio Kami
-      </h1>
-      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-        Karya terbaik yang telah kami kerjakan untuk berbagai klien dari perusahaan, lembaga pendidikan, instansi pemerintah, hingga komunitas.
-      </p>
+  <div class="l-canvas type_wide">
+    <main id="page-content" class="l-main" itemprop="mainContentOfPage">
+      <section class="l-section wpb_row height_auto width_full">
+        <div class="l-section-h i-cf">
+          <div class="g-cols via_grid cols_1 laptops-cols_inherit tablets-cols_inherit mobiles-cols_1 valign_top type_default">
+            <div class="wpb_column vc_column_container">
+              <div class="vc_column-inner">
+                <div class="w-grid us_custom_3090c82c type_metro layout_4404 with_css_animation ratio_1x1" id="us_grid_1">
+                  <div class="w-grid-list">
+                    {
+                      portfolioItems.map((item, index) => (
+                        <article
+                          class={`w-grid-item us_animate_wfc size_1x1 post-${item.id} us_portfolio type-us_portfolio status-publish has-post-thumbnail hentry us_portfolio_category-${item.categorySlug}`}
+                          data-id={item.id}
+                          style={`animation-delay:${index * 0.1}s`}
+                        >
+                          <div class="w-grid-item-h" style="color:#ffffff;">
+                            <a
+                              class="w-grid-item-anchor"
+                              href="#"
+                              rel="bookmark"
+                              aria-label={item.title}
+                              data-lightbox-index={index}
+                            ></a>
+                            <div class="w-post-elm post_image usg_post_image_1 stretched">
+                              <img
+                                decoding="async"
+                                width={item.width}
+                                height={item.height}
+                                src={item.image}
+                                class="attachment-full size-full wp-post-image"
+                                alt=""
+                                loading={index < 2 ? "eager" : "lazy"}
+                              />
+                            </div>
+                            <div class="w-vwrapper usg_vwrapper_1 align_left valign_top">
+                              <h2 class="w-post-elm post_title usg_post_title_1 entry-title color_link_inherit">
+                                {item.title}
+                              </h2>
+                              <div class="w-post-elm post_taxonomy usg_post_taxonomy_1 style_simple color_link_inherit">
+                                <span>{item.category}</span>
+                              </div>
+                              <div class="w-post-elm post_content usg_post_content_1">
+                                {item.description}
+                              </div>
+                            </div>
+                          </div>
+                        </article>
+                      ))
+                    }
+                  </div>
+
+                  <div class="w-grid-preloader">
+                    <div class="g-preloader type_1">
+                      <div></div>
+                    </div>
+                  </div>
+
+                  <div class="g-loadmore">
+                    <div class="g-preloader type_1">
+                      <div></div>
+                    </div>
+                    <a class="w-btn us-btn-style_1" href="javascript:void(0)">
+                      <span class="w-btn-label">Load More</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Lightbox (hidden by default) -->
+  <div id="lightbox" class="magnific-popup magnific-popup--inline">
+    <div class="mfp-bg"></div>
+    <div class="mfp-wrap">
+      <div class="mfp-container">
+        <div class="mfp-content">
+          <button class="mfp-close" title="Close (Esc)">×</button>
+          <div class="mfp-figure">
+            <figure>
+              <img id="lightbox-img" src="" alt="" />
+              <figcaption id="lightbox-caption"></figcaption>
+            </figure>
+          </div>
+          <button class="mfp-arrow mfp-arrow-left" title="Previous (Left arrow key)"></button>
+          <button class="mfp-arrow mfp-arrow-right" title="Next (Right arrow key)"></button>
+        </div>
+      </div>
     </div>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section class="portfolio-section section-padding bg-white">
-    <div class="section-container">
-      <!-- Category Filter -->
-      <CategoryFilter categories={portfolioCategories} activeCategory="all" />
-
-      <!-- Portfolio Grid -->
-      <PortfolioGrid items={portfolioItems} activeCategory="all" />
-    </div>
-  </section>
-
-  <!-- Lightbox -->
-  <Lightbox images={lightboxImages} />
+  </div>
 </BaseLayout>
 
 <style>
-  /* Page animations */
-  .page-header {
-    animation: fadeIn 0.6s ease-out;
+  /* Original WordPress styles - EXACT replica */
+  .us_custom_3090c82c {
+    margin-bottom: 10px !important;
   }
 
-  @keyframes fadeIn {
+  /* Grid styles */
+  #us_grid_1 .w-grid-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: calc(5px * 2);
+  }
+
+  #us_grid_1 .w-grid-item-h:before {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+  }
+
+  .layout_4404 .w-grid-item-h {
+    position: relative;
+    background: #ff4800;
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  .layout_4404 .w-grid-item-h:before {
+    padding-bottom: 100%;
+  }
+
+  /* Image animation */
+  .layout_4404 .usg_post_image_1 {
+    transition-duration: 0.5s;
+    transform-origin: 100% 100%;
+    transform: scale(1) translate(0%, 0%);
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+  }
+
+  .layout_4404 .w-grid-item-h:hover .usg_post_image_1 {
+    transform: scale(1.20) translate(0%, 0%);
+    opacity: 0.1;
+  }
+
+  /* Title animation */
+  .layout_4404 .usg_post_title_1 {
+    transition-duration: 0.35s;
+    transform-origin: 50% 50%;
+    transform: scale(1) translate(0%, 0%);
+    color: inherit !important;
+    font-size: calc(12px + 1vw) !important;
+    margin: 0;
+  }
+
+  .layout_4404 .w-grid-item-h:hover .usg_post_title_1 {
+    transform: scale(1) translate(0%, 0%);
+    opacity: 1;
+    color: #ffffff !important;
+  }
+
+  /* Category animation */
+  .layout_4404 .usg_post_taxonomy_1 {
+    transition-duration: 0.3s;
+    transform-origin: 50% 50%;
+    transform: scale(1) translate(0%, -40px);
+    opacity: 0;
+    color: #ffffff !important;
+    font-family: var(--font-body, sans-serif) !important;
+    font-size: 0.9rem !important;
+    line-height: 1 !important;
+    margin-bottom: 3rem !important;
+  }
+
+  .layout_4404 .w-grid-item-h:hover .usg_post_taxonomy_1 {
+    transform: scale(1) translate(0%, 0%);
+    opacity: 1;
+  }
+
+  /* Content animation */
+  .layout_4404 .usg_post_content_1 {
+    transition-duration: 0.5s;
+    transform-origin: 50% 50%;
+    transform: scale(1) translate(0%, -3rem);
+    opacity: 0;
+    color: #ffffff !important;
+    font-size: 0.9rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .layout_4404 .w-grid-item-h:hover .usg_post_content_1 {
+    transform: scale(1) translate(0%, 0%);
+    opacity: 1;
+  }
+
+  @media (max-width: 1399px) {
+    .layout_4404 .usg_post_content_1 {
+      display: none !important;
+    }
+  }
+
+  /* Wrapper positioning */
+  .layout_4404 .usg_vwrapper_1 {
+    padding-left: 10% !important;
+    padding-top: 10% !important;
+    padding-right: 10% !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 2;
+  }
+
+  /* Grid responsive */
+  @media (max-width: 767px) {
+    #us_grid_1 .w-grid-list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  /* Animation */
+  .us_animate_wfc {
+    animation: wfc-appear 0.6s ease-out both;
+  }
+
+  @keyframes wfc-appear {
     from {
       opacity: 0;
-      transform: translateY(-20px);
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -67,8 +259,330 @@ const lightboxImages = portfolioItems.map((item) => ({
     }
   }
 
-  /* Smooth scroll */
-  html {
-    scroll-behavior: smooth;
+  /* Canvas */
+  .l-canvas {
+    position: relative;
+    width: 100%;
+  }
+
+  .l-canvas.type_wide {
+    width: 100%;
+  }
+
+  /* Section */
+  .l-section {
+    position: relative;
+  }
+
+  .l-section.height_auto {
+    height: auto;
+  }
+
+  .l-section.width_full > .l-section-h {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .l-section-h {
+    position: relative;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+  }
+
+  .i-cf:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+
+  /* Columns */
+  .g-cols.via_grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+
+  .cols_1 {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 767px) {
+    .mobiles-cols_1 {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  /* Load More button */
+  .g-loadmore {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  .w-btn.us-btn-style_1 {
+    display: inline-block;
+    text-align: center;
+    border: 2px solid #ff4800;
+    background: transparent;
+    color: #ff4800;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .w-btn.us-btn-style_1:hover {
+    background: #ff4800;
+    color: #ffffff;
+  }
+
+  /* Magnific Popup Lightbox */
+  .magnific-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+    outline: none;
+    display: none;
+  }
+
+  .magnific-popup.active {
+    display: block;
+  }
+
+  .mfp-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0b0b0b;
+    opacity: 0.8;
+  }
+
+  .mfp-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999999;
+  }
+
+  .mfp-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+  }
+
+  .mfp-content {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    text-align: left;
+    z-index: 999995;
+    max-width: 100%;
+  }
+
+  .mfp-figure {
+    margin: 0;
+    position: relative;
+    display: block;
+  }
+
+  .mfp-figure figure {
+    margin: 0;
+  }
+
+  .mfp-figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .mfp-close {
+    position: absolute;
+    top: -40px;
+    right: -10px;
+    width: 44px;
+    height: 44px;
+    font-size: 48px;
+    line-height: 44px;
+    color: #fff;
+    text-align: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 999996;
+  }
+
+  .mfp-arrow {
+    position: absolute;
+    top: 50%;
+    margin-top: -55px;
+    width: 57px;
+    height: 57px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 999996;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .mfp-wrap:hover .mfp-arrow {
+    opacity: 1;
+  }
+
+  .mfp-arrow-left {
+    left: 0;
+  }
+
+  .mfp-arrow-right {
+    right: 0;
+  }
+
+  .mfp-arrow:before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-top: 3px solid #fff;
+    border-right: 3px solid #fff;
+  }
+
+  .mfp-arrow-left:before {
+    transform: rotate(-135deg);
+    margin-left: 10px;
+  }
+
+  .mfp-arrow-right:before {
+    transform: rotate(45deg);
+    margin-right: 10px;
+  }
+
+  .mfp-figure figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    color: #fff;
+    text-align: center;
   }
 </style>
+
+<script define:vars={{ lightboxImages }}>
+  let currentIndex = 0;
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateImage();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function updateImage() {
+    const imageData = lightboxImages[currentIndex];
+    lightboxImg.src = imageData.src;
+    lightboxImg.alt = imageData.alt;
+    lightboxCaption.textContent = imageData.title || '';
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % lightboxImages.length;
+    updateImage();
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + lightboxImages.length) % lightboxImages.length;
+    updateImage();
+  }
+
+  // Event listeners for portfolio items
+  document.addEventListener('astro:page-load', () => {
+    const anchors = document.querySelectorAll('.w-grid-item-anchor');
+
+    anchors.forEach((anchor) => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const index = parseInt(anchor.getAttribute('data-lightbox-index') || '0');
+        openLightbox(index);
+      });
+    });
+
+    // Close button
+    const closeBtn = lightbox.querySelector('.mfp-close');
+    closeBtn?.addEventListener('click', closeLightbox);
+
+    // Arrow buttons
+    const leftArrow = lightbox.querySelector('.mfp-arrow-left');
+    const rightArrow = lightbox.querySelector('.mfp-arrow-right');
+
+    leftArrow?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevImage();
+    });
+
+    rightArrow?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextImage();
+    });
+
+    // Click on background to close
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('mfp-bg')) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+
+      switch (e.key) {
+        case 'Escape':
+          closeLightbox();
+          break;
+        case 'ArrowRight':
+          nextImage();
+          break;
+        case 'ArrowLeft':
+          prevImage();
+          break;
+      }
+    });
+  });
+
+  // Load More button (placeholder)
+  document.addEventListener('astro:page-load', () => {
+    const loadMoreBtn = document.querySelector('.g-loadmore .w-btn');
+    loadMoreBtn?.addEventListener('click', () => {
+      alert('Load More functionality - implement as needed');
+    });
+  });
+</script>
