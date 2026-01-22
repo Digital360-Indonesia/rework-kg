@@ -1,0 +1,215 @@
+---
+/**
+ * Final CTA Section Component
+ * "Kustom Sekarang" - final call to action section
+ * Based on static clone: assets-source/kg-static-clone/kustomgarment.com/index.html (lines 589-623)
+ */
+
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '6285161202499';
+const whatsappMessage = import.meta.env.PUBLIC_WHATSAPP_MESSAGE || 'Saya%20ingin%20informasi%20lebih%20lanjut%20tentang%20produk%20dan%20layanan%20custom.';
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+---
+
+<section class="final-cta-section" aria-label="Contact Us">
+  <div class="final-cta-container">
+    <!-- Content -->
+    <div class="final-cta-content">
+      <h2 class="final-cta-heading">Kustom Sekarang</h2>
+      <p class="final-cta-description">
+        Kami berkomitmen untuk kualitas terbaik!<br />
+        Untuk informasi lebih lanjut tentang produk dan layanan custom kami,<br />
+        jangan ragu untuk menghubungi tim kami kapan saja
+      </p>
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="final-cta-btn"
+        aria-label="Hubungi Kami via WhatsApp"
+      >
+        Hubungi Kami
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta-section {
+    background: #ffffff;
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative background elements */
+  .final-cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.03) 0%, rgba(0, 102, 204, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .final-cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .final-cta-content {
+    text-align: center;
+  }
+
+  .final-cta-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333333;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.3;
+  }
+
+  .final-cta-description {
+    font-size: 1.125rem;
+    color: #666666;
+    line-height: 1.8;
+    margin: 0 0 2.5rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .final-cta-btn {
+    display: inline-block;
+    padding: 1.125rem 3rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.35);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .final-cta-btn:hover::before {
+    left: 100%;
+  }
+
+  .final-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0, 102, 204, 0.45);
+  }
+
+  .final-cta-btn:active {
+    transform: translateY(-1px);
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    .final-cta-section {
+      padding: 6rem 0;
+    }
+
+    .final-cta-heading {
+      font-size: 3rem;
+    }
+
+    .final-cta-description {
+      font-size: 1.25rem;
+    }
+
+    .final-cta-btn {
+      padding: 1.25rem 3.5rem;
+      font-size: 1.125rem;
+    }
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .final-cta-heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .final-cta-section {
+      padding: 4rem 0;
+    }
+
+    .final-cta-heading {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .final-cta-description {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .final-cta-description br {
+      display: none;
+    }
+
+    .final-cta-btn {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate final CTA section on scroll
+  const finalCTAContent = document.querySelector('.final-cta-content');
+
+  gsap.from(finalCTAContent, {
+    scrollTrigger: {
+      trigger: '.final-cta-section',
+      start: 'top 75%',
+      toggleActions: 'play none none none'
+    },
+    opacity: 0,
+    y: 40,
+    duration: 0.7,
+    ease: 'power2.out'
+  });
+
+  // Animate button separately with delay
+  gsap.from('.final-cta-btn', {
+    scrollTrigger: {
+      trigger: '.final-cta-section',
+      start: 'top 70%',
+      toggleActions: 'play none none none'
+    },
+    opacity: 0,
+    y: 20,
+    scale: 0.95,
+    duration: 0.5,
+    delay: 0.2,
+    ease: 'back.out(1.7)'
+  });
+</script>

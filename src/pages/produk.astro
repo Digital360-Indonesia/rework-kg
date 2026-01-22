@@ -1,0 +1,269 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import Footer from '../components/sections/Footer.astro';
+
+// Reuse CategoryCards component if it exists, or create it here
+// For now, let's check if there's a categories folder
+
+// SEO Meta
+const title = 'Produk - Konveksi Satuan Surabaya Kustom Garment';
+const description = 'Pilihan Kategori Add On Product. Lihat semua produk kaos, jaket, kemeja, polo, rompi, dan topi dengan kualitas premium.';
+
+// Category cards data - reusing from homepage
+const categories = [
+  {
+    title: 'Business',
+    image: '/images/categories/section4-1.webp',
+    link: '/business/'
+  },
+  {
+    title: 'Community',
+    image: '/images/categories/section4-2.webp',
+    link: '/community/'
+  },
+  {
+    title: 'Campus',
+    image: '/images/categories/section4-3.webp',
+    link: '/campus/'
+  },
+  {
+    title: 'Personal',
+    image: '/images/categories/section4-4.webp',
+    link: '/personal/'
+  }
+];
+
+// Add On Product categories - linking to external or placeholder pages
+const addOnProducts = [
+  { name: 'Kaos', link: '/produk-kaos/', active: true },
+  { name: 'Jaket', link: '/produk-jaket/', active: true },
+  { name: 'Kemeja', link: '/produk-kemeja/', active: true },
+  { name: 'Polo', link: '/produk-polo/', active: true },
+  { name: 'Rompi', link: '/produk-rompi/', active: true },
+  { name: '', link: '#', active: false }, // Empty placeholder
+  { name: 'Topi', link: '/produk-topi/', active: true },
+  { name: '', link: '#', active: false }  // Empty placeholder
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Header currentPath="/produk/" />
+
+  <!-- Pilihan Kategori Section -->
+  <section class="category-selection" aria-label="Pilihan Kategori">
+    <div class="selection-container">
+      <h2 class="selection-title">Pilihan Kategori</h2>
+      <div class="categories-grid">
+        {categories.map((category) => (
+          <a
+            href={category.link}
+            class="category-card"
+            aria-label={`Lihat produk ${category.title}`}
+          >
+            <img
+              src={category.image}
+              alt={category.title}
+              width="400"
+              height="521"
+              loading="eager"
+              decoding="async"
+            />
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Add On Product Section -->
+  <section class="addon-products" aria-label="Add On Product">
+    <div class="addon-header">
+      <h3 class="addon-title">Add On Product</h3>
+      <p class="addon-subtitle">Lihat Semua🔎</p>
+    </div>
+
+    <div class="addon-grid">
+      {addOnProducts.map((product) => (
+        <div class="addon-item" class:active={product.active}>
+          {product.active ? (
+            <a href={product.link} class="addon-link">
+              <span class="addon-name">{product.name}</span>
+            </a>
+          ) : (
+            <div class="addon-placeholder"></div>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Pilihan Kategori Section */
+  .category-selection {
+    background: #ffffff;
+    padding: 3rem 0;
+  }
+
+  .selection-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .selection-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 2rem 0;
+    text-align: center;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .category-card {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .category-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 400 / 521;
+    object-fit: cover;
+  }
+
+  /* Add On Product Section */
+  .addon-products {
+    background: #ffffff;
+    padding: 2rem 0 3rem;
+  }
+
+  .addon-header {
+    max-width: 1400px;
+    margin: 0 auto 1.5rem;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .addon-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .addon-subtitle {
+    font-size: 1rem;
+    color: #666666;
+    margin: 0;
+  }
+
+  .addon-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .addon-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .addon-item.active {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+  }
+
+  .addon-item.active:hover {
+    border-color: #0066cc;
+  }
+
+  .addon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1rem;
+    text-decoration: none;
+    min-height: 120px;
+  }
+
+  .addon-name {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #333333;
+  }
+
+  .addon-item.active:hover .addon-name {
+    color: #0066cc;
+  }
+
+  .addon-placeholder {
+    padding: 2.5rem 1rem;
+    min-height: 120px;
+  }
+
+  /* Tablet Styles */
+  @media (min-width: 768px) {
+    .categories-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .addon-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .selection-title {
+      font-size: 2.5rem;
+    }
+
+    .addon-title {
+      font-size: 1.75rem;
+    }
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 1024px) {
+    .selection-container,
+    .addon-header {
+      padding: 0 2rem;
+    }
+
+    .addon-grid {
+      padding: 0 2rem;
+    }
+
+    .selection-title {
+      font-size: 3rem;
+    }
+
+    .category-selection {
+      padding: 4rem 0;
+    }
+
+    .addon-products {
+      padding: 3rem 0 4rem;
+    }
+  }
+</style>

@@ -1,0 +1,206 @@
+---
+/**
+ * Benefits Section Component
+ * 4 benefit cards: Harga Bersahabat, Team Profesional, Pick Up/Delivery, Invoice & Pajak
+ * Based on static clone: assets-source/kg-static-clone/kustomgarment.com/index.html (lines 423-498)
+ */
+
+// Benefits data
+const benefits = [
+  {
+    title: 'Harga Bersahabat',
+    description: 'Dapatkan harga eksklusif dengan pembelian jumlah besar',
+    icon: '/images/benefits/harga-bersahabat.webp'
+  },
+  {
+    title: 'Team Profesional',
+    description: 'Konsultasi langsung sesuai kebutuhan dengan team berpengalaman kami',
+    icon: '/images/benefits/team-profesional.webp'
+  },
+  {
+    title: 'Pick Up or Delivery',
+    description: 'Opsi pengiriman atau pengambilan barang di lokasi',
+    icon: '/images/benefits/pickup-delivery.webp'
+  },
+  {
+    title: 'Invoice & Pajak',
+    description: 'Tersedia invoice dan faktur pajak',
+    icon: '/images/benefits/invoice-pajak.webp'
+  }
+];
+---
+
+<section class="benefits-section" aria-label="Why Choose Us">
+  <div class="benefits-container">
+    <!-- Benefits Grid -->
+    <div class="benefits-grid">
+      {benefits.map((benefit) => (
+        <article class="benefit-card">
+          <div class="benefit-icon-wrapper">
+            <img
+              src={benefit.icon}
+              alt={benefit.title}
+              loading="lazy"
+              decoding="async"
+              width="120"
+              height="120"
+              class="benefit-icon"
+            />
+          </div>
+          <h3 class="benefit-title">{benefit.title}</h3>
+          <p class="benefit-description">{benefit.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefits-section {
+    background: #ffffff;
+    padding: 4rem 0;
+  }
+
+  .benefits-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .benefit-card {
+    background: #f9fafb;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    background: #f3f4f6;
+  }
+
+  .benefit-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .benefit-icon {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  }
+
+  .benefit-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+  }
+
+  .benefit-description {
+    font-size: 0.9375rem;
+    color: #666666;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Tablet: 4 columns */
+  @media (min-width: 768px) {
+    .benefits-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .benefit-card {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .benefit-icon {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    .benefits-section {
+      padding: 5rem 0;
+    }
+
+    .benefit-card {
+      padding: 3rem 2rem;
+    }
+
+    .benefit-title {
+      font-size: 1.25rem;
+    }
+
+    .benefit-description {
+      font-size: 1rem;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .benefits-section {
+      padding: 3rem 0;
+    }
+
+    .benefits-grid {
+      gap: 1rem;
+    }
+
+    .benefit-card {
+      padding: 1.75rem 1.25rem;
+    }
+
+    .benefit-icon {
+      width: 70px;
+      height: 70px;
+    }
+
+    .benefit-title {
+      font-size: 1rem;
+    }
+
+    .benefit-description {
+      font-size: 0.875rem;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate benefit cards on scroll
+  const benefitCards = document.querySelectorAll('.benefit-card');
+
+  gsap.from(benefitCards, {
+    scrollTrigger: {
+      trigger: '.benefits-grid',
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    },
+    opacity: 0,
+    y: 40,
+    scale: 0.95,
+    duration: 0.5,
+    stagger: 0.1,
+    ease: 'power2.out'
+  });
+</script>

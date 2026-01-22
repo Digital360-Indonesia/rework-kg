@@ -1,0 +1,211 @@
+---
+/**
+ * Lightbox component for viewing images in fullscreen
+ * Features:
+ * - Opens on image click
+ * - Full-size image display
+ * - Close button (X icon)
+ * - Click outside to close
+ * - ESC key to close
+ * - Smooth fade animation
+ * - Prev/next navigation
+ * - Keyboard arrow key support
+ * - Loop at end/beginning
+ */
+
+interface Props {
+  images: Array<{
+    src: string;
+    alt: string;
+    title?: string;
+  }>;
+  initialIndex?: number;
+}
+
+const { images, initialIndex = 0 } = Astro.props;
+
+// Serialize images for client-side use
+const imagesJson = JSON.stringify(images);
+---
+
+<div
+  id="lightbox"
+  class="lightbox fixed inset-0 z-50 hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image viewer"
+  data-images={imagesJson}
+  data-initial-index={initialIndex}
+>
+  <!-- Backdrop -->
+  <div
+    id="lightbox-backdrop"
+    class="lightbox-backdrop absolute inset-0 bg-black/90 backdrop-blur-sm"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Close button -->
+  <button
+    id="lightbox-close"
+    type="button"
+    class="lightbox-close absolute top-4 right-4 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+    aria-label="Close lightbox"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <!-- Previous button -->
+  <button
+    id="lightbox-prev"
+    type="button"
+    class="lightbox-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+    aria-label="Previous image"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+    </svg>
+  </button>
+
+  <!-- Next button -->
+  <button
+    id="lightbox-next"
+    type="button"
+    class="lightbox-next absolute right-4 top-1/2 -translate-y-1/2 z-10 p-2 text-white hover:text-gray-300 transition-colors"
+    aria-label="Next image"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-10 h-10">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+    </svg>
+  </button>
+
+  <!-- Image container -->
+  <div class="lightbox-image-container absolute inset-0 flex items-center justify-center p-12 md:p-20">
+    <img
+      id="lightbox-image"
+      src=""
+      alt=""
+      class="lightbox-image max-w-full max-h-full object-contain"
+      loading="eager"
+    />
+  </div>
+
+  <!-- Image title -->
+  <div id="lightbox-title" class="lightbox-title absolute bottom-4 left-0 right-0 text-center text-white text-lg font-semibold"></div>
+
+  <!-- Counter -->
+  <div id="lightbox-counter" class="lightbox-counter absolute bottom-4 right-4 text-white text-sm"></div>
+</div>
+
+<style>
+  .lightbox {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .lightbox.active {
+    opacity: 1;
+  }
+
+  .lightbox-image {
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+  }
+
+  .lightbox.active .lightbox-image {
+    transform: scale(1);
+  }
+</style>
+
+<script define:vars={{ images }}>
+  let currentIndex = 0;
+  let isActive = false;
+
+  const lightbox = document.getElementById('lightbox') as HTMLElement;
+  const lightboxBackdrop = document.getElementById('lightbox-backdrop') as HTMLElement;
+  const lightboxClose = document.getElementById('lightbox-close') as HTMLElement;
+  const lightboxPrev = document.getElementById('lightbox-prev') as HTMLElement;
+  const lightboxNext = document.getElementById('lightbox-next') as HTMLElement;
+  const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+  const lightboxTitle = document.getElementById('lightbox-title') as HTMLElement;
+  const lightboxCounter = document.getElementById('lightbox-counter') as HTMLElement;
+
+  function openLightbox(index: number) {
+    currentIndex = index;
+    isActive = true;
+    updateImage();
+    lightbox.classList.remove('hidden');
+    // Trigger reflow
+    void lightbox.offsetWidth;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    isActive = false;
+    lightbox.classList.remove('active');
+    setTimeout(() => {
+      if (!isActive) {
+        lightbox.classList.add('hidden');
+      }
+    }, 300);
+    document.body.style.overflow = '';
+  }
+
+  function updateImage() {
+    const imageData = images[currentIndex];
+    lightboxImage.src = imageData.src;
+    lightboxImage.alt = imageData.alt;
+    if (imageData.title) {
+      lightboxTitle.textContent = imageData.title;
+      lightboxTitle.classList.remove('hidden');
+    } else {
+      lightboxTitle.classList.add('hidden');
+    }
+    lightboxCounter.textContent = `${currentIndex + 1} / ${images.length}`;
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateImage();
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateImage();
+  }
+
+  // Event listeners
+  lightboxBackdrop?.addEventListener('click', closeLightbox);
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightboxNext?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    nextImage();
+  });
+  lightboxPrev?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    prevImage();
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!isActive) return;
+
+    switch (e.key) {
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowRight':
+        nextImage();
+        break;
+      case 'ArrowLeft':
+        prevImage();
+        break;
+    }
+  });
+
+  // Make functions available globally
+  (window as any).openLightbox = openLightbox;
+  (window as any).closeLightbox = closeLightbox;
+</script>

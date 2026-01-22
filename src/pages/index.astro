@@ -1,21 +1,84 @@
 ---
+/**
+ * Homepage - Kustom Garment
+ * Complete homepage with all sections matching static clone
+ * Static Clone Reference: assets-source/kg-static-clone/kustomgarment.com/index.html
+ */
+
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import ClientSlider from '../components/sections/ClientSlider.astro';
+import CategoryCards from '../components/sections/CategoryCards.astro';
+import BulkOrder from '../components/sections/BulkOrder.astro';
+import Benefits from '../components/sections/Benefits.astro';
+import VideoPortfolio from '../components/sections/VideoPortfolio.astro';
+import FinalCTA from '../components/sections/FinalCTA.astro';
+
+const metaTitle = 'Konveksi Custom Satuan Surabaya | Kustom Garment – Desain Bebas, Tanpa Minimal Order';
+const metaDescription = 'Kustom Garment adalah konveksi custom satuan di Surabaya yang melayani pembuatan kaos, jaket, kemeja, dan seragam tanpa minimal order. Desain bebas, bahan premium, dan layanan cepat.';
+const metaImage = '/images/hero/no-min-order-banner.webp';
 ---
 
-<BaseLayout title="Konveksi Custom Satuan Surabaya | Kustom Garment">
-  <main>
-    <div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100">
-      <div class="text-center p-8">
-        <img
-          src="/images/logos/kg-logo.png"
-          alt="Kustom Garment"
-          class="w-48 mx-auto mb-8"
-        />
-        <h1 class="text-5xl font-bold mb-4 text-primary">Kustom Garment</h1>
-        <p class="text-2xl text-gray-600 mb-2">Astro Migration in Progress</p>
-        <p class="text-lg text-accent font-semibold">✅ CLI 0 Complete - CLI 1 Setup Done</p>
-        <p class="text-sm text-gray-500 mt-4">Ready for CLI 2: Header & Footer</p>
-      </div>
-    </div>
+<BaseLayout title={metaTitle} description={metaDescription} image={metaImage}>
+  <main class="homepage">
+    <!-- Section 1: Hero with 3 Value Props -->
+    <Hero />
+
+    <!-- Section 2: Client Logo Slider (13 logos) -->
+    <ClientSlider />
+
+    <!-- Section 3: Category Cards (4 categories) -->
+    <CategoryCards />
+
+    <!-- Section 4: Bulk Order Section -->
+    <BulkOrder />
+
+    <!-- Section 5: Benefits Section (4 benefit cards) -->
+    <Benefits />
+
+    <!-- Section 6: Video Portfolio (4 TikTok videos) -->
+    <VideoPortfolio />
+
+    <!-- Section 7: Final CTA -->
+    <FinalCTA />
   </main>
 </BaseLayout>
+
+<style>
+  .homepage {
+    width: 100%;
+  }
+
+  /* Section spacing for consistent layout */
+  .homepage > section {
+    position: relative;
+  }
+</style>
+
+<script>
+  // GSAP ScrollTrigger animations setup
+  import gsap from 'gsap';
+
+  // Smooth scroll behavior for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+      if (href !== '#') {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    });
+  });
+
+  // Initialize homepage animations
+  gsap.defaults({
+    ease: 'power2.out',
+    overwrite: 'auto'
+  });
+</script>

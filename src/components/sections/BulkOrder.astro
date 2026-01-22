@@ -1,0 +1,193 @@
+---
+/**
+ * Bulk Order Section Component
+ * "Pembelian Jumlah Besar" - text content centered with CTA
+ * Based on static clone: assets-source/kg-static-clone/kustomgarment.com/index.html (lines 372-422)
+ */
+
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '6285161202499';
+const whatsappMessage = import.meta.env.PUBLIC_WHATSAPP_MESSAGE || 'Saya%20tertarik%20dengan%20pembelian%20jumlah%20besar.%20Mohon%20informasi%20lebih%20lanjut.';
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+---
+
+<section class="bulk-order-section" aria-label="Bulk Order Information">
+  <div class="bulk-order-container">
+    <div class="bulk-order-content">
+      <!-- Heading -->
+      <h2 class="bulk-order-heading">Pembelian Jumlah Besar</h2>
+
+      <!-- Description -->
+      <p class="bulk-order-description">
+        Nikmati penawaran spesial untuk pembelian dalam jumlah besar hanya di tempat kami.
+        Dapatkan harga grosir, pelayanan prioritas, dan kemudahan proses transaksi
+        untuk kebutuhan usaha maupun komunitas Anda.
+      </p>
+
+      <!-- CTA Button -->
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bulk-order-btn"
+        aria-label="Pesan Sekarang via WhatsApp"
+      >
+        Pesan Sekarang
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bulk-order-section {
+    background: #f9fafb;
+    padding: 4rem 0;
+  }
+
+  .bulk-order-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .bulk-order-content {
+    text-align: center;
+    background: #ffffff;
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .bulk-order-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333333;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.3;
+  }
+
+  .bulk-order-description {
+    font-size: 1.125rem;
+    color: #666666;
+    line-height: 1.7;
+    margin: 0 0 2rem 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bulk-order-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: #0066cc;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  }
+
+  .bulk-order-btn:hover {
+    background: #0052a3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+  }
+
+  .bulk-order-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    .bulk-order-section {
+      padding: 5rem 0;
+    }
+
+    .bulk-order-content {
+      padding: 4rem 3rem;
+    }
+
+    .bulk-order-heading {
+      font-size: 2.5rem;
+    }
+
+    .bulk-order-description {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .bulk-order-content {
+      padding: 3rem 2.5rem;
+    }
+
+    .bulk-order-heading {
+      font-size: 2.25rem;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .bulk-order-section {
+      padding: 3rem 0;
+    }
+
+    .bulk-order-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .bulk-order-heading {
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .bulk-order-description {
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .bulk-order-btn {
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate bulk order section on scroll
+  const bulkOrderContent = document.querySelector('.bulk-order-content');
+
+  gsap.from(bulkOrderContent, {
+    scrollTrigger: {
+      trigger: '.bulk-order-section',
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    },
+    opacity: 0,
+    y: 40,
+    duration: 0.7,
+    ease: 'power2.out'
+  });
+
+  // Animate button separately with delay
+  gsap.from('.bulk-order-btn', {
+    scrollTrigger: {
+      trigger: '.bulk-order-section',
+      start: 'top 75%',
+      toggleActions: 'play none none none'
+    },
+    opacity: 0,
+    y: 20,
+    duration: 0.5,
+    delay: 0.2,
+    ease: 'power2.out'
+  });
+</script>

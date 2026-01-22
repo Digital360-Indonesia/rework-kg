@@ -1,0 +1,187 @@
+---
+/**
+ * Client Logo Slider Component
+ * Auto-scrolling carousel of 13 client logos
+ * Based on static clone: assets-source/kg-static-clone/kustomgarment.com/index.html (lines 264-280)
+ */
+
+// Client logos data - 13 logos total
+const clientLogos = [
+  { id: 1, name: 'Klien 6', src: '/images/clients/klien-6.png' },
+  { id: 2, name: 'Klien 2', src: '/images/clients/klien-2.png' },
+  { id: 3, name: 'Klien 1', src: '/images/clients/klien-1.png' },
+  { id: 4, name: 'Klien 5', src: '/images/clients/klien-5.png' },
+  { id: 5, name: 'Klien 3', src: '/images/clients/klien-3.png' },
+  { id: 6, name: 'Klien 11', src: '/images/clients/klien-11.png' },
+  { id: 7, name: 'Klien 9', src: '/images/clients/klien-9.png' },
+  { id: 8, name: 'Klien 7', src: '/images/clients/klien-7.png' },
+  { id: 9, name: 'Klien 8', src: '/images/clients/klien-8.png' },
+  { id: 10, name: 'Klien 10', src: '/images/clients/klien-10.png' },
+  { id: 11, name: 'Klien 4', src: '/images/clients/klien-4.png' },
+  { id: 12, name: 'Klien 12', src: '/images/clients/klien-12.png' },
+  { id: 13, name: 'Klien 13', src: '/images/clients/klien-13.png' },
+];
+---
+
+<section class="client-slider-section" aria-label="Our Clients">
+  <div class="client-slider-container">
+    <!-- Swiper Container -->
+    <div class="swiper client-swiper" aria-roledescription="carousel" aria-label="Client Logos">
+      <div class="swiper-wrapper" aria-live="off">
+        {clientLogos.map((logo) => (
+          <div class="swiper-slide" role="group" aria-roledescription={`slide ${logo.id} of ${clientLogos.length}`}>
+            <figure class="client-logo-wrapper">
+              <img
+                src={logo.src}
+                alt={logo.name}
+                loading="lazy"
+                decoding="async"
+                class="client-logo"
+                width="200"
+                height="100"
+              />
+            </figure>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .client-slider-section {
+    background: #f9fafb;
+    padding: 2rem 0;
+    overflow: hidden;
+  }
+
+  .client-slider-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .client-swiper {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+
+  .swiper-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .swiper-slide {
+    width: auto !important;
+    flex-shrink: 0;
+    padding: 0 10px;
+  }
+
+  .client-logo-wrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .client-logo {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .client-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  /* Desktop: Show more slides */
+  @media (min-width: 1024px) {
+    .client-slider-section {
+      padding: 2.5rem 0;
+    }
+
+    .swiper-slide {
+      padding: 0 15px;
+    }
+
+    .client-logo {
+      max-height: 100px;
+    }
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .swiper-slide {
+      padding: 0 12px;
+    }
+
+    .client-logo {
+      max-height: 90px;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .client-slider-section {
+      padding: 1.5rem 0;
+    }
+
+    .swiper-slide {
+      padding: 0 8px;
+    }
+
+    .client-logo {
+      max-height: 60px;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Autoplay } from 'swiper/modules';
+
+  // Import Swiper styles
+  import 'swiper/css';
+
+  // Initialize Swiper
+  const swiper = new Swiper('.client-swiper', {
+    modules: [Autoplay],
+    slidesPerView: 'auto',
+    spaceBetween: 0,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+    },
+    speed: 2000,
+    grabCursor: true,
+    // Responsive breakpoints
+    breakpoints: {
+      // Mobile: show ~3 slides
+      320: {
+        slidesPerView: 3,
+        spaceBetween: 8,
+      },
+      // Tablet: show ~5 slides
+      768: {
+        slidesPerView: 5,
+        spaceBetween: 12,
+      },
+      // Desktop: show ~8 slides
+      1024: {
+        slidesPerView: 8,
+        spaceBetween: 20,
+      },
+    },
+  });
+</script>

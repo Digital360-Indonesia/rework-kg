@@ -1,0 +1,234 @@
+---
+/**
+ * Product Card Component
+ * Reusable product card for category pages
+ * Displays product image, title, description, and CTA button
+ */
+
+interface Props {
+  title: string;
+  variant: string;
+  description: string;
+  images: string[];
+  whatsappMessage?: string;
+}
+
+const {
+  title,
+  variant,
+  description,
+  images,
+  whatsappMessage = `Saya%20dapat%20informasi%20${title}%20${variant}%20dari%20website.%20Mohon%20informasi%20lebih%20lengkap,%20ya.%20Terima%20kasih.`
+} = Astro.props;
+
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '6285161202499';
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+---
+
+<div class="product-card">
+  <!-- Image Carousel -->
+  <div class="product-carousel">
+    {images.map((image, index) => (
+      <div class="carousel-slide" class:active={index === 0}>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="product-image-link"
+          aria-label={`Order ${title} ${variant} via WhatsApp`}
+        >
+          <img
+            src={image}
+            alt={`${title} ${variant} - View ${index + 1}`}
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+      </div>
+    ))}
+  </div>
+
+  <!-- Product Info -->
+  <div class="product-info">
+    <h3 class="product-variant">{variant}</h3>
+    <p class="product-description">{description}</p>
+
+    <!-- CTA Button -->
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="product-cta"
+      aria-label={`Order ${title} ${variant} via WhatsApp`}
+    >
+      <span>Pesan Sekarang</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Image Carousel */
+  .product-carousel {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: #f5f5f5;
+    overflow: hidden;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+  }
+
+  .product-image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+  }
+
+  .product-image-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Product Info */
+  .product-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .product-variant {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .product-description {
+    font-size: 0.9375rem;
+    color: #666666;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .product-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: #0066cc;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+    margin-top: auto;
+  }
+
+  .product-cta:hover {
+    background: #0052a3;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) {
+    .product-info {
+      padding: 1.75rem;
+    }
+
+    .product-variant {
+      font-size: 1.375rem;
+    }
+
+    .product-description {
+      font-size: 1rem;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    .product-info {
+      padding: 2rem;
+    }
+
+    .product-variant {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  const productCard = document.currentScript.closest('.product-card');
+  const carousel = productCard?.querySelector('.product-carousel');
+  const slides = productCard?.querySelectorAll('.carousel-slide');
+
+  if (slides && slides.length > 1) {
+    let currentSlide = 0;
+    let interval: number | null = null;
+
+    const showSlide = (index: number) => {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    };
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    };
+
+    const startAutoplay = () => {
+      interval = window.setInterval(nextSlide, 4500);
+    };
+
+    const stopAutoplay = () => {
+      if (interval) {
+        clearInterval(interval);
+        interval = null;
+      }
+    };
+
+    // Start autoplay
+    startAutoplay();
+
+    // Pause on hover
+    productCard?.addEventListener('mouseenter', stopAutoplay);
+    productCard?.addEventListener('mouseleave', startAutoplay);
+
+    // Cleanup on unmount
+    document.addEventListener('astro:unmount', () => {
+      stopAutoplay();
+    });
+  }
+</script>

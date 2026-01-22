@@ -1,0 +1,249 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Katalog Jersey Baseball - Konveksi Satuan Surabaya Kustom Garment"
+  description="Lihat katalog lengkap jersey baseball berkualitas tinggi dari Kustom Garment. Tersedia berbagai pilihan desain dan ukuran."
+>
+  <div class="page-header">
+    <div class="container">
+      <h1 class="page-title">Katalog Jersey Baseball</h1>
+      <p class="page-subtitle">Koleksi Jersey Baseball Kustom Garment</p>
+    </div>
+  </div>
+
+  <div class="catalog-page">
+    <div class="container">
+      <!-- Catalog Description -->
+      <div class="catalog-intro">
+        <p>
+          Temukan berbagai pilihan jersey baseball berkualitas tinggi dari Kustom Garment.
+          Dapatkan jersey sesuai keinginan Anda dengan kustomisasi desain, ukuran, dan warna.
+        </p>
+      </div>
+
+      <!-- PDF Catalog Embed -->
+      <div class="catalog-embed">
+        <div class="pdf-wrapper">
+          <iframe
+            src="/catalogs/20250820_Katalog-Jersey-Kustom_.pdf"
+            title="Katalog Jersey Baseball PDF"
+            class="pdf-embed"
+          >
+            <p class="pdf-fallback">
+              Browser Anda tidak mendukung iframe. Silakan
+              <a href="/catalogs/20250820_Katalog-Jersey-Kustom_.pdf" download>
+                download katalog PDF
+              </a>
+              untuk melihat katalog jersey baseball.
+            </p>
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Download Button -->
+      <div class="catalog-download">
+        <a
+          href="/catalogs/20250820_Katalog-Jersey-Kustom_.pdf"
+          download
+          class="btn-download"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          Download Katalog PDF
+        </a>
+      </div>
+
+      <!-- Contact CTA -->
+      <div class="catalog-cta">
+        <h3>Tertarik dengan Jersey Kami?</h3>
+        <p>Konsultasikan kebutuhan jersey Anda dengan tim kami</p>
+        <a href="https://wa.me/6285161202499?text=Halo%20Kustom%20Garment,%20saya%20tertarik%20dengan%20jersey%20baseball%20Anda.%20Mohon%20info%20lebih%20lanjut." target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Pesan Sekarang via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Page Header */
+  .page-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .page-subtitle {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  /* Catalog Page */
+  .catalog-page {
+    padding: 3rem 0;
+  }
+
+  .catalog-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+  }
+
+  .catalog-intro p {
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.7;
+  }
+
+  /* PDF Embed */
+  .catalog-embed {
+    margin-bottom: 2rem;
+  }
+
+  .pdf-wrapper {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .pdf-embed {
+    width: 100%;
+    height: 600px;
+    border: none;
+    display: block;
+  }
+
+  .pdf-fallback {
+    padding: 2rem;
+    text-align: center;
+    color: #6b7280;
+  }
+
+  .pdf-fallback a {
+    color: #f5576c;
+    text-decoration: underline;
+  }
+
+  /* Download Button */
+  .catalog-download {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f5576c;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-download:hover {
+    background: #f0455c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 87, 108, 0.3);
+  }
+
+  /* Catalog CTA */
+  .catalog-cta {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+  }
+
+  .catalog-cta h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .catalog-cta p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: white;
+    color: #f5576c;
+    padding: 0.875rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .page-header {
+      padding: 2rem 0;
+    }
+
+    .page-title {
+      font-size: 1.75rem;
+    }
+
+    .page-subtitle {
+      font-size: 1rem;
+    }
+
+    .catalog-page {
+      padding: 2rem 0;
+    }
+
+    .pdf-embed {
+      height: 400px;
+    }
+
+    .catalog-cta {
+      padding: 1.5rem;
+    }
+
+    .btn-download,
+    .btn-primary {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding: 0 2rem;
+    }
+  }
+</style>

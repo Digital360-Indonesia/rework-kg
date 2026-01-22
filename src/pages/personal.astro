@@ -1,0 +1,512 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/sections/Header.astro';
+import Footer from '../components/sections/Footer.astro';
+import ProductCard from '../components/ui/ProductCard.astro';
+
+// SEO Meta
+const title = 'Personal - Konveksi Satuan Surabaya Kustom Garment';
+const description = 'Koleksi produk personal untuk kebutuhan individu. T-Shirt, Kemeja, Jaket, dan Rompi berkualitas premium dengan customisasi desain.';
+
+// WhatsApp Configuration
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '6285161202499';
+const bulkOrderMessage = 'Saya%20dapat%20informasi%20pembelian%20jumlah%20besar%20dari%20website.%20Mohon%20informasi%20lebih%20lengkap,%20ya.%20Terima%20kasih.';
+const bulkOrderUrl = `https://wa.me/${whatsappNumber}?text=${bulkOrderMessage}`;
+
+// Product Data - Personal Category
+const personalProducts = {
+  'T-Shirt': [
+    {
+      title: 'T-Shirt',
+      variant: 'Basic',
+      description: 'Kenyamanan premium dengan sentuhan lembut di kulit. Potongan sempurna untuk dipakai sehari-hari dengan pilihan warna yang dapat disesuaikan dengan preferensi pribadi Anda. Tahan lama dan cocok untuk berbagai aktivitas casual.',
+      images: [
+        '/images/products/business/20250428-T-Shirt_Basic_1-1.webp',
+        '/images/products/business/20250428-T-Shirt_Basic_2-1.webp',
+        '/images/products/business/20250428-T-Shirt_Basic_3-1.webp'
+      ]
+    }
+  ],
+  'Kemeja': [
+    {
+      title: 'Kemeja',
+      variant: 'Workshirt PDH',
+      description: 'Jahitan rapi dan tahan lama dengan kualitas premium. Dilengkapi dengan saku fungsional dan detail yang dapat disesuaikan. Sangat cocok untuk pakaian kasual yang nyaman namun tetap stylish.',
+      images: [
+        '/images/products/business/20250428-Kemeja_Workshirt-PDH_1.webp',
+        '/images/products/business/20250428-Kemeja_Workshirt-PDH_2.webp'
+      ]
+    },
+    {
+      title: 'Kemeja',
+      variant: 'Workshirt Basic',
+      description: 'Desain yang tahan kusut dan awet untuk mobilitas tinggi. Tampilan klasik dengan detail modern. Ideal untuk aktivitas sehari-hari dengan kenyamanan maksimal.',
+      images: [
+        '/images/products/business/20250428-Kemeja_Workshirt-Basic_1.webp',
+        '/images/products/business/20250428-Kemeja_Workshirt-Basic_2.webp'
+      ]
+    },
+    {
+      title: 'Kemeja',
+      variant: 'Nusantara Batik',
+      description: 'Kombinasi sempurna antara motif batik nusantara dan potongan modern. Proses pembuatan teliti menghasilkan batik yang nyaman dipakai dan tahan lama. Tampil stylish dengan sentuhan budaya Indonesia yang elegan.',
+      images: [
+        '/images/products/business/20250428-Kemeja_Nusantara-Batik_1.webp'
+      ]
+    }
+  ],
+  'Jaket': [
+    {
+      title: 'Jaket',
+      variant: 'Varsity',
+      description: 'Desain ikonik dengan detail premium dan jahitan berkualitas tinggi. Dilengkapi dengan sistem penutup kancing yang kokoh dan saku dalam yang fungsional. Sempurna untuk tampilan casual dengan sentuhan sporty yang timeless.',
+      images: [
+        '/images/products/business/20250428-Jaket_Varsity_1.webp',
+        '/images/products/business/20250428-Jaket_Varsity_2.webp',
+        '/images/products/business/20250428-Jaket_Varsity_3.webp'
+      ]
+    },
+    {
+      title: 'Jaket',
+      variant: 'Bomber',
+      description: 'Desain klasik dengan rib elastis pada kerah, pergelangan tangan, dan pinggang yang memberikan kenyamanan maksimal. Dilengkapi dengan saku fungsional. Tampilan stylish untuk berbagai aktivitas.',
+      images: [
+        '/images/products/business/20250428-Jaket_Varsity-Bomber_1.webp'
+      ]
+    },
+    {
+      title: 'Jaket',
+      variant: 'Jumper Hoodie',
+      description: 'Desain modern dengan hoodie yang fungsional dan nyaman dipakai. Dilengkapi dengan kantong depan yang praktis dan pilihan customisasi desain yang beragam. Cocok untuk kegiatan outdoor maupun cozy di rumah.',
+      images: [
+        '/images/products/business/20250428-Jaket_Jumper-Hoodie_1.webp',
+        '/images/products/business/20250428-Jaket_Jumper-Hoodie_2.webp',
+        '/images/products/business/20250428-Jaket_Jumper-Hoodie_3.webp'
+      ]
+    },
+    {
+      title: 'Jaket',
+      variant: 'Harrington',
+      description: 'Potongan klasik dengan detail elegan dan lapisan dalam yang nyaman. Desain timeless dengan kemampuan melindungi dari angin. Pilihan tepat untuk tampilan stylish yang tetap trendy sepanjang tahun.',
+      images: [
+        '/images/products/business/20250428-Jaket_Harrington_1.webp'
+      ]
+    }
+  ],
+  'Rompi': [
+    {
+      title: 'Rompi',
+      variant: 'Indoor',
+      description: 'Desain ergonomis dengan potongan yang memberikan kebebasan bergerak. Dilengkapi dengan kantong fungsional dan opsi customisasi di bagian depan dan belakang. Pilihan tepat untuk tampilan casual dengan mobilitas tinggi.',
+      images: [
+        '/images/products/business/20250428-Rompi_Indoor_1.webp'
+      ]
+    },
+    {
+      title: 'Rompi',
+      variant: 'Outdoor',
+      description: 'Konstruksi kokoh dengan detail tahan cuaca dan kantong multifungsi. Sistem ventilasi optimal memberikan kenyamanan sepanjang hari. Didesain khusus untuk aktivitas outdoor dengan prioritas fungsi dan style.',
+      images: [
+        '/images/products/business/20250428-Rompi_Outdoor_1.webp',
+        '/images/products/business/20250428-Rompi_Outdoor_2.webp'
+      ]
+    }
+  ]
+};
+
+// Benefits data
+const benefits = [
+  {
+    icon: '/images/benefits/harga-bersahabat.webp',
+    title: 'Harga Bersahabat',
+    description: 'Dapatkan harga eksklusif dengan pembelian jumlah besar'
+  },
+  {
+    icon: '/images/benefits/team-profesional.webp',
+    title: 'Team Profesional',
+    description: 'Konsultasi langsung sesuai kebutuhan dengan team berpengalaman kami'
+  },
+  {
+    icon: '/images/benefits/pickup-delivery.webp',
+    title: 'Pick Up or Delivery',
+    description: 'Opsi pengiriman atau pengambilan barang di lokasi'
+  },
+  {
+    icon: '/images/benefits/invoice-pajak.webp',
+    title: 'Invoice & Pajak',
+    description: 'Tersedia invoice dan faktur pajak'
+  }
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Header currentPath="/personal/" />
+
+  <!-- Hero Section -->
+  <section class="category-hero">
+    <div class="hero-container">
+      <h1 class="hero-title">Personal</h1>
+    </div>
+  </section>
+
+  <!-- Product Line Up Section -->
+  <section class="product-lineup" aria-label="Product Line Up">
+    <div class="lineup-container">
+      <h2 class="lineup-title">Product Line Up</h2>
+      <div class="lineup-scroll">
+        {Object.entries(personalProducts).map(([category, products]) => (
+          <a href={`#${category.toLowerCase()}`} class="lineup-item">
+            <span>{category}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <main class="products-section">
+    {Object.entries(personalProducts).map(([category, products]) => (
+      <section id={category.toLowerCase()} class="product-category">
+        <div class="category-container">
+          <h2 class="category-title">{category}</h2>
+          <div class="products-grid">
+            {products.map((product) => (
+              <ProductCard {...product} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+  </main>
+
+  <!-- Bulk Order CTA Section -->
+  <section class="bulk-order-cta">
+    <div class="cta-container">
+      <div class="cta-content">
+        <h3 class="cta-title">Pembelian Jumlah Besar</h3>
+        <p class="cta-description">
+          Nikmati penawaran spesial untuk pembelian dalam jumlah besar hanya di tempat kami. Dapatkan harga grosir, pelayanan prioritas, dan kemudahan proses transaksi untuk kebutuhan usaha maupun komunitas Anda.
+        </p>
+        <a
+          href={bulkOrderUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-cta-large"
+          aria-label="Pesan Sekarang via WhatsApp"
+        >
+          Pesan Sekarang
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="benefits-section">
+    <div class="benefits-container">
+      {benefits.map((benefit) => (
+        <div class="benefit-card">
+          <img
+            src={benefit.icon}
+            alt={benefit.title}
+            width="80"
+            height="80"
+            loading="lazy"
+            decoding="async"
+          />
+          <h4 class="benefit-title">{benefit.title}</h4>
+          <p class="benefit-description">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Portfolio Banner -->
+  <section class="portfolio-banner">
+    <a
+      href="https://portfolio.kustomgarment.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Lihat Portfolio Kustom Garment"
+    >
+      <img
+        src="/images/portfolio/section7-1.png"
+        alt="Portfolio Kustom Garment"
+        width="2000"
+        height="1000"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .category-hero {
+    background: #ffffff;
+    padding: 4rem 0 3rem;
+    text-align: center;
+  }
+
+  .hero-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333333;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  /* Product Line Up */
+  .product-lineup {
+    background: #f8f9fa;
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 72px;
+    z-index: 90;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .lineup-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .lineup-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 1rem 0;
+  }
+
+  .lineup-scroll {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lineup-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .lineup-scroll::-webkit-scrollbar-track {
+    background: #e5e7eb;
+    border-radius: 2px;
+  }
+
+  .lineup-scroll::-webkit-scrollbar-thumb {
+    background: #0066cc;
+    border-radius: 2px;
+  }
+
+  .lineup-item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0.625rem 1.25rem;
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 24px;
+    color: #333333;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .lineup-item:hover {
+    border-color: #0066cc;
+    color: #0066cc;
+  }
+
+  /* Products Section */
+  .products-section {
+    background: #ffffff;
+  }
+
+  .product-category {
+    padding: 3rem 0;
+  }
+
+  .category-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .category-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 2rem 0;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Bulk Order CTA */
+  .bulk-order-cta {
+    background: #f8f9fa;
+    padding: 3rem 0;
+  }
+
+  .cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .cta-content {
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 1rem 0;
+  }
+
+  .cta-description {
+    font-size: 1rem;
+    color: #666666;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+  }
+
+  .btn-cta-large {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: #0066cc;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .btn-cta-large:hover {
+    background: #0052a3;
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    background: #ffffff;
+    padding: 3rem 0;
+  }
+
+  .benefits-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .benefit-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+  }
+
+  .benefit-card img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+
+  .benefit-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #333333;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .benefit-description {
+    font-size: 0.875rem;
+    color: #666666;
+    margin: 0;
+  }
+
+  /* Portfolio Banner */
+  .portfolio-banner {
+    width: 100%;
+    background: #ffffff;
+  }
+
+  .portfolio-banner a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+  }
+
+  .portfolio-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Tablet Styles */
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    .products-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefits-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-category {
+      padding: 4rem 0;
+    }
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: 4rem;
+    }
+
+    .products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .benefits-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .category-container,
+    .lineup-container,
+    .hero-container {
+      padding: 0 2rem;
+    }
+  }
+</style>

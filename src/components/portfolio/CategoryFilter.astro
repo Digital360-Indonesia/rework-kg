@@ -1,0 +1,111 @@
+---
+/**
+ * CategoryFilter component for portfolio
+ * Displays filter buttons for portfolio categories
+ */
+
+interface Category {
+  name: string;
+  slug: string;
+}
+
+interface Props {
+  categories: Category[];
+  activeCategory?: string;
+}
+
+const { categories, activeCategory = 'all' } = Astro.props;
+---
+
+<div class="category-filter mb-8 md:mb-12" id="category-filter">
+  <div class="flex flex-wrap justify-center gap-3">
+    {
+      categories.map((category) => (
+        <button
+          class={`filter-btn px-6 py-2.5 rounded-full font-medium transition-all duration-300 ${
+            activeCategory === category.slug
+              ? 'bg-accent text-white shadow-lg scale-105'
+              : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
+          }`}
+          data-category={category.slug}
+          aria-pressed={activeCategory === category.slug}
+          aria-label={`Filter by ${category.name}`}
+        >
+          {category.name}
+        </button>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .filter-btn {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .filter-btn:active::before {
+    width: 300px;
+    height: 300px;
+  }
+</style>
+
+<script>
+  // Handle category filter clicks
+  document.addEventListener('astro:page-load', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+
+        // Update active state
+        filterButtons.forEach((btn) => {
+          btn.setAttribute('aria-pressed', 'false');
+          btn.classList.remove('bg-accent', 'text-white', 'shadow-lg', 'scale-105');
+          btn.classList.add('bg-gray-100', 'text-gray-700');
+        });
+
+        button.setAttribute('aria-pressed', 'true');
+        button.classList.remove('bg-gray-100', 'text-gray-700');
+        button.classList.add('bg-accent', 'text-white', 'shadow-lg', 'scale-105');
+
+        // Filter portfolio items
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        portfolioItems.forEach((item) => {
+          const itemCategory = item.getAttribute('data-category');
+
+          if (category === 'all' || itemCategory === category) {
+            item.style.display = 'block';
+            // Add animation
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            item.style.display = 'none';
+          }
+        });
+
+        // Emit custom event for lightbox to update
+        window.dispatchEvent(new CustomEvent('category-filter-changed', { detail: { category } }));
+      });
+    });
+  });
+</script>

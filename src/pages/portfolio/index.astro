@@ -1,0 +1,74 @@
+---
+/**
+ * Portfolio page
+ * Displays all portfolio items with category filtering and lightbox
+ */
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CategoryFilter from '../../components/portfolio/CategoryFilter.astro';
+import PortfolioGrid from '../../components/portfolio/PortfolioGrid.astro';
+import Lightbox from '../../components/ui/Lightbox.astro';
+import { portfolioItems, portfolioCategories } from '../../data/portfolio';
+
+// Prepare images for lightbox
+const lightboxImages = portfolioItems.map((item) => ({
+  src: item.image,
+  alt: item.description,
+  title: item.title,
+}));
+---
+
+<BaseLayout
+  title="Portfolio Kustom Garment | Konveksi Surabaya"
+  description="Lihat portfolio Kustom Garment - konveksi custom satuan di Surabaya. Pembuatan kaos, jaket, kemeja, dan seragam tanpa minimal order."
+  image="/images/hero/no-min-order-banner.webp"
+>
+  <!-- Page Header -->
+  <section class="page-header bg-gradient-to-br from-gray-50 to-gray-100 section-padding">
+    <div class="section-container text-center">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+        Portfolio Kami
+      </h1>
+      <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        Karya terbaik yang telah kami kerjakan untuk berbagai klien dari perusahaan, lembaga pendidikan, instansi pemerintah, hingga komunitas.
+      </p>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="portfolio-section section-padding bg-white">
+    <div class="section-container">
+      <!-- Category Filter -->
+      <CategoryFilter categories={portfolioCategories} activeCategory="all" />
+
+      <!-- Portfolio Grid -->
+      <PortfolioGrid items={portfolioItems} activeCategory="all" />
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <Lightbox images={lightboxImages} />
+</BaseLayout>
+
+<style>
+  /* Page animations */
+  .page-header {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

@@ -1,0 +1,208 @@
+---
+/**
+ * Accordion Component
+ * Collapsible FAQ accordion with smooth animations
+ *
+ * Props:
+ * - items: Array of { id, question, answer } objects
+ */
+
+interface AccordionItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: AccordionItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="accordion" data-accordion>
+  {items.map((item) => (
+    <div class="accordion-item" data-accordion-item={item.id}>
+      <button
+        class="accordion-trigger"
+        aria-expanded="false"
+        aria-controls={`accordion-content-${item.id}`}
+        id={`accordion-trigger-${item.id}`}
+      >
+        <span class="accordion-question">{item.question}</span>
+        <svg class="accordion-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div
+        class="accordion-content"
+        id={`accordion-content-${item.id}`}
+        role="region"
+        aria-labelledby={`accordion-trigger-${item.id}`}
+      >
+        <div class="accordion-answer">
+          <p set:html={item.answer} />
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .accordion-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+  }
+
+  .accordion-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.2s ease;
+  }
+
+  .accordion-trigger:hover {
+    background: #f9fafb;
+  }
+
+  .accordion-trigger:focus {
+    outline: 2px solid #667eea;
+    outline-offset: -2px;
+  }
+
+  .accordion-question {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+
+  .accordion-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: #6b7280;
+    transition: transform 0.3s ease;
+  }
+
+  .accordion-item[data-expanded="true"] .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .accordion-item[data-expanded="true"] .accordion-content {
+    max-height: 500px;
+  }
+
+  .accordion-answer {
+    padding: 0 1.25rem 1rem 1.25rem;
+  }
+
+  .accordion-answer p {
+    margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: #4b5563;
+  }
+
+  .accordion-answer p + p {
+    margin-top: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .accordion-trigger {
+      padding: 0.875rem 1rem;
+    }
+
+    .accordion-question {
+      font-size: 0.9375rem;
+    }
+
+    .accordion-answer {
+      padding: 0 1rem 1rem 1rem;
+    }
+
+    .accordion-answer p {
+      font-size: 0.875rem;
+    }
+  }
+</style>
+
+<script>
+  // Accordion functionality
+  document.querySelectorAll('[data-accordion]').forEach((accordion) => {
+    const triggers = accordion.querySelectorAll('.accordion-trigger');
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        const item = e.currentTarget.closest('[data-accordion-item]');
+        const isExpanded = item.getAttribute('data-expanded') === 'true';
+        const content = item.querySelector('.accordion-content');
+
+        // Close all other items
+        accordion.querySelectorAll('[data-accordion-item]').forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.setAttribute('data-expanded', 'false');
+            otherItem.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Toggle current item
+        item.setAttribute('data-expanded', isExpanded ? 'false' : 'true');
+        trigger.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+      });
+
+      // Keyboard accessibility
+      trigger.addEventListener('keydown', (e) => {
+        const item = e.currentTarget.closest('[data-accordion-item]');
+        const allItems = Array.from(accordion.querySelectorAll('[data-accordion-item]'));
+        const currentIndex = allItems.indexOf(item);
+
+        let nextItem = null;
+
+        switch (e.key) {
+          case 'ArrowDown':
+            e.preventDefault();
+            nextItem = allItems[currentIndex + 1] || allItems[0];
+            break;
+          case 'ArrowUp':
+            e.preventDefault();
+            nextItem = allItems[currentIndex - 1] || allItems[allItems.length - 1];
+            break;
+          case 'Home':
+            e.preventDefault();
+            nextItem = allItems[0];
+            break;
+          case 'End':
+            e.preventDefault();
+            nextItem = allItems[allItems.length - 1];
+            break;
+        }
+
+        if (nextItem) {
+          nextItem.querySelector('.accordion-trigger').focus();
+        }
+      });
+    });
+  });
+</script>

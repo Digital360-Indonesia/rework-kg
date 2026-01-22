@@ -1,0 +1,261 @@
+---
+/**
+ * Category Cards Section Component
+ * 4 category cards (Business, Community, Campus, Personal)
+ * Based on static clone: assets-source/kg-static-clone/kustomgarment.com/index.html (lines 281-371)
+ */
+
+// Categories data
+const categories = [
+  {
+    name: 'Business',
+    href: '/business/',
+    image: '/images/categories/business.webp',
+    title: 'Business'
+  },
+  {
+    name: 'Community',
+    href: '/community/',
+    image: '/images/categories/community.webp',
+    title: 'Community'
+  },
+  {
+    name: 'Campus',
+    href: '/campus/',
+    image: '/images/categories/campus.webp',
+    title: 'Campus'
+  },
+  {
+    name: 'Personal',
+    href: '/personal/',
+    image: '/images/categories/personal.webp',
+    title: 'Personal'
+  }
+];
+---
+
+<section class="category-cards-section" aria-label="Product Categories">
+  <div class="category-cards-container">
+    <!-- Section Heading -->
+    <div class="category-header">
+      <h2 class="category-heading">Pilihan Kategori</h2>
+    </div>
+
+    <!-- Category Cards Grid -->
+    <div class="category-grid">
+      {categories.map((category) => (
+        <a
+          href={category.href}
+          class="category-card"
+          aria-label={`View ${category.name} category`}
+        >
+          <div class="category-card-inner">
+            <img
+              src={category.image}
+              alt={category.name}
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="521"
+              class="category-image"
+            />
+            <div class="category-overlay">
+              <span class="category-name">{category.name}</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA Button -->
+    <div class="category-cta">
+      <a href="/produk/" class="category-btn">
+        Selengkapnya
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .category-cards-section {
+    background: #ffffff;
+    padding: 4rem 0;
+  }
+
+  .category-cards-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* Section Header */
+  .category-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .category-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333333;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  /* Category Grid */
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .category-card {
+    display: block;
+    text-decoration: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  }
+
+  .category-card-inner {
+    position: relative;
+    width: 100%;
+    padding-top: 130%; /* Aspect ratio ~1:1.3 */
+    overflow: hidden;
+  }
+
+  .category-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .category-card:hover .category-image {
+    transform: scale(1.08);
+  }
+
+  .category-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .category-card:hover .category-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .category-name {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  /* CTA Button */
+  .category-cta {
+    text-align: center;
+  }
+
+  .category-btn {
+    display: inline-block;
+    padding: 0.875rem 2.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: #0066cc;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  }
+
+  .category-btn:hover {
+    background: #0052a3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
+  }
+
+  .category-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Tablet: 4 columns */
+  @media (min-width: 768px) {
+    .category-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .category-heading {
+      font-size: 2.5rem;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    .category-cards-section {
+      padding: 5rem 0;
+    }
+
+    .category-header {
+      margin-bottom: 4rem;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    .category-cards-section {
+      padding: 3rem 0;
+    }
+
+    .category-grid {
+      gap: 1rem;
+    }
+
+    .category-heading {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animate category cards on scroll
+  const categoryCards = document.querySelectorAll('.category-card');
+
+  gsap.from(categoryCards, {
+    scrollTrigger: {
+      trigger: '.category-grid',
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    },
+    opacity: 0,
+    y: 50,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: 'power2.out'
+  });
+</script>
