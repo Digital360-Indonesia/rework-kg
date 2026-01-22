@@ -22,3 +22,12 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Static clone (don't commit to repo)
+/assets-source/
+
+# Large screenshots (optional - don't commit if too big)
+/docs/screenshots/
+
+# OS-specific files
+Thumbs.db
