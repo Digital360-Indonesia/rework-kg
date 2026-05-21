@@ -6,411 +6,149 @@ const allPosts = await getCollection('blog');
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const featuredPosts = sortedPosts.filter(post => post.data.featured);
 const regularPosts = sortedPosts.filter(post => !post.data.featured);
+const posts = [...featuredPosts, ...regularPosts];
+
+// Blog featured images aren't migrated yet (/images/blog/* is missing). Map each post to a
+// real existing image so cards never render broken. Swap back to post.data.image once real
+// featured images land under /images/blog/.
+const fallbackPool = [
+  '/images/placeholder/theme-image-1777040341996.png',
+  '/images/placeholder/theme-image-1777126525887.png',
+  '/images/placeholder/theme-image-1777126637504.png',
+  '/images/placeholder/theme-image-1777385298306.png',
+  '/images/placeholder/sample-section3a.webp',
+  '/images/placeholder/sample-section3b.webp',
+  '/images/placeholder/sample-section3c.webp',
+  '/images/placeholder/sample-section3d.webp',
+  '/images/categories/business.webp',
+  '/images/categories/community.webp',
+  '/images/categories/campus.webp',
+  '/images/categories/personal.webp',
+];
+const coverFor = (slug: string) =>
+  fallbackPool[[...slug].reduce((a, c) => a + c.charCodeAt(0), 0) % fallbackPool.length];
+
+const readingTime = (body?: string) =>
+  Math.max(1, Math.round((body?.split(/\s+/).filter(Boolean).length || 0) / 200));
+
+const fmtDate = (d: Date) => d.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const hero = {
+  eyebrow: 'Blog',
+  titleLead: 'Tips, bahan',
+  titleAccent: '& cerita custom.',
+  sub: 'Bahan kain, panduan ukuran, sampai tren apparel — biar kamu makin paham sebelum bikin.',
+};
 ---
 
-<BaseLayout title="Blog - Konveksi Satuan Surabaya Kustom Garment" description="Artikel dan tips seputar konveksi, bahan kain, dan panduan ukuran dari Kustom Garment">
-  <main>
-    <!-- Page Title Header - EXACTLY like OG -->
-    <header class="uicore uicore-page-title uicore-section uicore-box">
-      <div class="uicore-overlay"></div>
-      <div class="uicore uicore-container">
-        <p class="uicore-animate ui-breadcrumb">
-          <span><a href="/">Home</a></span>
-          <i class="uicore-separator uicore-i-arrow"></i>
-          <span>Blog</span>
-        </p>
-        <h1 class="uicore-title uicore-animate h1">Blog</h1>
+<BaseLayout title="Blog — Tips & Panduan Custom Apparel | Kustom Garment" description="Artikel dan tips seputar konveksi, bahan kain, dan panduan ukuran dari Kustom Garment.">
+  <main class="bl">
+    <!-- HERO (orange, centered) -->
+    <section class="bl-hero">
+      <div class="bl-wrap">
+        <span class="bl-eyebrow reveal">{hero.eyebrow}</span>
+        <h1 class="bl-hero-title reveal">{hero.titleLead} <span class="bl-hero-accent">{hero.titleAccent}</span></h1>
+        <p class="bl-hero-sub reveal">{hero.sub}</p>
       </div>
-    </header>
+    </section>
 
-    <!-- Blog Grid - EXACTLY like OG -->
-    <div id="primary" class="content-area">
-      <main id="main" class="site-main uicore-section uicore-box uicore">
-        <div class="uicore uicore-container uicore-content-wrapper uicore-blog-animation">
-          <div class="uicore-archive uicore-post-content">
-            <div class="uicore-grid-container uicore-blog-grid uicore-grid-row uicore-horizontal uicore-portrait-ratio uicore-small-space animate-2 ui-st-boxed-creative">
-
-              <!-- Featured Posts First -->
-              {featuredPosts.map((post) => (
-                <div class="uicore-grid-item uicore-col-md-6 uicore-col-lg-6 uicore-zoom uicore-animate">
-                  <article class="uicore-post">
-                    <div class="uicore-post-wrapper">
-                      <a href={`/blog/${post.slug}/`} title={`View Post: ${post.data.title}`}>
-                        <div class="uicore-blog-img-container uicore-zoom-wrapper">
-                          <div class="uicore-cover-img" style={`background-image: url(${post.data.image || '/images/hero/no-min-order-banner.png'})`}></div>
-                        </div>
-                      </a>
-                      <div class="uicore-post-info">
-                        <div class="uicore-post-info-wrapper">
-                          <div class="uicore-post-category uicore-body">
-                            <a href={`/blog/?category=${post.data.category}`} title={`View ${post.data.category} posts`}>{post.data.category}</a>
-                          </div>
-                          <a href={`/blog/${post.slug}/`} title={`View Post: ${post.data.title}`}>
-                            <h4 class="uicore-post-title"><span>{post.data.title}</span></h4>
-                          </a>
-                          <p>{post.data.description}</p>
-                          <div class="uicore-post-footer uicore-body">
-                            <span><a href="/blog/">{post.data.author}</a></span>
-                            <span class="uicore-meta-separator"></span>
-                            <span>{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                            <span class="uicore-meta-separator"></span>
-                            <span>3 min read</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              ))}
-
-              <!-- Regular Posts -->
-              {regularPosts.map((post) => (
-                <div class="uicore-grid-item uicore-col-md-6 uicore-col-lg-6 uicore-zoom uicore-animate">
-                  <article class="uicore-post">
-                    <div class="uicore-post-wrapper">
-                      <a href={`/blog/${post.slug}/`} title={`View Post: ${post.data.title}`}>
-                        <div class="uicore-blog-img-container uicore-zoom-wrapper">
-                          <div class="uicore-cover-img" style={`background-image: url(${post.data.image || '/images/hero/no-min-order-banner.png'})`}></div>
-                        </div>
-                      </a>
-                      <div class="uicore-post-info">
-                        <div class="uicore-post-info-wrapper">
-                          <div class="uicore-post-category uicore-body">
-                            <a href={`/blog/?category=${post.data.category}`} title={`View ${post.data.category} posts`}>{post.data.category}</a>
-                          </div>
-                          <a href={`/blog/${post.slug}/`} title={`View Post: ${post.data.title}`}>
-                            <h4 class="uicore-post-title"><span>{post.data.title}</span></h4>
-                          </a>
-                          <p>{post.data.description}</p>
-                          <div class="uicore-post-footer uicore-body">
-                            <span><a href="/blog/">{post.data.author}</a></span>
-                            <span class="uicore-meta-separator"></span>
-                            <span>{post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                            <span class="uicore-meta-separator"></span>
-                            <span>3 min read</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-              ))}
-
-            </div>
-
-            <!-- Pagination - EXACTLY like OG -->
-            <nav aria-label="Posts navigation" class="uicore-pagination">
-              <ul>
-                <li class="uicore-page-item uicore-active">
-                  <span aria-current="page" class="uicore-page-link current">1</span>
-                </li>
-              </ul>
-            </nav>
-          </div>
+    <!-- POSTS GRID -->
+    <section class="bl-list">
+      <div class="bl-wrap">
+        <div class="bl-grid">
+          {posts.map((post, i) => (
+            <a class="bl-card reveal" style={`transition-delay:${(i % 3) * 80}ms`} href={`/blog/${post.slug}/`}>
+              <div class="bl-card-frame">
+                <img src={coverFor(post.slug)} alt={post.data.title} loading="lazy" />
+                {post.data.featured && <span class="bl-flag">Featured</span>}
+              </div>
+              <span class="bl-cat">{post.data.category}</span>
+              <h2 class="bl-card-title">{post.data.title}</h2>
+              <p class="bl-card-desc">{post.data.description}</p>
+              <div class="bl-meta">
+                <span>{fmtDate(post.data.pubDate)}</span>
+                <span class="bl-dot" aria-hidden="true">·</span>
+                <span>{readingTime(post.body)} menit baca</span>
+              </div>
+            </a>
+          ))}
         </div>
-      </main>
-    </div>
+      </div>
+    </section>
   </main>
 </BaseLayout>
 
 <style>
-  /* EXACT OG Styles for Blog Page */
-  .uicore-page-title {
-    position: relative;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 120px 0 100px;
-    text-align: center;
-    color: #fff;
+  .bl { background: #ffffff; }
+  .bl-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 1024px) { .bl-wrap { padding: 0 2.5rem; } }
+
+  /* HERO */
+  .bl-hero { background: #ff4c00; color: #ffffff; padding: 5.5rem 0 6rem; text-align: center; overflow: hidden; }
+  @media (min-width: 1024px) { .bl-hero { padding: 8rem 0 8.5rem; } }
+  .bl-eyebrow {
+    display: inline-block; font-family: var(--font-sans); font-weight: 700;
+    font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85); margin-bottom: 1.5rem;
+  }
+  .bl-hero-title {
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 5.25rem); line-height: 1.02; letter-spacing: -0.03em;
+    margin: 0 auto 1.5rem; color: #ffffff; max-width: 18ch;
+  }
+  .bl-hero-accent { color: #ff4c00; -webkit-text-stroke: 2px #ffffff; text-stroke: 2px #ffffff; }
+  .bl-hero-sub {
+    font-family: var(--font-sans); font-weight: 600;
+    font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.55;
+    color: rgba(255,255,255,0.92); max-width: 40rem; margin: 0 auto;
   }
 
-  .uicore-page-title .uicore-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+  /* LIST */
+  .bl-list { padding: 4rem 0 6rem; }
+  @media (min-width: 1024px) { .bl-list { padding: 6rem 0 8rem; } }
+  .bl-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem 1.75rem; }
+  @media (min-width: 640px) { .bl-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .bl-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  .bl-card { display: block; text-decoration: none; }
+  .bl-card-frame {
+    position: relative; border-radius: 1.25rem; overflow: hidden;
+    aspect-ratio: 4 / 3; background: #f4f4f4; margin-bottom: 1.1rem;
+  }
+  .bl-card-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 800ms cubic-bezier(0.19,1,0.22,1); }
+  .bl-flag {
+    position: absolute; top: 0.85rem; left: 0.85rem;
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #ffffff; background: #ff4c00; border-radius: 999px; padding: 0.3rem 0.7rem;
+  }
+  .bl-cat { font-family: var(--font-sans); font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: #ff4c00; }
+  .bl-card-title {
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.01em;
+    color: #1a1a1a; margin: 0.55rem 0 0.5rem; transition: color 220ms ease;
+  }
+  .bl-card-desc {
+    font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.55; color: #6b7280; margin: 0;
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
+  }
+  .bl-meta { font-family: var(--font-sans); font-weight: 600; font-size: 0.8125rem; color: #9ca3af; margin-top: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+  .bl-dot { color: #d1d5db; }
+  @media (hover: hover) {
+    .bl-card:hover .bl-card-frame img { transform: scale(1.06); }
+    .bl-card:hover .bl-card-title { color: #ff4c00; }
   }
 
-  .uicore-page-title .uicore-container {
-    position: relative;
-    z-index: 1;
-  }
-
-  .ui-breadcrumb {
-    font-size: 14px;
-    margin-bottom: 15px;
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  .ui-breadcrumb a {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-  }
-
-  .ui-breadcrumb a:hover {
-    color: #fff;
-  }
-
-  .uicore-separator {
-    margin: 0 10px;
-    opacity: 0.6;
-  }
-
-  .uicore-title.h1 {
-    font-size: 72px;
-    font-weight: 600;
-    line-height: 1.2;
-    margin: 0;
-    color: #fff;
-  }
-
-  /* Blog Grid - EXACT OG */
-  .content-area {
-    width: 100%;
-  }
-
-  .site-main.uicore {
-    padding: 100px 0;
-  }
-
-  .uicore-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .uicore-archive {
-    width: 100%;
-  }
-
-  /* Grid System - EXACT OG */
-  .uicore-grid-container {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    margin: -15px;
-  }
-
-  .uicore-grid-item {
-    position: relative;
-    width: 100%;
-    padding: 15px;
-  }
-
-  .uicore-col-md-6 {
-    width: 50%;
-  }
-
-  @media (max-width: 767px) {
-    .uicore-col-md-6 {
-      width: 100%;
-    }
-  }
-
-  .uicore-col-lg-6 {
-    width: 50%;
-  }
-
-  /* Blog Card - EXACT OG */
-  .uicore-blog-grid .uicore-post {
-    border: 1px solid #ebebeb;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 48px 60px 0 rgba(17, 12, 46, 0.08);
-    background: #fff;
-    transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .uicore-blog-grid .uicore-post:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.06), 0 48px 60px 0 rgba(17, 12, 46, 0.08);
-  }
-
-  .uicore-post-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .uicore-blog-img-container {
-    overflow: hidden;
-    border-radius: 6px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .uicore-zoom-wrapper {
-    height: 0;
-    padding-bottom: 100%;
-    overflow: hidden;
-  }
-
-  .uicore-zoom .uicore-cover-img {
-    transform: scale(1);
-    background-position: 50%;
-    transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
-
-  .uicore-zoom:hover .uicore-cover-img {
-    transform: scale(1.2);
-  }
-
-  .uicore-cover-img {
-    width: 100%;
-    background-position: 50%;
-    background-size: cover;
-    padding-bottom: 100%;
-    display: block;
-  }
-
-  .uicore-post-info {
-    padding: 30px 28px !important;
-    margin: 0 !important;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .uicore-post-info-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .uicore-post-category {
-    margin-bottom: 1em;
-  }
-
-  .uicore-post-category a {
-    display: inline-block;
-    text-decoration: none;
-    color: #6e7a84;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    line-height: 11px;
-    font-weight: 600;
-  }
-
-  .uicore-post-category a:hover {
-    color: #f97316;
-  }
-
-  .uicore-post-title {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 600;
-    line-height: 1.44;
-    letter-spacing: 0em;
-    color: #070707;
-    font-size: 18px;
-    margin: 0;
-    transition: all 0.25s cubic-bezier(0.42, 0, 0.29, 1.16);
-  }
-
-  .uicore-post-title a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .uicore-post-title:hover {
-    color: #f97316;
-  }
-
-  .uicore-post-info p {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 600;
-    line-height: 1.57;
-    letter-spacing: 0em;
-    color: #070707;
-    font-size: 14px;
-    margin: 1em 0 0;
-  }
-
-  .uicore-post-footer {
-    font-size: 11px;
-    margin-top: 1.5em;
-    margin-top: auto;
-    padding-top: 1.5em;
-    color: #6e7a84;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    line-height: 11px;
-    font-weight: 600;
-  }
-
-  .uicore-post-footer a,
-  .uicore-post-footer span {
-    color: #6e7a84;
-  }
-
-  .uicore-meta-separator {
-    margin: 0 0.5em;
-  }
-
-  /* Pagination - EXACT OG */
-  .uicore-pagination {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .uicore-pagination ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 5px;
-  }
-
-  .uicore-page-link {
-    display: block;
-    padding: 8px 16px;
-    border: 1px solid #e6e9ec;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #070707;
-    font-size: 14px;
-    transition: all 0.3s;
-  }
-
-  .uicore-page-link:hover {
-    background: #f97316;
-    color: #fff;
-    border-color: #f97316;
-  }
-
-  .uicore-page-link.current {
-    background: #070707;
-    color: #fff;
-    border-color: #070707;
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .uicore-title.h1 {
-      font-size: 48px;
-    }
-
-    .site-main.uicore {
-      padding: 75px 0;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .uicore-title.h1 {
-      font-size: 34px;
-    }
-
-    .site-main.uicore {
-      padding: 45px 0;
-    }
-
-    .uicore-container {
-      padding: 0 15px;
-    }
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.19,1,0.22,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .bl-card-frame img { transition: none; }
   }
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

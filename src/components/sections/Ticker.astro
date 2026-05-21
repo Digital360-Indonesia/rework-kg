@@ -1,0 +1,73 @@
+---
+import home from '../../data/home.json';
+const items = home.ticker;
+
+// Render twice so the marquee can loop seamlessly with a 50% translateX.
+const loop = [...items, ...items];
+---
+
+<section class="ticker" aria-label="Perks">
+  <div class="ticker-track">
+    {loop.map((text) => (
+      <span class="ticker-item">
+        <span class="ticker-text">{text}</span>
+      </span>
+    ))}
+  </div>
+</section>
+
+<style>
+  .ticker {
+    position: relative;
+    width: 100%;
+    background: #ff4c00;
+    overflow: hidden;
+  }
+
+  .ticker-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    padding: 0.4375rem 0;
+    animation: ticker-scroll 38s linear infinite;
+    will-change: transform;
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    padding-right: 5rem;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+
+  .ticker-text {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: inherit;
+    -webkit-text-stroke: 0.55px currentColor;
+  }
+
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ticker-track { animation: none; }
+  }
+
+  @media (min-width: 768px) {
+    .ticker-text {
+      font-size: 0.875rem;
+      letter-spacing: 0.26em;
+    }
+    .ticker-item {
+      padding-right: 7rem;
+    }
+    .ticker-track { padding: 0.5rem 0; }
+  }
+</style>

@@ -13,608 +13,205 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-// Get related posts (same category, exclude current)
+// Related posts (same category, exclude current)
 const allPosts = await getCollection('blog');
 const relatedPosts = allPosts
   .filter(p => p.slug !== post.slug && p.data.category === post.data.category)
   .slice(0, 3);
+
+// Blog featured images aren't migrated yet — map to a real existing image (see blog/index.astro).
+const fallbackPool = [
+  '/images/placeholder/theme-image-1777040341996.png',
+  '/images/placeholder/theme-image-1777126525887.png',
+  '/images/placeholder/theme-image-1777126637504.png',
+  '/images/placeholder/theme-image-1777385298306.png',
+  '/images/placeholder/sample-section3a.webp',
+  '/images/placeholder/sample-section3b.webp',
+  '/images/placeholder/sample-section3c.webp',
+  '/images/placeholder/sample-section3d.webp',
+  '/images/categories/business.webp',
+  '/images/categories/community.webp',
+  '/images/categories/campus.webp',
+  '/images/categories/personal.webp',
+];
+const coverFor = (slug: string) =>
+  fallbackPool[[...slug].reduce((a, c) => a + c.charCodeAt(0), 0) % fallbackPool.length];
+
+const readingTime = (body?: string) =>
+  Math.max(1, Math.round((body?.split(/\s+/).filter(Boolean).length || 0) / 200));
+
+const fmtDate = (d: Date) => d.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const cover = coverFor(post.slug);
+const rt = readingTime(post.body);
+const wa = 'https://wa.me/6285161202499?text=' + encodeURIComponent('Halo Kustom Garment, saya mau bikin custom apparel.');
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description} image={post.data.image || '/images/hero/no-min-order-banner.png'}>
-  <main>
-    <!-- Single Post Content - EXACTLY like OG -->
-    <div id="primary" class="content-area">
-      <main id="main" class="site-main uicore-section uicore-box uicore">
-        <div class="uicore uicore-container uicore-content-wrapper uicore-blog-animation">
-          <div class="uicore-type-post uicore-post-content uicore-animate">
-            <article class={`blog-fonts post-${post.slug} post type-post status-publish format-standard has-post-thumbnail hentry category-${post.data.category.toLowerCase()}`}>
-              <!-- Single Post Header - EXACTLY like OG -->
-              <header class="uicore-single-header">
-                <h1 class="entry-title uicore-animate">{post.data.title}</h1>
-                <div class="uicore-entry-meta uicore-animate">
-                  <div>
-                    <a href="/blog/" title={`Posts by ${post.data.author}`} rel="author">{post.data.author}</a>
-                    <span class="uicore-meta-separator"></span>
-                  </div>
-                  <span class="ui-blog-date ui-published">
-                    {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </span>
-                  <span class="uicore-meta-separator"></span>
-                  <div class="uicore-post-category uicore-body">
-                    <a href={`/blog/?category=${post.data.category}`} rel="category tag">{post.data.category}</a>
-                  </div>
-                  <span class="uicore-meta-separator"></span>
-                  <span class="uicore-post-readtime">3 min read</span>
-                </div>
-                {post.data.image && (
-                  <div class="uicore-feature-img-wrapper uicore-animate">
-                    <img
-                      loading="lazy"
-                      width="1000"
-                      height="777"
-                      src={post.data.image}
-                      class="attachment-large size-large wp-post-image"
-                      alt={post.data.title}
-                      decoding="async"
-                    />
-                  </div>
-                )}
-              </header>
+<BaseLayout title={`${post.data.title} | Kustom Garment`} description={post.data.description} image={cover}>
+  <main class="ar">
+    <article class="ar-wrap">
+      <!-- Header -->
+      <header class="ar-head">
+        <a class="ar-back" href="/blog/"><span aria-hidden="true">←</span> Semua artikel</a>
+        <span class="ar-cat reveal">{post.data.category}</span>
+        <h1 class="ar-title reveal">{post.data.title}</h1>
+        <div class="ar-meta reveal">
+          <span>{post.data.author}</span>
+          <span class="ar-dot" aria-hidden="true">·</span>
+          <span>{fmtDate(post.data.pubDate)}</span>
+          <span class="ar-dot" aria-hidden="true">·</span>
+          <span>{rt} menit baca</span>
+        </div>
+      </header>
 
-              <!-- Entry Content - EXACTLY like OG -->
-              <div class="entry-content">
-                <div class="blog-fonts">
-                  <Content />
-                </div>
-              </div>
+      <!-- Feature image -->
+      <div class="ar-feature reveal">
+        <img src={cover} alt={post.data.title} loading="eager" width="1200" height="800" />
+      </div>
 
-              <!-- Entry Footer with Tags - EXACTLY like OG -->
-              <footer class="entry-footer">
-                {post.data.tags && post.data.tags.length > 0 && (
-                  <div class="tags-links">
-                    {post.data.tags.map(tag => (
-                      <a href={`/blog/?tag=${tag}`} rel="tag">{tag}</a>
-                    ))}
-                  </div>
-                )}
-              </footer>
-            </article>
+      <!-- Body -->
+      <div class="ar-body">
+        <Content />
+      </div>
 
-            <!-- Related Posts -->
-            {relatedPosts.length > 0 && (
-              <section class="uicore-related">
-                <div class="uicore-container">
-                  <h3 class="uicore-related-title">Related Posts</h3>
-                  <div class="uicore-grid-container uicore-blog-grid uicore-grid-row uicore-portrait-ratio uicore-small-space">
-                    {relatedPosts.map((relatedPost) => (
-                      <div class="uicore-grid-item uicore-col-md-6 uicore-col-lg-6 uicore-zoom uicore-animate">
-                        <article class="uicore-post">
-                          <div class="uicore-post-wrapper">
-                            <a href={`/blog/${relatedPost.slug}/`} title={`View Post: ${relatedPost.data.title}`}>
-                              <div class="uicore-blog-img-container uicore-zoom-wrapper">
-                                <div class="uicore-cover-img" style={`background-image: url(${relatedPost.data.image || '/images/hero/no-min-order-banner.png'})`}></div>
-                              </div>
-                            </a>
-                            <div class="uicore-post-info">
-                              <div class="uicore-post-info-wrapper">
-                                <div class="uicore-post-category uicore-body">
-                                  <a href={`/blog/?category=${relatedPost.data.category}`} title={`View ${relatedPost.data.category} posts`}>{relatedPost.data.category}</a>
-                                </div>
-                                <a href={`/blog/${relatedPost.slug}/`} title={`View Post: ${relatedPost.data.title}`}>
-                                  <h4 class="uicore-post-title"><span>{relatedPost.data.title}</span></h4>
-                                </a>
-                                <p>{relatedPost.data.description}</p>
-                                <div class="uicore-post-footer uicore-body">
-                                  <span><a href="/blog/">{relatedPost.data.author}</a></span>
-                                  <span class="uicore-meta-separator"></span>
-                                  <span>{relatedPost.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                                  <span class="uicore-meta-separator"></span>
-                                  <span>3 min read</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </article>
-                      </div>
-                    ))}
-                  </div>
+      <!-- Tags -->
+      {post.data.tags && post.data.tags.length > 0 && (
+        <div class="ar-tags">
+          {post.data.tags.map(tag => (<span class="ar-tag">{tag}</span>))}
+        </div>
+      )}
+
+      <!-- End CTA -->
+      <div class="ar-cta-box">
+        <p class="ar-cta-lead">Mau bikin custom-mu sendiri?</p>
+        <a class="ar-cta" href={wa} target="_blank" rel="noopener noreferrer">
+          Mulai dari sini <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- Related -->
+    {relatedPosts.length > 0 && (
+      <section class="ar-related">
+        <div class="ar-related-wrap">
+          <h2 class="ar-related-title reveal">Baca juga</h2>
+          <div class="ar-rel-grid">
+            {relatedPosts.map((rp, i) => (
+              <a class="bl-card reveal" style={`transition-delay:${i * 80}ms`} href={`/blog/${rp.slug}/`}>
+                <div class="bl-card-frame">
+                  <img src={coverFor(rp.slug)} alt={rp.data.title} loading="lazy" />
                 </div>
-              </section>
-            )}
+                <span class="bl-cat">{rp.data.category}</span>
+                <h3 class="bl-card-title">{rp.data.title}</h3>
+                <p class="bl-card-desc">{rp.data.description}</p>
+              </a>
+            ))}
           </div>
         </div>
-      </main>
-    </div>
+      </section>
+    )}
   </main>
 </BaseLayout>
 
 <style>
-  /* EXACT OG Styles for Single Post */
-
-  /* Single Post Layout - Same as blog listing */
-  .content-area {
-    width: 100%;
-  }
-
-  .site-main.uicore {
-    padding: 100px 0;
-  }
-
-  .uicore-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .uicore-type-post {
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  /* Single Post Header */
-  .uicore-single-header {
-    margin-bottom: 40px;
-  }
-
-  .entry-title {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: normal;
-    line-height: 1.2;
-    letter-spacing: -0.027em;
-    text-transform: none;
-    font-style: normal;
-    font-size: 72px;
-    color: #070707;
-    margin: 0 0 20px 0;
-  }
-
-  .uicore-entry-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5em;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    line-height: 11px;
-    font-weight: 600;
-    color: #6e7a84;
-  }
-
-  .uicore-entry-meta a,
-  .uicore-entry-meta span {
-    color: #6e7a84;
-  }
-
-  .uicore-entry-meta a:hover {
-    color: #f97316;
-  }
-
-  .uicore-meta-separator {
-    margin: 0 0.5em;
-  }
-
-  .uicore-post-category {
-    display: inline-block;
-    line-height: inherit;
-  }
-
-  .uicore-post-category a {
-    text-decoration: none;
-    color: #6e7a84;
-  }
-
-  .uicore-post-category a:hover {
-    color: #f97316;
-  }
-
-  .uicore-feature-img-wrapper {
-    margin: 2em 0;
-  }
-
-  .uicore-feature-img-wrapper img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 6px;
-  }
-
-  /* Entry Content */
-  .entry-content {
-    width: 100%;
-  }
-
-  .blog-fonts {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    color: #070707;
-    line-height: 1.8;
-    font-size: 16px;
-  }
-
-  /* Blog Typography - EXACT OG styles */
-  .blog-fonts h1,
-  .blog-fonts h2,
-  .blog-fonts h3,
-  .blog-fonts h4,
-  .blog-fonts h5,
-  .blog-fonts h6 {
-    font-family: 'Inter', system-ui, sans-serif;
-    color: #070707;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-    font-weight: normal;
-  }
-
-  .blog-fonts h1 {
-    font-size: 72px;
-    line-height: 1.2;
-    letter-spacing: -0.027em;
-  }
-
-  .blog-fonts h2 {
-    font-size: 40px;
-    line-height: 1.2;
-    letter-spacing: -0.027em;
-  }
-
-  .blog-fonts h3 {
-    font-size: 34px;
-    line-height: 1.25;
-    letter-spacing: 0em;
-  }
-
-  .blog-fonts h4 {
-    font-size: 20px;
-    line-height: 1.1;
-    letter-spacing: 0em;
-  }
-
-  .blog-fonts h5 {
-    font-size: 16px;
-    line-height: 1.1;
-    letter-spacing: 0em;
-  }
-
-  .blog-fonts h6 {
-    font-size: 14px;
-    line-height: 1.1;
-    letter-spacing: 0em;
-    text-transform: uppercase;
-  }
-
-  .blog-fonts p {
-    margin: 9px 0 0;
-    font-size: 16px;
-    line-height: 1.875;
-  }
-
-  .blog-fonts strong,
-  .blog-fonts b {
-    font-weight: 600;
-    color: #070707;
-  }
-
-  .blog-fonts a {
-    color: #f97316;
-    text-decoration: none;
-  }
-
-  .blog-fonts a:hover {
-    color: #ea580c;
-  }
-
-  .blog-fonts ul,
-  .blog-fonts ol {
-    padding-left: 1em;
-    margin: 9px 0 0;
-  }
-
-  .blog-fonts li {
-    margin: 9px 0 0;
-  }
-
-  .blog-fonts blockquote {
-    margin: 20px auto;
-    padding: 50px 70px;
-    background-color: hsl(0 0% 98% / 0.9);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M14.017 21L14.017 18C14.017 16.8954 13.1216 16 12.017 16H11C9.89543 16 9 15.1046 9 14V9C9 7.89543 9.89543 7 11 7H12C13.2091 7 15 8.79086 15 11V14C15 16.1046 14.1046 17 13 17H14.017V21ZM5 21L5 18C5 16.8954 4.10457 16 3 16H2C0.895431 16 0 15.1046 0 14V9C0 7.89543 0.895431 7 2 7H3C5.20914 7 7 8.79086 7 11V14C7 15.1046 6.10457 16 5 16H5V21Z'/%3E%3C/svg%3E");
-    background-position: 30px 70%;
-    background-repeat: no-repeat;
-    background-size: 15% auto;
-    font-size: 120%;
-    line-height: 1.5;
-  }
-
-  .blog-fonts blockquote p {
-    margin-bottom: 0;
-  }
-
-  .blog-fonts table {
-    empty-cells: show;
-    border: 1px solid #e6e9ec;
-    margin: 18px 0;
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-  }
-
-  .blog-fonts table td,
-  .blog-fonts table th {
-    background-color: #fff;
-    border-left: 1px solid #e6e9ec;
-    border-bottom: 1px solid #e6e9ec;
-    font-size: inherit;
-    margin: 0;
-    overflow: visible;
-    padding: 5px;
-    font-weight: 600;
-  }
-
-  .blog-fonts table td:first-child,
-  .blog-fonts table th:first-child {
-    border-left-width: 0;
-  }
-
-  .blog-fonts table th {
-    font-weight: 600;
-  }
-
-  /* Entry Footer - Tags */
-  .entry-footer {
-    margin-top: 36px;
-    padding-top: 36px;
-    border-top: 1px solid #e6e9ec;
-  }
-
-  .tags-links {
-    display: flex;
-    flex-wrap: wrap;
-    margin: -5px;
-    padding: 10px 0 0;
-  }
-
-  .tags-links a {
-    font-size: 10px !important;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 10px 15px;
-    border: 1px solid #e6e9ec;
-    margin: 5px;
-    line-height: 1.5;
-    text-decoration: none;
-    color: #6e7a84;
-    transition: all 0.3s;
-  }
-
-  .tags-links a:hover {
-    border-color: #a3afb7;
-    background: #f97316;
-    color: #fff;
-  }
-
-  /* Related Posts Section */
-  .uicore-related {
-    margin-top: 60px;
-    padding-top: 60px;
-    border-top: 1px solid #e6e9ec;
-  }
-
-  .uicore-related-title {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 30px;
-    color: #070707;
-  }
-
-  /* Grid System for Related Posts */
-  .uicore-grid-container {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    margin: -15px;
-  }
-
-  .uicore-grid-item {
-    position: relative;
-    width: 100%;
-    padding: 15px;
-  }
-
-  .uicore-col-md-6 {
-    width: 50%;
-  }
-
-  .uicore-col-lg-6 {
-    width: 50%;
-  }
-
-  @media (max-width: 767px) {
-    .uicore-col-md-6,
-    .uicore-col-lg-6 {
-      width: 100%;
-    }
-  }
-
-  /* Blog Card Styles - Same as listing */
-  .uicore-blog-grid .uicore-post {
-    border: 1px solid #ebebeb;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 48px 60px 0 rgba(17, 12, 46, 0.08);
-    background: #fff;
-    transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .uicore-blog-grid .uicore-post:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.06), 0 48px 60px 0 rgba(17, 12, 46, 0.08);
-  }
-
-  .uicore-post-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .uicore-blog-img-container {
-    overflow: hidden;
-    border-radius: 6px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  .uicore-zoom-wrapper {
-    height: 0;
-    padding-bottom: 100%;
-    overflow: hidden;
-  }
-
-  .uicore-zoom .uicore-cover-img {
-    transform: scale(1);
-    background-position: 50%;
-    transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
-
-  .uicore-zoom:hover .uicore-cover-img {
-    transform: scale(1.2);
-  }
-
-  .uicore-cover-img {
-    width: 100%;
-    background-position: 50%;
-    background-size: cover;
-    padding-bottom: 100%;
-    display: block;
-  }
-
-  .uicore-post-info {
-    padding: 30px 28px !important;
-    margin: 0 !important;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .uicore-post-info-wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-
-  .uicore-post-category {
-    margin-bottom: 1em;
-  }
-
-  .uicore-post-category a {
-    display: inline-block;
-    text-decoration: none;
-    color: #6e7a84;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    line-height: 11px;
-    font-weight: 600;
-  }
-
-  .uicore-post-category a:hover {
-    color: #f97316;
-  }
-
-  .uicore-post-title {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 600;
-    line-height: 1.44;
-    letter-spacing: 0em;
-    color: #070707;
-    font-size: 18px;
-    margin: 0;
-    transition: all 0.25s cubic-bezier(0.42, 0, 0.29, 1.16);
-  }
-
-  .uicore-post-title a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .uicore-post-title:hover {
-    color: #f97316;
-  }
-
-  .uicore-post-info p {
-    font-family: 'Inter', system-ui, sans-serif;
-    font-weight: 600;
-    line-height: 1.57;
-    letter-spacing: 0em;
-    color: #070707;
-    font-size: 14px;
-    margin: 1em 0 0;
-  }
-
-  .uicore-post-footer {
-    font-size: 11px;
-    margin-top: 1.5em;
-    margin-top: auto;
-    padding-top: 1.5em;
-    color: #6e7a84;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    line-height: 11px;
-    font-weight: 600;
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .entry-title {
-      font-size: 48px;
-    }
-
-    .blog-fonts h1 {
-      font-size: 48px;
-    }
-
-    .blog-fonts h2 {
-      font-size: 34px;
-    }
-
-    .blog-fonts h3 {
-      font-size: 26px;
-    }
-
-    .site-main.uicore {
-      padding: 75px 0;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .entry-title {
-      font-size: 34px;
-    }
-
-    .blog-fonts h1 {
-      font-size: 34px;
-    }
-
-    .blog-fonts h2 {
-      font-size: 26px;
-    }
-
-    .blog-fonts h3 {
-      font-size: 20px;
-    }
-
-    .blog-fonts p {
-      font-size: 16px;
-    }
-
-    .site-main.uicore {
-      padding: 45px 0;
-    }
-
-    .uicore-container {
-      padding: 0 15px;
-    }
+  .ar { background: #ffffff; }
+  .ar-wrap { max-width: 44rem; margin: 0 auto; padding: 3.5rem 1.5rem 0; }
+  @media (min-width: 1024px) { .ar-wrap { padding: 5rem 1.5rem 0; } }
+
+  /* Header */
+  .ar-head { margin-bottom: 2rem; }
+  .ar-back {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; color: #6b7280;
+    text-decoration: none; margin-bottom: 2rem; transition: color 200ms ease;
+  }
+  .ar-back span { transition: transform 280ms cubic-bezier(0.19,1,0.22,1); }
+  @media (hover: hover) { .ar-back:hover { color: #ff4c00; } .ar-back:hover span { transform: translateX(-4px); } }
+  .ar-cat { display: block; font-family: var(--font-sans); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #ff4c00; margin-bottom: 0.85rem; }
+  .ar-title {
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.25rem); line-height: 1.08; letter-spacing: -0.025em;
+    color: #1a1a1a; margin: 0 0 1.25rem;
+  }
+  .ar-meta { font-family: var(--font-sans); font-weight: 600; font-size: 0.875rem; color: #9ca3af; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; }
+  .ar-dot { color: #d1d5db; }
+
+  /* Feature image */
+  .ar-feature { border-radius: 1.5rem; overflow: hidden; aspect-ratio: 16 / 10; background: #f4f4f4; margin-bottom: 3rem; }
+  .ar-feature img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Body / prose */
+  .ar-body { font-family: var(--font-sans); font-weight: 600; color: #374151; font-size: 1.0625rem; line-height: 1.75; }
+  .ar-body :global(h2) { font-family: var(--font-sans); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; letter-spacing: -0.02em; color: #1a1a1a; margin: 2.5rem 0 1rem; }
+  .ar-body :global(h3) { font-family: var(--font-sans); font-weight: 700; font-size: clamp(1.25rem, 2.4vw, 1.5rem); line-height: 1.2; letter-spacing: -0.01em; color: #1a1a1a; margin: 2rem 0 0.75rem; }
+  .ar-body :global(h4) { font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; color: #1a1a1a; margin: 1.5rem 0 0.5rem; }
+  .ar-body :global(p) { margin: 0 0 1.25rem; }
+  .ar-body :global(a) { color: #ff4c00; text-decoration: underline; text-underline-offset: 2px; }
+  @media (hover: hover) { .ar-body :global(a:hover) { color: #d63e00; } }
+  .ar-body :global(strong), .ar-body :global(b) { font-weight: 700; color: #1a1a1a; }
+  .ar-body :global(ul), .ar-body :global(ol) { margin: 0 0 1.25rem; padding-left: 1.4rem; }
+  .ar-body :global(li) { margin: 0.4rem 0; list-style-position: outside; }
+  .ar-body :global(img) { border-radius: 1rem; margin: 1.5rem 0; }
+  .ar-body :global(blockquote) {
+    margin: 1.75rem 0; padding: 1.25rem 1.5rem; border-left: 4px solid #ff4c00;
+    background: #faf9f8; border-radius: 0 0.75rem 0.75rem 0; color: #1a1a1a; font-size: 1.125rem;
+  }
+  .ar-body :global(blockquote p) { margin: 0; }
+  .ar-body :global(table) { width: 100%; border-collapse: collapse; margin: 1.75rem 0; font-size: 0.9375rem; display: block; overflow-x: auto; }
+  .ar-body :global(thead th) { background: #ff4c00; color: #ffffff; font-weight: 700; text-align: left; padding: 0.8rem 1rem; white-space: nowrap; }
+  .ar-body :global(tbody td), .ar-body :global(tbody th) { padding: 0.75rem 1rem; border-bottom: 1px solid #f0f0f0; font-weight: 600; color: #525252; white-space: nowrap; }
+  .ar-body :global(tbody tr:nth-child(even)) { background: #fafafa; }
+  .ar-body :global(hr) { border: none; border-top: 1px solid #ececec; margin: 2.5rem 0; }
+
+  /* Tags */
+  .ar-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 3rem 0 0; padding-top: 2.5rem; border-top: 1px solid #ececec; }
+  .ar-tag { font-family: var(--font-sans); font-weight: 600; font-size: 0.8125rem; color: #6b7280; border: 1px solid #ececec; border-radius: 999px; padding: 0.4rem 0.9rem; }
+
+  /* End CTA */
+  .ar-cta-box { margin: 3rem 0 0; padding: 2.5rem; border-radius: 1.5rem; background: #f5f5f5; }
+  .ar-cta-lead { font-family: var(--font-sans); font-weight: 600; font-size: 1rem; color: #6b7280; margin: 0 0 0.5rem; }
+  .ar-cta {
+    display: inline-flex; align-items: baseline; gap: 0.5rem; position: relative;
+    font-family: var(--font-sans); font-weight: 700; font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    letter-spacing: -0.02em; color: #1a1a1a; text-decoration: none; padding-bottom: 0.12em;
+  }
+  .ar-cta span { color: #ff4c00; display: inline-block; transition: transform 320ms cubic-bezier(0.19,1,0.22,1); }
+  .ar-cta::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px; background: #ff4c00; transform: scaleX(0); transform-origin: left; transition: transform 460ms cubic-bezier(0.19,1,0.22,1); }
+  @media (hover: hover) { .ar-cta:hover::after { transform: scaleX(1); } .ar-cta:hover span { transform: translateX(8px); } }
+
+  /* Related */
+  .ar-related { padding: 4rem 0 6rem; }
+  @media (min-width: 1024px) { .ar-related { padding: 5rem 0 8rem; } }
+  .ar-related-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 1024px) { .ar-related-wrap { padding: 0 2.5rem; } }
+  .ar-related-title { font-family: var(--font-sans); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.02em; color: #1a1a1a; margin: 0 0 2rem; }
+  .ar-rel-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem 1.75rem; }
+  @media (min-width: 640px) { .ar-rel-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  /* Shared blog card (matches blog/index.astro) */
+  .bl-card { display: block; text-decoration: none; }
+  .bl-card-frame { position: relative; border-radius: 1.25rem; overflow: hidden; aspect-ratio: 4 / 3; background: #f4f4f4; margin-bottom: 1.1rem; }
+  .bl-card-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 800ms cubic-bezier(0.19,1,0.22,1); }
+  .bl-cat { font-family: var(--font-sans); font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: #ff4c00; }
+  .bl-card-title { font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.55rem 0 0.5rem; transition: color 220ms ease; }
+  .bl-card-desc { font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.55; color: #6b7280; margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; }
+  @media (hover: hover) {
+    .bl-card:hover .bl-card-frame img { transform: scale(1.06); }
+    .bl-card:hover .bl-card-title { color: #ff4c00; }
+  }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.19,1,0.22,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .bl-card-frame img { transition: none; }
   }
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

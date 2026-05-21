@@ -1,0 +1,249 @@
+# Sveltia CMS config — Kustom Garment
+# Admins edit at /admin. Saving commits to the repo → site rebuilds.
+#
+# GO-LIVE TODO (see notes/cms-setup.md):
+#   1. Push repo to GitHub and set `repo` below to "<owner>/<name>".
+#   2. Set up GitHub OAuth (Sveltia supports GitHub directly, or a small OAuth worker).
+#   3. Connect a build that rebuilds on push (Netlify / Vercel / Cloudflare Pages).
+# For LOCAL editing now (no GitHub needed): open the admin in a Chromium browser
+# (Chrome/Edge) at http://localhost:4321/admin/index.html and click
+# "Work with Local Repository" — Sveltia edits the repo files directly via the
+# File System Access API. (Fallback for other browsers: `npx decap-server`.)
+
+backend:
+  name: github
+  repo: Digital360-Indonesia/rework-kg
+  branch: main
+
+local_backend: true        # enables local editing on localhost
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # ---------------- GLOBAL (header, footer, contact, social) ----------------
+  - name: settings
+    label: "Pengaturan Situs"
+    delete: false
+    files:
+      - name: site
+        label: "Global — kontak, sosial, navigasi, footer"
+        file: "src/data/site-config.json"
+        fields:
+          - { name: siteName, label: "Nama Situs", widget: string }
+          - { name: tagline, label: "Tagline", widget: string, required: false }
+          - name: contact
+            label: "Kontak"
+            widget: object
+            fields:
+              - { name: phoneFormatted, label: "Telepon (tampil)", widget: string }
+              - { name: phone, label: "Telepon (angka)", widget: string }
+              - { name: whatsappUrl, label: "WhatsApp URL", widget: string }
+              - { name: email, label: "Email", widget: string }
+              - { name: address, label: "Alamat", widget: text }
+          - name: social
+            label: "Sosial Media"
+            widget: object
+            fields:
+              - { name: instagram, label: "Instagram URL", widget: string }
+              - { name: tiktok, label: "TikTok URL", widget: string }
+              - { name: facebook, label: "Facebook URL", widget: string, required: false }
+              - { name: youtube, label: "YouTube URL", widget: string, required: false }
+          - name: navigation
+            label: "Navigasi Header (kategori)"
+            widget: list
+            fields:
+              - { name: name, label: "Label", widget: string }
+              - { name: path, label: "Link", widget: string }
+          - name: footer
+            label: "Footer"
+            widget: object
+            fields:
+              - { name: tagline, label: "Tagline footer", widget: string }
+              - name: infoLinks
+                label: "Link Info"
+                widget: list
+                fields:
+                  - { name: name, label: "Label", widget: string }
+                  - { name: path, label: "Link", widget: string }
+              - { name: legalLine, label: "Baris legal", widget: string }
+              - { name: privacyLabel, label: "Label privacy", widget: string }
+              - { name: privacyUrl, label: "Link privacy", widget: string }
+              - { name: descriptor, label: "Deskriptor brand", widget: string }
+
+  # ---------------- HOMEPAGE ----------------
+  - name: homepage
+    label: "Homepage"
+    delete: false
+    files:
+      - name: home
+        label: "Konten Homepage"
+        file: "src/data/home.json"
+        fields:
+          - name: ticker
+            label: "Ticker (perks berjalan)"
+            widget: list
+            field: { name: item, label: "Teks", widget: string }
+          - name: hero
+            label: "Section 1 — Hero (banner slider)"
+            widget: object
+            fields:
+              - name: slides
+                label: "Slide"
+                widget: list
+                fields:
+                  - { name: image, label: "Gambar", widget: image }
+                  - { name: href, label: "Link", widget: string }
+                  - { name: alt, label: "Alt text", widget: string }
+          - name: categoryCards
+            label: "Section 2 — Kartu Kategori (5 kartu, hover ganti gambar)"
+            widget: object
+            fields:
+              - { name: hoverImage, label: "Gambar hover (dipakai semua kartu)", widget: image }
+              - name: items
+                label: "Kartu (5)"
+                widget: list
+                fields:
+                  - { name: label, label: "Label", widget: string }
+                  - { name: href, label: "Link", widget: string }
+                  - { name: image, label: "Gambar default", widget: image }
+          - name: scenes
+            label: "Section 4 — Scene Gallery"
+            widget: object
+            fields:
+              - { name: headlinePrefix, label: "Awalan judul", widget: string }
+              - name: flipWords
+                label: "Kata berganti (orange)"
+                widget: list
+                field: { name: word, label: "Kata", widget: string }
+              - name: items
+                label: "Scene"
+                widget: list
+                fields:
+                  - { name: img, label: "Gambar", widget: image }
+                  - { name: title, label: "Judul", widget: string }
+                  - { name: desc, label: "Deskripsi", widget: text }
+                  - { name: ratio, label: "Rasio (mis. 4 / 5)", widget: string }
+                  - { name: cta, label: "Teks CTA", widget: string }
+                  - { name: waText, label: "Pesan WhatsApp", widget: text }
+          - name: social
+            label: "Section 5 — Social Wall (@kustomgarment)"
+            widget: object
+            fields:
+              - { name: headlinePrefix, label: "Awalan judul", widget: string }
+              - { name: handle, label: "Handle", widget: string }
+              - { name: handleUrl, label: "Link handle", widget: string }
+              - name: rows
+                label: "Baris (3) — reel codes"
+                widget: list
+                field:
+                  name: row
+                  label: "Baris"
+                  widget: list
+                  fields:
+                    - { name: code, label: "Kode reel IG", widget: string }
+                    - { name: slow, label: "Diperlambat?", widget: boolean, required: false, default: false }
+          - name: endCta
+            label: "Section 6 — End CTA Banner"
+            widget: object
+            fields:
+              - { name: title, label: "Judul", widget: string }
+              - { name: ctaText, label: "Teks CTA", widget: string }
+              - { name: bg, label: "Gambar (default)", widget: image }
+              - { name: bgHover, label: "Gambar (hover)", widget: image }
+              - { name: waText, label: "Pesan WhatsApp", widget: text }
+
+  # ---------------- CATEGORIES (homepage section 3 showcases) ----------------
+  - name: categories
+    label: "Section 3 — Showcase Kategori (slider produk + gambar)"
+    delete: false
+    files:
+      - name: categories
+        label: "Business / Community / Campus / Personal"
+        file: "src/data/categories.json"
+        fields:
+          - name: business
+            label: "Business"
+            widget: object
+            fields:
+              - { name: name, label: "Nama", widget: string }
+              - { name: href, label: "Link", widget: string }
+              - { name: rightImage, label: "Gambar lifestyle (kanan)", widget: image }
+              - { name: rightEyebrow, label: "Eyebrow", widget: string }
+              - { name: rightTitle, label: "Judul", widget: string }
+              - { name: rightCta, label: "Teks CTA", widget: string }
+              - name: products
+                label: "Produk (carousel)"
+                widget: list
+                fields:
+                  - { name: image, label: "Gambar produk", widget: image }
+                  - { name: title, label: "Nama produk", widget: string }
+                  - { name: description, label: "Deskripsi", widget: text }
+          - name: community
+            label: "Community"
+            widget: object
+            fields:
+              - { name: name, label: "Nama", widget: string }
+              - { name: href, label: "Link", widget: string }
+              - { name: rightImage, label: "Gambar lifestyle (kanan)", widget: image }
+              - { name: rightEyebrow, label: "Eyebrow", widget: string }
+              - { name: rightTitle, label: "Judul", widget: string }
+              - { name: rightCta, label: "Teks CTA", widget: string }
+              - name: products
+                label: "Produk (carousel)"
+                widget: list
+                fields:
+                  - { name: image, label: "Gambar produk", widget: image }
+                  - { name: title, label: "Nama produk", widget: string }
+                  - { name: description, label: "Deskripsi", widget: text }
+          - name: campus
+            label: "Campus"
+            widget: object
+            fields:
+              - { name: name, label: "Nama", widget: string }
+              - { name: href, label: "Link", widget: string }
+              - { name: rightImage, label: "Gambar lifestyle (kanan)", widget: image }
+              - { name: rightEyebrow, label: "Eyebrow", widget: string }
+              - { name: rightTitle, label: "Judul", widget: string }
+              - { name: rightCta, label: "Teks CTA", widget: string }
+              - name: products
+                label: "Produk (carousel)"
+                widget: list
+                fields:
+                  - { name: image, label: "Gambar produk", widget: image }
+                  - { name: title, label: "Nama produk", widget: string }
+                  - { name: description, label: "Deskripsi", widget: text }
+          - name: personal
+            label: "Personal"
+            widget: object
+            fields:
+              - { name: name, label: "Nama", widget: string }
+              - { name: href, label: "Link", widget: string }
+              - { name: rightImage, label: "Gambar lifestyle (kanan)", widget: image }
+              - { name: rightEyebrow, label: "Eyebrow", widget: string }
+              - { name: rightTitle, label: "Judul", widget: string }
+              - { name: rightCta, label: "Teks CTA", widget: string }
+              - name: products
+                label: "Produk (carousel)"
+                widget: list
+                fields:
+                  - { name: image, label: "Gambar produk", widget: image }
+                  - { name: title, label: "Nama produk", widget: string }
+                  - { name: description, label: "Deskripsi", widget: text }
+
+  # ---------------- BLOG ----------------
+  - name: blog
+    label: "Blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: "Judul", widget: string }
+      - { name: description, label: "Deskripsi", widget: text }
+      - { name: pubDate, label: "Tanggal", widget: datetime }
+      - { name: author, label: "Penulis", widget: string, default: "Kustom Garment" }
+      - { name: image, label: "Cover", widget: image, required: false }
+      - { name: category, label: "Kategori", widget: string }
+      - { name: tags, label: "Tags", widget: list, default: [], required: false }
+      - { name: featured, label: "Featured?", widget: boolean, default: false }
+      - { name: body, label: "Isi", widget: markdown }

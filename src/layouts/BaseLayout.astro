@@ -1,58 +1,213 @@
 ---
-import '../styles/global.css';
+/**
+ * Base Layout - Kustom Garment
+ * Main layout wrapper for all pages
+ * Following rework-lg pattern with SEO, structured data, accessibility
+ */
 import Header from '../components/sections/Header.astro';
 import Footer from '../components/sections/Footer.astro';
+import siteConfig from '../data/site-config.json';
+import '../styles/global.css';
 
-interface Props {
+export interface Props {
   title: string;
   description?: string;
   image?: string;
+  noIndex?: boolean;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  canonicalURL?: string;
 }
 
 const {
   title,
-  description = "Kustom Garment adalah konveksi custom satuan di Surabaya yang melayani pembuatan kaos, jaket, kemeja, dan seragam tanpa minimal order.",
-  image = "/images/hero/no-min-order-banner.png"
+  description = siteConfig.description,
+  image = '/images/hero/no-min-order-banner.webp',
+  noIndex = false,
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  canonicalURL,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'http://localhost:4321');
+// Generate canonical URL
+const fullCanonicalURL = canonicalURL
+  ? new URL(canonicalURL, siteConfig.siteUrl)
+  : new URL(Astro.url.pathname, siteConfig.siteUrl);
+
+// Page type for structured data
+const pageType = type === 'article' ? 'article' : 'website';
+
+// WhatsApp from config
+const whatsappNumber = siteConfig.contact.whatsapp;
 const currentPath = Astro.url.pathname;
 ---
 
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/images/logos/kg-logo.png" />
-    <meta name="generator" content={Astro.generator} />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content={Astro.generator}>
 
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonicalURL} />
+  <!-- SEO Meta Tags -->
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <meta name="keywords" content={siteConfig.seo.keywords.join(', ')}>
+  <link rel="canonical" href={fullCanonicalURL}>
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, Astro.url)} />
+  {noIndex && <meta name="robots" content="noindex, nofollow">}
 
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content={pageType}>
+  <meta property="og:url" content={fullCanonicalURL}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={new URL(image, siteConfig.siteUrl)}>
+  <meta property="og:site_name" content={siteConfig.siteName}>
+  <meta property="og:locale" content="id_ID">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  </head>
-  <body>
-    <Header currentPath={currentPath} />
-    <main class="main-content">
-      <slot />
-    </main>
-    <Footer />
-  </body>
+  {publishedTime && <meta property="article:published_time" content={publishedTime}>}
+  {modifiedTime && <meta property="article:modified_time" content={modifiedTime}>}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content={fullCanonicalURL}>
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={new URL(image, siteConfig.siteUrl)}>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="196x196" href="/images/logos/kg-logo.png">
+  <link rel="apple-touch-icon" sizes="196x196" href="/images/logos/kg-logo.png">
+
+  <!-- Fonts - Montserrat (Kustom Garment primary font) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Structured Data -->
+  <script set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": type === 'article' ? 'Article' : 'WebPage',
+    "name": title,
+    "description": description,
+    "url": fullCanonicalURL,
+    "publisher": {
+      "@type": "Organization",
+      "name": siteConfig.siteName,
+      "url": siteConfig.siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": new URL('/images/logos/kg-logo.png', siteConfig.siteUrl)
+      },
+      "sameAs": [
+        siteConfig.social.instagram,
+        siteConfig.social.tiktok,
+        siteConfig.social.facebook,
+        siteConfig.social.youtube
+      ]
+    },
+    ...(type === 'article' && {
+      "headline": title,
+      "datePublished": publishedTime,
+      "dateModified": modifiedTime
+    })
+  })} type="application/ld+json"></script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-50">
+    Skip to main content
+  </a>
+
+  <!-- Header / Navigation -->
+  <Header currentPath={currentPath} />
+
+  <!-- Main Content -->
+  <main id="main-content" class="flex-grow">
+    <slot />
+  </main>
+
+  <!-- Footer -->
+  <Footer />
+
+  <!-- Back to Top Button -->
+  <button
+    id="back-to-top"
+    aria-label="Back to top"
+    class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-primary-dark z-40"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+  </button>
+
+  <!-- Back to Top Script -->
+  <script define:vars={{ threshold: 300 }}>
+    const backToTop = document.getElementById('back-to-top');
+    let isVisible = false;
+
+    const toggleBackToTop = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      if (scrollTop > threshold && !isVisible) {
+        backToTop.classList.remove('opacity-0', 'invisible');
+        backToTop.classList.add('opacity-100', 'visible');
+        isVisible = true;
+      } else if (scrollTop <= threshold && isVisible) {
+        backToTop.classList.add('opacity-0', 'invisible');
+        backToTop.classList.remove('opacity-100', 'visible');
+        isVisible = false;
+      }
+    };
+
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    window.addEventListener('scroll', toggleBackToTop);
+    backToTop.addEventListener('click', scrollToTop);
+  </script>
+
+  <!-- Deep-scroll: /?goto=<section-class> jumps to that section (used by /checklist preview links) -->
+  <script>
+    const _goto = new URLSearchParams(location.search).get('goto');
+    if (_goto) {
+      const _sel = (window.CSS && CSS.escape) ? CSS.escape(_goto) : _goto;
+      const _el = document.querySelector('.' + _sel);
+      if (_el) {
+        addEventListener('load', () => setTimeout(() => _el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150));
+      }
+    }
+  </script>
+</body>
 </html>
+
+<style>
+  /* Screen reader only */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+</style>

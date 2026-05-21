@@ -1,265 +1,245 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Reuse CategoryCards component if it exists, or create it here
-// For now, let's check if there's a categories folder
+const metaTitle = 'Produk — Katalog Apparel Custom | Kustom Garment';
+const metaDescription = 'Kaos, polo, kemeja, jaket, hoodie, rompi, wearpack, sampai jersey — semua bisa dibikin custom. Tanpa minimum order, desain bebas, bahan premium. Konveksi satuan Surabaya.';
 
-// SEO Meta
-const title = 'Produk - Konveksi Satuan Surabaya Kustom Garment';
-const description = 'Pilihan Kategori Add On Product. Lihat semua produk kaos, jaket, kemeja, polo, rompi, dan topi dengan kualitas premium.';
+const wa = (msg: string) => 'https://wa.me/6285161202499?text=' + encodeURIComponent(msg);
 
-// Category cards data - reusing from homepage
+// --- CMS-ready content ---
+const hero = {
+  eyebrow: 'Katalog Produk',
+  titleLead: 'Bikin apa aja,',
+  titleAccent: 'di satu tempat.',
+  sub: 'Dari kaos satuan sampai seragam ribuan pcs — pilih produknya, sisanya kami yang urus. Tanpa minimum order, desain bebas.',
+};
+
+// Product types — the hub. Each links to WhatsApp prefilled, except Jersey → its own catalog.
+const productTypes = [
+  { name: 'Kaos',     image: '/images/products/business/20250428-T-Shirt_Basic_1-1.webp',        desc: 'Cotton combed premium, sablon atau DTF. Satuan sampai ribuan.',     link: wa('Halo Kustom Garment, saya mau bikin Kaos custom.') },
+  { name: 'Polo',     image: '/images/products/business/20250428-Polo-Shirt_Basic_1.webp',        desc: 'Pique & cooldry, bordir logo rapi. Adem buat dipakai harian.',       link: wa('Halo Kustom Garment, saya mau bikin Polo custom.') },
+  { name: 'Kemeja',   image: '/images/products/business/20250428-Kemeja_Workshirt-Basic_1.webp',  desc: 'Drill, oxford, sampai batik. Buat PDH, kerja, atau formal.',        link: wa('Halo Kustom Garment, saya mau bikin Kemeja custom.') },
+  { name: 'Jaket',    image: '/images/products/business/20250428-Jaket_Varsity_1.webp',           desc: 'Varsity, bomber, coach. Bahan tebal, jahitan rapi.',                link: wa('Halo Kustom Garment, saya mau bikin Jaket custom.') },
+  { name: 'Hoodie',   image: '/images/products/business/20250428-Jaket_Jumper-Hoodie_1.webp',     desc: 'Fleece adem, jumper atau zipper. Favorit anak komunitas.',          link: wa('Halo Kustom Garment, saya mau bikin Hoodie custom.') },
+  { name: 'Rompi',    image: '/images/products/business/20250428-Rompi_Outdoor_1.webp',           desc: 'Indoor & outdoor, banyak kantong. Buat tim lapangan.',             link: wa('Halo Kustom Garment, saya mau bikin Rompi custom.') },
+  { name: 'Wearpack', image: '/images/products/business/20250428-Wearpack_Coverall_1.webp',       desc: 'Drill & coverall, reflektif opsional. Aman dan tahan lama.',        link: wa('Halo Kustom Garment, saya mau bikin Wearpack custom.') },
+  { name: 'Jersey',   image: '/images/placeholder/theme-image-1777385298306.png',                desc: 'Dry-fit full printing. Bola, futsal, lari, sampai esport.',         link: '/katalog-jersey-baseball/' },
+];
+
+// Honest "and more" — no fake imagery, just chips.
+const extras = ['Topi', 'Totebag', 'Masker', 'Apron', 'Scarf', 'Lanyard'];
+
+// Shop by category — links to the 4 real category pages.
 const categories = [
-  {
-    title: 'Business',
-    image: '/images/categories/section4-1.webp',
-    link: '/business/'
-  },
-  {
-    title: 'Community',
-    image: '/images/categories/section4-2.webp',
-    link: '/community/'
-  },
-  {
-    title: 'Campus',
-    image: '/images/categories/section4-3.webp',
-    link: '/campus/'
-  },
-  {
-    title: 'Personal',
-    image: '/images/categories/section4-4.webp',
-    link: '/personal/'
-  }
+  { name: 'Business',  desc: 'Seragam & apparel kerja',        image: '/images/categories/business.webp',  link: '/business/' },
+  { name: 'Community', desc: 'Merch & seragam komunitas',      image: '/images/categories/community.webp', link: '/community/' },
+  { name: 'Campus',    desc: 'Jaket angkatan & apparel kampus', image: '/images/categories/campus.webp',    link: '/campus/' },
+  { name: 'Personal',  desc: 'Custom satuan buat kamu',         image: '/images/categories/personal.webp',  link: '/personal/' },
 ];
 
-// Add On Product categories - linking to external or placeholder pages
-const addOnProducts = [
-  { name: 'Kaos', link: '/produk-kaos/', active: true },
-  { name: 'Jaket', link: '/produk-jaket/', active: true },
-  { name: 'Kemeja', link: '/produk-kemeja/', active: true },
-  { name: 'Polo', link: '/produk-polo/', active: true },
-  { name: 'Rompi', link: '/produk-rompi/', active: true },
-  { name: '', link: '#', active: false }, // Empty placeholder
-  { name: 'Topi', link: '/produk-topi/', active: true },
-  { name: '', link: '#', active: false }  // Empty placeholder
-];
+const cta = {
+  lead: 'Belum nemu produk yang kamu mau?',
+  label: 'Tanya kami langsung',
+  link: wa('Halo Kustom Garment, saya mau tanya soal produk custom.'),
+};
 ---
 
-<BaseLayout title={title} description={description}>
-
-  <!-- Pilihan Kategori Section -->
-  <section class="category-selection" aria-label="Pilihan Kategori">
-    <div class="selection-container">
-      <h2 class="selection-title">Pilihan Kategori</h2>
-      <div class="categories-grid">
-        {categories.map((category) => (
-          <a
-            href={category.link}
-            class="category-card"
-            aria-label={`Lihat produk ${category.title}`}
-          >
-            <img
-              src={category.image}
-              alt={category.title}
-              width="400"
-              height="521"
-              loading="eager"
-              decoding="async"
-            />
-          </a>
-        ))}
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <main class="pr">
+    <!-- HERO (orange, centered) -->
+    <section class="pr-hero">
+      <div class="pr-wrap">
+        <span class="pr-eyebrow reveal">{hero.eyebrow}</span>
+        <h1 class="pr-hero-title reveal">{hero.titleLead}<br /><span class="pr-hero-accent">{hero.titleAccent}</span></h1>
+        <p class="pr-hero-sub reveal">{hero.sub}</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Add On Product Section -->
-  <section class="addon-products" aria-label="Add On Product">
-    <div class="addon-header">
-      <h3 class="addon-title">Add On Product</h3>
-      <p class="addon-subtitle">Lihat Semua🔎</p>
-    </div>
-
-    <div class="addon-grid">
-      {addOnProducts.map((product) => (
-        <div class="addon-item" class:active={product.active}>
-          {product.active ? (
-            <a href={product.link} class="addon-link">
-              <span class="addon-name">{product.name}</span>
+    <!-- PRODUCT TYPES (the hub) -->
+    <section class="pr-types">
+      <div class="pr-wrap">
+        <h2 class="pr-h2 reveal">Pilih produknya</h2>
+        <div class="pr-grid">
+          {productTypes.map((p, i) => (
+            <a
+              class="pr-card reveal"
+              style={`transition-delay:${i * 60}ms`}
+              href={p.link}
+              target={p.link.startsWith('http') ? '_blank' : undefined}
+              rel={p.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+            >
+              <div class="pr-card-frame">
+                <img src={p.image} alt={`${p.name} custom Kustom Garment`} loading="lazy" />
+              </div>
+              <div class="pr-card-row">
+                <h3 class="pr-card-title">{p.name}</h3>
+                <span class="pr-card-arrow" aria-hidden="true">→</span>
+              </div>
+              <p class="pr-card-desc">{p.desc}</p>
             </a>
-          ) : (
-            <div class="addon-placeholder"></div>
-          )}
+          ))}
         </div>
-      ))}
-    </div>
-  </section>
 
+        <div class="pr-extras reveal">
+          <span class="pr-extras-label">Plus bisa bikin</span>
+          <div class="pr-chips">
+            {extras.map((e) => (<span class="pr-chip">{e}</span>))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOP BY CATEGORY -->
+    <section class="pr-cats">
+      <div class="pr-wrap">
+        <h2 class="pr-h2 reveal">Atau mulai dari kebutuhanmu</h2>
+        <div class="pr-cat-grid">
+          {categories.map((c, i) => (
+            <a class="pr-cat reveal" style={`transition-delay:${i * 70}ms`} href={c.link}>
+              <div class="pr-cat-frame">
+                <img src={c.image} alt={`Apparel custom untuk ${c.name}`} loading="lazy" />
+                <div class="pr-cat-overlay">
+                  <h3 class="pr-cat-title">{c.name}</h3>
+                  <p class="pr-cat-desc">{c.desc}</p>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pr-cta-sec">
+      <div class="pr-wrap">
+        <p class="pr-cta-lead reveal">{cta.lead}</p>
+        <a class="pr-cta reveal" href={cta.link} target="_blank" rel="noopener noreferrer">
+          {cta.label} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
-  /* Pilihan Kategori Section */
-  .category-selection {
-    background: #ffffff;
-    padding: 3rem 0;
+  .pr { background: #ffffff; }
+  .pr-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 1024px) { .pr-wrap { padding: 0 2.5rem; } }
+
+  /* HERO (orange, centered) */
+  .pr-hero { background: #ff4c00; color: #ffffff; padding: 6rem 0 6.5rem; text-align: center; overflow: hidden; }
+  @media (min-width: 1024px) { .pr-hero { padding: 9rem 0 9rem; } }
+  .pr-eyebrow {
+    display: inline-block; font-family: var(--font-sans); font-weight: 700;
+    font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85); margin-bottom: 1.5rem;
+  }
+  .pr-hero-title {
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 1.02; letter-spacing: -0.03em;
+    margin: 0 auto 1.5rem; color: #ffffff;
+  }
+  .pr-hero-accent { color: #ff4c00; -webkit-text-stroke: 2px #ffffff; text-stroke: 2px #ffffff; }
+  .pr-hero-sub {
+    font-family: var(--font-sans); font-weight: 600;
+    font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.55;
+    color: rgba(255,255,255,0.92); max-width: 40rem; margin: 0 auto;
   }
 
-  .selection-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+  /* Shared H2 */
+  .pr-h2 {
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 3rem); letter-spacing: -0.02em;
+    color: #1a1a1a; margin: 0 0 2.5rem;
   }
 
-  .selection-title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #333333;
-    margin: 0 0 2rem 0;
-    text-align: center;
+  /* PRODUCT TYPES */
+  .pr-types { padding: 5rem 0; }
+  @media (min-width: 1024px) { .pr-types { padding: 7rem 0; } }
+  .pr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 1.25rem; }
+  @media (min-width: 768px) { .pr-grid { grid-template-columns: repeat(4, 1fr); gap: 2.25rem 1.75rem; } }
+  .pr-card { display: block; text-decoration: none; }
+  .pr-card-frame {
+    position: relative; border-radius: 1.25rem; overflow: hidden;
+    aspect-ratio: 4 / 5; background: #f5f5f5; display: grid; place-items: center;
+  }
+  .pr-card-frame img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 700ms cubic-bezier(0.19,1,0.22,1); }
+  .pr-card-row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; margin: 1rem 0 0.35rem; }
+  .pr-card-title { font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: -0.01em; color: #1a1a1a; margin: 0; transition: color 220ms ease; }
+  .pr-card-arrow { font-family: var(--font-sans); font-weight: 700; color: #ff4c00; opacity: 0; transform: translateX(-6px); transition: opacity 260ms ease, transform 260ms cubic-bezier(0.19,1,0.22,1); }
+  .pr-card-desc { font-family: var(--font-sans); font-weight: 600; font-size: 0.875rem; line-height: 1.5; color: #6b7280; margin: 0; }
+  @media (hover: hover) {
+    .pr-card:hover .pr-card-frame img { transform: scale(1.06); }
+    .pr-card:hover .pr-card-title { color: #ff4c00; }
+    .pr-card:hover .pr-card-arrow { opacity: 1; transform: translateX(0); }
   }
 
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+  /* EXTRAS chips */
+  .pr-extras { margin-top: 3.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; border-top: 1px solid #ececec; padding-top: 2.5rem; }
+  .pr-extras-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.04em; text-transform: uppercase; color: #6b7280; }
+  .pr-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .pr-chip {
+    font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; color: #1a1a1a;
+    border: 1px solid #ececec; border-radius: 999px; padding: 0.45rem 1rem;
+    transition: border-color 220ms ease, color 220ms ease;
+  }
+  @media (hover: hover) { .pr-chip:hover { border-color: #ff4c00; color: #ff4c00; } }
+
+  /* SHOP BY CATEGORY */
+  .pr-cats { padding: 0 0 5rem; }
+  @media (min-width: 1024px) { .pr-cats { padding: 0 0 7rem; } }
+  .pr-cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  @media (min-width: 1024px) { .pr-cat-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
+  .pr-cat { display: block; text-decoration: none; }
+  .pr-cat-frame {
+    position: relative; border-radius: 1.25rem; overflow: hidden;
+    aspect-ratio: 4 / 5; background: #f4f4f4;
+  }
+  .pr-cat-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 800ms cubic-bezier(0.19,1,0.22,1); }
+  .pr-cat-overlay {
+    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 1.25rem; gap: 0.15rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 45%, transparent 70%);
+  }
+  .pr-cat-title { font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.01em; color: #ffffff; margin: 0; transition: color 220ms ease; }
+  .pr-cat-desc { font-family: var(--font-sans); font-weight: 600; font-size: 0.8125rem; line-height: 1.4; color: rgba(255,255,255,0.85); margin: 0; }
+  @media (hover: hover) {
+    .pr-cat:hover .pr-cat-frame img { transform: scale(1.06); }
+    .pr-cat:hover .pr-cat-title { color: #ff4c00; }
   }
 
-  .category-card {
-    display: block;
-    width: 100%;
-    text-decoration: none;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* CTA */
+  .pr-cta-sec { padding: 0 0 6rem; }
+  @media (min-width: 1024px) { .pr-cta-sec { padding: 0 0 8rem; } }
+  .pr-cta-lead { font-family: var(--font-sans); font-weight: 600; font-size: 1rem; color: #6b7280; margin: 0 0 0.5rem; }
+  .pr-cta {
+    display: inline-flex; align-items: baseline; gap: 0.5rem; position: relative;
+    font-family: var(--font-sans); font-weight: 700; font-size: clamp(1.75rem, 4vw, 3rem);
+    letter-spacing: -0.02em; color: #1a1a1a; text-decoration: none; padding-bottom: 0.12em;
+  }
+  .pr-cta span { color: #ff4c00; display: inline-block; transition: transform 320ms cubic-bezier(0.19,1,0.22,1); }
+  .pr-cta::after {
+    content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px;
+    background: #ff4c00; transform: scaleX(0); transform-origin: left;
+    transition: transform 460ms cubic-bezier(0.19,1,0.22,1);
+  }
+  @media (hover: hover) {
+    .pr-cta:hover::after { transform: scaleX(1); }
+    .pr-cta:hover span { transform: translateX(8px); }
   }
 
-  .category-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-  }
-
-  .category-card img {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 400 / 521;
-    object-fit: cover;
-  }
-
-  /* Add On Product Section */
-  .addon-products {
-    background: #ffffff;
-    padding: 2rem 0 3rem;
-  }
-
-  .addon-header {
-    max-width: 1400px;
-    margin: 0 auto 1.5rem;
-    padding: 0 1.5rem;
-    text-align: center;
-  }
-
-  .addon-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #333333;
-    margin: 0 0 0.5rem 0;
-  }
-
-  .addon-subtitle {
-    font-size: 1rem;
-    color: #666666;
-    margin: 0;
-  }
-
-  .addon-grid {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  .addon-item {
-    background: #f8f9fa;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-
-  .addon-item.active {
-    background: #ffffff;
-    border: 2px solid #e5e7eb;
-  }
-
-  .addon-item.active:hover {
-    border-color: #0066cc;
-  }
-
-  .addon-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2.5rem 1rem;
-    text-decoration: none;
-    min-height: 120px;
-  }
-
-  .addon-name {
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: #333333;
-  }
-
-  .addon-item.active:hover .addon-name {
-    color: #0066cc;
-  }
-
-  .addon-placeholder {
-    padding: 2.5rem 1rem;
-    min-height: 120px;
-  }
-
-  /* Tablet Styles */
-  @media (min-width: 768px) {
-    .categories-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-
-    .addon-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .selection-title {
-      font-size: 2.5rem;
-    }
-
-    .addon-title {
-      font-size: 1.75rem;
-    }
-  }
-
-  /* Desktop Styles */
-  @media (min-width: 1024px) {
-    .selection-container,
-    .addon-header {
-      padding: 0 2rem;
-    }
-
-    .addon-grid {
-      padding: 0 2rem;
-    }
-
-    .selection-title {
-      font-size: 3rem;
-    }
-
-    .category-selection {
-      padding: 4rem 0;
-    }
-
-    .addon-products {
-      padding: 3rem 0 4rem;
-    }
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.19,1,0.22,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .pr-card-frame img, .pr-cat-frame img { transition: none; }
   }
 </style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>

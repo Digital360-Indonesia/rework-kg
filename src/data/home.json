@@ -1,0 +1,207 @@
+{
+  "ticker": [
+    "NO MINIMUM ORDER",
+    "BULK ORDER",
+    "FREE DESIGN",
+    "FREE CONSULTATION",
+    "PICKUP & DELIVERY",
+    "PREMIUM QUALITY",
+    "CUSTOMER SUPPORT",
+    "MADE IN INDONESIA"
+  ],
+  "categoryCards": {
+    "hoverImage": "/images/placeholder/sample-slide.webp",
+    "items": [
+      { "label": "BUSINESS", "href": "/business/", "image": "/images/categories/business.webp" },
+      { "label": "COMMUNITY", "href": "/community/", "image": "/images/categories/community.webp" },
+      { "label": "CAMPUS", "href": "/campus/", "image": "/images/categories/campus.webp" },
+      { "label": "PERSONAL", "href": "/personal/", "image": "/images/categories/personal.webp" },
+      { "label": "ACTIVEWEAR", "href": "/produk/", "image": "/images/placeholder/theme-image-1777040341996.webp" }
+    ]
+  },
+  "hero": {
+    "slides": [
+      {
+        "image": "/images/placeholder/theme-image-1777040341996.webp",
+        "href": "https://wa.me/6285161202499?text=Saya%20mau%20bikin%20baju%20custom.",
+        "alt": "Bikin baju custom satuan"
+      },
+      {
+        "image": "/images/placeholder/theme-image-1777126525887.webp",
+        "href": "https://portfolio.kustomgarment.com",
+        "alt": "Portfolio Kustom Garment"
+      },
+      {
+        "image": "/images/uploads/Screenshot 2026-05-20 at 10.30.42.png",
+        "href": "/business/",
+        "alt": "Seragam custom untuk bisnis"
+      },
+      {
+        "image": "/images/placeholder/theme-image-1777385298306.webp",
+        "href": "/community/",
+        "alt": "Komunitas custom"
+      }
+    ]
+  },
+  "scenes": {
+    "headlinePrefix": "Apparel custom untuk",
+    "flipWords": [
+      "komunitas",
+      "bisnis",
+      "event",
+      "tim",
+      "jualan",
+      "merch",
+      "OOTD-mu"
+    ],
+    "items": [
+      {
+        "img": "/images/placeholder/theme-image-1777040341996.webp",
+        "title": "Streetwear & Jualan Online",
+        "desc": "Produk best-seller berikutnya, dari kaos custom premium dan bahan siap-fashion.",
+        "ratio": "4 / 5",
+        "cta": "Mulai drop kamu",
+        "waText": "Halo, saya mau bikin koleksi streetwear / produk jualan custom."
+      },
+      {
+        "img": "/images/placeholder/theme-image-1777126525887.webp",
+        "title": "Merch & Event",
+        "desc": "Abadikan momen lewat kaos event custom, hoodie hype, dan merch koleksi.",
+        "ratio": "4 / 3",
+        "cta": "Bikin merch sekarang",
+        "waText": "Halo, saya mau bikin merch / kaos event custom."
+      },
+      {
+        "img": "/images/categories/community.webp",
+        "title": "Komunitas & Tim",
+        "desc": "Satukan squad dengan kaos tim custom dan identitas komunitas yang solid.",
+        "ratio": "4 / 3",
+        "cta": "Satukan tim kamu",
+        "waText": "Halo, saya mau bikin baju komunitas / tim custom."
+      },
+      {
+        "img": "/images/placeholder/theme-image-1777126637504.webp",
+        "title": "Order Jumlah Besar",
+        "desc": "Order banyak, harga grosir, tepat waktu. Invoice & faktur pajak beres.",
+        "ratio": "4 / 5",
+        "cta": "Hitung harga grosir",
+        "waText": "Halo, saya mau order jumlah besar. Minta info harga grosir ya."
+      },
+      {
+        "img": "/images/placeholder/theme-image-1777385298306.webp",
+        "title": "OOTD Personal",
+        "desc": "Outfit harianmu, dibikin sesukamu. Satu pun jadi, tanpa minimum order.",
+        "ratio": "4 / 5",
+        "cta": "Kustom OOTD sekarang",
+        "waText": "Halo, saya mau kustom OOTD / baju personal."
+      },
+      {
+        "img": "/images/categories/business.webp",
+        "title": "Seragam Korporat Modern",
+        "desc": "Tampil rapi di kantor dengan kemeja perusahaan dan basics yang on-brand.",
+        "ratio": "4 / 3",
+        "cta": "Rapikan seragam kantor",
+        "waText": "Halo, saya mau bikin seragam kantor / korporat."
+      }
+    ]
+  },
+  "social": {
+    "headlinePrefix": "Langsung dari",
+    "handle": "@kustomgarment",
+    "handleUrl": "https://www.instagram.com/kustomgarment/",
+    "rows": [
+      [
+        {
+          "code": "DYW8f3Rzm2k"
+        },
+        {
+          "code": "DYeq9oSzNEi"
+        },
+        {
+          "code": "DYUXuYtTwz2"
+        },
+        {
+          "code": "DW04pX3zrmR"
+        },
+        {
+          "code": "DYOeICZTLRp"
+        },
+        {
+          "code": "DXY7tlTzNA1"
+        },
+        {
+          "code": "DTKkO1IkslM"
+        },
+        {
+          "code": "DXG6JaqTx_I"
+        },
+        {
+          "code": "DWoAmUqzfrf"
+        }
+      ],
+      [
+        {
+          "code": "DTSSn6zktpQ"
+        },
+        {
+          "code": "DV-z7dCk-6e"
+        },
+        {
+          "code": "DVawvagkwVz"
+        },
+        {
+          "code": "DQMPMQckncb"
+        },
+        {
+          "code": "DMXwOC7SNbU",
+          "slow": true
+        },
+        {
+          "code": "DUc9uaDEpM2"
+        },
+        {
+          "code": "DPWKiWMkoV-"
+        },
+        {
+          "code": "DU0I3LZEncF"
+        },
+        {
+          "code": "DUDNuiGkpYp"
+        }
+      ],
+      [
+        {
+          "code": "DNqBEAISg9D"
+        },
+        {
+          "code": "DSR6zGsEklO"
+        },
+        {
+          "code": "DRMiOVZkuSW"
+        },
+        {
+          "code": "DVLUHpRk277"
+        },
+        {
+          "code": "DRRjJefErTO"
+        },
+        {
+          "code": "DPYvSthEqWR"
+        },
+        {
+          "code": "DQZHMAbkrWd"
+        },
+        {
+          "code": "DSPV_c4klVp"
+        }
+      ]
+    ]
+  },
+  "endCta": {
+    "title": "Idemu, tinggal satu chat lagi.",
+    "ctaText": "Mulai sekarang",
+    "bg": "/images/placeholder/endcta-banner.webp",
+    "bgHover": "/images/placeholder/theme-image-1777040341996.webp",
+    "waText": "Halo Kustom Garment, saya mau mulai bikin baju custom."
+  }
+}

@@ -31,3 +31,6 @@ pnpm-debug.log*
 
 # OS-specific files
 Thumbs.db
+
+# stray working screenshots (root)
+Screenshot*.png

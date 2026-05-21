@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const metaTitle = 'FAQ | Kustom Garment';
+const metaDescription = 'Pertanyaan yang sering ditanyakan seputar order custom di Kustom Garment — minimum order, bahan, pengerjaan, pengiriman, dan pembayaran.';
+
+const faqs = [
+  { q: 'Apakah ada minimum order?', a: 'Nggak ada. Mau satu potong atau seribu, kami kerjakan dengan standar kualitas yang sama.' },
+  { q: 'Bisa desain sendiri?', a: 'Bisa banget. Kirim desainmu dan kami eksekusi — atau mulai dari nol, tim kami bantu dari konsep sampai jadi.' },
+  { q: 'Berapa lama pengerjaannya?', a: 'Tergantung jumlah dan jenis produk. Untuk order satuan biasanya lebih cepat; untuk partai besar kami kasih estimasi jelas di awal.' },
+  { q: 'Bahan apa saja yang tersedia?', a: 'Cotton combed, fleece, drill, oxford, lacoste, ripstop, sampai bahan teknis. Tinggal sesuaikan kebutuhan dan budget.' },
+  { q: 'Bisa kirim ke luar kota?', a: 'Bisa. Tersedia pickup & delivery, dan kami kirim ke seluruh Indonesia.' },
+  { q: 'Metode pembayaran & invoice?', a: 'Transfer dengan sistem DP. Invoice dan faktur pajak tersedia untuk kebutuhan bisnis maupun instansi.' },
+  { q: 'Ada harga khusus untuk jumlah besar?', a: 'Ada. Semakin banyak, semakin bersahabat harganya. Chat kami untuk hitung harga grosir.' },
+];
+
+const wa = 'https://wa.me/6285161202499?text=Halo%20Kustom%20Garment%2C%20saya%20mau%20tanya-tanya.';
+---
+
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <main class="fq">
+    <section class="fq-head">
+      <span class="fq-eyebrow reveal">FAQ</span>
+      <h1 class="fq-title reveal">Yang sering ditanya.</h1>
+    </section>
+
+    <section class="fq-list-sec">
+      <div class="fq-wrap">
+        <div class="fq-list">
+          {faqs.map((f, i) => (
+            <details class="fq-item reveal" style={`transition-delay:${i * 50}ms`}>
+              <summary class="fq-q">
+                <span>{f.q}</span>
+                <span class="fq-mark" aria-hidden="true"></span>
+              </summary>
+              <div class="fq-a"><p>{f.a}</p></div>
+            </details>
+          ))}
+        </div>
+
+        <div class="fq-foot reveal">
+          <span class="fq-foot-lead">Masih ada yang mau ditanya?</span>
+          <a class="fq-cta" href={wa} target="_blank" rel="noopener noreferrer">
+            Chat kami <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .fq { background: #ffffff; }
+  .fq-wrap { max-width: 56rem; margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 1024px) { .fq-wrap { padding: 0 2.5rem; } }
+
+  .fq-head {
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 5rem 1.5rem 2.5rem;
+  }
+  @media (min-width: 1024px) { .fq-head { padding: 7rem 2.5rem 3rem; } }
+  .fq-eyebrow {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #ff4c00;
+    margin-bottom: 1rem;
+  }
+  .fq-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    color: #1a1a1a;
+    margin: 0;
+  }
+
+  .fq-list-sec { padding: 0 0 6rem; }
+  @media (min-width: 1024px) { .fq-list-sec { padding: 0 0 8rem; } }
+  .fq-list { border-top: 1px solid #ececec; }
+
+  .fq-item { border-bottom: 1px solid #ececec; }
+  .fq-q {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(1.0625rem, 2vw, 1.375rem);
+    letter-spacing: -0.01em;
+    color: #1a1a1a;
+    transition: color 200ms ease;
+  }
+  .fq-q::-webkit-details-marker { display: none; }
+  .fq-q:hover { color: #ff4c00; }
+
+  /* + / × marker */
+  .fq-mark {
+    position: relative;
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+  .fq-mark::before,
+  .fq-mark::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.25rem;
+    height: 2.5px;
+    background: #ff4c00;
+    border-radius: 2px;
+    transform: translate(-50%, -50%);
+    transition: transform 300ms cubic-bezier(0.19,1,0.22,1);
+  }
+  .fq-mark::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .fq-item[open] .fq-mark::after { transform: translate(-50%, -50%) rotate(0deg); }
+
+  .fq-a {
+    overflow: hidden;
+    max-width: 46rem;
+    padding-bottom: 1.5rem;
+    animation: fq-open 420ms cubic-bezier(0.19,1,0.22,1);
+  }
+  .fq-a p {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #6b7280;
+    margin: 0;
+  }
+  @keyframes fq-open {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Foot CTA */
+  .fq-foot { margin-top: 3.5rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .fq-foot-lead {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    color: #6b7280;
+  }
+  .fq-cta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    width: max-content;
+    position: relative;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    text-decoration: none;
+    padding-bottom: 0.12em;
+  }
+  .fq-cta span { color: #ff4c00; display: inline-block; transition: transform 320ms cubic-bezier(0.19,1,0.22,1); }
+  .fq-cta::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%; height: 3px;
+    background: #ff4c00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 460ms cubic-bezier(0.19,1,0.22,1);
+  }
+  @media (hover: hover) {
+    .fq-cta:hover::after { transform: scaleX(1); }
+    .fq-cta:hover span { transform: translateX(8px); }
+  }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.19,1,0.22,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .fq-a { animation: none; }
+  }
+</style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Close other items when one opens (accordion behavior)
+  const items = Array.from(document.querySelectorAll<HTMLDetailsElement>('.fq-item'));
+  items.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (item.open) items.forEach((o) => { if (o !== item) o.open = false; });
+    });
+  });
+</script>

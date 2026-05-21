@@ -1,200 +1,200 @@
 ---
-/**
- * Header Component - EXACT Replica of WordPress Original
- * Based on: kustomgarment.com original header
- * Using exact uicore classes and structure
- */
+import siteConfig from '../../data/site-config.json';
 
+const { siteName, navigation, additionalLinks, contact } = siteConfig;
+const whatsappUrl = contact.whatsappUrl;
+
+interface Props {
+  currentPath?: string;
+}
 const { currentPath = '/' } = Astro.props;
 
-// WhatsApp from environment
-const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '6285161202499';
-const whatsappUrl = `https://wa.me/${whatsappNumber}`;
-
-// Navigation items
-const navItems = [
-  { label: 'BUSINESS', href: '/business/' },
-  { label: 'COMMUNITY', href: '/community/' },
-  { label: 'CAMPUS', href: '/campus/' },
-  { label: 'PERSONAL', href: '/personal/' },
-];
+const isActive = (path: string) => {
+  if (path === '/') return currentPath === '/';
+  return currentPath.startsWith(path.replace(/\/$/, ''));
+};
 ---
 
-<div
-  data-uils="header"
-  data-uils-title="Header"
-  id="wrapper-navbar"
-  itemscope
-  itemtype="http://schema.org/WebSite"
-  class="uicore uicore-navbar uicore-section uicore-box uicore-h-classic uicore-sticky ui-smart-sticky"
->
-  <div class="uicore-header-wrapper">
-    <nav class="uicore uicore-container">
+<header id="main-header" class="sticky top-0 z-50 bg-white border-b border-gray-100">
+  <div class="mx-auto max-w-7xl px-4 lg:px-6">
+    <div class="flex items-center h-[88px] gap-4 lg:gap-8">
+
       <!-- Logo -->
-      <div class="uicore-branding" data-uils="header-branding" data-uils-title="Site Logo">
-        <a href="/" rel="home">
-          <img
-            fetchpriority="high"
-            class="uicore uicore-logo uicore-main"
-            src="/images/logos/kg-logo.png"
-            alt="Konveksi Satuan Surabaya Kustom Garment"
-            width="1536"
-            height="416"
-          />
-          <img
-            class="uicore uicore-logo uicore-second"
-            src="/images/logos/kg-logo.png"
-            alt="Konveksi Satuan Surabaya Kustom Garment"
-            width="1536"
-            height="416"
-          />
-          <img
-            class="uicore uicore-logo uicore-mobile-main"
-            src="/images/logos/kg-logo.png"
-            alt="Konveksi Satuan Surabaya Kustom Garment"
-            width="1536"
-            height="416"
-          />
-          <img
-            loading="lazy"
-            class="uicore uicore-logo uicore-mobile-second"
-            src="/images/logos/kg-logo.png"
-            alt="Konveksi Satuan Surabaya Kustom Garment"
-            width="1536"
-            height="416"
-          />
-        </a>
-      </div>
-
-      <!-- Navigation -->
-      <div class="uicore-nav-menu">
-        <div class="uicore-menu-container uicore-nav">
-          <ul
-            data-uils="header-menu"
-            data-uils-title="Navigation Menu"
-            class="uicore-menu"
-          >
-            {navItems.map((item) => (
-              <li class="menu-item menu-item-type-post_type menu-item-object-page">
-                <a href={item.href}>
-                  <span class="ui-menu-item-wrapper">{item.label}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <!-- CTA Button -->
-        <div class="uicore uicore-extra" data-uils="header_extra" data-uils-title="Header Extras">
-          <div class="uicore-cta-wrapper">
-            <a href={whatsappUrl} target="_blank" class="uicore-btn uicore-inverted">
-              <span class="elementor-button-text">Hubungi Kami</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mobile Header Right -->
-      <div class="uicore-mobile-head-right">
-        <!-- Mobile CTA -->
-        <div class="uicore-cta-wrapper">
-          <a href={whatsappUrl} target="_blank" class="uicore-btn uicore-inverted">
-            <span class="elementor-button-text">Hubungi Kami</span>
-          </a>
-        </div>
-
-        <!-- Mobile Menu Toggle -->
-        <button
-          type="button"
-          class="uicore-toggle uicore-ham"
-          aria-label="mobile-menu"
-          id="mobile-menu-toggle"
-        >
-          <span class="bars">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </span>
-        </button>
-      </div>
-    </nav>
-  </div>
-</div>
-
-<!-- Mobile Menu Wrapper (uicore structure) -->
-<div class="uicore-navigation-wrapper uicore-navbar uicore-section uicore-box uicore-mobile-menu-wrapper">
-  <nav class="uicore uicore-container">
-    <div class="uicore-branding uicore-mobile">
-      <a href="/" rel="home">
+      <a href="/" class="flex items-center shrink-0" aria-label={`${siteName} homepage`}>
         <img
-          class="uicore uicore-logo uicore-mobile-main"
           src="/images/logos/kg-logo.png"
-          alt="Konveksi Satuan Surabaya Kustom Garment"
-          width="1536"
-          height="416"
-        />
-        <img
-          loading="lazy"
-          class="uicore uicore-logo uicore-mobile-second"
-          src="/images/logos/kg-logo.png"
-          alt="Konveksi Satuan Surabaya Kustom Garment"
+          alt={siteName}
+          class="h-10 w-auto"
           width="1536"
           height="416"
         />
       </a>
-    </div>
-    <div class="uicore-menu-container uicore-nav">
-      <ul class="uicore-menu">
-        {navItems.map((item) => (
-          <li class="menu-item menu-item-type-post_type menu-item-object-page">
-            <a href={item.href}>
-              <span class="ui-menu-item-wrapper">{item.label}</span>
-            </a>
-          </li>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-9 text-[15px] font-bold uppercase tracking-[0.08em] text-gray-900" aria-label="Main navigation">
+        {navigation.map((item) => (
+          <a
+            href={item.path}
+            class:list={[
+              'transition-colors hover:text-accent',
+              isActive(item.path) && 'text-accent',
+            ]}
+          >
+            {item.name}
+          </a>
         ))}
-      </ul>
+      </nav>
+
+      <!-- Spacer pushes search + CTA to the right -->
+      <div class="flex-1"></div>
+
+      <!-- Search (desktop only) -->
+      <form
+        action="/search"
+        method="get"
+        role="search"
+        class="hidden md:flex items-center bg-gray-100 hover:bg-gray-200/70 focus-within:bg-white focus-within:ring-2 focus-within:ring-accent/40 transition-colors rounded-full pl-4 pr-2 h-11 w-56 lg:w-72"
+      >
+        <svg class="w-4 h-4 text-gray-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <path stroke-linecap="round" d="m20 20-3-3"></path>
+        </svg>
+        <input
+          type="search"
+          name="q"
+          placeholder="Cari produk, kategori, atau katalog…"
+          aria-label="Cari"
+          class="flex-1 bg-transparent ml-2 text-[13px] text-gray-900 placeholder-gray-500 focus:outline-none"
+        />
+      </form>
+
+      <!-- Hubungi Kami CTA (desktop) -->
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden md:inline-flex items-center gap-2 h-11 px-5 rounded-full bg-accent text-white text-[14px] font-semibold hover:bg-accent-dark transition-colors shrink-0"
+        aria-label="Hubungi Kami via WhatsApp"
+      >
+        Hubungi Kami
+        <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button
+        id="mobile-menu-toggle"
+        type="button"
+        class="md:hidden ml-auto p-2 -mr-2 rounded-lg text-gray-900 hover:bg-gray-100 transition-colors"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        aria-label="Toggle menu"
+      >
+        <span class="hamburger block w-6 h-6 relative">
+          <span class="hamburger-line absolute top-1.5 left-0 block w-6 h-0.5 bg-current transition-all duration-300"></span>
+          <span class="hamburger-line absolute top-3 left-0 block w-6 h-0.5 bg-current transition-all duration-300"></span>
+          <span class="hamburger-line absolute top-[18px] left-0 block w-6 h-0.5 bg-current transition-all duration-300"></span>
+        </span>
+      </button>
     </div>
-    <div class="uicore uicore-extra" data-uils="header_extra" data-uils-title="Header Extras">
-      <div class="uicore-cta-wrapper">
-        <a href={whatsappUrl} target="_blank" class="uicore-btn uicore-inverted">
-          <span class="elementor-button-text">Hubungi Kami</span>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu-overlay"
+    class="fixed inset-0 bg-black/40 opacity-0 invisible transition-all duration-300 md:hidden z-40"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    id="mobile-menu"
+    class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white shadow-2xl translate-x-full transition-transform duration-300 md:hidden z-50 overflow-y-auto"
+  >
+    <div class="flex flex-col h-full">
+      <div class="flex items-center justify-between p-5 border-b border-gray-100">
+        <img src="/images/logos/kg-logo.png" alt={siteName} class="h-7 w-auto" />
+        <button id="mobile-menu-close" type="button" class="p-2 -mr-2 rounded-lg hover:bg-gray-100" aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-5">
+        <!-- Mobile search -->
+        <form action="/search" method="get" role="search" class="flex items-center bg-gray-100 rounded-full pl-4 pr-2 h-11 mb-5">
+          <svg class="w-4 h-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path stroke-linecap="round" d="m20 20-3-3"></path></svg>
+          <input type="search" name="q" placeholder="Cari…" class="flex-1 bg-transparent ml-2 text-sm focus:outline-none" />
+        </form>
+
+        <nav aria-label="Mobile navigation" class="space-y-1">
+          {navigation.map((item) => (
+            <a
+              href={item.path}
+              class:list={[
+                'block px-3 py-3 rounded-lg text-[15px] font-semibold transition-colors',
+                isActive(item.path) ? 'bg-accent/10 text-accent' : 'text-gray-900 hover:bg-gray-50',
+              ]}
+            >
+              {item.name}
+            </a>
+          ))}
+        </nav>
+
+        <div class="mt-5 pt-5 border-t border-gray-100 space-y-1">
+          {additionalLinks.filter(item => !item.path.startsWith('http')).map((item) => (
+            <a href={item.path} class="block px-3 py-2 rounded-lg text-sm text-gray-700 hover:bg-gray-50">{item.name}</a>
+          ))}
+        </div>
+
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-6 flex items-center justify-center w-full h-12 rounded-full bg-accent text-white font-semibold hover:bg-accent-dark transition-colors"
+        >
+          Hubungi Kami
         </a>
       </div>
     </div>
-  </nav>
-</div>
+  </div>
+</header>
 
-<link rel="stylesheet" href="/css/uicore.css" />
+<style>
+  /* Open state */
+  :global(body.menu-open) {
+    overflow: hidden;
+  }
+  :global(body.menu-open) #mobile-menu {
+    transform: translateX(0);
+  }
+  :global(body.menu-open) #mobile-menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+  :global(body.menu-open) .hamburger-line:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+  :global(body.menu-open) .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+  :global(body.menu-open) .hamburger-line:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+</style>
 
 <script>
-  // Mobile menu functionality - using uicore's structure
-  const mobileToggle = document.getElementById('mobile-menu-toggle');
-  const mobileMenuWrapper = document.querySelector('.uicore-navigation-wrapper');
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const body = document.body;
 
-  function toggleMenu() {
-    mobileMenuWrapper?.classList.toggle('uicore-active');
-    document.body.classList.toggle('uicore-mobile-menu-open');
-    mobileToggle?.classList.toggle('uicore-active');
-  }
+  const open = () => { body.classList.add('menu-open'); toggle?.setAttribute('aria-expanded', 'true'); };
+  const close = () => { body.classList.remove('menu-open'); toggle?.setAttribute('aria-expanded', 'false'); };
 
-  mobileToggle?.addEventListener('click', toggleMenu);
-
-  // Close menu when clicking a link
-  const mobileLinks = mobileMenuWrapper?.querySelectorAll('a');
-  mobileLinks?.forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenuWrapper?.classList.remove('uicore-active');
-      document.body.classList.remove('uicore-mobile-menu-open');
-      mobileToggle?.classList.remove('uicore-active');
-    });
-  });
-
-  // Close menu on ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      mobileMenuWrapper?.classList.remove('uicore-active');
-      document.body.classList.remove('uicore-mobile-menu-open');
-      mobileToggle?.classList.remove('uicore-active');
-    }
-  });
+  toggle?.addEventListener('click', () => body.classList.contains('menu-open') ? close() : open());
+  closeBtn?.addEventListener('click', close);
+  overlay?.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 </script>

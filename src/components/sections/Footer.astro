@@ -1,570 +1,237 @@
 ---
-/**
- * Footer Component - EXACT Replica of WordPress Original
- * Based on: kustomgarment.com original footer
- * Using exact Elementor classes and structure
- */
+import siteConfig from '../../data/site-config.json';
 
-const currentYear = new Date().getFullYear();
+const { contact, navigation, social, footer } = siteConfig;
+const year = new Date().getFullYear();
 
-// Footer column 1 links
-const companyLinks = [
-  { label: 'Tentang Kami', href: '/care/' },
-  { label: 'Syarat Ketentuan', href: '/care/' },
-  { label: 'Hubungi Kami', href: '/care/' },
-  { label: 'Artikel', href: '/blog/' },
-  { label: 'FAQ', href: '/care/' },
+const socials = [
+  { name: 'TikTok', href: social.tiktok },
+  { name: 'Instagram', href: social.instagram },
+  { name: 'Facebook', href: 'https://www.facebook.com/kustomgarment' },
 ];
 
-// Footer column 2 links
-const productLinks = [
-  { label: 'Cara Pemesanan', href: '/care/' },
-  { label: 'Add On Product', href: '/produk/' },
-  { label: 'Katalog Jersey', href: '/katalog-jersey-baseball/' },
-  { label: 'Partnership', href: '/care/' },
-  { label: 'Sizechart', href: '/sizechart/' },
-  { label: 'Portfolio', href: 'https://portfolio.kustomgarment.com/' },
-];
-
-// Contact info
-const contactInfo = {
-  address: 'Jl. Sidosermo IV Gg. III No. 37 (Raya Prapen), Sidosermo, Surabaya',
-  phone: '0851 6120 2499',
-  email: 'marketing@kustomgarment.com',
-};
-
-// Social media links
-const socialLinks = [
-  {
-    name: 'Facebook',
-    href: 'https://www.facebook.com/kustompedia/',
-    class: 'facebook',
-  },
-  {
-    name: 'Twitter',
-    href: 'https://x.com/kustompedia',
-    class: 'twitter',
-  },
-  {
-    name: 'Youtube',
-    href: 'https://www.youtube.com/channel/UCWF7_jTvwOqI6a2YjwJ1nKg',
-    class: 'youtube',
-  },
-  {
-    name: 'Instagram',
-    href: 'https://www.instagram.com/kustomgarment',
-    class: 'instagram',
-  },
-  {
-    name: 'Tiktok',
-    href: 'https://www.tiktok.com/@kustomgarment_id',
-    class: 'tiktok',
-  },
-];
+const miniNav = navigation;
 ---
 
-<footer id="uicore-tb-footer" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
-  <div data-elementor-type="uicore-tb" data-elementor-id="40" class="elementor elementor-40">
-    <!-- Section 1: Main Footer Content (3 Columns) -->
-    <section
-      class="elementor-section elementor-top-section elementor-element elementor-element-090c31c elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-      data-id="090c31c"
-      data-element_type="section"
-      data-settings='{"background_background":"classic"}'
-    >
-      <div class="elementor-background-overlay"></div>
-      <div class="elementor-container elementor-column-gap-default">
-        <!-- Column 1: Visit Us Now -->
-        <div
-          class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-d4a29a8"
-          data-id="d4a29a8"
-          data-element_type="column"
-        >
-          <div class="elementor-widget-wrap elementor-element-populated">
-            <div
-              class="elementor-element elementor-element-44cc540 elementor-widget-tablet__width-inherit elementor-widget elementor-widget-heading"
-              data-id="44cc540"
-              data-element_type="widget"
-              data-widget_type="heading.default"
-            >
-              <div class="elementor-widget-container">
-                <h2 class="elementor-heading-title elementor-size-default">
-                  Visit Us Now
-                </h2>
-              </div>
-            </div>
-            <div
-              class="elementor-element elementor-element-f9b8faa elementor-widget elementor-widget-text-editor"
-              data-id="f9b8faa"
-              data-element_type="widget"
-              data-widget_type="text-editor.default"
-            >
-              <div class="elementor-widget-container">
-                <p>
-                  Konsultasi & dapatkan inspirasi produk sekarang di Marketing
-                  Gallery
-                </p>
-              </div>
-            </div>
-            <div
-              class="elementor-element elementor-element-18dbafb elementor-widget elementor-widget-google_maps"
-              data-id="18dbafb"
-              data-element_type="widget"
-              data-widget_type="google_maps.default"
-            >
-              <div class="elementor-widget-container">
-                <div class="elementor-custom-embed">
-                  <iframe
-                    loading="lazy"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.686062739954!2d112.7326!3d-7.3195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb9f00000001%3A0x0!2sKustom%20Garment!5e0!3m2!1sen!2sid!4v1234567890"
-                    title="Kustom Garment"
-                    aria-label="Kustom Garment"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<footer class="ft">
+  <div class="ft-inner">
+    <!-- Tagline -->
+    <div class="ft-cta">
+      <p class="ft-tagline">{footer.tagline}</p>
+    </div>
 
-        <!-- Column 2: Company Links -->
-        <div
-          class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-9619b61"
-          data-id="9619b61"
-          data-element_type="column"
-        >
-          <div class="elementor-widget-wrap elementor-element-populated">
-            <div
-              class="elementor-element elementor-element-57c0250 elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-              data-id="57c0250"
-              data-element_type="widget"
-              data-widget_type="icon-list.default"
-            >
-              <div class="elementor-widget-container">
-                <ul class="elementor-icon-list-items">
-                  {companyLinks.map((link) => (
-                    <li class="elementor-icon-list-item">
-                      <a href={link.href}>
-                        <span class="elementor-icon-list-text"
-                          >{link.label}</span
-                        >
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- Meta row -->
+    <div class="ft-meta">
+      <div class="ft-col ft-contact">
+        <span class="ft-label">Studio</span>
+        <p class="ft-addr">{contact.address}</p>
+        <a class="ft-line" href={`tel:${contact.phone}`}>{contact.phoneFormatted}</a>
+        <a class="ft-line" href={`mailto:${contact.email}`}>{contact.email}</a>
+      </div>
 
-        <!-- Column 3: Product Links -->
-        <div
-          class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-791a92b"
-          data-id="791a92b"
-          data-element_type="column"
-        >
-          <div class="elementor-widget-wrap elementor-element-populated">
-            <div
-              class="elementor-element elementor-element-8e9f8d5 elementor-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list"
-              data-id="8e9f8d5"
-              data-element_type="widget"
-              data-widget_type="icon-list.default"
-            >
-              <div class="elementor-widget-container">
-                <ul class="elementor-icon-list-items">
-                  {productLinks.map((link) => (
-                    <li class="elementor-icon-list-item">
-                      <a
-                        href={link.href}
-                        target={link.href.startsWith('http') ? '_blank' : undefined}
-                        rel={
-                          link.href.startsWith('http')
-                            ? 'noopener noreferrer'
-                            : undefined
-                        }
-                      >
-                        <span class="elementor-icon-list-text"
-                          >{link.label}</span
-                        >
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+      <nav class="ft-col ft-nav" aria-label="Kategori">
+        <span class="ft-label">Kategori</span>
+        {miniNav.map((n) => (
+          <a class="ft-navlink" href={n.path}>{n.name}</a>
+        ))}
+      </nav>
+
+      <nav class="ft-col ft-info" aria-label="Info">
+        <span class="ft-label">Info</span>
+        {footer.infoLinks.map((n) => (
+          <a class="ft-navlink" href={n.path}>{n.name}</a>
+        ))}
+      </nav>
+
+      <div class="ft-col ft-social">
+        <span class="ft-label">Sosial</span>
+        <div class="ft-social-row">
+          {socials.map((s) => (
+            <a class="ft-soc" href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.name}>
+              {s.name === 'TikTok' && (
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82a4.28 4.28 0 0 1-1.05-2.82h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.27 0 .53.04.78.12V9.74a5.7 5.7 0 0 0-.78-.05A5.7 5.7 0 1 0 15.55 15V9.01a7.3 7.3 0 0 0 4.45 1.5V7.4a4.28 4.28 0 0 1-3.4-1.58Z"/></svg>
+              )}
+              {s.name === 'Instagram' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2.5" y="2.5" width="19" height="19" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+              )}
+              {s.name === 'Facebook' && (
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+              )}
+            </a>
+          ))}
         </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- Section 2: Contact Info + Logo + Social Icons -->
-    <section
-      class="elementor-section elementor-top-section elementor-element elementor-element-d8b89f6 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-      data-id="d8b89f6"
-      data-element_type="section"
-      data-settings='{"background_background":"classic"}'
-    >
-      <div class="elementor-container elementor-column-gap-default">
-        <!-- Left Column: Contact Info -->
-        <div
-          class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-74e3d95"
-          data-id="74e3d95"
-          data-element_type="column"
-        >
-          <div class="elementor-widget-wrap elementor-element-populated">
-            <div
-              class="elementor-element elementor-element-1bb83a6 elementor-widget elementor-widget-text-editor"
-              data-id="1bb83a6"
-              data-element_type="widget"
-              data-widget_type="text-editor.default"
-            >
-              <div class="elementor-widget-container">
-                <p>{contactInfo.address}</p>
-                <p>{contactInfo.phone}</p>
-                <p>
-                  <a href={`mailto:${contactInfo.email}`}>{contactInfo.email}</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- Giant wordmark: outlined, fills orange on hover -->
+  <a class="ft-wordmark" href="/" aria-label="Kustom Garment">KUSTOM GARMENT</a>
 
-        <!-- Right Column: Logo + Social Icons -->
-        <div
-          class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-cd07f99"
-          data-id="cd07f99"
-          data-element_type="column"
-        >
-          <div class="elementor-widget-wrap elementor-element-populated">
-            <!-- Logo -->
-            <div
-              class="elementor-element elementor-element-5401845 elementor-widget elementor-widget-image"
-              data-id="5401845"
-              data-element_type="widget"
-              data-widget_type="image.default"
-            >
-              <div class="elementor-widget-container">
-                <img
-                  src="/images/logos/kg-logo.png"
-                  title="kg-logo"
-                  alt="kg-logo"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            <!-- Social Icons -->
-            <div
-              class="elementor-element elementor-element-3f2938b elementor-shape-circle e-grid-align-right e-grid-align-mobile-left elementor-grid-0 elementor-widget elementor-widget-social-icons"
-              data-id="3f2938b"
-              data-element_type="widget"
-              data-widget_type="social-icons.default"
-            >
-              <div class="elementor-widget-container">
-                <div class="elementor-social-icons-wrapper elementor-grid">
-                  {socialLinks.map((social) => (
-                    <span class="elementor-grid-item">
-                      <a
-                        class={`elementor-icon elementor-social-icon elementor-social-icon-${social.class}`}
-                        href={social.href}
-                        target="_blank"
-                      >
-                        <span class="elementor-screen-only">{social.name}</span>
-                        <svg
-                          class="e-font-icon-svg e-fab-{social.class}"
-                          viewBox="0 0 512 512"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <use
-                            href={`/images/social-icons.svg#${social.class}`}
-                          />
-                        </svg>
-                      </a>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 3: Copyright -->
-    <section
-      class="elementor-section elementor-top-section elementor-element elementor-element-70d28cb elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-      data-id="70d28cb"
-      data-element_type="section"
-      data-settings='{"background_background":"classic"}'
-    >
-      <div class="elementor-container elementor-column-gap-default">
-        <div
-          class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-dd18cb3"
-          data-id="dd18cb3"
-          data-element_type="column"
-        >
-          <div class="elementor-widget-wrap elementor-element-populated">
-            <div
-              class="elementor-element elementor-element-2c2adb0 elementor-widget elementor-widget-text-editor"
-              data-id="2c2adb0"
-              data-element_type="widget"
-              data-widget_type="text-editor.default"
-            >
-              <div class="elementor-widget-container">
-                <p>
-                  © {currentYear} Kustompedia. All Rights Reserved. Made with
-                  Passion by <a href="https://digital360.id">Digital360</a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-3420fd8"
-          data-id="3420fd8"
-          data-element_type="column"
-        >
-          <div class="elementor-widget-wrap"></div>
-        </div>
-      </div>
-    </section>
+  <div class="ft-bottom">
+    <span class="ft-legal">© {year}, KUSTOM GARMENT. {footer.legalLine} <a class="ft-legal-link" href={footer.privacyUrl}>{footer.privacyLabel}</a></span>
+    <span>{footer.descriptor}</span>
   </div>
 </footer>
 
 <style>
-  /* Elementor footer base styles */
-  #uicore-tb-footer {
-    background: #1a1a1a;
+  .ft {
+    background: #ff4c00;
     color: #ffffff;
-  }
-
-  /* Elementor section styles */
-  .elementor-section {
-    position: relative;
-  }
-
-  .elementor-container {
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .elementor-column-gap-default > .elementor-column > .elementor-element-populated {
-    padding: 10px;
-  }
-
-  @media (min-width: 768px) {
-    .elementor-column-gap-default
-      > .elementor-column
-      > .elementor-element-populated {
-      padding: 20px;
-    }
-  }
-
-  .elementor-section-boxed .elementor-container {
-    max-width: 1140px;
-  }
-
-  /* Column widths */
-  .elementor-col-100 {
-    width: 100%;
-  }
-  .elementor-col-50 {
-    width: 50%;
-  }
-  .elementor-col-33 {
-    width: 33.333%;
-  }
-
-  @media (max-width: 767px) {
-    .elementor-col-50,
-    .elementor-col-33 {
-      width: 100%;
-    }
-  }
-
-  .elementor-top-section .elementor-element {
-    width: 100%;
-  }
-
-  /* Grid layout for columns */
-  .elementor-section .elementor-container {
-    display: flex;
-  }
-
-  @media (max-width: 767px) {
-    .elementor-section .elementor-container {
-      flex-wrap: wrap;
-    }
-  }
-
-  /* Footer section padding */
-  #uicore-tb-footer .elementor-section {
-    padding: 50px 0;
-  }
-
-  /* Background overlay */
-  .elementor-background-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-
-  /* Heading styles */
-  .elementor-heading-title {
-    color: #ffffff;
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0 0 10px 0;
-  }
-
-  .elementor-size-default {
-    font-size: 16px;
-  }
-
-  /* Text editor styles */
-  .elementor-widget-text-editor p {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0 0 10px 0;
-  }
-
-  #uicore-tb-footer .elementor-widget-text-editor a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-  }
-
-  #uicore-tb-footer .elementor-widget-text-editor a:hover {
-    color: #ffffff;
-  }
-
-  /* Icon list styles */
-  .elementor-icon-list-items {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .elementor-icon-list-item {
-    margin: 0 0 12px 0;
-    padding: 0;
-  }
-
-  .elementor-icon-list-item a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
-  }
-
-  .elementor-icon-list-item a:hover {
-    color: #ffffff;
-  }
-
-  /* Google Maps iframe */
-  .elementor-custom-embed iframe {
-    width: 100%;
-    height: 200px;
-    border: none;
-    border-radius: 8px;
-  }
-
-  /* Image widget */
-  .elementor-widget-image img {
-    max-width: 120px;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px auto;
-  }
-
-  @media (min-width: 768px) {
-    .elementor-widget-image img {
-      margin: 0 0 20px 0;
-    }
-  }
-
-  /* Social icons */
-  .elementor-social-icons-wrapper {
-    display: flex;
-    gap: 10px;
-  }
-
-  @media (min-width: 768px) {
-    .elementor-social-icons-wrapper.e-grid-align-right {
-      justify-content: flex-end;
-    }
-  }
-
-  .elementor-social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    text-decoration: none;
-    transition: background 0.3s, color 0.3s;
-  }
-
-  .elementor-social-icon:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
-  }
-
-  .elementor-social-icon svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
-  }
-
-  .elementor-screen-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
+    padding: 3rem 0 1.5rem;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
   }
-
-  /* Footer copyright section */
-  #uicore-tb-footer .elementor-element-70d28cb {
-    padding: 20px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  #uicore-tb-footer
-    .elementor-element-70d28cb
-    .elementor-widget-text-editor
-    p {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
-  }
-
-  #uicore-tb-footer
-    .elementor-element-70d28cb
-    .elementor-widget-text-editor
-    a {
-    color: rgba(255, 255, 255, 0.8);
-  }
-
-  /* Responsive adjustments */
-  @media (min-width: 768px) {
-    .elementor-section-content-middle .elementor-container {
-      align-items: center;
-    }
-  }
-
   @media (min-width: 1024px) {
-    .elementor-container {
-      max-width: 1140px;
+    .ft { padding: 3.5rem 0 2rem; }
+  }
+  .ft-inner {
+    max-width: 96rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+  @media (min-width: 1024px) {
+    .ft-inner { padding: 0 2.5rem; }
+  }
+
+  /* CTA */
+  .ft-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  }
+  .ft-tagline {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: #ffffff;
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+
+  /* Meta */
+  .ft-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+  @media (min-width: 640px) {
+    .ft-meta { grid-template-columns: 1fr 1fr; }
+  }
+  @media (min-width: 1024px) {
+    .ft-meta { grid-template-columns: 1.5fr 1fr 1.2fr 1fr; }
+  }
+  .ft-col { display: flex; flex-direction: column; }
+  .ft-label {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+  .ft-addr {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.82);
+    margin: 0 0 0.75rem;
+  }
+  .ft-line {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+    transition: color 200ms ease;
+  }
+  .ft-line:hover { color: #ffffff; text-decoration: underline; }
+
+  .ft-navlink {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+    padding: 0.2rem 0;
+    width: max-content;
+    transition: color 200ms ease, padding-left 200ms ease;
+  }
+  .ft-navlink:hover { color: #ffffff; padding-left: 0.35rem; }
+
+  .ft-social-row { display: flex; gap: 0.75rem; }
+  .ft-soc {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: background 220ms ease, color 220ms ease, transform 220ms ease, border-color 220ms ease;
+  }
+  .ft-soc svg { width: 1.3rem; height: 1.3rem; }
+  .ft-soc:hover {
+    background: #ffffff;
+    border-color: #ffffff;
+    color: #ff4c00;
+    transform: translateY(-3px);
+  }
+
+  /* Giant wordmark */
+  .ft-wordmark {
+    display: block;
+    margin: 0.5rem 0 1rem;
+    padding: 0 1.25rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 11vw, 11rem);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-align: center;
+    white-space: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 500ms ease, -webkit-text-stroke-color 500ms ease;
+  }
+  @media (hover: hover) {
+    .ft-wordmark:hover {
+      color: #ffffff;
+      -webkit-text-stroke-color: #ffffff;
     }
+  }
+
+  /* Bottom bar */
+  .ft-bottom {
+    max-width: 96rem;
+    margin: 0 auto;
+    padding: 1.5rem 1.25rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .ft-legal-link {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .ft-legal-link:hover { opacity: 0.75; }
+  @media (min-width: 640px) {
+    .ft-bottom { flex-direction: row; justify-content: space-between; }
+  }
+  @media (min-width: 1024px) {
+    .ft-bottom { padding-left: 2.5rem; padding-right: 2.5rem; }
   }
 </style>

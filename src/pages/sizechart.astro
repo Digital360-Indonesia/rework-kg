@@ -1,321 +1,360 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const metaTitle = 'Size Chart — Panduan Ukuran Apparel | Kustom Garment';
+const metaDescription = 'Tabel ukuran lengkap kaos, jaket, hoodie, ukuran wanita & anak, plus cara mengukur badan biar nggak salah pilih. Ukuran custom? Tinggal kirim, kami sesuaikan.';
+
+const wa = (msg: string) => 'https://wa.me/6285161202499?text=' + encodeURIComponent(msg);
+
+// --- CMS-ready content ---
+const hero = {
+  eyebrow: 'Size Chart',
+  titleLead: 'Cari ukuran',
+  titleAccent: 'yang pas.',
+  sub: 'Ukur badanmu, cocokkan sama tabel di bawah. Masih ragu di antara dua ukuran? Ambil yang lebih besar — atau tinggal tanya, kami bantu pilih.',
+};
+
+// Real size data — sourced from Kustom Garment's own published size guides.
+const charts = [
+  {
+    id: 'kaos',
+    label: 'Kaos',
+    note: 'Ukuran dewasa, regular fit. Bahan katun cenderung sedikit menyusut — kalau ragu, naik satu ukuran.',
+    headers: ['Ukuran', 'Lebar Dada (cm)', 'Panjang Badan (cm)', 'Panjang Lengan (cm)'],
+    rows: [
+      ['XS', '42–44', '62–64', '18–20'],
+      ['S', '44–46', '64–66', '20–22'],
+      ['M', '48–50', '66–68', '22–24'],
+      ['L', '50–52', '68–70', '24–26'],
+      ['XL', '52–54', '70–72', '26–28'],
+      ['XXL', '54–56', '72–74', '28–30'],
+      ['3XL', '56–58', '74–76', '30–32'],
+    ],
+  },
+  {
+    id: 'wanita',
+    label: 'Wanita',
+    note: 'Potongan khusus wanita, lebih pas di badan.',
+    headers: ['Ukuran', 'Lebar Dada (cm)', 'Panjang Badan (cm)'],
+    rows: [
+      ['WS', '40–42', '60–62'],
+      ['WM', '44–46', '62–64'],
+      ['WL', '48–50', '64–66'],
+    ],
+  },
+  {
+    id: 'anak',
+    label: 'Anak',
+    note: 'Ukuran berdasarkan umur. Cocokkan juga dengan lebar dada biar lebih pas.',
+    headers: ['Umur', 'Lebar Dada (cm)', 'Panjang Badan (cm)'],
+    rows: [
+      ['2T', '28–30', '38–40'],
+      ['3T', '30–32', '40–42'],
+      ['4T', '32–34', '42–44'],
+      ['5T', '34–36', '44–46'],
+      ['6T', '36–38', '46–48'],
+      ['7T', '38–40', '48–50'],
+      ['8T', '40–42', '50–52'],
+      ['9T', '42–44', '52–54'],
+      ['10T', '44–46', '54–56'],
+      ['11T', '42–44', '56–58'],
+      ['12T', '44–46', '58–60'],
+      ['13T', '46–48', '60–62'],
+    ],
+  },
+  {
+    id: 'jaket',
+    label: 'Jaket',
+    note: 'Jaket casual. Mau dipakai layering di atas kaos? Naik satu ukuran.',
+    headers: ['Ukuran', 'Lebar Dada (cm)', 'Panjang Badan (cm)', 'Panjang Lengan (cm)'],
+    rows: [
+      ['S', '48–50', '64–66', '60–62'],
+      ['M', '50–52', '66–68', '62–64'],
+      ['L', '52–54', '68–70', '64–66'],
+      ['XL', '54–56', '70–72', '66–68'],
+      ['XXL', '56–58', '72–74', '68–70'],
+    ],
+  },
+  {
+    id: 'hoodie',
+    label: 'Hoodie',
+    note: 'Hoodie potongannya memang sedikit longgar — ikuti ukuran biasamu.',
+    headers: ['Ukuran', 'Lebar Dada (cm)', 'Panjang Badan (cm)', 'Panjang Lengan (cm)'],
+    rows: [
+      ['S', '50–52', '66–68', '62–64'],
+      ['M', '52–54', '68–70', '64–66'],
+      ['L', '54–56', '70–72', '66–68'],
+      ['XL', '56–58', '72–74', '68–70'],
+      ['XXL', '58–60', '74–76', '70–72'],
+    ],
+  },
+  {
+    id: 'konversi',
+    label: 'Konversi',
+    note: 'Patokan konversi ukuran Asia ke US & Eropa.',
+    headers: ['Asia', 'US', 'EU'],
+    rows: [
+      ['XS', 'XS', '44'],
+      ['S', 'S', '46'],
+      ['M', 'M', '48'],
+      ['L', 'L', '50'],
+      ['XL', 'XL', '52'],
+      ['XXL', '2XL', '54'],
+      ['3XL', '3XL', '56'],
+    ],
+  },
+];
+
+const measure = [
+  { no: '01', title: 'Lebar dada', desc: 'Letakkan meteran di bawah ketiak, ukur lurus dari ketiak ke ketiak. Jangan ditarik terlalu ketat.' },
+  { no: '02', title: 'Panjang badan', desc: 'Mulai dari bahu dekat leher, turunkan meteran lurus sampai batas bawah yang kamu mau.' },
+  { no: '03', title: 'Panjang lengan', desc: 'Dari ujung bahu, ikuti garis lengan sampai panjang yang kamu inginkan.' },
+];
+
+const cta = {
+  lead: 'Masih bingung soal ukuran?',
+  label: 'Tanya tim kami',
+  link: wa('Halo Kustom Garment, saya mau tanya soal ukuran / size chart.'),
+};
+
+const customNote = wa('Halo Kustom Garment, saya mau kirim ukuran custom untuk produk saya.');
 ---
 
-<BaseLayout
-  title="Sizechart - Konveksi Satuan Surabaya Kustom Garment"
-  description="Sizechart - Konveksi Satuan Surabaya Kustom Garment"
->
-  <div class="elementor elementor-989763">
-    <!-- Heading Section -->
-    <div class="elementor-element elementor-container-heading">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-widget-heading">
-          <div class="elementor-widget-container">
-            <h3 class="elementor-heading-title">Kustom Size Chart</h3>
-          </div>
-        </div>
-        <div class="elementor-element elementor-widget-text-editor">
-          <div class="elementor-widget-container">
-            <p>Tentukan ukuran Baju kustommu dengan pas ya!<br />biar nggak salah pilih silahkan cek size chart dibawah ini 😊</p>
-          </div>
-        </div>
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <main class="sz">
+    <!-- HERO (orange, centered) -->
+    <section class="sz-hero">
+      <div class="sz-wrap">
+        <span class="sz-eyebrow reveal">{hero.eyebrow}</span>
+        <h1 class="sz-hero-title reveal">{hero.titleLead} <span class="sz-hero-accent">{hero.titleAccent}</span></h1>
+        <p class="sz-hero-sub reveal">{hero.sub}</p>
       </div>
-    </div>
+    </section>
 
-    <!-- Row 1: Images 1-2 -->
-    <div class="elementor-element elementor-container-row">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              fetchpriority="high"
-              decoding="async"
-              width="1499"
-              height="1557"
-              src="/images/sizechart/12.jpg"
-              alt=""
-            />
-          </div>
+    <!-- TABBED TABLES -->
+    <section class="sz-tables">
+      <div class="sz-wrap">
+        <div class="sz-tabs reveal" role="tablist" aria-label="Pilih jenis produk">
+          {charts.map((c, i) => (
+            <button class:list={["sz-tab", { 'is-active': i === 0 }]} data-tab={c.id} role="tab" aria-selected={i === 0 ? 'true' : 'false'} type="button">
+              {c.label}
+            </button>
+          ))}
         </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              decoding="async"
-              width="1499"
-              height="1564"
-              src="/images/sizechart/7.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <!-- Row 2: Images 3-6 -->
-    <div class="elementor-element elementor-container-row">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              decoding="async"
-              width="1500"
-              height="1056"
-              src="/images/sizechart/8.jpg"
-              alt=""
-            />
+        {charts.map((c, i) => (
+          <div class:list={["sz-panel", { 'is-active': i === 0 }]} data-panel={c.id} role="tabpanel" hidden={i !== 0}>
+            <div class="sz-table-card reveal">
+              <div class="sz-table-scroll">
+                <table class="sz-table">
+                  <thead>
+                    <tr>{c.headers.map((h) => (<th>{h}</th>))}</tr>
+                  </thead>
+                  <tbody>
+                    {c.rows.map((r) => (
+                      <tr>{r.map((cell, ci) => (ci === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>))}</tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <p class="sz-note reveal">{c.note}</p>
           </div>
-        </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="1499"
-              height="1055"
-              src="/images/sizechart/9.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="1500"
-              height="1500"
-              src="/images/sizechart/2025-02-26-almamater-scaled-1.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="1499"
-              height="1055"
-              src="/images/sizechart/12.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
+        ))}
 
-    <!-- Row 3: More images -->
-    <div class="elementor-element elementor-container-row">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="2560"
-              height="1805"
-              src="/images/sizechart/2025-02-26-wearpack-scaled-1.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="1500"
-              height="1056"
-              src="/images/sizechart/12.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="1500"
-              height="1056"
-              src="/images/sizechart/7.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="1499"
-              height="1055"
-              src="/images/sizechart/8.jpg"
-              alt=""
-            />
-          </div>
+        <div class="sz-custom reveal">
+          <p class="sz-custom-text">
+            Polo, kemeja, jersey, wearpack & rompi punya pola sendiri — kirim ukuranmu, kami sesuaikan.
+          </p>
+          <a class="sz-custom-link" href={customNote} target="_blank" rel="noopener noreferrer">
+            Kirim ukuran custom <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Row 4: Final images -->
-    <div class="elementor-element elementor-container-row">
-      <div class="e-con-inner">
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="1500"
-              height="1056"
-              src="/images/sizechart/9.jpg"
-              alt=""
-            />
-          </div>
+    <!-- HOW TO MEASURE -->
+    <section class="sz-measure">
+      <div class="sz-wrap">
+        <h2 class="sz-h2 reveal">Cara ukur badanmu</h2>
+        <div class="sz-measure-grid">
+          {measure.map((m, i) => (
+            <div class="sz-card reveal" style={`transition-delay:${i * 70}ms`}>
+              <span class="sz-card-no">{m.no}</span>
+              <h3 class="sz-card-title">{m.title}</h3>
+              <p class="sz-card-desc">{m.desc}</p>
+            </div>
+          ))}
         </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="2560"
-              height="1805"
-              src="/images/sizechart/2025-02-26-almamater-scaled-1.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="2560"
-              height="1805"
-              src="/images/sizechart/2025-02-26-jaslab-scaled-1.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="2560"
-              height="1805"
-              src="/images/sizechart/2025-02-26-celana_office-scaled-1.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <div class="elementor-element elementor-widget-image">
-          <div class="elementor-widget-container">
-            <img
-              loading="lazy"
-              decoding="async"
-              width="2560"
-              height="1805"
-              src="/images/sizechart/2025-02-26-celana_wearpack-scaled-1.jpg"
-              alt=""
-            />
-          </div>
-        </div>
+        <p class="sz-tip reveal">💡 Kalau ukuranmu ada di antara dua size, ambil yang lebih besar — biar nyaman dipakai seharian.</p>
       </div>
-    </div>
-  </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="sz-cta-sec">
+      <div class="sz-wrap">
+        <p class="sz-cta-lead reveal">{cta.lead}</p>
+        <a class="sz-cta reveal" href={cta.link} target="_blank" rel="noopener noreferrer">
+          {cta.label} <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
-  /* Match Elementor container styling */
-  .elementor {
-    width: 100%;
+  .sz { background: #ffffff; }
+  .sz-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 1024px) { .sz-wrap { padding: 0 2.5rem; } }
+
+  /* HERO */
+  .sz-hero { background: #ff4c00; color: #ffffff; padding: 5.5rem 0 6rem; text-align: center; overflow: hidden; }
+  @media (min-width: 1024px) { .sz-hero { padding: 8rem 0 8.5rem; } }
+  .sz-eyebrow {
+    display: inline-block; font-family: var(--font-sans); font-weight: 700;
+    font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.85); margin-bottom: 1.5rem;
+  }
+  .sz-hero-title {
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 5.25rem); line-height: 1.02; letter-spacing: -0.03em;
+    margin: 0 auto 1.5rem; color: #ffffff;
+  }
+  .sz-hero-accent { color: #ff4c00; -webkit-text-stroke: 2px #ffffff; text-stroke: 2px #ffffff; }
+  .sz-hero-sub {
+    font-family: var(--font-sans); font-weight: 600;
+    font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.55;
+    color: rgba(255,255,255,0.92); max-width: 42rem; margin: 0 auto;
   }
 
-  .elementor-element {
-    position: relative;
+  /* Shared H2 */
+  .sz-h2 {
+    font-family: var(--font-sans); font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 3rem); letter-spacing: -0.02em;
+    color: #1a1a1a; margin: 0 0 2.5rem;
   }
 
-  .elementor-container-heading,
-  .elementor-container-row {
-    --e-con-width: 1140px;
-    width: 100%;
-    max-width: var(--e-con-width);
-    margin: 0 auto;
-    padding: 20px;
+  /* TABLES SECTION */
+  .sz-tables { padding: 4rem 0; }
+  @media (min-width: 1024px) { .sz-tables { padding: 6rem 0; } }
+
+  /* Tabs */
+  .sz-tabs { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0 0 2.25rem; }
+  .sz-tab {
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.9375rem;
+    color: #1a1a1a; background: #ffffff; border: 1px solid #ececec; border-radius: 999px;
+    padding: 0.55rem 1.2rem; cursor: pointer;
+    transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+  }
+  @media (hover: hover) { .sz-tab:hover { border-color: #ff4c00; color: #ff4c00; } }
+  .sz-tab.is-active { background: #ff4c00; border-color: #ff4c00; color: #ffffff; }
+
+  /* Panels */
+  .sz-panel[hidden] { display: none; }
+  .sz-panel { animation: sz-fade 360ms ease; }
+  @keyframes sz-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .sz-panel { animation: none; } }
+
+  /* Table card */
+  .sz-table-card { border: 1px solid #ececec; border-radius: 1.25rem; overflow: hidden; }
+  .sz-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .sz-table { width: 100%; border-collapse: collapse; min-width: 30rem; font-family: var(--font-sans); }
+  .sz-table thead th {
+    background: #ff4c00; color: #ffffff; font-weight: 700; font-size: 0.875rem;
+    letter-spacing: 0.01em; text-align: left; padding: 1rem 1.25rem; white-space: nowrap;
+  }
+  .sz-table tbody th, .sz-table tbody td {
+    padding: 0.95rem 1.25rem; font-size: 0.9375rem; border-bottom: 1px solid #f0f0f0; white-space: nowrap;
+  }
+  .sz-table tbody th { font-weight: 700; color: #1a1a1a; text-align: left; }
+  .sz-table tbody td { font-weight: 600; color: #525252; }
+  .sz-table tbody tr:nth-child(even) { background: #fafafa; }
+  .sz-table tbody tr:last-child th, .sz-table tbody tr:last-child td { border-bottom: none; }
+  @media (hover: hover) { .sz-table tbody tr:hover { background: #fff4ef; } }
+
+  .sz-note { font-family: var(--font-sans); font-weight: 600; font-size: 0.875rem; line-height: 1.55; color: #6b7280; margin: 1rem 0 0; max-width: 44rem; }
+
+  /* Custom note */
+  .sz-custom {
+    margin-top: 2.5rem; padding: 1.75rem; border-radius: 1.25rem; background: #f5f5f5;
+    display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-start;
+  }
+  @media (min-width: 768px) { .sz-custom { flex-direction: row; align-items: center; justify-content: space-between; } }
+  .sz-custom-text { font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.5; color: #1a1a1a; margin: 0; max-width: 40rem; }
+  .sz-custom-link {
+    display: inline-flex; align-items: baseline; gap: 0.4rem; position: relative; flex-shrink: 0;
+    font-family: var(--font-sans); font-weight: 700; font-size: 1rem; color: #1a1a1a; text-decoration: none; padding-bottom: 0.1em;
+  }
+  .sz-custom-link span { color: #ff4c00; display: inline-block; transition: transform 320ms cubic-bezier(0.19,1,0.22,1); }
+  .sz-custom-link::after { content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 2px; background: #ff4c00; transform: scaleX(0); transform-origin: left; transition: transform 420ms cubic-bezier(0.19,1,0.22,1); }
+  @media (hover: hover) { .sz-custom-link:hover::after { transform: scaleX(1); } .sz-custom-link:hover span { transform: translateX(6px); } }
+
+  /* MEASURE */
+  .sz-measure { padding: 0 0 5rem; }
+  @media (min-width: 1024px) { .sz-measure { padding: 0 0 7rem; } }
+  .sz-measure-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  @media (min-width: 768px) { .sz-measure-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+  .sz-card { background: #f5f5f5; border-radius: 1.25rem; padding: 2rem; transition: background 280ms ease, transform 280ms ease, opacity 700ms ease; }
+  .sz-card-no { font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; color: #ff4c00; letter-spacing: 0.1em; }
+  .sz-card-title { font-family: var(--font-sans); font-weight: 700; font-size: 1.375rem; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.75rem 0 0.5rem; }
+  .sz-card-desc { font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.55; color: #6b7280; margin: 0; }
+  @media (hover: hover) {
+    .sz-card:hover { background: #ff4c00; transform: translateY(-4px); }
+    .sz-card:hover .sz-card-no { color: #ffffff; }
+    .sz-card:hover .sz-card-title { color: #ffffff; }
+    .sz-card:hover .sz-card-desc { color: rgba(255,255,255,0.9); }
+  }
+  .sz-tip { font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.55; color: #525252; margin: 2rem 0 0; }
+
+  /* CTA */
+  .sz-cta-sec { padding: 0 0 6rem; }
+  @media (min-width: 1024px) { .sz-cta-sec { padding: 0 0 8rem; } }
+  .sz-cta-lead { font-family: var(--font-sans); font-weight: 600; font-size: 1rem; color: #6b7280; margin: 0 0 0.5rem; }
+  .sz-cta {
+    display: inline-flex; align-items: baseline; gap: 0.5rem; position: relative;
+    font-family: var(--font-sans); font-weight: 700; font-size: clamp(1.75rem, 4vw, 3rem);
+    letter-spacing: -0.02em; color: #1a1a1a; text-decoration: none; padding-bottom: 0.12em;
+  }
+  .sz-cta span { color: #ff4c00; display: inline-block; transition: transform 320ms cubic-bezier(0.19,1,0.22,1); }
+  .sz-cta::after {
+    content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px;
+    background: #ff4c00; transform: scaleX(0); transform-origin: left;
+    transition: transform 460ms cubic-bezier(0.19,1,0.22,1);
+  }
+  @media (hover: hover) {
+    .sz-cta:hover::after { transform: scaleX(1); }
+    .sz-cta:hover span { transform: translateX(8px); }
   }
 
-  .e-con-inner {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-
-  .elementor-widget-heading,
-  .elementor-widget-text-editor,
-  .elementor-widget-image {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .elementor-container-heading .e-con-inner {
-    display: block;
-    text-align: center;
-  }
-
-  .elementor-container-heading .elementor-widget-heading,
-  .elementor-container-heading .elementor-widget-text-editor {
-    flex: none;
-  }
-
-  .elementor-heading-title {
-    font-size: 32px;
-    font-weight: 600;
-    margin: 0 0 10px 0;
-  }
-
-  .elementor-widget-text-editor p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.6;
-  }
-
-  .elementor-widget-container img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .elementor-container-heading,
-    .elementor-container-row {
-      --e-con-width: 100%;
-      padding: 15px;
-    }
-
-    .e-con-inner {
-      gap: 15px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .elementor-heading-title {
-      font-size: 24px;
-    }
-
-    .elementor-widget-text-editor p {
-      font-size: 14px;
-    }
-
-    .e-con-inner {
-      gap: 10px;
-    }
-
-    .elementor-container-heading,
-    .elementor-container-row {
-      padding: 10px;
-    }
-  }
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.19,1,0.22,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 </style>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Tabs
+  const tabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.sz-tab'));
+  const panels = Array.from(document.querySelectorAll<HTMLElement>('.sz-panel'));
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const id = tab.dataset.tab;
+      tabs.forEach((t) => {
+        const active = t === tab;
+        t.classList.toggle('is-active', active);
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      panels.forEach((p) => {
+        const active = p.dataset.panel === id;
+        p.classList.toggle('is-active', active);
+        p.hidden = !active;
+      });
+    });
+  });
+</script>

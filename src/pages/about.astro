@@ -1,0 +1,351 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const metaTitle = 'About Us | Kustom Garment';
+const metaDescription = 'Kustom Garment — konveksi custom satuan asal Surabaya. Bikin baju tanpa minimum order, desain bebas, bahan premium. Untuk bisnis, komunitas, kampus, dan personal.';
+
+const stats = [
+  { value: 2015, suffix: '', label: 'Mulai dari Surabaya' },
+  { value: 10, suffix: 'rb+', label: 'Produk dikerjakan' },
+  { value: 500, suffix: '+', label: 'Brand & komunitas' },
+  { value: 1, suffix: ' pcs', label: 'Minimum order' },
+];
+
+const values = [
+  { title: 'Tanpa minimum order', desc: 'Mau satu atau seribu, kami kerjakan dengan standar yang sama.' },
+  { title: 'Desain bebas', desc: 'Idemu, warnamu, potonganmu. Kami bantu wujudkan dari nol.' },
+  { title: 'Bahan premium', desc: 'Cotton combed, fleece, drill, sampai bahan teknis — semua kualitas pilihan.' },
+];
+
+const aboutImage = '/images/placeholder/theme-image-1777126637504.png';
+const clientLogos = ['klien-1.png','klien-2.png','klien-3.png','klien-4.png','klien-5.png','klien-6.png','klien-7.png','klien-8.png','klien-9.png','klien-10.png'];
+---
+
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <main class="ab">
+    <!-- HERO -->
+    <section class="ab-hero" data-tilt-scene>
+      <span class="ab-eyebrow reveal">About us</span>
+      <h1 class="ab-hero-title" data-tilt>
+        Apa pun idemu,<br /><span class="ab-orange-stroke">kami wujudkan.</span>
+      </h1>
+      <p class="ab-hero-sub reveal">
+        Konveksi custom satuan asal Surabaya. Dari satu potong sampai ribuan — dikerjakan rapi, cepat, dan sesuai kepala kamu.
+      </p>
+    </section>
+
+    <!-- STORY + STATS -->
+    <section class="ab-story">
+      <div class="ab-wrap">
+        <h2 class="ab-h2 reveal">Dari Surabaya,<br />buat seluruh Indonesia.</h2>
+        <p class="ab-body reveal">
+          Kustom Garment lahir dari satu ide sederhana: bikin baju custom harusnya gampang, bebas, dan nggak harus banyak. Sejak 2015 kami bantu bisnis, komunitas, kampus, dan personal mewujudkan apparel mereka — tanpa minimum order, tanpa ribet.
+        </p>
+
+        <div class="ab-stats">
+          {stats.map((s) => (
+            <div class="ab-stat reveal">
+              <span class="ab-stat-num" data-count={s.value} data-suffix={s.suffix}>0{s.suffix}</span>
+              <span class="ab-stat-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- IMAGE -->
+    <section class="ab-imgband">
+      <div class="ab-wrap">
+        <div class="ab-img reveal">
+          <img src={aboutImage} alt="Karya custom Kustom Garment" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERED / TRUSTED BY -->
+    <section class="ab-logos">
+      <div class="ab-wrap">
+        <p class="ab-logos-label reveal">Dipercaya brand, komunitas &amp; kampus di seluruh Indonesia</p>
+        <div class="ab-logos-row reveal">
+          {clientLogos.map((l) => (
+            <img class="ab-logo" src={`/images/clients/${l}`} alt="Partner Kustom Garment" loading="lazy" />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES + CLOSING -->
+    <section class="ab-values">
+      <div class="ab-wrap">
+        <div class="ab-values-grid">
+          {values.map((v, i) => (
+            <div class="ab-value reveal" style={`transition-delay:${i * 80}ms`}>
+              <span class="ab-value-no">0{i + 1}</span>
+              <h3 class="ab-value-title">{v.title}</h3>
+              <p class="ab-value-desc">{v.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <a class="ab-cta reveal" href="https://wa.me/6285161202499?text=Halo%20Kustom%20Garment%2C%20saya%20mau%20bikin%20baju%20custom." target="_blank" rel="noopener noreferrer">
+          Yuk bikin punyamu <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .ab { background: #ffffff; }
+
+  /* HERO */
+  .ab-hero {
+    background: #ff4c00;
+    color: #ffffff;
+    padding: 6rem 1.5rem 7rem;
+    text-align: center;
+    overflow: hidden;
+    perspective: 900px;
+  }
+  @media (min-width: 1024px) { .ab-hero { padding: 9rem 2.5rem 10rem; } }
+
+  .ab-eyebrow {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1.5rem;
+  }
+  .ab-hero-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin: 0 auto 1.5rem;
+    color: #ffffff;
+    transform-style: preserve-3d;
+    transition: transform 200ms ease-out;
+    will-change: transform;
+  }
+  .ab-orange-stroke {
+    color: #ff4c00;
+    -webkit-text-stroke: 2px #ffffff;
+    text-stroke: 2px #ffffff;
+  }
+  .ab-hero-sub {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    line-height: 1.5;
+    color: rgba(255,255,255,0.9);
+    max-width: 38rem;
+    margin: 0 auto;
+  }
+
+  /* Shared wrap */
+  .ab-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 1024px) { .ab-wrap { padding: 0 2.5rem; } }
+
+  /* STORY */
+  .ab-story { padding: 5rem 0; }
+  @media (min-width: 1024px) { .ab-story { padding: 7rem 0; } }
+  .ab-h2 {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(1.875rem, 4.5vw, 3.25rem);
+    line-height: 1.06;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    margin: 0 0 1.5rem;
+  }
+  .ab-body {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: clamp(1rem, 1.5vw, 1.1875rem);
+    line-height: 1.6;
+    color: #525252;
+    max-width: 44rem;
+    margin: 0 0 3.5rem;
+  }
+  .ab-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem 1.5rem;
+  }
+  @media (min-width: 768px) { .ab-stats { grid-template-columns: repeat(4, 1fr); } }
+  .ab-stat { display: flex; flex-direction: column; gap: 0.35rem; }
+  .ab-stat-num {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    letter-spacing: -0.03em;
+    color: #ff4c00;
+    line-height: 1;
+  }
+  .ab-stat-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #6b7280;
+  }
+
+  /* IMAGE BAND */
+  .ab-imgband { padding: 0 0 1rem; }
+  .ab-img {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    aspect-ratio: 16 / 7;
+    background: #f4f4f4;
+  }
+  .ab-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* LOGOS */
+  .ab-logos { padding: 4rem 0; }
+  @media (min-width: 1024px) { .ab-logos { padding: 5rem 0; } }
+  .ab-logos-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #6b7280;
+    text-align: center;
+    margin: 0 0 2rem;
+  }
+  .ab-logos-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem 2.5rem;
+  }
+  .ab-logo {
+    height: 2.25rem;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.55;
+    filter: grayscale(1);
+    transition: opacity 240ms ease, filter 240ms ease;
+  }
+  @media (hover: hover) {
+    .ab-logo:hover { opacity: 1; filter: none; }
+  }
+
+  /* VALUES */
+  .ab-values { padding: 0 0 6rem; }
+  @media (min-width: 1024px) { .ab-values { padding: 0 0 8rem; } }
+  .ab-values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    border-top: 1px solid #ececec;
+    padding-top: 3.5rem;
+  }
+  @media (min-width: 768px) { .ab-values-grid { grid-template-columns: repeat(3, 1fr); gap: 2.5rem; } }
+  .ab-value-no {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #ff4c00;
+    letter-spacing: 0.1em;
+  }
+  .ab-value-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.375rem;
+    letter-spacing: -0.01em;
+    color: #1a1a1a;
+    margin: 0.75rem 0 0.5rem;
+  }
+  .ab-value-desc {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  .ab-cta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin-top: 4rem;
+    position: relative;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    text-decoration: none;
+    padding-bottom: 0.12em;
+  }
+  .ab-cta span { color: #ff4c00; display: inline-block; transition: transform 320ms cubic-bezier(0.19,1,0.22,1); }
+  .ab-cta::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%; height: 3px;
+    background: #ff4c00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 460ms cubic-bezier(0.19,1,0.22,1);
+  }
+  @media (hover: hover) {
+    .ab-cta:hover::after { transform: scaleX(1); }
+    .ab-cta:hover span { transform: translateX(8px); }
+  }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.19,1,0.22,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .ab-hero-title { transition: none !important; }
+  }
+</style>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Count-up stats
+  const fmt = (n: number) => n.toLocaleString('id-ID');
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      const el = e.target as HTMLElement;
+      const target = Number(el.dataset.count || '0');
+      const suffix = el.dataset.suffix || '';
+      const dur = 1400;
+      const t0 = performance.now();
+      const step = (now: number) => {
+        const p = Math.min((now - t0) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(Math.round(target * eased)) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+      countIO.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('[data-count]').forEach((el) => countIO.observe(el));
+
+  // 3D mouse tilt on hero title
+  const scene = document.querySelector<HTMLElement>('[data-tilt-scene]');
+  const tilt = document.querySelector<HTMLElement>('[data-tilt]');
+  if (scene && tilt && window.matchMedia('(hover: hover)').matches) {
+    scene.addEventListener('mousemove', (e) => {
+      const r = scene.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      tilt.style.transform = `rotateY(${x * 12}deg) rotateX(${-y * 12}deg)`;
+    });
+    scene.addEventListener('mouseleave', () => { tilt.style.transform = 'rotateY(0) rotateX(0)'; });
+  }
+</script>

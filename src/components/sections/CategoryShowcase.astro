@@ -1,0 +1,449 @@
+---
+import type { Category } from '../../data/categories';
+
+interface Props {
+  category: Category;
+  reverse?: boolean;
+}
+
+const { category, reverse = false } = Astro.props;
+
+const realCount = category.products.length;
+const slidesForRender = [
+  { ...category.products[realCount - 2], _clone: 'prev', _realIndex: realCount - 2 },
+  { ...category.products[realCount - 1], _clone: 'prev', _realIndex: realCount - 1 },
+  ...category.products.map((p, i) => ({ ...p, _clone: null, _realIndex: i })),
+  { ...category.products[0], _clone: 'next', _realIndex: 0 },
+  { ...category.products[1], _clone: 'next', _realIndex: 1 },
+];
+---
+
+<section class:list={['showcase', reverse && 'is-reverse']} aria-label={`Produk ${category.name}`}>
+  <div class="showcase-grid">
+    <!-- LEFT — product carousel + copy below -->
+    <div class="showcase-left">
+      <div class="left-panel">
+        <div class="carousel" data-carousel>
+          <div class="carousel-viewport" data-viewport>
+            {slidesForRender.map((p, slot) => (
+              <figure
+                class:list={['slide', p._clone && `is-clone-${p._clone}`]}
+                data-slot={slot}
+                data-index={p._realIndex}
+                data-title={p.title}
+                data-desc={p.description}
+              >
+                <img src={p.image} alt={p.title} loading={slot <= 1 ? 'eager' : 'lazy'} />
+              </figure>
+            ))}
+          </div>
+        </div>
+
+        <div class="dots" role="tablist" aria-label="Pilih produk">
+          {category.products.map((_, i) => (
+            <button
+              type="button"
+              class:list={['dot', i === 0 && 'is-active']}
+              data-jump={i}
+              aria-label={`Produk ${i + 1}`}
+            ><span class="dot-fill"></span></button>
+          ))}
+        </div>
+
+        <div class="copy">
+          <h3 class="copy-title" data-title>{category.products[0].title}</h3>
+          <p class="copy-desc" data-desc>{category.products[0].description}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — category lifestyle image -->
+    <a href={category.href} class="showcase-right" aria-label={category.rightCta}>
+      <img src={category.rightImage} alt={category.rightTitle} loading="lazy" class="right-img" />
+      <div class="right-overlay">
+        <span class="right-eyebrow">{category.rightEyebrow}</span>
+        <h2 class="right-title">{category.rightTitle}</h2>
+        <span class="right-cta">{category.rightCta} <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .showcase {
+    background: #ffffff;
+    padding: 0.5rem 0 0.75rem;
+  }
+  @media (min-width: 1024px) {
+    .showcase {
+      padding: 0.625rem 0 1rem;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+  }
+
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 96rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  @media (min-width: 1024px) {
+    .showcase-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      padding: 0 1.5rem;
+    }
+    .is-reverse .showcase-left { order: 2; }
+    .is-reverse .showcase-right { order: 1; }
+  }
+
+  /* ===== LEFT ===== */
+  .showcase-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-panel {
+    background: #f5f5f5;
+    border-radius: 1.25rem;
+    padding: 2rem 0;
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  @media (min-width: 1024px) {
+    .left-panel {
+      border-radius: 1.5rem;
+      padding: 2.5rem 0;
+    }
+  }
+
+  .carousel {
+    width: 100%;
+    position: relative;
+  }
+  .carousel-viewport {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .carousel-viewport::-webkit-scrollbar { display: none; }
+
+  .slide {
+    flex: 0 0 52%;
+    scroll-snap-align: center;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 4 / 3;
+    cursor: pointer;
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Pagination dashes */
+  .dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2.25rem;
+  }
+  .dot {
+    position: relative;
+    width: 1.75rem;
+    height: 2px;
+    border: 0;
+    background: #d4d4d4;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 999px;
+    overflow: hidden;
+    transition: width 240ms ease;
+  }
+  .dot.is-active {
+    width: 2.5rem;
+  }
+  .dot-fill {
+    position: absolute;
+    inset: 0;
+    width: 0;
+    background: #1a1a1a;
+    border-radius: 999px;
+  }
+  .dot.is-active .dot-fill {
+    width: 0;
+  }
+  .dot.is-done .dot-fill {
+    width: 100%;
+    transition: none;
+  }
+
+  /* Copy — sits inside the gray panel, below the carousel + dashes */
+  .copy {
+    text-align: center;
+    padding: 2.75rem 1.5rem 0.25rem;
+  }
+  @media (min-width: 1024px) {
+    .copy {
+      padding: 3.25rem 2.5rem 0.5rem;
+    }
+  }
+  .copy-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.875rem;
+    letter-spacing: -0.01em;
+  }
+  .copy-desc {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #525252;
+    margin: 0 auto;
+    max-width: 26rem;
+  }
+
+  /* ===== RIGHT ===== */
+  .showcase-right {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 1.25rem;
+    aspect-ratio: 4 / 5;
+    background: #1a1a1a;
+    text-decoration: none;
+    color: inherit;
+  }
+  @media (min-width: 1024px) {
+    .showcase-right {
+      aspect-ratio: auto;
+      min-height: 44rem;
+      border-radius: 1.5rem;
+    }
+  }
+
+  .right-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  @media (hover: hover) {
+    .showcase-right:hover .right-img { transform: scale(1.04); }
+  }
+
+  .right-overlay {
+    position: absolute;
+    top: 1.75rem;
+    left: 1.75rem;
+    right: 1.75rem;
+    color: #ffffff;
+  }
+  @media (min-width: 1024px) {
+    .right-overlay {
+      top: 2.5rem;
+      left: 2.5rem;
+      right: 2.5rem;
+    }
+  }
+
+  .right-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.78);
+    display: block;
+    margin-bottom: 0.625rem;
+  }
+  .right-title {
+    font-family: var(--font-sans);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 0 0 0.875rem;
+    color: #ffffff;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.25);
+  }
+  .right-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    border-bottom: 1.5px solid #ffffff;
+    padding-bottom: 2px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    transition: gap 200ms ease;
+  }
+  .showcase-right:hover .right-cta { gap: 0.6rem; }
+</style>
+
+<script>
+  const DURATION = 5000;
+
+  const carousels = document.querySelectorAll<HTMLElement>('[data-carousel]');
+
+  carousels.forEach((carousel) => {
+    const root = carousel.parentElement!;
+    const viewport = carousel.querySelector<HTMLElement>('[data-viewport]')!;
+    const slides = Array.from(viewport.querySelectorAll<HTMLElement>('.slide'));
+    const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('.dot'));
+    const fills = dots.map((d) => d.querySelector<HTMLElement>('.dot-fill')!);
+    const titleEl = root.querySelector<HTMLElement>('.copy-title');
+    const descEl = root.querySelector<HTMLElement>('.copy-desc');
+
+    const CLONE_PADDING = 2;
+    const firstReal = CLONE_PADDING;
+    const lastReal = slides.length - 1 - CLONE_PADDING;
+    const realCount = dots.length;
+    const slotForRealIndex = (realIdx: number) => realIdx + CLONE_PADDING;
+
+    let currentReal = 0;
+    let currentSlot = firstReal;
+    let advanceTimer: ReturnType<typeof setTimeout> | null = null;
+    let paused = false;
+
+    const stopProgress = () => {
+      if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
+      fills.forEach((f) => {
+        f.style.transition = 'none';
+        f.style.width = '0%';
+      });
+    };
+
+    const startProgress = (idx: number) => {
+      stopProgress();
+      dots.forEach((d, i) => {
+        d.classList.toggle('is-done', i < idx);
+        if (i < idx) fills[i].style.width = '100%';
+      });
+      const fill = fills[idx];
+      if (!fill || paused) return;
+      void fill.offsetWidth;
+      fill.style.transition = `width ${DURATION}ms linear`;
+      fill.style.width = '100%';
+      advanceTimer = setTimeout(() => {
+        scrollToSlot(currentSlot + 1);
+      }, DURATION);
+    };
+
+    const setText = (el: HTMLElement | null, text: string) => {
+      if (!el || el.textContent === text) return;
+      el.textContent = text;
+      el.animate(
+        [
+          { opacity: 0, transform: 'translateY(8px)' },
+          { opacity: 1, transform: 'translateY(0)' },
+        ],
+        { duration: 380, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)' }
+      );
+    };
+
+    const updateCopyAndDots = (realIdx: number) => {
+      currentReal = realIdx;
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === realIdx));
+      const slide = slides[slotForRealIndex(realIdx)];
+      if (slide) {
+        setText(titleEl, slide.dataset.title || '');
+        setTimeout(() => setText(descEl, slide.dataset.desc || ''), 70);
+      }
+      startProgress(realIdx);
+    };
+
+    const scrollToSlot = (slot: number, behavior: ScrollBehavior = 'smooth') => {
+      const target = slides[slot];
+      if (!target) return;
+      const left = target.offsetLeft - (viewport.clientWidth - target.offsetWidth) / 2;
+      viewport.scrollTo({ left, behavior });
+    };
+
+    requestAnimationFrame(() => scrollToSlot(firstReal, 'instant' as ScrollBehavior));
+    updateCopyAndDots(0);
+
+    let scrollTimer: ReturnType<typeof setTimeout> | null = null;
+    const onScrollSettle = () => {
+      const center = viewport.scrollLeft + viewport.clientWidth / 2;
+      let bestSlot = firstReal;
+      let bestDist = Infinity;
+      slides.forEach((s, i) => {
+        const slideCenter = s.offsetLeft + s.offsetWidth / 2;
+        const dist = Math.abs(slideCenter - center);
+        if (dist < bestDist) { bestDist = dist; bestSlot = i; }
+      });
+      const slide = slides[bestSlot];
+      if (!slide) return;
+      const newReal = Number(slide.dataset.index);
+      const isClone =
+        slide.classList.contains('is-clone-prev') ||
+        slide.classList.contains('is-clone-next');
+      if (isClone) {
+        const jumpSlot = slotForRealIndex(newReal);
+        scrollToSlot(jumpSlot, 'instant' as ScrollBehavior);
+        currentSlot = jumpSlot;
+      } else {
+        currentSlot = bestSlot;
+      }
+      if (newReal !== currentReal) {
+        updateCopyAndDots(newReal);
+      }
+    };
+
+    viewport.addEventListener('scroll', () => {
+      if (scrollTimer) clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(onScrollSettle, 110);
+    });
+
+    // Click any slide to scroll it to center
+    slides.forEach((s) => {
+      s.addEventListener('click', () => {
+        const left = s.offsetLeft - (viewport.clientWidth - s.offsetWidth) / 2;
+        viewport.scrollTo({ left, behavior: 'smooth' });
+      });
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const realIdx = Number(dot.dataset.jump);
+        scrollToSlot(slotForRealIndex(realIdx));
+      });
+    });
+
+    // Pause auto-advance when off-screen
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (paused) {
+            paused = false;
+            startProgress(currentReal);
+          }
+        } else {
+          paused = true;
+          stopProgress();
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(carousel);
+  });
+</script>

@@ -1,0 +1,223 @@
+{
+  "siteName": "Kustom Garment",
+  "tagline": "Konveksi Custom Satuan Surabaya",
+  "description": "Kustom Garment adalah konveksi custom satuan di Surabaya yang melayani pembuatan kaos, jaket, kemeja, dan seragam tanpa minimal order. Desain bebas, bahan premium, dan layanan cepat.",
+  "siteUrl": "https://kustomgarment.com",
+  "contact": {
+    "phone": "085161202499",
+    "phoneFormatted": "0851-6120-2499",
+    "whatsapp": "6285161202499",
+    "whatsappUrl": "https://wa.me/6285161202499",
+    "email": "marketing@kustomgarment.com",
+    "address": "Jl. Sidosermo IV Gg. III No. 37 (Raya Prapen), Sidosermo, Surabaya",
+    "city": "Surabaya",
+    "province": "Jawa Timur",
+    "country": "Indonesia"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/kustomgarment",
+    "tiktok": "https://www.tiktok.com/@kustomgarment_id",
+    "facebook": "https://www.facebook.com/kustompedia/",
+    "twitter": "https://x.com/kustompedia",
+    "youtube": "https://www.youtube.com/channel/UCWF7_jTvwOqI6a2YjwJ1nKg"
+  },
+  "navigation": [
+    {
+      "name": "Business",
+      "path": "/business/"
+    },
+    {
+      "name": "Community",
+      "path": "/community/"
+    },
+    {
+      "name": "Campus",
+      "path": "/campus/"
+    },
+    {
+      "name": "Personal",
+      "path": "/personal/"
+    }
+  ],
+  "additionalLinks": [
+    {
+      "name": "Produk",
+      "path": "/produk/"
+    },
+    {
+      "name": "Portfolio",
+      "path": "https://portfolio.kustomgarment.com",
+      "external": true
+    },
+    {
+      "name": "Blog",
+      "path": "/blog/"
+    },
+    {
+      "name": "Sizechart",
+      "path": "/sizechart/"
+    },
+    {
+      "name": "Katalog Jersey",
+      "path": "/katalog-jersey-baseball/"
+    }
+  ],
+  "footerLinks": {
+    "company": [
+      {
+        "name": "Tentang Kami",
+        "path": "/care/"
+      },
+      {
+        "name": "Syarat Ketentuan",
+        "path": "/care/"
+      },
+      {
+        "name": "Hubungi Kami",
+        "path": "/care/"
+      },
+      {
+        "name": "Artikel",
+        "path": "/blog/"
+      },
+      {
+        "name": "FAQ",
+        "path": "/care/"
+      }
+    ],
+    "products": [
+      {
+        "name": "Cara Pemesanan",
+        "path": "/care/"
+      },
+      {
+        "name": "Add On Product",
+        "path": "/produk/"
+      },
+      {
+        "name": "Katalog Jersey",
+        "path": "/katalog-jersey-baseball/"
+      },
+      {
+        "name": "Partnership",
+        "path": "/care/"
+      },
+      {
+        "name": "Sizechart",
+        "path": "/sizechart/"
+      },
+      {
+        "name": "Portfolio",
+        "path": "https://portfolio.kustomgarment.com",
+        "external": true
+      }
+    ]
+  },
+  "categories": [
+    {
+      "name": "Business",
+      "path": "/business/",
+      "image": "/images/categories/business.webp"
+    },
+    {
+      "name": "Community",
+      "path": "/community/",
+      "image": "/images/categories/community.webp"
+    },
+    {
+      "name": "Campus",
+      "path": "/campus/",
+      "image": "/images/categories/campus.webp"
+    },
+    {
+      "name": "Personal",
+      "path": "/personal/",
+      "image": "/images/categories/personal.webp"
+    }
+  ],
+  "products": {
+    "business": [
+      {
+        "id": "t-shirt",
+        "name": "T-Shirt",
+        "anchor": "one"
+      },
+      {
+        "id": "kemeja",
+        "name": "Kemeja",
+        "anchor": "two"
+      },
+      {
+        "id": "jaket",
+        "name": "Jaket",
+        "anchor": "three"
+      },
+      {
+        "id": "poloshirt",
+        "name": "Poloshirt",
+        "anchor": "four"
+      },
+      {
+        "id": "wearpack",
+        "name": "Wearpack",
+        "anchor": "five"
+      },
+      {
+        "id": "rompi",
+        "name": "Rompi",
+        "anchor": "six"
+      }
+    ]
+  },
+  "seo": {
+    "defaultTitle": "Konveksi Custom Satuan Surabaya | Kustom Garment – Desain Bebas, Tanpa Minimal Order",
+    "defaultDescription": "Kustom Garment adalah konveksi custom satuan di Surabaya yang melayani pembuatan kaos, jaket, kemeja, dan seragam tanpa minimal order. Desain bebas, bahan premium, dan layanan cepat.",
+    "keywords": [
+      "konveksi surabaya",
+      "konveksi satuan",
+      "konveksi custom",
+      "kaos custom satuan",
+      "jaket custom",
+      "kemeja custom",
+      "seragam custom",
+      "baju custom tanpa minimal order",
+      "konveksi indonesia",
+      "custom garment surabaya"
+    ]
+  },
+  "benefits": [
+    {
+      "icon": "shipping-fast",
+      "title": "Kualitas Premium",
+      "description": "Jaminan garansi kualitas premium dalam setiap pemesanan"
+    },
+    {
+      "icon": "tshirt",
+      "title": "Bikin Baju Gercep",
+      "description": "Dimanapun dan kapanpun nikmati kemudahan bikin baju secara mudah"
+    },
+    {
+      "icon": "headphones",
+      "title": "Customer Support",
+      "description": "Team Customer Support kami akan siap membantu kebutuhan Anda"
+    }
+  ],
+  "company": {
+    "name": "Kustom Garment",
+    "establishedYear": "2015",
+    "slogan": "Kustom Sekarang!"
+  },
+  "footer": {
+    "tagline": "Created by you, crafted by Kustom Garment.",
+    "infoLinks": [
+      { "name": "About Us", "path": "/about" },
+      { "name": "Blog", "path": "/blog" },
+      { "name": "Partner & Sponsorship", "path": "/partnership" },
+      { "name": "FAQ", "path": "/faq" }
+    ],
+    "legalLine": "All rights reserved.",
+    "privacyLabel": "Your Privacy Choices",
+    "privacyUrl": "/privacy",
+    "descriptor": "Indonesia's leading contemporary custom apparel"
+  }
+}

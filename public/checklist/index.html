@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Rework Checklist — Kustom Garment</title>
+  <style>
+    :root { --orange:#ff4c00; --ink:#1a1a1a; --dim:#6b7280; --line:#ececec; --bg:#fafafa; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif; }
+    .wrap { max-width:62rem; margin:0 auto; padding:1.5rem 1.25rem 5rem; }
+    header.top { position:sticky; top:0; background:rgba(250,250,250,.94); backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line); z-index:10; }
+    .top-in { max-width:62rem; margin:0 auto; padding:.9rem 1.25rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .brand { font-weight:700; letter-spacing:-.02em; } .brand b { color:var(--orange); }
+    .tabs { display:flex; gap:.4rem; }
+    .tab { font-weight:700; font-size:.85rem; padding:.45rem .9rem; border-radius:999px; border:1px solid var(--line);
+      background:#fff; color:var(--dim); cursor:pointer; }
+    .tab.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+    .tab.active[data-t="design"] { background:var(--orange); border-color:var(--orange); }
+    .bar { height:6px; background:#e5e5e5; } .bar-fill { height:100%; width:0%; background:var(--orange); transition:width .3s; }
+    h1 { font-size:clamp(1.7rem,4vw,2.4rem); letter-spacing:-.03em; margin:0 0 .4rem; }
+    .lede { color:var(--dim); font-weight:600; max-width:44rem; line-height:1.5; margin:0 0 1rem; }
+    .open-cms { display:inline-flex; gap:.4rem; font-weight:700; color:#fff; background:var(--ink);
+      text-decoration:none; padding:.55rem 1rem; border-radius:999px; font-size:.88rem; }
+    .open-cms:hover { background:var(--orange); }
+    h2 { font-size:1.05rem; letter-spacing:.02em; text-transform:uppercase; color:var(--orange); margin:2.2rem 0 1rem; }
+    .item { background:#fff; border:1px solid var(--line); border-radius:1rem; margin-bottom:.7rem; overflow:hidden; }
+    .item.done { opacity:.6; }
+    .row { display:grid; grid-template-columns:auto 4.5rem 1fr auto; gap:1rem; align-items:center; padding:.85rem 1.1rem; }
+    .chk { width:1.4rem; height:1.4rem; accent-color:var(--orange); cursor:pointer; }
+    .thumb { width:4.5rem; height:3.6rem; border-radius:.55rem; object-fit:cover; background:#f0f0f0; border:1px solid var(--line); cursor:pointer; }
+    .thumb.txt { display:grid; place-items:center; font-size:1.1rem; font-weight:800; color:#cbd5e1; }
+    .meta { cursor:pointer; }
+    .meta .name { font-weight:700; letter-spacing:-.01em; }
+    .meta .where { font-size:.82rem; color:var(--dim); font-weight:600; }
+    .meta .size { font-size:.78rem; color:var(--orange); font-weight:700; margin-top:.15rem; }
+    .meta .toggle { font-size:.74rem; color:var(--dim); font-weight:700; margin-top:.25rem; }
+    .actions { display:flex; flex-direction:column; gap:.45rem; align-items:flex-end; white-space:nowrap; }
+    .lnk { font-weight:700; font-size:.82rem; text-decoration:none; border-bottom:2px solid var(--orange); padding-bottom:1px; }
+    .lnk.cms { color:var(--ink); } .lnk.cms:hover { color:var(--orange); } .lnk.web { color:var(--orange); }
+    .detail { display:none; padding:0 1.1rem 1.2rem; border-top:1px solid var(--line); }
+    .item.open .detail { display:block; }
+    .detail-in { display:grid; grid-template-columns:1fr; gap:1rem; padding-top:1rem; }
+    @media(min-width:640px){ .detail-in.has-img { grid-template-columns:16rem 1fr; } }
+    .detail img { width:100%; border-radius:.6rem; border:1px solid var(--line); }
+    .brief { font-size:.9rem; line-height:1.6; color:#374151; font-weight:500; }
+    .brief .ph { color:#9ca3af; font-style:italic; }
+    @media (max-width:640px){ .row{ grid-template-columns:auto 1fr; } .thumb{display:none;} .actions{grid-column:2; flex-direction:row; gap:1rem;} }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="top-in">
+      <span class="brand">Rework Checklist · <b>Kustom Garment</b></span>
+      <div class="tabs">
+        <button class="tab active" data-t="all" id="tab-all">Semua</button>
+        <button class="tab" data-t="design" id="tab-design">🎨 Design</button>
+        <button class="tab" data-t="copy" id="tab-copy">✍️ Copywriting</button>
+      </div>
+    </div>
+    <div class="bar"><div class="bar-fill" id="barfill"></div></div>
+  </header>
+
+  <div class="wrap">
+    <h1>Checklist rework media &amp; konten</h1>
+    <p class="lede">Pisah per tugas: <b>🎨 Design</b> (gambar/banner) dan <b>✍️ Copywriting</b> (teks). Tiap slot ada ukuran, link <b>Edit di CMS</b> dan <b>Preview web</b>. Klik baris untuk detail/brief. Status tersimpan di browser ini.</p>
+    <p><a class="open-cms" href="/admin/index.html" target="_blank">Buka CMS (Sveltia) →</a></p>
+    <div id="list"></div>
+  </div>
+
+  <script>
+    const CMS = {
+      site:'/admin/index.html#/collections/settings/entries/site',
+      home:'/admin/index.html#/collections/homepage/entries/home',
+      categories:'/admin/index.html#/collections/categories/entries/categories',
+      blog:'/admin/index.html#/collections/blog',
+    };
+    const W = { header:'/', footer:'/?goto=ft', ticker:'/?goto=ticker', hero:'/?goto=hero',
+      cats:'/?goto=cats', scenes:'/?goto=scenes', wall:'/?goto=wall', endcta:'/?goto=endcta',
+      showcase:'/?goto=showcase', blog:'/blog', about:'/about' };
+
+    // type: 'design' (media) | 'copy' (text). brief:'' → paste HTML (text + <img>) later.
+    const items = [
+      // GLOBAL
+      { type:'copy', g:'Global (Header & Footer)', id:'g-nav', name:'Navigasi header (kategori)', where:'Header', size:'Teks', cms:CMS.site, web:W.header, brief:'' },
+      { type:'copy', g:'Global (Header & Footer)', id:'g-contact', name:'Kontak (telepon, email, alamat)', where:'Header CTA + Footer', size:'Teks', cms:CMS.site, web:W.footer, brief:'' },
+      { type:'copy', g:'Global (Header & Footer)', id:'g-social', name:'Link sosial media', where:'Footer + social wall', size:'URL', cms:CMS.site, web:W.footer, brief:'' },
+      { type:'copy', g:'Global (Header & Footer)', id:'g-footer', name:'Footer (tagline, info links, legal, deskriptor)', where:'Footer', size:'Teks', cms:CMS.site, web:W.footer, brief:'' },
+      { type:'design', g:'Global (Header & Footer)', id:'x-logo', name:'Logo Kustom Garment', where:'Header + Footer', size:'PNG transparan (belum di CMS)', cms:'', web:W.header, brief:'' },
+
+      // HOMEPAGE — DESIGN
+      { type:'design', g:'Homepage', id:'h-hero-img', name:'Section 1 — Hero, 4 gambar slide', where:'Section 1', size:'1920×860 (≈16:7) · webp', sample:'/images/placeholder/theme-image-1777040341996.webp', cms:CMS.home, web:W.hero, brief:'' },
+      { type:'design', g:'Homepage', id:'h-cards-img', name:'Section 2 — 5 gambar kartu kategori', where:'Section 2', size:'800×1000 (4:5) · webp', sample:'/images/categories/business.webp', cms:CMS.home, web:W.cats, brief:'' },
+      { type:'design', g:'Homepage', id:'h-cards-hover', name:'Section 2 — gambar hover (1, semua kartu)', where:'Section 2 (saat hover)', size:'800×1000 (4:5) · webp', sample:'/images/placeholder/sample-slide.webp', cms:CMS.home, web:W.cats, brief:'' },
+      { type:'design', g:'Homepage', id:'h-scenes-img', name:'Section 4 — Scene gallery, 6 gambar', where:'Section "Apparel custom untuk…"', size:'4:5 → 1200×1500 / 4:3 → 1200×900', sample:'/images/placeholder/theme-image-1777126525887.webp', cms:CMS.home, web:W.scenes, brief:'' },
+      { type:'design', g:'Homepage', id:'h-social-media', name:'Section 5 — Social wall, 26 video reel', where:'Section "Langsung dari @kustomgarment"', size:'Kode reel IG (video diunduh terpisah)', cms:CMS.home, web:W.wall, brief:'' },
+      { type:'design', g:'Homepage', id:'h-endcta-img', name:'Section 6 — End CTA banner, 2 gambar (default + hover)', where:'Sebelum footer', size:'1600×500 (16:5) · webp', sample:'/images/placeholder/endcta-banner.webp', cms:CMS.home, web:W.endcta, brief:'' },
+
+      // HOMEPAGE — COPY
+      { type:'copy', g:'Homepage', id:'h-ticker', name:'Ticker — 8 perks berjalan', where:'Bawah header', size:'Teks', cms:CMS.home, web:W.ticker, brief:'' },
+      { type:'copy', g:'Homepage', id:'h-hero-copy', name:'Section 1 — Hero, link & alt text per slide', where:'Section 1', size:'Teks/URL', cms:CMS.home, web:W.hero, brief:'' },
+      { type:'copy', g:'Homepage', id:'h-cards-copy', name:'Section 2 — label & link 5 kartu', where:'Section 2', size:'Teks', cms:CMS.home, web:W.cats, brief:'' },
+      { type:'copy', g:'Homepage', id:'h-scenes-copy', name:'Section 4 — copy (judul, kata berganti, judul/desc/CTA tiap scene)', where:'Section 4', size:'Teks', cms:CMS.home, web:W.scenes, brief:'' },
+      { type:'copy', g:'Homepage', id:'h-social-copy', name:'Section 5 — judul & handle (@kustomgarment)', where:'Section 5', size:'Teks', cms:CMS.home, web:W.wall, brief:'' },
+      { type:'copy', g:'Homepage', id:'h-endcta-copy', name:'Section 6 — judul, teks CTA, pesan WA', where:'Section 6', size:'Teks', cms:CMS.home, web:W.endcta, brief:'' },
+
+      // SECTION 3
+      { type:'design', g:'Section 3 — Showcase Kategori', id:'c-right', name:'4 gambar lifestyle (kanan)', where:'Section 3, sisi kanan', size:'1000×1250 (potret) · webp', sample:'/images/placeholder/sample-section3a.webp', cms:CMS.categories, web:W.showcase, brief:'' },
+      { type:'design', g:'Section 3 — Showcase Kategori', id:'c-products-img', name:'Foto produk carousel (per kategori)', where:'Section 3, slider kiri', size:'1000×750 (4:3), produk di bg polos', sample:'/images/placeholder/sample-section3a.webp', cms:CMS.categories, web:W.showcase, brief:'' },
+      { type:'copy', g:'Section 3 — Showcase Kategori', id:'c-copy', name:'Copy (eyebrow, judul, CTA + nama/desc produk tiap kategori)', where:'Section 3', size:'Teks', cms:CMS.categories, web:W.showcase, brief:'' },
+
+      // BLOG
+      { type:'design', g:'Blog', id:'b-cover', name:'Cover artikel blog', where:'/blog', size:'1200×630 · webp', cms:CMS.blog, web:W.blog, brief:'' },
+      { type:'copy', g:'Blog', id:'b-copy', name:'Artikel blog (judul, deskripsi, isi)', where:'/blog', size:'Teks', cms:CMS.blog, web:W.blog, brief:'' },
+
+      // PAGES (not yet in CMS)
+      { type:'copy', g:'Belum di CMS (masih di kode)', id:'x-pages', name:'Halaman About / Partnership / FAQ / kategori / produk / sizechart', where:'masing-masing halaman', size:'Teks + gambar — akan dipindah ke CMS', cms:'', web:W.about, brief:'' },
+    ];
+
+    const KEY='kg-rework-checklist';
+    const saved=JSON.parse(localStorage.getItem(KEY)||'{}');
+    const listEl=document.getElementById('list');
+    let active='all';
+
+    function render(){
+      listEl.innerHTML='';
+      const shown = items.filter(it => active==='all' || it.type===active);
+      let lastG='';
+      shown.forEach((it)=>{
+        if(it.g!==lastG){ const h=document.createElement('h2'); h.textContent=it.g; listEl.appendChild(h); lastG=it.g; }
+        const wrap=document.createElement('div');
+        wrap.className='item'+(saved[it.id]?' done':'');
+        const thumb = it.sample ? `<img class="thumb js-exp" src="${it.sample}" alt="" />`
+          : `<div class="thumb txt js-exp">${it.type==='copy'?'T':'—'}</div>`;
+        const cms = it.cms ? `<a class="lnk cms" href="${it.cms}" target="_blank">Edit di CMS →</a>` : '';
+        const web = it.web ? `<a class="lnk web" href="${it.web}" target="_blank">Preview web ↗</a>` : '';
+        const briefHtml = it.brief ? it.brief : '<span class="ph">Belum ada brief — tambahkan contoh gambar &amp; penjelasan di sini nanti.</span>';
+        wrap.innerHTML = `
+          <div class="row">
+            <input type="checkbox" class="chk" ${saved[it.id]?'checked':''} data-id="${it.id}" />
+            ${thumb}
+            <div class="meta js-exp">
+              <div class="name">${it.name}</div>
+              <div class="where">${it.where}</div>
+              <div class="size">${it.size}</div>
+              <div class="toggle">Detail / brief ▾</div>
+            </div>
+            <div class="actions">${cms}${web}</div>
+          </div>
+          <div class="detail"><div class="detail-in ${it.sample?'has-img':''}">
+            ${it.sample?`<img src="${it.sample}" alt="" />`:''}
+            <div class="brief">${briefHtml}</div>
+          </div></div>`;
+        listEl.appendChild(wrap);
+      });
+      refreshBar();
+    }
+    function refreshBar(){
+      const shown = items.filter(it => active==='all' || it.type===active);
+      const done = shown.filter(it=>saved[it.id]).length;
+      document.getElementById('barfill').style.width = (shown.length? done/shown.length*100:0)+'%';
+      // tab counts
+      ['all','design','copy'].forEach(t=>{
+        const set = items.filter(it=> t==='all'||it.type===t);
+        const d = set.filter(it=>saved[it.id]).length;
+        const el = document.getElementById('tab-'+t);
+        const base = t==='all'?'Semua':(t==='design'?'🎨 Design':'✍️ Copywriting');
+        el.textContent = `${base} (${d}/${set.length})`;
+      });
+    }
+    document.querySelector('.tabs').addEventListener('click',(e)=>{
+      const b=e.target.closest('.tab'); if(!b)return;
+      active=b.dataset.t;
+      document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t===b));
+      render();
+    });
+    listEl.addEventListener('click',(e)=>{
+      if(e.target.classList.contains('js-exp')||e.target.closest('.js-exp')) e.target.closest('.item').classList.toggle('open');
+    });
+    listEl.addEventListener('change',(e)=>{
+      const cb=e.target; if(!cb.classList.contains('chk'))return;
+      saved[cb.dataset.id]=cb.checked; localStorage.setItem(KEY,JSON.stringify(saved));
+      cb.closest('.item').classList.toggle('done',cb.checked); refreshBar();
+    });
+    render();
+  </script>
+</body>
+</html>

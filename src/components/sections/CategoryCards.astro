@@ -1,261 +1,132 @@
 ---
-/**
- * Category Cards Section Component
- * 4 category cards (Business, Community, Campus, Personal)
- * Based on static clone: assets-source/kg-static-clone/kustomgarment.com/index.html (lines 281-371)
- */
-
-// Categories data
-const categories = [
-  {
-    name: 'Business',
-    href: '/business/',
-    image: '/images/categories/business.webp',
-    title: 'Business'
-  },
-  {
-    name: 'Community',
-    href: '/community/',
-    image: '/images/categories/community.webp',
-    title: 'Community'
-  },
-  {
-    name: 'Campus',
-    href: '/campus/',
-    image: '/images/categories/campus.webp',
-    title: 'Campus'
-  },
-  {
-    name: 'Personal',
-    href: '/personal/',
-    image: '/images/categories/personal.webp',
-    title: 'Personal'
-  }
-];
+import home from '../../data/home.json';
+const categories = home.categoryCards.items;
+const hoverImage = home.categoryCards.hoverImage;
 ---
 
-<section class="category-cards-section" aria-label="Product Categories">
-  <div class="category-cards-container">
-    <!-- Section Heading -->
-    <div class="category-header">
-      <h2 class="category-heading">Pilihan Kategori</h2>
-    </div>
-
-    <!-- Category Cards Grid -->
-    <div class="category-grid">
-      {categories.map((category) => (
-        <a
-          href={category.href}
-          class="category-card"
-          aria-label={`View ${category.name} category`}
-        >
-          <div class="category-card-inner">
-            <img
-              src={category.image}
-              alt={category.name}
-              loading="lazy"
-              decoding="async"
-              width="400"
-              height="521"
-              class="category-image"
-            />
-            <div class="category-overlay">
-              <span class="category-name">{category.name}</span>
-            </div>
+<section class="cats" aria-label="Kategori produk">
+  <div class="cats-wrap">
+    <div class="cats-row">
+      {categories.map((c) => (
+        <a href={c.href} class="cat">
+          <div class="cat-frame">
+            <img src={c.image} alt={c.label} loading="lazy" class="cat-img cat-img-base" />
+            <img src={hoverImage} alt="" aria-hidden="true" loading="lazy" class="cat-img cat-img-hover" />
           </div>
+          <span class="cat-label">{c.label}</span>
         </a>
       ))}
-    </div>
-
-    <!-- CTA Button -->
-    <div class="category-cta">
-      <a href="/produk/" class="category-btn">
-        Selengkapnya
-      </a>
     </div>
   </div>
 </section>
 
 <style>
-  .category-cards-section {
+  .cats {
     background: #ffffff;
-    padding: 4rem 0;
+    padding: 3rem 0 3.5rem;
+  }
+  @media (min-width: 1024px) {
+    .cats { padding: 4rem 0 4.5rem; }
   }
 
-  .category-cards-container {
-    max-width: 1200px;
+  .cats-wrap {
+    max-width: 96rem;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
+  }
+  @media (min-width: 1024px) {
+    .cats-wrap { padding: 0 1.5rem; }
   }
 
-  /* Section Header */
-  .category-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .category-heading {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #333333;
-    margin: 0;
-    line-height: 1.3;
-  }
-
-  /* Category Grid */
-  .category-grid {
+  .cats-row {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+  @media (max-width: 1024px) {
+    .cats-row {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1.5rem;
+      padding-bottom: 0.5rem;
+      scrollbar-width: none;
+    }
+    .cats-row::-webkit-scrollbar { display: none; }
   }
 
-  .category-card {
-    display: block;
+  .cat {
     text-decoration: none;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  @media (max-width: 1024px) {
+    .cat {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      width: 13rem;
+    }
+  }
+  @media (max-width: 640px) {
+    .cat { width: 10.5rem; }
   }
 
-  .category-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-  }
-
-  .category-card-inner {
+  .cat-frame {
     position: relative;
     width: 100%;
-    padding-top: 130%; /* Aspect ratio ~1:1.3 */
+    aspect-ratio: 4 / 5;
+    background: #f4f4f4;
+    border-radius: 1.25rem;
     overflow: hidden;
+    transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 320ms ease;
   }
-
-  .category-image {
+  .cat-img {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    display: block;
+  }
+  .cat-img-base {
+    z-index: 1;
+  }
+  .cat-img-hover {
+    z-index: 2;
+    transform: translateY(-100%);
+    transition: transform 820ms cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform;
   }
 
-  .category-card:hover .category-image {
-    transform: scale(1.08);
-  }
-
-  .category-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 1.5rem;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .category-card:hover .category-overlay {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .category-name {
-    color: #ffffff;
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-  }
-
-  /* CTA Button */
-  .category-cta {
+  .cat-label {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1a1a1a;
     text-align: center;
+    transition: color 200ms ease;
   }
-
-  .category-btn {
-    display: inline-block;
-    padding: 0.875rem 2.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ffffff;
-    background: #0066cc;
-    border: none;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
-  }
-
-  .category-btn:hover {
-    background: #0052a3;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 102, 204, 0.4);
-  }
-
-  .category-btn:active {
-    transform: translateY(0);
-  }
-
-  /* Tablet: 4 columns */
-  @media (min-width: 768px) {
-    .category-grid {
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-    }
-
-    .category-heading {
-      font-size: 2.5rem;
-    }
-  }
-
-  /* Desktop */
   @media (min-width: 1024px) {
-    .category-cards-section {
-      padding: 5rem 0;
-    }
-
-    .category-header {
-      margin-bottom: 4rem;
-    }
+    .cat-label { font-size: 1rem; }
   }
 
-  /* Mobile */
-  @media (max-width: 767px) {
-    .category-cards-section {
-      padding: 3rem 0;
+  /* Hover (desktop only) */
+  @media (hover: hover) {
+    .cat:hover .cat-frame {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -20px rgba(15, 15, 20, 0.18);
     }
-
-    .category-grid {
-      gap: 1rem;
+    .cat:hover .cat-img-hover {
+      transform: translateY(0);
     }
-
-    .category-heading {
-      font-size: 1.75rem;
+    .cat:hover .cat-label {
+      color: #ff4c00;
     }
   }
 </style>
-
-<script>
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  // Animate category cards on scroll
-  const categoryCards = document.querySelectorAll('.category-card');
-
-  gsap.from(categoryCards, {
-    scrollTrigger: {
-      trigger: '.category-grid',
-      start: 'top 80%',
-      toggleActions: 'play none none none'
-    },
-    opacity: 0,
-    y: 50,
-    duration: 0.6,
-    stagger: 0.1,
-    ease: 'power2.out'
-  });
-</script>

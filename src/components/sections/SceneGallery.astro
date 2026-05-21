@@ -1,0 +1,251 @@
+---
+// Editorial "every scene" gallery — content from CMS (src/data/home.json).
+import siteConfig from '../../data/site-config.json';
+import home from '../../data/home.json';
+const wa = siteConfig.contact.whatsappUrl;
+
+const scenes = home.scenes.items;
+const flipWords = home.scenes.flipWords;
+const headlinePrefix = home.scenes.headlinePrefix;
+
+const hrefFor = (s: { waText: string }) => `${wa}?text=${encodeURIComponent(s.waText)}`;
+
+// Distribute into 3 columns so mobile (stacked) stays in natural order 1→6.
+const columns = [
+  [scenes[0], scenes[1]],
+  [scenes[2], scenes[3]],
+  [scenes[4], scenes[5]],
+];
+---
+
+<section class="scenes" aria-label="Custom apparel for every scene">
+  <div class="scenes-wrap">
+    <header class="scenes-head">
+      <h2 class="scenes-title">
+        {headlinePrefix} <span class="flip accent" data-flip data-words={JSON.stringify(flipWords)}>{flipWords[0]}</span>
+      </h2>
+    </header>
+
+    <div class="scenes-grid">
+      {columns.map((col, ci) => (
+        <div class:list={['scenes-col', `scenes-col-${ci + 1}`]}>
+          {col.map((s) => (
+            <a class="scene" href={hrefFor(s)} target="_blank" rel="noopener noreferrer" data-cta={`${s.cta} →`}>
+              <div class="scene-frame" style={`aspect-ratio: ${s.ratio}`}>
+                <img src={s.img} alt={s.title} loading="lazy" class="scene-img" />
+              </div>
+              <h3 class="scene-title">{s.title}</h3>
+              <p class="scene-desc">{s.desc}</p>
+            </a>
+          ))}
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Cursor-following CTA label (shown after a 2s hover dwell) -->
+  <div class="scene-cursor" data-cursor aria-hidden="true"></div>
+</section>
+
+<style>
+  .scenes {
+    background: #ffffff;
+    padding: 4rem 0 5rem;
+  }
+  @media (min-width: 1024px) {
+    .scenes { padding: 6rem 0 7rem; }
+  }
+
+  .scenes-wrap {
+    max-width: 96rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+  @media (min-width: 1024px) {
+    .scenes-wrap { padding: 0 2.5rem; }
+  }
+
+  /* Heading */
+  .scenes-head {
+    margin-bottom: 3rem;
+    max-width: 60rem;
+  }
+  @media (min-width: 1024px) {
+    .scenes-head { margin-bottom: 4.5rem; }
+  }
+  .scenes-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .scenes-title .accent { color: #ff4c00; }
+  .flip {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform, opacity;
+  }
+
+  /* Grid / columns */
+  .scenes-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  @media (min-width: 768px) {
+    .scenes-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .scenes-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0 2.5rem;
+      align-items: start;
+    }
+    /* Staggered/editorial offsets */
+    .scenes-col-2 { margin-top: 4.5rem; }
+    .scenes-col-3 { margin-top: 1.5rem; }
+  }
+
+  .scenes-col {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  /* Scene card */
+  .scene {
+    margin: 0;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .scene-frame {
+    position: relative;
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden;
+    background: #f4f4f4;
+  }
+  .scene-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .scene-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    color: #1a1a1a;
+    margin: 1.25rem 0 0.5rem;
+    transition: color 240ms ease;
+  }
+  .scene-desc {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #6b7280;
+    margin: 0;
+    max-width: 26rem;
+    transition: color 240ms ease;
+  }
+
+  /* On hover, caption + desc turn orange */
+  @media (hover: hover) {
+    .scene:hover .scene-title,
+    .scene:hover .scene-desc { color: #ff4c00; }
+  }
+
+  /* Cursor-following CTA label */
+  .scene-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 60;
+    pointer-events: none;
+    background: #ff4c00;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    opacity: 0;
+    scale: 0.8;
+    transition: opacity 200ms ease, scale 200ms ease;
+    box-shadow: 0 8px 20px -6px rgba(255, 76, 0, 0.5);
+  }
+  .scene-cursor.is-visible {
+    opacity: 1;
+    scale: 1;
+  }
+</style>
+
+<script>
+  // Cursor-following CTA label — appears after a 2s hover dwell on a scene
+  const section = document.querySelector<HTMLElement>('.scenes');
+  const cursor = section?.querySelector<HTMLElement>('[data-cursor]');
+  if (section && cursor && window.matchMedia('(hover: hover)').matches) {
+    const scenesEls = Array.from(section.querySelectorAll<HTMLElement>('.scene'));
+    let showTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const place = (x: number, y: number) => {
+      cursor.style.transform = `translate(calc(${x}px - 50%), calc(${y}px - 150%))`;
+    };
+
+    scenesEls.forEach((scene) => {
+      const text = scene.dataset.cta || '';
+      scene.addEventListener('mouseenter', (e) => {
+        place(e.clientX, e.clientY);
+        if (showTimer) clearTimeout(showTimer);
+        showTimer = setTimeout(() => {
+          cursor.textContent = text;
+          cursor.classList.add('is-visible');
+        }, 1500);
+      });
+      scene.addEventListener('mousemove', (e) => place(e.clientX, e.clientY));
+      scene.addEventListener('mouseleave', () => {
+        if (showTimer) { clearTimeout(showTimer); showTimer = null; }
+        cursor.classList.remove('is-visible');
+      });
+    });
+  }
+
+  const el = document.querySelector<HTMLElement>('[data-flip]');
+  if (el && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let words: string[] = [];
+    try { words = JSON.parse(el.dataset.words || '[]'); } catch {}
+    if (words.length > 1) {
+      let i = 0;
+      setInterval(() => {
+        // Animate current word out (up + fade)
+        const out = el.animate(
+          [
+            { opacity: 1, transform: 'translateY(0)' },
+            { opacity: 0, transform: 'translateY(-0.4em)' },
+          ],
+          { duration: 260, easing: 'cubic-bezier(0.4, 0, 1, 1)', fill: 'forwards' }
+        );
+        out.onfinish = () => {
+          i = (i + 1) % words.length;
+          el.textContent = words[i];
+          el.animate(
+            [
+              { opacity: 0, transform: 'translateY(0.5em)' },
+              { opacity: 1, transform: 'translateY(0)' },
+            ],
+            { duration: 360, easing: 'cubic-bezier(0.19, 1, 0.22, 1)', fill: 'forwards' }
+          );
+        };
+      }, 2200);
+    }
+  }
+</script>
