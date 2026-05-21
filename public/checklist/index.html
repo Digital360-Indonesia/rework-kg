@@ -113,7 +113,7 @@
     <p class="lede">Klik baris untuk buka <b>brief</b> — langsung bisa ditulis &amp; diedit di sana (teks, tabel, gambar), <b>tersimpan otomatis</b>. Tiap slot ada ukuran, <b>Preview web</b>, dan checkbox.</p>
     <div class="openrow">
       <a class="open-cms" href="/admin/index.html" target="_blank">Buka CMS (Sveltia) →</a>
-      <span class="repo-state">Brief tersimpan otomatis di browser ini (draft).</span>
+      <span class="repo-state">Brief tersimpan otomatis &amp; dibagikan ke tim. (Offline? tersimpan lokal dulu, lalu sinkron.)</span>
     </div>
     <div id="list"></div>
   </div>
@@ -175,6 +175,38 @@
       c.querySelectorAll('.tbl-wrap').forEach(w=>{ const t=w.querySelector('table'); t?w.replaceWith(t):w.remove(); });
       c.querySelectorAll('[data-enh]').forEach(n=>n.removeAttribute('data-enh'));
       return c.innerHTML;
+    }
+
+    // ---------- shared storage: PocketBase on the VPS (same-origin via nginx /pb/) ----------
+    // Briefs are shared with anyone who opens this page. Falls back to localStorage when PB is
+    // unreachable (local dev, server down) so edits are never lost.
+    const PB='/pb'; // nginx reverse-proxy → PocketBase :8090 (set up by Lord-Shipwright)
+    const recCache={}, saveQueue={};
+    async function pbLoad(id){
+      const url=`${PB}/api/collections/briefs/records?perPage=1&filter=`+encodeURIComponent(`item="${id}"`);
+      const res=await fetch(url,{headers:{Accept:'application/json'}}); if(!res.ok) throw new Error('pb '+res.status);
+      const d=await res.json(); if(d.items&&d.items[0]){ recCache[id]=d.items[0].id; return d.items[0].html||''; } return '';
+    }
+    async function pbSave(id, html){
+      if(!recCache[id]){ try{ await pbLoad(id); }catch(e){} }
+      if(recCache[id]){
+        const res=await fetch(`${PB}/api/collections/briefs/records/${recCache[id]}`,{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({html})});
+        if(!res.ok) throw new Error('pb patch '+res.status);
+      } else {
+        const res=await fetch(`${PB}/api/collections/briefs/records`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({item:id,html})});
+        if(!res.ok) throw new Error('pb post '+res.status); recCache[id]=(await res.json()).id;
+      }
+    }
+    // serialize saves per item so a fast double-save can't create two records
+    function pbSaveQueued(id, html){ const prev=saveQueue[id]||Promise.resolve(); const next=prev.catch(()=>{}).then(()=>pbSave(id,html)); saveQueue[id]=next; return next; }
+    async function pbUpload(file){
+      const fd=new FormData(); fd.append('file',file);
+      const res=await fetch(`${PB}/api/collections/uploads/records`,{method:'POST',body:fd}); if(!res.ok) throw new Error('pb upload '+res.status);
+      const rec=await res.json(); return `${PB}/api/files/uploads/${rec.id}/${rec.file}`;
+    }
+    function setStatus(hint,s){ if(!hint)return; hint.dataset.s=s;
+      hint.textContent = s==='saving'?'menyimpan…' : s==='saved'?'tersimpan ✓' : s==='local'?'⚠ offline — tersimpan di browser' : s==='offline'?'⚠ offline — pakai salinan lokal' : '';
+      if(s==='saved') setTimeout(()=>{ if(hint.dataset.s==='saved') hint.textContent=''; },1500);
     }
 
     // ---- image: 8 drag handles (corners scale w/ aspect, edges stretch one axis) ----
@@ -280,14 +312,19 @@
         <input type="file" accept="image/*" class="ed-file" multiple hidden />`;
       const area=host.querySelector('.ed-area');
       const fileInput=host.querySelector('.ed-file');
-      area.innerHTML=localStorage.getItem(briefKey(id))||'';
-      let t; const save=()=>{ clearTimeout(t); if(hint)hint.textContent='menyimpan…';
-        t=setTimeout(()=>{ localStorage.setItem(briefKey(id), cleanHTML(area));
-          if(hint){ hint.textContent='tersimpan ✓'; setTimeout(()=>{ if(hint.textContent==='tersimpan ✓') hint.textContent=''; },1500); } },450); };
+      const cacheKey=briefKey(id);
+      let dirty=false;
+      area.innerHTML=localStorage.getItem(cacheKey)||''; // instant paint from local cache
+      let t; const save=()=>{ dirty=true; clearTimeout(t); setStatus(hint,'saving');
+        t=setTimeout(()=>{ const html=cleanHTML(area); localStorage.setItem(cacheKey, html);
+          pbSaveQueued(id, html).then(()=>setStatus(hint,'saved')).catch(()=>setStatus(hint,'local')); },500); };
       const enhance=()=>{ area.querySelectorAll('.rz').forEach(rz=>enhanceImg(rz,save)); area.querySelectorAll('table.ed-tbl').forEach(tb=>enhanceTable(tb,save)); };
       area.addEventListener('input', save);
       const insert=(html)=>{ area.focus(); document.execCommand('insertHTML',false,html); enhance(); save(); };
-      const addImg=(file)=>{ const r=new FileReader(); r.onload=()=>insert(`<span class="rz" contenteditable="false"><img src="${r.result}" alt=""></span>&#8203;`); r.readAsDataURL(file); };
+      const addImg=(file)=>{ setStatus(hint,'saving');
+        pbUpload(file)
+          .then(url=>insert(`<span class="rz" contenteditable="false"><img src="${url}" alt=""></span>&#8203;`))
+          .catch(()=>{ const r=new FileReader(); r.onload=()=>insert(`<span class="rz" contenteditable="false"><img src="${r.result}" alt=""></span>&#8203;`); r.readAsDataURL(file); }); };
       host.querySelector('.ed-bar').addEventListener('click',(e)=>{
         const b=e.target.closest('button'); if(!b)return; e.preventDefault(); area.focus();
         const c=b.dataset.cmd;
@@ -304,7 +341,12 @@
       ['dragover','dragenter'].forEach(ev=>area.addEventListener(ev,(e)=>{ e.preventDefault(); area.classList.add('drag'); }));
       ['dragleave','drop'].forEach(ev=>area.addEventListener(ev,()=>area.classList.remove('drag')));
       area.addEventListener('drop',(e)=>{ const fs=[...(e.dataTransfer?.files||[])].filter(f=>f.type.startsWith('image/')); if(fs.length){ e.preventDefault(); fs.forEach(addImg); } });
-      enhance(); // wire controls onto already-saved content
+      enhance(); // wire controls onto cached content
+      // pull the shared copy from the server; reconcile only if the user hasn't started editing
+      (async()=>{ try{ const html=await pbLoad(id);
+          if(!dirty && html!==cleanHTML(area)){ area.innerHTML=html; localStorage.setItem(cacheKey, html); enhance(); }
+          if(hint && hint.dataset.s!=='saving' && hint.dataset.s!=='local') setStatus(hint,'idle');
+        }catch(e){ setStatus(hint,'offline'); } })();
     }
     function unmountEditor(){ /* content auto-saves; editor stays mounted (hidden) */ }
 
