@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="/images/logos/favicon-kg.png" />
   <title>Rework Checklist — Kustom Garment</title>
   <style>
     :root { --orange:#ff4c00; --ink:#1a1a1a; --dim:#6b7280; --line:#ececec; --bg:#fafafa; }
@@ -22,10 +23,13 @@
     .tab.active[data-t="design"] { background:var(--orange); border-color:var(--orange); }
     .bar { height:6px; background:#e5e5e5; } .bar-fill { height:100%; width:0%; background:var(--orange); transition:width .3s; }
     h1 { font-size:clamp(1.7rem,4vw,2.4rem); letter-spacing:-.03em; margin:0 0 .4rem; }
-    .lede { color:var(--dim); font-weight:600; max-width:44rem; line-height:1.5; margin:0 0 1rem; }
+    .lede { color:var(--dim); font-weight:600; max-width:46rem; line-height:1.5; margin:0 0 .8rem; }
+    .openrow { display:flex; gap:.6rem; flex-wrap:wrap; align-items:center; margin-bottom:.4rem; }
     .open-cms { display:inline-flex; gap:.4rem; font-weight:700; color:#fff; background:var(--ink);
       text-decoration:none; padding:.55rem 1rem; border-radius:999px; font-size:.88rem; }
     .open-cms:hover { background:var(--orange); }
+    .repo-state { font-size:.8rem; font-weight:600; color:var(--dim); }
+    .repo-state b { color:var(--orange); }
     h2 { font-size:1.05rem; letter-spacing:.02em; text-transform:uppercase; color:var(--orange); margin:2.2rem 0 1rem; }
     .item { background:#fff; border:1px solid var(--line); border-radius:1rem; margin-bottom:.7rem; overflow:hidden; }
     .item.done { opacity:.6; }
@@ -39,15 +43,55 @@
     .meta .size { font-size:.78rem; color:var(--orange); font-weight:700; margin-top:.15rem; }
     .meta .toggle { font-size:.74rem; color:var(--dim); font-weight:700; margin-top:.25rem; }
     .actions { display:flex; flex-direction:column; gap:.45rem; align-items:flex-end; white-space:nowrap; }
-    .lnk { font-weight:700; font-size:.82rem; text-decoration:none; border-bottom:2px solid var(--orange); padding-bottom:1px; }
+    .lnk { font-weight:700; font-size:.82rem; text-decoration:none; border-bottom:2px solid var(--orange); padding-bottom:1px; cursor:pointer; background:none; border-left:0; border-top:0; border-right:0; }
     .lnk.cms { color:var(--ink); } .lnk.cms:hover { color:var(--orange); } .lnk.web { color:var(--orange); }
     .detail { display:none; padding:0 1.1rem 1.2rem; border-top:1px solid var(--line); }
     .item.open .detail { display:block; }
     .detail-in { display:grid; grid-template-columns:1fr; gap:1rem; padding-top:1rem; }
-    @media(min-width:640px){ .detail-in.has-img { grid-template-columns:16rem 1fr; } }
-    .detail img { width:100%; border-radius:.6rem; border:1px solid var(--line); }
-    .brief { font-size:.9rem; line-height:1.6; color:#374151; font-weight:500; }
-    .brief .ph { color:#9ca3af; font-style:italic; }
+    @media(min-width:720px){ .detail-in.has-img { grid-template-columns:14rem 1fr; } }
+    .detail > .detail-in > img.sample { width:100%; border-radius:.6rem; border:1px solid var(--line); align-self:start; }
+    .brief-wrap { min-width:0; }
+    .brief-host { min-width:0; }
+    /* toolbar */
+    .ed-bar { display:flex; gap:.35rem; flex-wrap:wrap; margin-bottom:.5rem; }
+    .ed-bar button { font-size:.8rem; font-weight:700; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:.45rem; padding:.3rem .55rem; cursor:pointer; line-height:1; }
+    .ed-bar button:hover { border-color:var(--orange); color:var(--orange); }
+    .ed-bar .ed-img { background:var(--ink); color:#fff; border-color:var(--ink); }
+    .ed-bar .ed-img:hover { background:var(--orange); border-color:var(--orange); color:#fff; }
+    /* editing surface */
+    .ed-area { border:1px solid var(--line); border-radius:.6rem; padding:.7rem .9rem; min-height:150px; font-size:.92rem; line-height:1.65; color:#374151; outline:none; }
+    .ed-area:focus { border-color:var(--orange); }
+    .ed-area.drag { border-color:var(--orange); background:#fff7f3; }
+    .ed-area:empty:before { content:attr(data-ph); color:#9ca3af; font-style:italic; }
+    .ed-area h2 { font-size:1.2rem; margin:.6rem 0 .3rem; letter-spacing:-.01em; color:var(--ink); }
+    .ed-area h3 { font-size:1.05rem; margin:.5rem 0 .3rem; letter-spacing:-.01em; color:var(--ink); }
+    .ed-area p { margin:.4rem 0; } .ed-area ul,.ed-area ol { margin:.4rem 0; padding-left:1.2rem; }
+    /* drag-resizable image: 8 handles (corners scale, edges stretch one axis) */
+    .ed-area .rz { position:relative; display:inline-block; max-width:100%; width:55%; margin:.4rem .4rem .4rem 0; vertical-align:top; line-height:0; }
+    .ed-area .rz img { width:100%; height:100%; object-fit:fill; display:block; border-radius:.5rem; border:1px solid var(--line); pointer-events:none; }
+    .ed-area .rz:hover img { border-color:var(--orange); }
+    .rz-h { position:absolute; background:var(--orange); border:1.5px solid #fff; box-shadow:0 0 0 1px rgba(0,0,0,.12); opacity:0; transition:opacity .12s; z-index:4; }
+    .ed-area .rz:hover .rz-h { opacity:1; }
+    .rz-h.c { width:13px; height:13px; border-radius:3px; }
+    .rz-h.c-nw{ top:-7px; left:-7px; cursor:nwse-resize; } .rz-h.c-ne{ top:-7px; right:-7px; cursor:nesw-resize; }
+    .rz-h.c-sw{ bottom:-7px; left:-7px; cursor:nesw-resize; } .rz-h.c-se{ bottom:-7px; right:-7px; cursor:nwse-resize; }
+    .rz-h.edge.e-n{ top:-4px; left:30%; right:30%; height:8px; border-radius:4px; cursor:ns-resize; }
+    .rz-h.edge.e-s{ bottom:-4px; left:30%; right:30%; height:8px; border-radius:4px; cursor:ns-resize; }
+    .rz-h.edge.e-w{ left:-4px; top:30%; bottom:30%; width:8px; border-radius:4px; cursor:ew-resize; }
+    .rz-h.edge.e-e{ right:-4px; top:30%; bottom:30%; width:8px; border-radius:4px; cursor:ew-resize; }
+    /* table: fixed layout so column widths stick, plus drag-resize + add/remove */
+    .tbl-wrap { position:relative; display:block; margin:.5rem 0; }
+    .ed-tbl { border-collapse:collapse; table-layout:fixed; width:auto; font-size:.85rem; }
+    .ed-tbl td,.ed-tbl th { border:1px solid var(--line); padding:.4rem .55rem; min-width:3rem; vertical-align:top; word-break:break-word; }
+    .col-rsz { position:absolute; top:0; width:9px; margin-left:-4px; cursor:col-resize; z-index:3; }
+    .col-rsz:hover { background:rgba(255,76,0,.28); }
+    /* add/remove controls — appear only on table hover; cols on the right, rows on the bottom */
+    .tbl-col, .tbl-row { position:absolute; display:flex; gap:3px; opacity:0; pointer-events:none; transition:opacity .12s; z-index:3; }
+    .tbl-col { flex-direction:column; } .tbl-row { flex-direction:row; }
+    .tbl-wrap:hover .tbl-col, .tbl-wrap:hover .tbl-row { opacity:1; pointer-events:auto; }
+    .tbl-col button, .tbl-row button { width:22px; height:22px; padding:0; font-size:.95rem; font-weight:700; line-height:1; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:.4rem; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+    .tbl-col button:hover, .tbl-row button:hover { border-color:var(--orange); color:var(--orange); background:#fff7f3; }
+    .brief-saved { display:inline-block; margin-top:.4rem; font-size:.75rem; font-weight:600; color:var(--dim); }
     @media (max-width:640px){ .row{ grid-template-columns:auto 1fr; } .thumb{display:none;} .actions{grid-column:2; flex-direction:row; gap:1rem;} }
   </style>
 </head>
@@ -66,8 +110,11 @@
 
   <div class="wrap">
     <h1>Checklist rework media &amp; konten</h1>
-    <p class="lede">Pisah per tugas: <b>🎨 Design</b> (gambar/banner) dan <b>✍️ Copywriting</b> (teks). Tiap slot ada ukuran, link <b>Edit di CMS</b> dan <b>Preview web</b>. Klik baris untuk detail/brief. Status tersimpan di browser ini.</p>
-    <p><a class="open-cms" href="/admin/index.html" target="_blank">Buka CMS (Sveltia) →</a></p>
+    <p class="lede">Klik baris untuk buka <b>brief</b> — langsung bisa ditulis &amp; diedit di sana (teks, tabel, gambar), <b>tersimpan otomatis</b>. Tiap slot ada ukuran, <b>Preview web</b>, dan checkbox.</p>
+    <div class="openrow">
+      <a class="open-cms" href="/admin/index.html" target="_blank">Buka CMS (Sveltia) →</a>
+      <span class="repo-state">Brief tersimpan otomatis di browser ini (draft).</span>
+    </div>
     <div id="list"></div>
   </div>
 
@@ -82,42 +129,35 @@
       cats:'/?goto=cats', scenes:'/?goto=scenes', wall:'/?goto=wall', endcta:'/?goto=endcta',
       showcase:'/?goto=showcase', blog:'/blog', about:'/about' };
 
-    // type: 'design' (media) | 'copy' (text). brief:'' → paste HTML (text + <img>) later.
     const items = [
-      // GLOBAL
-      { type:'copy', g:'Global (Header & Footer)', id:'g-nav', name:'Navigasi header (kategori)', where:'Header', size:'Teks', cms:CMS.site, web:W.header, brief:'' },
-      { type:'copy', g:'Global (Header & Footer)', id:'g-contact', name:'Kontak (telepon, email, alamat)', where:'Header CTA + Footer', size:'Teks', cms:CMS.site, web:W.footer, brief:'' },
-      { type:'copy', g:'Global (Header & Footer)', id:'g-social', name:'Link sosial media', where:'Footer + social wall', size:'URL', cms:CMS.site, web:W.footer, brief:'' },
-      { type:'copy', g:'Global (Header & Footer)', id:'g-footer', name:'Footer (tagline, info links, legal, deskriptor)', where:'Footer', size:'Teks', cms:CMS.site, web:W.footer, brief:'' },
-      { type:'design', g:'Global (Header & Footer)', id:'x-logo', name:'Logo Kustom Garment', where:'Header + Footer', size:'PNG transparan (belum di CMS)', cms:'', web:W.header, brief:'' },
+      { type:'copy', g:'Global (Header & Footer)', id:'g-nav', name:'Navigasi header (kategori)', where:'Header', size:'Teks', web:W.header },
+      { type:'copy', g:'Global (Header & Footer)', id:'g-contact', name:'Kontak (telepon, email, alamat)', where:'Header CTA + Footer', size:'Teks', web:W.footer },
+      { type:'copy', g:'Global (Header & Footer)', id:'g-social', name:'Link sosial media', where:'Footer + social wall', size:'URL', web:W.footer },
+      { type:'copy', g:'Global (Header & Footer)', id:'g-footer', name:'Footer (tagline, info links, legal, deskriptor)', where:'Footer', size:'Teks', web:W.footer },
+      { type:'design', g:'Global (Header & Footer)', id:'x-logo', name:'Logo Kustom Garment', where:'Header + Footer', size:'PNG transparan (belum di CMS)', web:W.header },
 
-      // HOMEPAGE — DESIGN
-      { type:'design', g:'Homepage', id:'h-hero-img', name:'Section 1 — Hero, 4 gambar slide', where:'Section 1', size:'1920×860 (≈16:7) · webp', sample:'/images/placeholder/theme-image-1777040341996.webp', cms:CMS.home, web:W.hero, brief:'' },
-      { type:'design', g:'Homepage', id:'h-cards-img', name:'Section 2 — 5 gambar kartu kategori', where:'Section 2', size:'800×1000 (4:5) · webp', sample:'/images/categories/business.webp', cms:CMS.home, web:W.cats, brief:'' },
-      { type:'design', g:'Homepage', id:'h-cards-hover', name:'Section 2 — gambar hover (1, semua kartu)', where:'Section 2 (saat hover)', size:'800×1000 (4:5) · webp', sample:'/images/placeholder/sample-slide.webp', cms:CMS.home, web:W.cats, brief:'' },
-      { type:'design', g:'Homepage', id:'h-scenes-img', name:'Section 4 — Scene gallery, 6 gambar', where:'Section "Apparel custom untuk…"', size:'4:5 → 1200×1500 / 4:3 → 1200×900', sample:'/images/placeholder/theme-image-1777126525887.webp', cms:CMS.home, web:W.scenes, brief:'' },
-      { type:'design', g:'Homepage', id:'h-social-media', name:'Section 5 — Social wall, 26 video reel', where:'Section "Langsung dari @kustomgarment"', size:'Kode reel IG (video diunduh terpisah)', cms:CMS.home, web:W.wall, brief:'' },
-      { type:'design', g:'Homepage', id:'h-endcta-img', name:'Section 6 — End CTA banner, 2 gambar (default + hover)', where:'Sebelum footer', size:'1600×500 (16:5) · webp', sample:'/images/placeholder/endcta-banner.webp', cms:CMS.home, web:W.endcta, brief:'' },
+      { type:'design', g:'Homepage', id:'h-hero-img', name:'Section 1 — Hero, 4 gambar slide', where:'Section 1', size:'1920×860 (≈16:7) · webp', sample:'/images/placeholder/theme-image-1777040341996.webp', web:W.hero },
+      { type:'design', g:'Homepage', id:'h-cards-img', name:'Section 2 — 5 gambar kartu kategori', where:'Section 2', size:'800×1000 (4:5) · webp', sample:'/images/categories/business.webp', web:W.cats },
+      { type:'design', g:'Homepage', id:'h-cards-hover', name:'Section 2 — gambar hover (1, semua kartu)', where:'Section 2 (saat hover)', size:'800×1000 (4:5) · webp', sample:'/images/placeholder/sample-slide.webp', web:W.cats },
+      { type:'design', g:'Homepage', id:'h-scenes-img', name:'Section 4 — Scene gallery, 6 gambar', where:'Section "Apparel custom untuk…"', size:'4:5 → 1200×1500 / 4:3 → 1200×900', sample:'/images/placeholder/theme-image-1777126525887.webp', web:W.scenes },
+      { type:'design', g:'Homepage', id:'h-social-media', name:'Section 5 — Social wall, 26 video reel', where:'Section "Langsung dari @kustomgarment"', size:'Kode reel IG (video diunduh terpisah)', web:W.wall },
+      { type:'design', g:'Homepage', id:'h-endcta-img', name:'Section 6 — End CTA banner, 2 gambar (default + hover)', where:'Sebelum footer', size:'1600×500 (16:5) · webp', sample:'/images/placeholder/endcta-banner.webp', web:W.endcta },
 
-      // HOMEPAGE — COPY
-      { type:'copy', g:'Homepage', id:'h-ticker', name:'Ticker — 8 perks berjalan', where:'Bawah header', size:'Teks', cms:CMS.home, web:W.ticker, brief:'' },
-      { type:'copy', g:'Homepage', id:'h-hero-copy', name:'Section 1 — Hero, link & alt text per slide', where:'Section 1', size:'Teks/URL', cms:CMS.home, web:W.hero, brief:'' },
-      { type:'copy', g:'Homepage', id:'h-cards-copy', name:'Section 2 — label & link 5 kartu', where:'Section 2', size:'Teks', cms:CMS.home, web:W.cats, brief:'' },
-      { type:'copy', g:'Homepage', id:'h-scenes-copy', name:'Section 4 — copy (judul, kata berganti, judul/desc/CTA tiap scene)', where:'Section 4', size:'Teks', cms:CMS.home, web:W.scenes, brief:'' },
-      { type:'copy', g:'Homepage', id:'h-social-copy', name:'Section 5 — judul & handle (@kustomgarment)', where:'Section 5', size:'Teks', cms:CMS.home, web:W.wall, brief:'' },
-      { type:'copy', g:'Homepage', id:'h-endcta-copy', name:'Section 6 — judul, teks CTA, pesan WA', where:'Section 6', size:'Teks', cms:CMS.home, web:W.endcta, brief:'' },
+      { type:'copy', g:'Homepage', id:'h-ticker', name:'Ticker — 8 perks berjalan', where:'Bawah header', size:'Teks', web:W.ticker },
+      { type:'copy', g:'Homepage', id:'h-hero-copy', name:'Section 1 — Hero, link & alt text per slide', where:'Section 1', size:'Teks/URL', web:W.hero },
+      { type:'copy', g:'Homepage', id:'h-cards-copy', name:'Section 2 — label & link 5 kartu', where:'Section 2', size:'Teks', web:W.cats },
+      { type:'copy', g:'Homepage', id:'h-scenes-copy', name:'Section 4 — copy (judul, kata berganti, judul/desc/CTA tiap scene)', where:'Section 4', size:'Teks', web:W.scenes },
+      { type:'copy', g:'Homepage', id:'h-social-copy', name:'Section 5 — judul & handle (@kustomgarment)', where:'Section 5', size:'Teks', web:W.wall },
+      { type:'copy', g:'Homepage', id:'h-endcta-copy', name:'Section 6 — judul, teks CTA, pesan WA', where:'Section 6', size:'Teks', web:W.endcta },
 
-      // SECTION 3
-      { type:'design', g:'Section 3 — Showcase Kategori', id:'c-right', name:'4 gambar lifestyle (kanan)', where:'Section 3, sisi kanan', size:'1000×1250 (potret) · webp', sample:'/images/placeholder/sample-section3a.webp', cms:CMS.categories, web:W.showcase, brief:'' },
-      { type:'design', g:'Section 3 — Showcase Kategori', id:'c-products-img', name:'Foto produk carousel (per kategori)', where:'Section 3, slider kiri', size:'1000×750 (4:3), produk di bg polos', sample:'/images/placeholder/sample-section3a.webp', cms:CMS.categories, web:W.showcase, brief:'' },
-      { type:'copy', g:'Section 3 — Showcase Kategori', id:'c-copy', name:'Copy (eyebrow, judul, CTA + nama/desc produk tiap kategori)', where:'Section 3', size:'Teks', cms:CMS.categories, web:W.showcase, brief:'' },
+      { type:'design', g:'Section 3 — Showcase Kategori', id:'c-right', name:'4 gambar lifestyle (kanan)', where:'Section 3, sisi kanan', size:'1000×1250 (potret) · webp', sample:'/images/placeholder/sample-section3a.webp', web:W.showcase },
+      { type:'design', g:'Section 3 — Showcase Kategori', id:'c-products-img', name:'Foto produk carousel (per kategori)', where:'Section 3, slider kiri', size:'1000×750 (4:3), produk di bg polos', sample:'/images/placeholder/sample-section3a.webp', web:W.showcase },
+      { type:'copy', g:'Section 3 — Showcase Kategori', id:'c-copy', name:'Copy (eyebrow, judul, CTA + nama/desc produk tiap kategori)', where:'Section 3', size:'Teks', web:W.showcase },
 
-      // BLOG
-      { type:'design', g:'Blog', id:'b-cover', name:'Cover artikel blog', where:'/blog', size:'1200×630 · webp', cms:CMS.blog, web:W.blog, brief:'' },
-      { type:'copy', g:'Blog', id:'b-copy', name:'Artikel blog (judul, deskripsi, isi)', where:'/blog', size:'Teks', cms:CMS.blog, web:W.blog, brief:'' },
+      { type:'design', g:'Blog', id:'b-cover', name:'Cover artikel blog', where:'/blog', size:'1200×630 · webp', web:W.blog },
+      { type:'copy', g:'Blog', id:'b-copy', name:'Artikel blog (judul, deskripsi, isi)', where:'/blog', size:'Teks', web:W.blog },
 
-      // PAGES (not yet in CMS)
-      { type:'copy', g:'Belum di CMS (masih di kode)', id:'x-pages', name:'Halaman About / Partnership / FAQ / kategori / produk / sizechart', where:'masing-masing halaman', size:'Teks + gambar — akan dipindah ke CMS', cms:'', web:W.about, brief:'' },
+      { type:'copy', g:'Belum di CMS (masih di kode)', id:'x-pages', name:'Halaman About / Partnership / FAQ / kategori / produk / sizechart', where:'masing-masing halaman', size:'Teks + gambar', web:W.about },
     ];
 
     const KEY='kg-rework-checklist';
@@ -125,20 +165,159 @@
     const listEl=document.getElementById('list');
     let active='all';
 
+    // ---------- brief: always-editable inline editor, auto-saves ----------
+    const briefKey=(id)=>'kg-brief-'+id;
+
+    // strip interactive controls so only clean content is stored
+    function cleanHTML(area){
+      const c=area.cloneNode(true);
+      c.querySelectorAll('.ed-ctl').forEach(n=>n.remove());
+      c.querySelectorAll('.tbl-wrap').forEach(w=>{ const t=w.querySelector('table'); t?w.replaceWith(t):w.remove(); });
+      c.querySelectorAll('[data-enh]').forEach(n=>n.removeAttribute('data-enh'));
+      return c.innerHTML;
+    }
+
+    // ---- image: 8 drag handles (corners scale w/ aspect, edges stretch one axis) ----
+    function enhanceImg(rz, save){
+      if(rz.dataset.enh) return; rz.dataset.enh='1';
+      const img=rz.querySelector('img'); if(!img) return;
+      const init=()=>{ if(rz.style.width&&rz.style.height) return;
+        const r=(img.naturalWidth/img.naturalHeight)||1.5;
+        const host=rz.closest('.ed-area'); let w=Math.min(img.naturalWidth||360,(host?host.clientWidth:520)*0.6,520);
+        if(!w||w<60) w=300; rz.style.width=Math.round(w)+'px'; rz.style.height=Math.round(w/r)+'px'; };
+      img.complete?init():img.addEventListener('load',init,{once:true});
+      ['c-nw','c-ne','c-sw','c-se','e-n','e-s','e-w','e-e'].forEach(d=>{
+        const h=document.createElement('span'); h.className='rz-h ed-ctl '+(d[0]==='c'?'c '+d:'edge '+d);
+        h.addEventListener('pointerdown',e=>startImgDrag(e,rz,d,save)); rz.appendChild(h);
+      });
+    }
+    function startImgDrag(e,rz,dir,save){
+      e.preventDefault(); e.stopPropagation();
+      const sx=e.clientX, sy=e.clientY, sw=rz.offsetWidth, sh=rz.offsetHeight, ratio=sw/sh||1.5, corner=dir[0]==='c';
+      const move=(ev)=>{ const dx=ev.clientX-sx, dy=ev.clientY-sy; let w=sw, h=sh;
+        if(corner){ const sgn=dir.includes('e')?1:-1; w=Math.max(60,sw+sgn*dx); h=Math.max(40,w/ratio); }
+        else if(dir==='e-e') w=Math.max(60,sw+dx);
+        else if(dir==='e-w') w=Math.max(60,sw-dx);
+        else if(dir==='e-s') h=Math.max(40,sh+dy);
+        else if(dir==='e-n') h=Math.max(40,sh-dy);
+        rz.style.width=Math.round(w)+'px'; rz.style.height=Math.round(h)+'px'; };
+      const up=()=>{ document.removeEventListener('pointermove',move); document.removeEventListener('pointerup',up); save(); };
+      document.addEventListener('pointermove',move); document.addEventListener('pointerup',up);
+    }
+
+    // ---- table: column drag-resize + add/remove rows & columns ----
+    function ensureColgroup(table){
+      const cols=table.rows[0]?table.rows[0].cells.length:0;
+      let cg=table.querySelector('colgroup');
+      if(!cg){ cg=document.createElement('colgroup'); table.insertBefore(cg,table.firstChild); }
+      while(cg.children.length<cols){ const c=document.createElement('col'); c.style.width='140px'; cg.appendChild(c); }
+      while(cg.children.length>cols){ cg.lastChild.remove(); }
+    }
+    function layoutResizers(table){
+      const wrap=table.closest('.tbl-wrap'); if(!wrap) return;
+      const wr=wrap.getBoundingClientRect(), row=table.rows[0]; if(!row) return; const th=table.offsetHeight;
+      wrap.querySelectorAll('.col-rsz').forEach(h=>{ const cell=row.cells[+h.dataset.col];
+        if(!cell){ h.style.display='none'; return; } h.style.display='block';
+        const cr=cell.getBoundingClientRect(); h.style.left=(cr.right-wr.left)+'px'; h.style.height=th+'px'; });
+      const tw=table.offsetWidth, tl=table.offsetLeft, tt=table.offsetTop;
+      const colCtl=wrap.querySelector('.tbl-col');
+      if(colCtl){ colCtl.style.left=(tl+tw+6)+'px'; colCtl.style.top=(tt+th/2-colCtl.offsetHeight/2)+'px'; }
+      const rowCtl=wrap.querySelector('.tbl-row');
+      if(rowCtl){ rowCtl.style.top=(tt+th+6)+'px'; rowCtl.style.left=(tl+tw/2-rowCtl.offsetWidth/2)+'px'; }
+    }
+    function buildResizers(table, save){
+      const wrap=table.closest('.tbl-wrap'); wrap.querySelectorAll('.col-rsz').forEach(n=>n.remove());
+      const n=table.querySelector('colgroup').children.length;
+      for(let i=0;i<n;i++){ const h=document.createElement('span'); h.className='col-rsz ed-ctl'; h.dataset.col=i;
+        h.addEventListener('pointerdown',e=>startColDrag(e,table,i,save)); wrap.appendChild(h); }
+      layoutResizers(table);
+    }
+    function startColDrag(e,table,i,save){
+      e.preventDefault(); e.stopPropagation();
+      const col=table.querySelector('colgroup').children[i], sx=e.clientX, sw=table.rows[0].cells[i].getBoundingClientRect().width;
+      const move=(ev)=>{ col.style.width=Math.max(40,sw+(ev.clientX-sx))+'px'; layoutResizers(table); };
+      const up=()=>{ document.removeEventListener('pointermove',move); document.removeEventListener('pointerup',up); save(); };
+      document.addEventListener('pointermove',move); document.addEventListener('pointerup',up);
+    }
+    function enhanceTable(table, save){
+      if(table.dataset.enh) return; table.dataset.enh='1';
+      let wrap=table.closest('.tbl-wrap');
+      if(!wrap){ wrap=document.createElement('div'); wrap.className='tbl-wrap'; table.replaceWith(wrap); wrap.appendChild(table); }
+      ensureColgroup(table);
+      const colCtl=document.createElement('div'); colCtl.className='tbl-col ed-ctl'; colCtl.contentEditable='false';
+      colCtl.innerHTML='<button data-t="col+" title="Tambah kolom">+</button><button data-t="col-" title="Hapus kolom">−</button>';
+      const rowCtl=document.createElement('div'); rowCtl.className='tbl-row ed-ctl'; rowCtl.contentEditable='false';
+      rowCtl.innerHTML='<button data-t="row+" title="Tambah baris">+</button><button data-t="row-" title="Hapus baris">−</button>';
+      wrap.appendChild(colCtl); wrap.appendChild(rowCtl);
+      const onCtl=ev=>{ const b=ev.target.closest('button'); if(!b)return; ev.preventDefault();
+        const tb=table.tBodies[0]||table, n=table.rows[0]?table.rows[0].cells.length:2;
+        if(b.dataset.t==='row+'){ const tr=document.createElement('tr'); for(let i=0;i<n;i++){const td=document.createElement('td');td.innerHTML='&nbsp;';tr.appendChild(td);} tb.appendChild(tr); }
+        else if(b.dataset.t==='col+'){ [...table.rows].forEach(r=>{const td=document.createElement('td');td.innerHTML='&nbsp;';r.appendChild(td);}); ensureColgroup(table); buildResizers(table,save); }
+        else if(b.dataset.t==='row-'){ if(table.rows.length>1) tb.deleteRow(-1); }
+        else if(b.dataset.t==='col-'){ if(n>1){ [...table.rows].forEach(r=>r.deleteCell(-1)); ensureColgroup(table); buildResizers(table,save); } }
+        layoutResizers(table); save();
+      };
+      colCtl.addEventListener('click',onCtl); rowCtl.addEventListener('click',onCtl);
+      buildResizers(table, save);
+      new ResizeObserver(()=>layoutResizers(table)).observe(wrap);
+    }
+
+    function mountEditor(item){
+      const host=item.querySelector('.brief-host');
+      if(host.dataset.mounted) return; host.dataset.mounted='1';
+      const id=host.dataset.briefId;
+      const hint=item.querySelector('.brief-saved');
+      host.innerHTML=`
+        <div class="ed-bar">
+          <button data-cmd="bold" title="Tebal"><b>B</b></button>
+          <button data-cmd="h2" title="Judul">H2</button>
+          <button data-cmd="h3" title="Sub-judul">H3</button>
+          <button data-cmd="ul" title="List">• List</button>
+          <button data-cmd="table" title="Tabel">▦ Tabel</button>
+          <button data-cmd="img" class="ed-img" title="Tambah gambar">📷 Gambar</button>
+        </div>
+        <div class="ed-area" contenteditable="true" data-ph="Tulis brief di sini… teks, tabel, atau seret gambar ke sini. Hover gambar lalu tarik sisi/pojok untuk ubah lebar, tinggi, atau skala."></div>
+        <input type="file" accept="image/*" class="ed-file" multiple hidden />`;
+      const area=host.querySelector('.ed-area');
+      const fileInput=host.querySelector('.ed-file');
+      area.innerHTML=localStorage.getItem(briefKey(id))||'';
+      let t; const save=()=>{ clearTimeout(t); if(hint)hint.textContent='menyimpan…';
+        t=setTimeout(()=>{ localStorage.setItem(briefKey(id), cleanHTML(area));
+          if(hint){ hint.textContent='tersimpan ✓'; setTimeout(()=>{ if(hint.textContent==='tersimpan ✓') hint.textContent=''; },1500); } },450); };
+      const enhance=()=>{ area.querySelectorAll('.rz').forEach(rz=>enhanceImg(rz,save)); area.querySelectorAll('table.ed-tbl').forEach(tb=>enhanceTable(tb,save)); };
+      area.addEventListener('input', save);
+      const insert=(html)=>{ area.focus(); document.execCommand('insertHTML',false,html); enhance(); save(); };
+      const addImg=(file)=>{ const r=new FileReader(); r.onload=()=>insert(`<span class="rz" contenteditable="false"><img src="${r.result}" alt=""></span>&#8203;`); r.readAsDataURL(file); };
+      host.querySelector('.ed-bar').addEventListener('click',(e)=>{
+        const b=e.target.closest('button'); if(!b)return; e.preventDefault(); area.focus();
+        const c=b.dataset.cmd;
+        if(c==='bold') document.execCommand('bold');
+        else if(c==='h2') document.execCommand('formatBlock',false,'h2');
+        else if(c==='h3') document.execCommand('formatBlock',false,'h3');
+        else if(c==='ul') document.execCommand('insertUnorderedList');
+        else if(c==='img') fileInput.click();
+        else if(c==='table') insert('<table class="ed-tbl"><tbody><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table><p><br></p>');
+        save();
+      });
+      fileInput.addEventListener('change',()=>{ [...fileInput.files].forEach(addImg); fileInput.value=''; });
+      area.addEventListener('paste',(e)=>{ const im=[...(e.clipboardData?.items||[])].filter(i=>i.type.startsWith('image/')); if(im.length){ e.preventDefault(); im.forEach(i=>addImg(i.getAsFile())); } });
+      ['dragover','dragenter'].forEach(ev=>area.addEventListener(ev,(e)=>{ e.preventDefault(); area.classList.add('drag'); }));
+      ['dragleave','drop'].forEach(ev=>area.addEventListener(ev,()=>area.classList.remove('drag')));
+      area.addEventListener('drop',(e)=>{ const fs=[...(e.dataTransfer?.files||[])].filter(f=>f.type.startsWith('image/')); if(fs.length){ e.preventDefault(); fs.forEach(addImg); } });
+      enhance(); // wire controls onto already-saved content
+    }
+    function unmountEditor(){ /* content auto-saves; editor stays mounted (hidden) */ }
+
     function render(){
       listEl.innerHTML='';
-      const shown = items.filter(it => active==='all' || it.type===active);
+      const shown=items.filter(it=>active==='all'||it.type===active);
       let lastG='';
       shown.forEach((it)=>{
         if(it.g!==lastG){ const h=document.createElement('h2'); h.textContent=it.g; listEl.appendChild(h); lastG=it.g; }
-        const wrap=document.createElement('div');
-        wrap.className='item'+(saved[it.id]?' done':'');
-        const thumb = it.sample ? `<img class="thumb js-exp" src="${it.sample}" alt="" />`
-          : `<div class="thumb txt js-exp">${it.type==='copy'?'T':'—'}</div>`;
-        const cms = it.cms ? `<a class="lnk cms" href="${it.cms}" target="_blank">Edit di CMS →</a>` : '';
-        const web = it.web ? `<a class="lnk web" href="${it.web}" target="_blank">Preview web ↗</a>` : '';
-        const briefHtml = it.brief ? it.brief : '<span class="ph">Belum ada brief — tambahkan contoh gambar &amp; penjelasan di sini nanti.</span>';
-        wrap.innerHTML = `
+        const wrap=document.createElement('div'); wrap.className='item'+(saved[it.id]?' done':''); wrap.dataset.id=it.id;
+        const thumb=it.sample?`<img class="thumb js-exp" src="${it.sample}" alt="" />`:`<div class="thumb txt js-exp">${it.type==='copy'?'T':'—'}</div>`;
+        const web=it.web?`<a class="lnk web" href="${it.web}" target="_blank">Preview web ↗</a>`:'';
+        wrap.innerHTML=`
           <div class="row">
             <input type="checkbox" class="chk" ${saved[it.id]?'checked':''} data-id="${it.id}" />
             ${thumb}
@@ -146,45 +325,43 @@
               <div class="name">${it.name}</div>
               <div class="where">${it.where}</div>
               <div class="size">${it.size}</div>
-              <div class="toggle">Detail / brief ▾</div>
+              <div class="toggle">Brief ▾</div>
             </div>
-            <div class="actions">${cms}${web}</div>
+            <div class="actions">${web}</div>
           </div>
           <div class="detail"><div class="detail-in ${it.sample?'has-img':''}">
-            ${it.sample?`<img src="${it.sample}" alt="" />`:''}
-            <div class="brief">${briefHtml}</div>
+            ${it.sample?`<img class="sample" src="${it.sample}" alt="" />`:''}
+            <div class="brief-wrap">
+              <div class="brief-host" data-brief-id="${it.id}"></div>
+              <span class="brief-saved" aria-hidden="true"></span>
+            </div>
           </div></div>`;
         listEl.appendChild(wrap);
       });
       refreshBar();
     }
     function refreshBar(){
-      const shown = items.filter(it => active==='all' || it.type===active);
-      const done = shown.filter(it=>saved[it.id]).length;
-      document.getElementById('barfill').style.width = (shown.length? done/shown.length*100:0)+'%';
-      // tab counts
-      ['all','design','copy'].forEach(t=>{
-        const set = items.filter(it=> t==='all'||it.type===t);
-        const d = set.filter(it=>saved[it.id]).length;
-        const el = document.getElementById('tab-'+t);
-        const base = t==='all'?'Semua':(t==='design'?'🎨 Design':'✍️ Copywriting');
-        el.textContent = `${base} (${d}/${set.length})`;
-      });
+      const shown=items.filter(it=>active==='all'||it.type===active);
+      const done=shown.filter(it=>saved[it.id]).length;
+      document.getElementById('barfill').style.width=(shown.length?done/shown.length*100:0)+'%';
+      ['all','design','copy'].forEach(t=>{ const set=items.filter(it=>t==='all'||it.type===t); const d=set.filter(it=>saved[it.id]).length;
+        const base=t==='all'?'Semua':(t==='design'?'🎨 Design':'✍️ Copywriting');
+        document.getElementById('tab-'+t).textContent=`${base} (${d}/${set.length})`; });
     }
-    document.querySelector('.tabs').addEventListener('click',(e)=>{
-      const b=e.target.closest('.tab'); if(!b)return;
-      active=b.dataset.t;
-      document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t===b));
-      render();
-    });
+    document.querySelector('.tabs').addEventListener('click',(e)=>{ const b=e.target.closest('.tab'); if(!b)return;
+      active=b.dataset.t; document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===b)); render(); });
     listEl.addEventListener('click',(e)=>{
-      if(e.target.classList.contains('js-exp')||e.target.closest('.js-exp')) e.target.closest('.item').classList.toggle('open');
+      if(e.target.closest('.brief-wrap')) return; // editing area — never toggles
+      if(e.target.classList.contains('js-exp')||e.target.closest('.js-exp')){
+        const item=e.target.closest('.item');
+        const opening=!item.classList.contains('open');
+        item.classList.toggle('open');
+        if(opening) mountEditor(item); else unmountEditor(item);
+      }
     });
-    listEl.addEventListener('change',(e)=>{
-      const cb=e.target; if(!cb.classList.contains('chk'))return;
+    listEl.addEventListener('change',(e)=>{ const cb=e.target; if(!cb.classList.contains('chk'))return;
       saved[cb.dataset.id]=cb.checked; localStorage.setItem(KEY,JSON.stringify(saved));
-      cb.closest('.item').classList.toggle('done',cb.checked); refreshBar();
-    });
+      cb.closest('.item').classList.toggle('done',cb.checked); refreshBar(); });
     render();
   </script>
 </body>

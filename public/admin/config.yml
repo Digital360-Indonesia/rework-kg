@@ -247,3 +247,16 @@ collections:
       - { name: tags, label: "Tags", widget: list, default: [], required: false }
       - { name: featured, label: "Featured?", widget: boolean, default: false }
       - { name: body, label: "Isi", widget: markdown }
+
+  # ---------------- BRIEF / CATATAN (per checklist item) ----------------
+  # Notes shown inside /checklist. Edit here: rich text, tables, images.
+  - name: briefs
+    label: "Brief / Catatan (per item checklist)"
+    folder: "public/briefs"
+    extension: md
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    fields:
+      - { name: title, label: "Item", widget: string }
+      - { name: body, label: "Brief (teks, tabel, gambar)", widget: markdown }

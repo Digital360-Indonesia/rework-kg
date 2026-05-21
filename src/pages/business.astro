@@ -6,30 +6,48 @@ const metaDescription = 'Seragam kantor, polo, kemeja, sampai wearpack — dibik
 
 // --- CMS-ready content ---
 const hero = {
-  // NOTE: placeholder wide banner — swap for a real landscape team/office photo when available.
-  banner: '/images/placeholder/theme-image-1777040341996.png',
-  bannerAlt: 'Tim kerja pakai seragam custom Kustom Garment',
+  banner: '/images/placeholder/sample-herobusiness.png',
+  bannerAlt: 'Seragam & apparel kerja custom Kustom Garment',
   title: 'Seragam & apparel kerja',
-  sub: 'Dari polo kantor sampai wearpack lapangan — bikin tim kamu tampil seragam, on-brand, dan nyaman dipakai kerja seharian.',
+  sub: 'Dari polo kantor sampai wearpack lapangan — bikin tim kamu tampil seragam, on-brand, dan nyaman dipakai kerja seharian. Tanpa minimum order, bordir logo rapi, invoice & faktur pajak siap.',
 };
 
 // Customer/client logos for the trust strip.
 const clients = ['klien-1.png','klien-2.png','klien-3.png','klien-4.png','klien-5.png','klien-6.png','klien-7.png','klien-8.png','klien-9.png','klien-10.png','klien-11.png','klien-12.png','klien-13.png'];
 
-// Peek of the categories (Bisnis is the current page).
-const categoryPeek = [
-  { name: 'Bisnis', desc: 'Seragam & apparel kerja', href: '/business/', image: '/images/categories/business.webp', current: true },
-  { name: 'Komunitas', desc: 'Merch & seragam komunitas', href: '/community/', image: '/images/categories/community.webp' },
-  { name: 'Kampus', desc: 'Jaket angkatan & apparel kampus', href: '/campus/', image: '/images/categories/campus.webp' },
-  { name: 'Personal', desc: 'Custom satuan buat kamu', href: '/personal/', image: '/images/categories/personal.webp' },
+// Product-type filters. Thumbnails = the transparent lineup cutouts. 'all' renders a grid icon.
+const LU = (name: string) => `/images/placeholder/forproducts/20250428-Business_Line-Up_${name}-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp`;
+const lineupFilters = [
+  { id: 'all',      label: 'Semua',    image: '' },
+  { id: 'kemeja',   label: 'Kemeja',   image: LU('Kemeja') },
+  { id: 'polo',     label: 'Polo',     image: LU('Polo') },
+  { id: 'kaos',     label: 'Kaos',     image: LU('Kaos') },
+  { id: 'jaket',    label: 'Jaket',    image: LU('Jaket') },
+  { id: 'wearpack', label: 'Wearpack', image: LU('Wearpack') },
+  { id: 'rompi',    label: 'Rompi',    image: LU('Rompi') },
 ];
 
-const products = [
-  { image: '/images/placeholder/sample-section3a4%201.png', title: 'Polo Kantor', desc: 'Pique cotton & cooldry, bordir logo dan nama divisi. Adem dipakai harian.' },
-  { image: '/images/placeholder/sample-section3a2%201.png', title: 'Kemeja Kerja', desc: 'American drill & oxford. Potongan rapi untuk front office sampai meeting klien.' },
-  { image: '/images/placeholder/sample-section3a5%201.png', title: 'Wearpack', desc: 'Drill, ripstop, atau canvas. Reflective tape opsional sesuai standar safety.' },
-  { image: '/images/placeholder/sample-section3a3%201.png', title: 'Jaket Korporat', desc: 'Bomber & coach jacket untuk tim lapangan dan event perusahaan.' },
-  { image: '/images/placeholder/sample-section3a1%201.png', title: 'T-Shirt Tim', desc: 'Cotton combed premium untuk seragam casual, gathering, atau onboarding.' },
+// Sample color options (SAMPLE — pending color-vs-bahan decision).
+const shopColors = [
+  { name: 'Putih',     hex: '#f4f4f4' },
+  { name: 'Biru Muda', hex: '#bcd3e8' },
+  { name: 'Navy',      hex: '#1b2a4a' },
+  { name: 'Krem',      hex: '#e8dcc6' },
+];
+
+// Product grid (SAMPLE). base = flat shot, weared = worn shot (hover swap). Price is a sample.
+const fp = '/images/placeholder/forproducts';
+// Categories spread across the 6 filters so filtering works (a few shirt photos stand in for
+// non-shirt categories until real per-type photos land — SAMPLE).
+const shopProducts = [
+  { name: 'Kemeja Formal Non-Iron',    category: 'kemeja',   base: `${fp}/p1.jpg`, weared: `${fp}/weared1.jpg`, more: 12 },
+  { name: 'Jaket Harrington',          category: 'jaket',    base: `${fp}/p2.jpg`, weared: `${fp}/weared2.jpg`, more: 5 },
+  { name: 'Polo Pique Premium',        category: 'polo',     base: `${fp}/p3.jpg`, weared: `${fp}/weared3.jpg`, more: 4 },
+  { name: 'Kaos Cotton Combed 24s',    category: 'kaos',     base: `${fp}/p4.jpg`, weared: `${fp}/weared4.jpg`, more: 6 },
+  { name: 'Kemeja Oxford Button-Down', category: 'kemeja',   base: `${fp}/p5.jpg`, weared: `${fp}/weared5.jpg`, more: 8 },
+  { name: 'Wearpack Drill Pro',        category: 'wearpack', base: `${fp}/p6.jpg`, weared: `${fp}/weared6.jpg`, more: 3 },
+  { name: 'Rompi Outdoor Lapangan',    category: 'rompi',    base: `${fp}/p7.jpg`, weared: `${fp}/weared7.jpg`, more: 5 },
+  { name: 'Kemeja Linen Krem',         category: 'kemeja',   base: `${fp}/p8.jpg`, weared: `${fp}/weared8.jpg`, more: 4 },
 ];
 
 const reasons = [
@@ -77,39 +95,42 @@ const cta = {
       </div>
     </section>
 
-    <!-- CATEGORY PEEK -->
-    <section class="cat-peek">
+    <!-- PRODUCT FILTER (lineup) -->
+    <section class="cat-lineup">
       <div class="cat-wrap">
-        <div class="cat-peek-grid">
-          {categoryPeek.map((c) => (
-            <a class:list={["cat-peek-item", { 'is-current': c.current }]} href={c.href}>
-              <div class="cat-peek-frame">
-                <img src={c.image} alt={c.name} loading="lazy" />
-                {c.current && <span class="cat-peek-badge">Kamu di sini</span>}
-              </div>
-              <div class="cat-peek-row">
-                <h2 class="cat-peek-name">{c.name}</h2>
-                <span class="cat-peek-arrow" aria-hidden="true">→</span>
-              </div>
-              <p class="cat-peek-desc">{c.desc}</p>
-            </a>
+        <div class="cat-lineup-row reveal">
+          {lineupFilters.map((f, i) => (
+            <button class:list={["cat-lineup-item", { 'is-active': i === 0 }]} data-filter={f.id} type="button">
+              <span class="cat-lineup-thumb">
+                {f.image
+                  ? <img src={f.image} alt={f.label} loading="lazy" />
+                  : <span class="cat-lineup-all" aria-hidden="true"><i></i><i></i><i></i><i></i></span>}
+              </span>
+              <span class="cat-lineup-label">{f.label}</span>
+            </button>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- PRODUCTS -->
-    <section class="cat-products">
+    <!-- PRODUCT GRID -->
+    <section class="cat-shop">
       <div class="cat-wrap">
-        <h2 class="cat-h2 reveal">Produk yang sering dibikin tim kerja</h2>
-        <div class="cat-prod-grid">
-          {products.map((p, i) => (
-            <article class="cat-prod reveal" style={`transition-delay:${i * 60}ms`}>
-              <div class="cat-prod-frame">
-                <img src={p.image} alt={p.title} loading="lazy" />
+        <div class="cat-shop-grid">
+          {shopProducts.map((p, i) => (
+            <article class="cat-shop-card reveal" style={`transition-delay:${(i % 4) * 60}ms`} data-category={p.category}>
+              <div class="cat-shop-frame">
+                <img class="cat-shop-base" src={p.base} alt={p.name} loading="lazy" />
+                <img class="cat-shop-weared" src={p.weared} alt={`${p.name} dipakai`} loading="lazy" />
               </div>
-              <h3 class="cat-prod-title">{p.title}</h3>
-              <p class="cat-prod-desc">{p.desc}</p>
+              <h3 class="cat-shop-name">{p.name}</h3>
+              <div class="cat-shop-swatches">
+                {shopColors.map((c, ci) => (
+                  <button class:list={["cat-shop-swatch", { 'is-active': ci === 0 }]} style={`--sw:${c.hex}`} title={c.name} aria-label={c.name} type="button"></button>
+                ))}
+                {p.more > 0 && <span class="cat-shop-more">+{p.more}</span>}
+              </div>
+              <p class="cat-shop-price">Mulai dari Rp 199.000</p>
             </article>
           ))}
         </div>
@@ -167,21 +188,21 @@ const cta = {
   @media (min-width: 1024px) { .cat-hero2 { padding: 2rem 0 0; } }
   .cat-banner-wrap { max-width: 90rem; margin: 0 auto; padding: 0 1rem; }
   @media (min-width: 1024px) { .cat-banner-wrap { padding: 0 1.5rem; } }
-  .cat-banner { border-radius: 1.75rem; overflow: hidden; aspect-ratio: 4 / 5; background: #f4f4f4; }
-  @media (min-width: 640px) { .cat-banner { aspect-ratio: 16 / 9; } }
-  @media (min-width: 1024px) { .cat-banner { aspect-ratio: 24 / 8; } }
+  .cat-banner { border-radius: 1.75rem; overflow: hidden; aspect-ratio: 16 / 9; background: #f4f4f4; }
+  @media (min-width: 640px) { .cat-banner { aspect-ratio: 16 / 6; } }
+  @media (min-width: 1024px) { .cat-banner { aspect-ratio: 24 / 6; } }
   .cat-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .cat-hero2-inner { max-width: 60rem; margin: 0 auto; padding: 2.5rem 1.5rem 0; text-align: center; }
   @media (min-width: 1024px) { .cat-hero2-inner { padding: 3rem 2.5rem 0; } }
   /* Type scale — Display */
-  .cat-hero2-title { font-family: var(--font-sans); font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.05; letter-spacing: -0.03em; color: #1a1a1a; margin: 0 0 1rem; }
+  .cat-hero2-title { font-family: var(--font-sans); font-weight: 700; font-size: clamp(1.875rem, 4vw, 3.25rem); line-height: 1.05; letter-spacing: -0.03em; color: #1a1a1a; margin: 0 0 1rem; }
   /* Type scale — Lead */
   .cat-hero2-sub { font-family: var(--font-sans); font-weight: 600; font-size: clamp(1rem, 1.3vw, 1.0625rem); line-height: 1.6; color: #6b7280; max-width: 40rem; margin: 0 auto; }
 
   /* CUSTOMER STRIP */
-  .cat-clients { padding: 3.5rem 0 1rem; overflow: hidden; }
-  @media (min-width: 1024px) { .cat-clients { padding: 4.5rem 0 1.5rem; } }
+  .cat-clients { padding: 1.75rem 0 1rem; overflow: hidden; }
+  @media (min-width: 1024px) { .cat-clients { padding: 2.25rem 0 1.5rem; } }
   .cat-clients-marquee { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent); }
   .cat-clients-track { display: flex; gap: 1rem; width: max-content; animation: cat-clients-scroll 38s linear infinite; }
   @keyframes cat-clients-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.5rem)); } }
@@ -189,33 +210,8 @@ const cta = {
   .cat-client-card {
     flex-shrink: 0; height: 5rem; width: 9.5rem; display: grid; place-items: center;
     background: #ffffff; border: 1px solid #ececec; border-radius: 1rem; padding: 1rem;
-    transition: border-color 240ms ease, transform 240ms ease, box-shadow 240ms ease;
   }
-  .cat-client-card img { max-height: 2.5rem; max-width: 100%; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.6; transition: filter 240ms ease, opacity 240ms ease; }
-  @media (hover: hover) {
-    .cat-client-card:hover { border-color: #ff4c00; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(255,76,0,0.1); }
-    .cat-client-card:hover img { filter: none; opacity: 1; }
-  }
-
-  /* CATEGORY PEEK */
-  .cat-peek { padding: 3.5rem 0 1rem; }
-  @media (min-width: 1024px) { .cat-peek { padding: 5rem 0 1rem; } }
-  .cat-peek-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-  @media (min-width: 900px) { .cat-peek-grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; } }
-  .cat-peek-item { display: block; text-decoration: none; }
-  .cat-peek-frame { position: relative; border-radius: 1.25rem; overflow: hidden; aspect-ratio: 4 / 5; background: #f4f4f4; margin-bottom: 0.9rem; }
-  .cat-peek-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 800ms cubic-bezier(0.19,1,0.22,1); }
-  .cat-peek-item.is-current .cat-peek-frame { outline: 2px solid #ff4c00; outline-offset: 2px; }
-  .cat-peek-badge { position: absolute; top: 0.7rem; left: 0.7rem; font-family: var(--font-sans); font-weight: 700; font-size: 0.625rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; background: #ff4c00; border-radius: 999px; padding: 0.28rem 0.6rem; }
-  .cat-peek-row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; }
-  .cat-peek-name { font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: -0.01em; color: #1a1a1a; margin: 0; transition: color 220ms ease; }
-  .cat-peek-arrow { font-family: var(--font-sans); font-weight: 700; color: #ff4c00; opacity: 0; transform: translateX(-6px); transition: opacity 260ms ease, transform 260ms cubic-bezier(0.19,1,0.22,1); }
-  .cat-peek-desc { font-family: var(--font-sans); font-weight: 600; font-size: 0.8125rem; line-height: 1.45; color: #6b7280; margin: 0.25rem 0 0; }
-  @media (hover: hover) {
-    .cat-peek-item:hover .cat-peek-frame img { transform: scale(1.06); }
-    .cat-peek-item:hover .cat-peek-name { color: #ff4c00; }
-    .cat-peek-item:hover .cat-peek-arrow { opacity: 1; transform: translateX(0); }
-  }
+  .cat-client-card img { max-height: 2.5rem; max-width: 100%; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.6; }
 
   /* Shared H2 */
   .cat-h2 {
@@ -224,20 +220,62 @@ const cta = {
     color: #1a1a1a; margin: 0 0 2.5rem;
   }
 
-  /* PRODUCTS */
-  .cat-products { padding: 5rem 0 1rem; }
-  @media (min-width: 1024px) { .cat-products { padding: 7rem 0 1.5rem; } }
-  .cat-prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 1.25rem; }
-  @media (min-width: 768px) { .cat-prod-grid { grid-template-columns: repeat(3, 1fr); gap: 2.25rem 1.75rem; } }
-  .cat-prod { display: block; }
-  .cat-prod-frame {
-    position: relative; border-radius: 1.25rem; overflow: hidden;
-    aspect-ratio: 4 / 3; background: #f5f5f5; display: grid; place-items: center;
+  /* PRODUCT FILTER (lineup) */
+  .cat-lineup { padding: 4.5rem 0 0.5rem; }
+  @media (min-width: 1024px) { .cat-lineup { padding: 6rem 0 0.5rem; } }
+  .cat-lineup-row {
+    display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x proximity;
+    scrollbar-width: none; padding-top: 0.5rem; padding-bottom: 0.5rem;
+    margin: 0 -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem;
   }
-  .cat-prod-frame img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 700ms cubic-bezier(0.19,1,0.22,1); }
-  @media (hover: hover) { .cat-prod:hover .cat-prod-frame img { transform: scale(1.06); } }
-  .cat-prod-title { font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: -0.01em; color: #1a1a1a; margin: 1rem 0 0.35rem; }
-  .cat-prod-desc { font-family: var(--font-sans); font-weight: 600; font-size: 0.875rem; line-height: 1.5; color: #6b7280; margin: 0; }
+  .cat-lineup-row::-webkit-scrollbar { display: none; }
+  @media (min-width: 1024px) { .cat-lineup-row { margin: 0 -2.5rem; padding-left: 2.5rem; padding-right: 2.5rem; justify-content: flex-start; } }
+  .cat-lineup-item {
+    flex: 0 0 auto; width: 6rem; background: none; border: none; padding: 0; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 0.55rem; scroll-snap-align: start;
+  }
+  .cat-lineup-thumb { width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; background: #f4f4f4; display: grid; place-items: center; padding: 16%; box-shadow: 0 0 0 2px transparent, 0 0 0 4px transparent; transition: box-shadow 200ms ease; }
+  .cat-lineup-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 600ms cubic-bezier(0.19,1,0.22,1); }
+  .cat-lineup-all { display: grid; grid-template-columns: 1fr 1fr; gap: 22%; width: 64%; height: 64%; }
+  .cat-lineup-all i { background: #c4c4c4; border-radius: 0.2rem; transition: background 200ms ease; }
+  .cat-lineup-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.8125rem; color: #6b7280; transition: color 200ms ease; }
+  .cat-lineup-item.is-active .cat-lineup-thumb { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ff4c00; }
+  .cat-lineup-item.is-active .cat-lineup-all i { background: #ff4c00; }
+  .cat-lineup-item.is-active .cat-lineup-label { color: #1a1a1a; }
+  @media (hover: hover) {
+    .cat-lineup-item:hover .cat-lineup-thumb img { transform: scale(1.06); }
+    .cat-lineup-item:hover .cat-lineup-label { color: #ff4c00; }
+  }
+
+  /* PRODUCT GRID */
+  /* Widen the product module (filter + grid) beyond the page's 72rem so cards get bigger */
+  @media (min-width: 1024px) { .cat-lineup .cat-wrap, .cat-shop .cat-wrap { max-width: 90rem; } }
+  .cat-shop { padding: 2.5rem 0 5rem; }
+  @media (min-width: 1024px) { .cat-shop { padding: 3rem 0 7rem; } }
+  .cat-shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 1.25rem; }
+  @media (min-width: 768px) { .cat-shop-grid { grid-template-columns: repeat(3, 1fr); gap: 2.75rem 1.5rem; } }
+  @media (min-width: 1024px) { .cat-shop-grid { grid-template-columns: repeat(5, 1fr); } }
+  .cat-shop-card { display: block; }
+  .cat-shop-card.is-hidden { display: none; }
+  .cat-shop-card.cat-shop-anim { animation: cat-shop-pop 460ms cubic-bezier(0.19,1,0.22,1) both; }
+  @keyframes cat-shop-pop { from { opacity: 0; transform: translateY(12px) scale(0.985); } to { opacity: 1; transform: none; } }
+  .cat-shop-frame { position: relative; border-radius: 1rem; overflow: hidden; aspect-ratio: 3 / 4; background: #f4f4f4; }
+  .cat-shop-base, .cat-shop-weared { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 450ms ease; }
+  .cat-shop-weared { opacity: 0; }
+  @media (hover: hover) {
+    .cat-shop-card:hover .cat-shop-base { opacity: 0; }
+    .cat-shop-card:hover .cat-shop-weared { opacity: 1; }
+  }
+  .cat-shop-name { font-family: var(--font-sans); font-weight: 700; font-size: 1rem; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.9rem 0 0; }
+  .cat-shop-swatches { display: flex; align-items: center; gap: 0.45rem; margin-top: 0.6rem; }
+  .cat-shop-swatch {
+    width: 1.15rem; height: 1.15rem; border-radius: 999px; background: var(--sw);
+    border: 1px solid rgba(0,0,0,0.12); padding: 0; cursor: pointer;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 2px transparent; transition: box-shadow 180ms ease;
+  }
+  .cat-shop-swatch.is-active { box-shadow: 0 0 0 2px #fff, 0 0 0 3px #ff4c00; }
+  .cat-shop-more { font-family: var(--font-sans); font-weight: 600; font-size: 0.8125rem; color: #6b7280; margin-left: 0.15rem; }
+  .cat-shop-price { font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; color: #525252; margin: 0.7rem 0 0; }
 
   /* WHY */
   .cat-why { padding: 5rem 0; }
@@ -289,7 +327,8 @@ const cta = {
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
-    .cat-prod-frame img, .cat-show-frame img { transition: none; }
+    .cat-lineup-thumb img, .cat-show-frame img, .cat-shop-base, .cat-shop-weared { transition: none; }
+    .cat-shop-card.cat-shop-anim { animation: none; }
   }
 </style>
 
@@ -298,4 +337,40 @@ const cta = {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Lineup filter — sets active state and filters the product grid
+  const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('.cat-lineup-item'));
+  const shopCards = Array.from(document.querySelectorAll<HTMLElement>('.cat-shop-card'));
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filters.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const cat = btn.dataset.filter;
+      let vis = 0;
+      shopCards.forEach((c) => {
+        const show = cat === 'all' || c.dataset.category === cat;
+        c.classList.toggle('is-hidden', !show);
+        if (show) {
+          c.classList.add('in');
+          // replay the entrance animation, staggered by visible position
+          c.classList.remove('cat-shop-anim');
+          void c.offsetWidth;
+          c.style.animationDelay = `${vis * 45}ms`;
+          c.classList.add('cat-shop-anim');
+          vis++;
+        }
+      });
+    });
+  });
+
+  // Color swatches — active state per card
+  document.querySelectorAll<HTMLElement>('.cat-shop-swatches').forEach((group) => {
+    const swatches = Array.from(group.querySelectorAll<HTMLButtonElement>('.cat-shop-swatch'));
+    swatches.forEach((sw) => {
+      sw.addEventListener('click', () => {
+        swatches.forEach((s) => s.classList.remove('is-active'));
+        sw.classList.add('is-active');
+      });
+    });
+  });
 </script>
