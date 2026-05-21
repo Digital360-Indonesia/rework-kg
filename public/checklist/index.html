@@ -342,9 +342,11 @@
       ['dragleave','drop'].forEach(ev=>area.addEventListener(ev,()=>area.classList.remove('drag')));
       area.addEventListener('drop',(e)=>{ const fs=[...(e.dataTransfer?.files||[])].filter(f=>f.type.startsWith('image/')); if(fs.length){ e.preventDefault(); fs.forEach(addImg); } });
       enhance(); // wire controls onto cached content
-      // pull the shared copy from the server; reconcile only if the user hasn't started editing
-      (async()=>{ try{ const html=await pbLoad(id);
-          if(!dirty && html!==cleanHTML(area)){ area.innerHTML=html; localStorage.setItem(cacheKey, html); enhance(); }
+      // reconcile with the server: server copy wins; if server has none but we have a
+      // local-only draft (written before PB went live), push it up so others can see it.
+      (async()=>{ try{ const remote=await pbLoad(id); const local=localStorage.getItem(cacheKey)||'';
+          if(remote){ if(!dirty && remote!==cleanHTML(area)){ area.innerHTML=remote; localStorage.setItem(cacheKey, remote); enhance(); } }
+          else if(local.trim()){ pbSaveQueued(id, local).catch(()=>{}); }
           if(hint && hint.dataset.s!=='saving' && hint.dataset.s!=='local') setStatus(hint,'idle');
         }catch(e){ setStatus(hint,'offline'); } })();
     }
@@ -402,9 +404,41 @@
       }
     });
     listEl.addEventListener('change',(e)=>{ const cb=e.target; if(!cb.classList.contains('chk'))return;
-      saved[cb.dataset.id]=cb.checked; localStorage.setItem(KEY,JSON.stringify(saved));
-      cb.closest('.item').classList.toggle('done',cb.checked); refreshBar(); });
+      saved[cb.dataset.id]=cb.checked;
+      cb.closest('.item').classList.toggle('done',cb.checked); refreshBar(); saveChecks(); });
+
+    // ---- shared checklist progress (the ✓ done state) via PocketBase ('__checks' record) ----
+    const CHECKS_ID='__checks';
+    let checksTimer;
+    function saveChecks(){
+      localStorage.setItem(KEY,JSON.stringify(saved)); // instant local
+      clearTimeout(checksTimer);
+      checksTimer=setTimeout(async()=>{ try{
+        let remote={}; try{ const raw=await pbLoad(CHECKS_ID); remote=JSON.parse(raw||'{}'); }catch(e){}
+        Object.assign(saved, {...remote, ...saved}); // keep other devices' keys, local wins on conflict
+        localStorage.setItem(KEY,JSON.stringify(saved));
+        await pbSaveQueued(CHECKS_ID, JSON.stringify(saved));
+      }catch(e){} },400);
+    }
+    async function loadChecks(){ try{ const raw=await pbLoad(CHECKS_ID); if(!raw) return;
+      Object.assign(saved, JSON.parse(raw||'{}')); // apply shared progress (incl. unchecks) over local
+      localStorage.setItem(KEY,JSON.stringify(saved));
+      document.querySelectorAll('.item').forEach(el=>{ const cb=el.querySelector('.chk'); if(cb){ cb.checked=!!saved[el.dataset.id]; el.classList.toggle('done',cb.checked); } });
+      refreshBar();
+    }catch(e){} }
+    // one-time: push briefs written before PB went live (local-only) up to the server
+    async function migrateLocalBriefs(){ if(localStorage.getItem('kg-brief-migrated')) return;
+      for(const it of items){ const local=localStorage.getItem(briefKey(it.id));
+        if(local && local.trim()){ try{ const remote=await pbLoad(it.id); if(!remote) await pbSave(it.id, local); }catch(e){ return; } } }
+      localStorage.setItem('kg-brief-migrated','1');
+    }
+
     render();
+    // pull shared progress, then push this device's existing local marks up (one merged state)
+    (async()=>{ await loadChecks(); if(Object.keys(saved).length) saveChecks(); })();
+    migrateLocalBriefs();
+    // re-pull shared progress when returning to this tab (e.g. after editing on another device)
+    document.addEventListener('visibilitychange',()=>{ if(!document.hidden) loadChecks(); });
   </script>
 </body>
 </html>

@@ -5,6 +5,8 @@
 **Re:** ✅ Redeploy done (checklist editor + favicon live). ✅ PocketBase live at `/pb/` (shared briefs working). ⚠ New Page-Builder WIP still not deployed. Optional: Cloudflare cache rule + pb_data backup.
 
 > **UPDATE (evening):** PocketBase task is now COMPLETE — see the section below + `checkpoint-shipwright-pocketbase-2026-05-21.md`.
+>
+> **UPDATE 2:** Redeployed `9d70e3d` (Page-Builder's now-committed Business palette/product-grid refactor) — clean tree, used `deploy.sh` directly. Verified: `/business/` 200 with new palette live (Maroon/Olive/Khaki/Sage on-disk), `/`+`/checklist/`+`/admin/` still 200. Also cleaned up the leftover `zz-mgr-verify` PB record (briefs back to 0). The Page-Builder-WIP warning below is now RESOLVED.
 
 ---
 
