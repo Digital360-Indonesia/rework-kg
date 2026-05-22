@@ -1,0 +1,45 @@
+name: Deploy to VPS (dev.kustomgarment.com)
+
+# Route B auto-deploy (Lord-Shipwright). On every push to main — including
+# Sveltia CMS commits — build the Astro site in CI and rsync dist/ to the VPS.
+# The deploy key is a DEDICATED key locked server-side by a forced `rrsync`
+# command, so it can ONLY write into the dist dir (no shell, no root access),
+# even though it connects as root. Manual `deploy.sh` (unrestricted key) stays
+# as the fallback. PocketBase / pb_data / nginx are never touched by this.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Set up restricted deploy key
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+
+      - name: Deploy (rsync dist -> VPS; rrsync confines target to the dist dir)
+        run: |
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes" \
+            dist/ root@"${{ secrets.VPS_HOST }}":
