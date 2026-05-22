@@ -1,10 +1,10 @@
 # Sveltia CMS config — Kustom Garment
 # Admins edit at /admin. Saving commits to the repo → site rebuilds.
 #
-# GO-LIVE TODO (see notes/cms-setup.md):
-#   1. Push repo to GitHub and set `repo` below to "<owner>/<name>".
-#   2. Set up GitHub OAuth (Sveltia supports GitHub directly, or a small OAuth worker).
-#   3. Connect a build that rebuilds on push (Netlify / Vercel / Cloudflare Pages).
+# GO-LIVE STATUS (see notes/cms-setup.md):
+#   1. [DONE] Repo on GitHub; `repo` set below.
+#   2. [DONE] GitHub OAuth via the sveltia-cms-auth Cloudflare Worker (`base_url` below).
+#   3. [TODO] Auto-rebuild on push (currently a human runs `bash deploy.sh`).
 # For LOCAL editing now (no GitHub needed): open the admin in a Chromium browser
 # (Chrome/Edge) at http://localhost:4321/admin/index.html and click
 # "Work with Local Repository" — Sveltia edits the repo files directly via the
@@ -14,8 +14,9 @@ backend:
   name: github
   repo: Digital360-Indonesia/rework-kg
   branch: main
+  base_url: https://sveltia-cms-auth.arayassuryanto.workers.dev   # OAuth relay (sveltia-cms-auth Worker)
 
-local_backend: true        # enables local editing on localhost
+local_backend: true        # enables local editing on localhost (online login uses base_url above)
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
