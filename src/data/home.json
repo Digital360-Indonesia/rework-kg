@@ -7,18 +7,9 @@
     "PICKUP & DELIVERY",
     "PREMIUM QUALITY",
     "CUSTOMER SUPPORT",
-    "MADE IN INDONESIA"
+    "MADE IN INDONESIA",
+    "CAKEP HASILNYA"
   ],
-  "categoryCards": {
-    "hoverImage": "/images/placeholder/sample-slide.webp",
-    "items": [
-      { "label": "BUSINESS", "href": "/business/", "image": "/images/categories/business.webp" },
-      { "label": "COMMUNITY", "href": "/community/", "image": "/images/categories/community.webp" },
-      { "label": "CAMPUS", "href": "/campus/", "image": "/images/categories/campus.webp" },
-      { "label": "PERSONAL", "href": "/personal/", "image": "/images/categories/personal.webp" },
-      { "label": "ACTIVEWEAR", "href": "/produk/", "image": "/images/placeholder/theme-image-1777040341996.webp" }
-    ]
-  },
   "hero": {
     "slides": [
       {
@@ -40,6 +31,36 @@
         "image": "/images/placeholder/theme-image-1777385298306.webp",
         "href": "/community/",
         "alt": "Komunitas custom"
+      }
+    ]
+  },
+  "categoryCards": {
+    "hoverImage": "/images/placeholder/sample-slide.webp",
+    "items": [
+      {
+        "label": "BUSINESS",
+        "href": "/business/",
+        "image": "/images/categories/business.webp"
+      },
+      {
+        "label": "COMMUNITY",
+        "href": "/community/",
+        "image": "/images/categories/community.webp"
+      },
+      {
+        "label": "CAMPUS",
+        "href": "/campus/",
+        "image": "/images/categories/campus.webp"
+      },
+      {
+        "label": "PERSONAL",
+        "href": "/personal/",
+        "image": "/images/categories/personal.webp"
+      },
+      {
+        "label": "ACTIVEWEAR",
+        "href": "/produk/",
+        "image": "/images/placeholder/theme-image-1777040341996.webp"
       }
     ]
   },
