@@ -50,16 +50,17 @@ const columns = [
 <style>
   .scenes {
     background: #ffffff;
-    padding: 4rem 0 5rem;
+    padding: 4rem 0 41rem;   /* bottom = 5rem gap + 36rem to offset the grid's -36rem (earlier unstick) */
   }
   @media (min-width: 1024px) {
-    .scenes { padding: 6rem 0 7rem; }
+    .scenes { padding: 6rem 0 43rem; }   /* 7rem gap + 36rem offset */
   }
 
   .scenes-wrap {
     max-width: 96rem;
     margin: 0 auto;
     padding: 0 1.25rem;
+    display: flow-root;   /* contain the grid's negative margin so it actually shortens the sticky range (no clipping) */
   }
   @media (min-width: 1024px) {
     .scenes-wrap { padding: 0 2.5rem; }
@@ -68,7 +69,12 @@ const columns = [
   /* Heading */
   .scenes-head {
     margin-bottom: 3rem;
-    max-width: 60rem;
+    /* sticky: heading pins below the nav while the section scrolls, unsticks at section end */
+    position: sticky;
+    top: 88px;
+    z-index: 5;
+    background: #ffffff;
+    padding: 0.5rem 0 1rem;
   }
   @media (min-width: 1024px) {
     .scenes-head { margin-bottom: 4.5rem; }
@@ -85,7 +91,8 @@ const columns = [
   }
   .scenes-title .accent { color: #ff4c00; }
   .flip {
-    display: block;            /* own line so longer words (komunitas/jualan/merch) never wrap mid-headline */
+    display: inline-block;     /* beside "Apparel custom untuk", one line */
+    min-width: 9.5ch;          /* reserve the widest word's width so changing words don't reflow/jump */
     white-space: nowrap;
     will-change: transform, opacity;
   }
@@ -95,6 +102,9 @@ const columns = [
     display: grid;
     grid-template-columns: 1fr;
     gap: 2.5rem;
+    /* shorten the heading's sticky range so it unsticks a bit earlier (higher up);
+       section padding-bottom below compensates so the gap to the next section is unchanged */
+    margin-bottom: -36rem;
   }
   @media (min-width: 768px) {
     .scenes-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem 2rem; }
