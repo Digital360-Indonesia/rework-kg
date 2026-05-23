@@ -100,7 +100,7 @@ collections:
             label: "Section 2 — Kartu Kategori (5 kartu, hover ganti gambar)"
             widget: object
             fields:
-              - { name: hoverImage, label: "Gambar hover (dipakai semua kartu)", widget: image }
+              - { name: hoverImage, label: "Gambar hover (fallback, dipakai jika kartu belum punya sendiri)", widget: image, required: false }
               - name: items
                 label: "Kartu (5)"
                 widget: list
@@ -108,6 +108,7 @@ collections:
                   - { name: label, label: "Label", widget: string }
                   - { name: href, label: "Link", widget: string }
                   - { name: image, label: "Gambar default", widget: image }
+                  - { name: hoverImage, label: "Gambar saat hover (khusus kartu ini)", widget: image, required: false }
           - name: scenes
             label: "Section 4 — Scene Gallery"
             widget: object

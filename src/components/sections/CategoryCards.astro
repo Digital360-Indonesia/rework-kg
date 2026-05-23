@@ -11,7 +11,7 @@ const hoverImage = home.categoryCards.hoverImage;
         <a href={c.href} class="cat">
           <div class="cat-frame">
             <img src={c.image} alt={c.label} loading="lazy" class="cat-img cat-img-base" />
-            <img src={hoverImage} alt="" aria-hidden="true" loading="lazy" class="cat-img cat-img-hover" />
+            <img src={c.hoverImage || hoverImage} alt="" aria-hidden="true" loading="lazy" class="cat-img cat-img-hover" />
           </div>
           <span class="cat-label">{c.label}</span>
         </a>

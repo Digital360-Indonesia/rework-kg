@@ -85,7 +85,7 @@ const columns = [
   }
   .scenes-title .accent { color: #ff4c00; }
   .flip {
-    display: inline-block;
+    display: block;            /* own line so longer words (komunitas/jualan/merch) never wrap mid-headline */
     white-space: nowrap;
     will-change: transform, opacity;
   }

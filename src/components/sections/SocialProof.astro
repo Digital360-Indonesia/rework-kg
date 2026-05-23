@@ -38,7 +38,7 @@ const { headlinePrefix, handle, handleUrl } = home.social;
               tabindex={i >= items.length ? -1 : undefined}
             >
               {it.type === 'video' ? (
-                <video class="wall-media" muted loop playsinline preload="metadata" data-video data-slow={it.slow ? 'true' : undefined}>
+                <video class="wall-media" muted loop playsinline preload="none" data-video data-slow={it.slow ? 'true' : undefined}>
                   <source src={it.src} type="video/mp4" />
                 </video>
               ) : (
@@ -138,6 +138,8 @@ const { headlinePrefix, handle, handleUrl } = home.social;
   @media (prefers-reduced-motion: reduce) {
     .wall-track { animation: none !important; }
   }
+  /* Pause the marquee while the wall is off-screen (e.g. user is up at the hero) to stop constant compositing */
+  .wall.is-offscreen .wall-track { animation-play-state: paused; }
 
   @keyframes wall-left {
     from { transform: translateX(0); }
@@ -207,5 +209,16 @@ const { headlinePrefix, handle, handleUrl } = home.social;
       if (v.dataset.slow !== undefined) v.playbackRate = 0.8;
       io.observe(v);
     });
+  }
+
+  // Pause the marquee animation entirely while the wall is off-screen — stops the
+  // 3 tracks from compositing nonstop (the main "lag on the homepage" cost).
+  const wall = document.querySelector<HTMLElement>('.wall');
+  if (wall) {
+    wall.classList.add('is-offscreen'); // start paused; resume when scrolled into view
+    const sectionIO = new IntersectionObserver((entries) => {
+      entries.forEach((e) => wall.classList.toggle('is-offscreen', !e.isIntersecting));
+    }, { rootMargin: '200px 0px' });
+    sectionIO.observe(wall);
   }
 </script>
