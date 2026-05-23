@@ -2,61 +2,141 @@
   "business": {
     "name": "Business",
     "href": "/business/",
-    "rightImage": "/images/placeholder/sample-section3a.webp",
+    "rightImage": "/images/uploads/WhatsApp Image 2026-05-23 at 15.56.48.jpeg",
     "rightEyebrow": "For your team",
     "rightTitle": "Business Wear",
     "rightCta": "Shop Business",
     "products": [
-      { "image": "/images/placeholder/sample-section3a1%201.png", "title": "T-Shirt", "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing." },
-      { "image": "/images/placeholder/sample-section3a2%201.png", "title": "Kemeja", "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal." },
-      { "image": "/images/placeholder/sample-section3a3%201.png", "title": "Jaket", "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi." },
-      { "image": "/images/placeholder/sample-section3a4%201.png", "title": "Poloshirt", "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan." },
-      { "image": "/images/placeholder/sample-section3a5%201.png", "title": "Wearpack", "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar." }
+      {
+        "image": "/images/placeholder/sample-section3a1%201.png",
+        "title": "T-Shirt",
+        "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a2%201.png",
+        "title": "Kemeja",
+        "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a3%201.png",
+        "title": "Jaket",
+        "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a4%201.png",
+        "title": "Poloshirt",
+        "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a5%201.png",
+        "title": "Wearpack",
+        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+      }
     ]
   },
   "community": {
     "name": "Community",
     "href": "/community/",
-    "rightImage": "/images/placeholder/sample-section3b.webp",
+    "rightImage": "/images/uploads/WhatsApp Image 2026-05-23 at 15.56.48 (1).jpeg",
     "rightEyebrow": "For your crew",
     "rightTitle": "Community Jerseys",
     "rightCta": "Shop Community",
     "products": [
-      { "image": "/images/placeholder/sample-section3a1%201.png", "title": "T-Shirt", "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing." },
-      { "image": "/images/placeholder/sample-section3a2%201.png", "title": "Kemeja", "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal." },
-      { "image": "/images/placeholder/sample-section3a3%201.png", "title": "Jaket", "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi." },
-      { "image": "/images/placeholder/sample-section3a4%201.png", "title": "Poloshirt", "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan." },
-      { "image": "/images/placeholder/sample-section3a5%201.png", "title": "Wearpack", "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar." }
+      {
+        "image": "/images/placeholder/sample-section3a1%201.png",
+        "title": "T-Shirt",
+        "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a2%201.png",
+        "title": "Kemeja",
+        "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a3%201.png",
+        "title": "Jaket",
+        "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a4%201.png",
+        "title": "Poloshirt",
+        "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a5%201.png",
+        "title": "Wearpack",
+        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+      }
     ]
   },
   "campus": {
     "name": "Campus",
     "href": "/campus/",
-    "rightImage": "/images/placeholder/sample-section3c.webp",
+    "rightImage": "/images/uploads/WhatsApp Image 2026-05-23 at 15.56.49.jpeg",
     "rightEyebrow": "For your campus",
     "rightTitle": "Campus Edit",
     "rightCta": "Shop Campus",
     "products": [
-      { "image": "/images/placeholder/sample-section3a1%201.png", "title": "T-Shirt", "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing." },
-      { "image": "/images/placeholder/sample-section3a2%201.png", "title": "Kemeja", "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal." },
-      { "image": "/images/placeholder/sample-section3a3%201.png", "title": "Jaket", "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi." },
-      { "image": "/images/placeholder/sample-section3a4%201.png", "title": "Poloshirt", "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan." },
-      { "image": "/images/placeholder/sample-section3a5%201.png", "title": "Wearpack", "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar." }
+      {
+        "image": "/images/placeholder/sample-section3a1%201.png",
+        "title": "T-Shirt",
+        "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a2%201.png",
+        "title": "Kemeja",
+        "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a3%201.png",
+        "title": "Jaket",
+        "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a4%201.png",
+        "title": "Poloshirt",
+        "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a5%201.png",
+        "title": "Wearpack",
+        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+      }
     ]
   },
   "personal": {
     "name": "Personal",
     "href": "/personal/",
-    "rightImage": "/images/placeholder/sample-section3d.webp",
+    "rightImage": "/images/uploads/WhatsApp Image 2026-05-23 at 15.56.49 (1).jpeg",
     "rightEyebrow": "Just for you",
     "rightTitle": "Personal Picks",
     "rightCta": "Shop Personal",
     "products": [
-      { "image": "/images/placeholder/sample-section3a1%201.png", "title": "T-Shirt", "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing." },
-      { "image": "/images/placeholder/sample-section3a2%201.png", "title": "Kemeja", "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal." },
-      { "image": "/images/placeholder/sample-section3a3%201.png", "title": "Jaket", "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi." },
-      { "image": "/images/placeholder/sample-section3a4%201.png", "title": "Poloshirt", "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan." },
-      { "image": "/images/placeholder/sample-section3a5%201.png", "title": "Wearpack", "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar." }
+      {
+        "image": "/images/placeholder/sample-section3a1%201.png",
+        "title": "T-Shirt",
+        "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a2%201.png",
+        "title": "Kemeja",
+        "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a3%201.png",
+        "title": "Jaket",
+        "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a4%201.png",
+        "title": "Poloshirt",
+        "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
+      },
+      {
+        "image": "/images/placeholder/sample-section3a5%201.png",
+        "title": "Wearpack",
+        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+      }
     ]
   }
 }
