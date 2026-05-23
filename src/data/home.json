@@ -35,37 +35,37 @@
     ]
   },
   "categoryCards": {
-    "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.26 (1).jpeg",
+    "hoverImage": "",
     "items": [
       {
         "label": "BUSINESS",
         "href": "/business/",
         "image": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.12.jpeg",
-        "hoverImage": "/images/categories/20250412-section4-1.webp"
+        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.26 (1).jpeg"
       },
       {
         "label": "COMMUNITY",
         "href": "/community/",
         "image": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.12 (2).jpeg",
-        "hoverImage": "/images/categories/20250412-section4-2.webp"
+        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.27.jpeg"
       },
       {
         "label": "CAMPUS",
         "href": "/campus/",
         "image": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.12 (1).jpeg",
-        "hoverImage": "/images/categories/20250412-section4-3.webp"
+        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.26 (2).jpeg"
       },
       {
         "label": "PERSONAL",
         "href": "/personal/",
         "image": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.13.jpeg",
-        "hoverImage": "/images/categories/20250412-section4-4.webp"
+        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.27 (1).jpeg"
       },
       {
         "label": "ACTIVEWEAR",
         "href": "/produk/",
         "image": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.11.jpeg",
-        "hoverImage": "/images/placeholder/sample-slide.webp"
+        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.26.jpeg"
       }
     ]
   },
