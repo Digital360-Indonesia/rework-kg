@@ -123,11 +123,12 @@
       site:'/admin/index.html#/collections/settings/entries/site',
       home:'/admin/index.html#/collections/homepage/entries/home',
       categories:'/admin/index.html#/collections/categories/entries/categories',
-      blog:'/admin/index.html#/collections/blog',
     };
     const W = { header:'/', footer:'/?goto=ft', ticker:'/?goto=ticker', hero:'/?goto=hero',
       cats:'/?goto=cats', scenes:'/?goto=scenes', wall:'/?goto=wall', endcta:'/?goto=endcta',
-      showcase:'/?goto=showcase', blog:'/blog', about:'/about' };
+      showcase:'/?goto=showcase',
+      business:'/business/', campus:'/campus/', community:'/community/', personal:'/personal/',
+      about:'/about/', partnership:'/partnership/', faq:'/faq/' };
 
     const items = [
       { type:'copy', g:'Global (Header & Footer)', id:'g-nav', name:'Navigasi header (kategori)', where:'Header', size:'Teks', web:W.header },
@@ -150,14 +151,29 @@
       { type:'copy', g:'Homepage', id:'h-social-copy', name:'Section 5 — judul & handle (@kustomgarment)', where:'Section 5', size:'Teks', web:W.wall },
       { type:'copy', g:'Homepage', id:'h-endcta-copy', name:'Section 6 — judul, teks CTA, pesan WA', where:'Section 6', size:'Teks', web:W.endcta },
 
-      { type:'design', g:'Section 3 — Showcase Kategori', id:'c-right', name:'4 gambar lifestyle (kanan)', where:'Section 3, sisi kanan', size:'1000×1250 (potret) · webp', sample:'/images/placeholder/sample-section3a.webp', web:W.showcase },
-      { type:'design', g:'Section 3 — Showcase Kategori', id:'c-products-img', name:'Foto produk carousel (per kategori)', where:'Section 3, slider kiri', size:'1000×750 (4:3), produk di bg polos', sample:'/images/placeholder/sample-section3a.webp', web:W.showcase },
-      { type:'copy', g:'Section 3 — Showcase Kategori', id:'c-copy', name:'Copy (eyebrow, judul, CTA + nama/desc produk tiap kategori)', where:'Section 3', size:'Teks', web:W.showcase },
+      { type:'design', g:'Homepage', id:'c-right', name:'Section 3 — 4 gambar lifestyle (kanan)', where:'Section 3 (showcase), sisi kanan', size:'1000×1250 (potret) · webp', sample:'/images/placeholder/sample-section3a.webp', web:W.showcase },
+      { type:'design', g:'Homepage', id:'c-products-img', name:'Section 3 — foto produk carousel (per kategori)', where:'Section 3 (showcase), slider kiri', size:'1000×750 (4:3), produk di bg polos', sample:'/images/placeholder/sample-section3a.webp', web:W.showcase },
+      { type:'copy', g:'Homepage', id:'c-copy', name:'Section 3 — copy (eyebrow, judul, CTA + nama/desc produk)', where:'Section 3 (showcase)', size:'Teks', web:W.showcase },
 
-      { type:'design', g:'Blog', id:'b-cover', name:'Cover artikel blog', where:'/blog', size:'1200×630 · webp', web:W.blog },
-      { type:'copy', g:'Blog', id:'b-copy', name:'Artikel blog (judul, deskripsi, isi)', where:'/blog', size:'Teks', web:W.blog },
+      { type:'design', g:'Business', id:'cat-business-img', name:'Hero banner', where:'/business — banner atas', size:'Banner lebar (≈24:6) · webp/png', sample:'/images/placeholder/sample-herobusiness.png', web:W.business },
+      { type:'copy', g:'Business', id:'cat-business-copy', name:'Copy halaman (judul, sub, perbandingan, meta)', where:'/business', size:'Teks', web:W.business },
 
-      { type:'copy', g:'Belum di CMS (masih di kode)', id:'x-pages', name:'Halaman About / Partnership / FAQ / kategori / produk / sizechart', where:'masing-masing halaman', size:'Teks + gambar', web:W.about },
+      { type:'design', g:'Campus', id:'cat-campus-img', name:'Hero banner', where:'/campus — banner atas', size:'Banner lebar (≈24:6) · webp/png', sample:'/images/categories/campus.webp', web:W.campus },
+      { type:'copy', g:'Campus', id:'cat-campus-copy', name:'Copy halaman (judul, sub, perbandingan, meta)', where:'/campus', size:'Teks', web:W.campus },
+
+      { type:'design', g:'Community', id:'cat-community-img', name:'Hero banner', where:'/community — banner atas', size:'Banner lebar (≈24:6) · webp/png', sample:'/images/placeholder/sample-herobusiness.png', web:W.community },
+      { type:'copy', g:'Community', id:'cat-community-copy', name:'Copy halaman (judul, sub, perbandingan, meta)', where:'/community', size:'Teks', web:W.community },
+
+      { type:'design', g:'Personal', id:'cat-personal-img', name:'Hero banner + galeri OOTD (hero + 5 foto)', where:'/personal — banner + galeri', size:'Hero banner + 5 foto OOTD (potret)', sample:'/images/placeholder/personal-hero.jpg', web:W.personal },
+      { type:'copy', g:'Personal', id:'cat-personal-copy', name:'Copy halaman (judul, sub, meta)', where:'/personal', size:'Teks', web:W.personal },
+
+      { type:'design', g:'About', id:'about-img', name:'Gambar about (1)', where:'/about', size:'Potret/landscape · webp', sample:'/images/placeholder/theme-image-1777126637504.webp', web:W.about },
+      { type:'copy', g:'About', id:'about-copy', name:'Copy (statistik, keunggulan, deskripsi, meta)', where:'/about', size:'Teks', web:W.about },
+
+      { type:'design', g:'Partnership', id:'partner-img', name:'7 gambar kolaborasi terbaru', where:'/partnership — galeri kolaborasi', size:'Foto kolaborasi (kartu) · webp', sample:'/images/placeholder/sample-section3a.webp', web:W.partnership },
+      { type:'copy', g:'Partnership', id:'partner-copy', name:'Copy (cara kolaborasi, kartu, pesan WA, meta)', where:'/partnership', size:'Teks', web:W.partnership },
+
+      { type:'copy', g:'FAQ', id:'faq-copy', name:'Copy FAQ (pertanyaan & jawaban)', where:'/faq', size:'Teks', web:W.faq },
     ];
 
     const KEY='kg-rework-checklist';
