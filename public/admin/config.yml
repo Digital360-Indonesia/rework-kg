@@ -233,6 +233,80 @@ collections:
                   - { name: title, label: "Nama produk", widget: string }
                   - { name: description, label: "Deskripsi", widget: text }
 
+  # ---------------- STATIC PAGES (about / partnership / faq) ----------------
+  - name: pages
+    label: "Halaman (About / Partner / FAQ)"
+    delete: false
+    files:
+      - name: about
+        label: "About Us"
+        file: "src/data/about.json"
+        fields:
+          - name: meta
+            label: "SEO"
+            widget: object
+            fields:
+              - { name: title, label: "Judul tab", widget: string }
+              - { name: description, label: "Deskripsi SEO", widget: text }
+          - name: stats
+            label: "Statistik"
+            widget: list
+            fields:
+              - { name: value, label: "Angka", widget: number }
+              - { name: suffix, label: "Akhiran (mis. rb+, +)", widget: string, required: false }
+              - { name: label, label: "Label", widget: string }
+          - name: values
+            label: "Keunggulan"
+            widget: list
+            fields:
+              - { name: title, label: "Judul", widget: string }
+              - { name: desc, label: "Deskripsi", widget: text }
+          - { name: aboutImage, label: "Gambar", widget: image }
+          - { name: clientLogos, label: "Logo klien (nama file)", widget: list }
+      - name: partnership
+        label: "Partner & Sponsorship"
+        file: "src/data/partnership.json"
+        fields:
+          - name: meta
+            label: "SEO"
+            widget: object
+            fields:
+              - { name: title, label: "Judul tab", widget: string }
+              - { name: description, label: "Deskripsi SEO", widget: text }
+          - { name: waText, label: "Pesan WhatsApp", widget: text }
+          - { name: logos, label: "Logo partner (nama file)", widget: list }
+          - name: ways
+            label: "Cara kolaborasi"
+            widget: list
+            fields:
+              - { name: no, label: "Nomor", widget: string }
+              - { name: title, label: "Judul", widget: string }
+              - { name: desc, label: "Deskripsi", widget: text }
+          - name: collabs
+            label: "Kolaborasi terbaru"
+            widget: list
+            fields:
+              - { name: img, label: "Gambar", widget: image }
+              - { name: title, label: "Judul", widget: string }
+              - { name: desc, label: "Deskripsi", widget: text }
+      - name: faq
+        label: "FAQ"
+        file: "src/data/faq.json"
+        fields:
+          - name: meta
+            label: "SEO"
+            widget: object
+            fields:
+              - { name: title, label: "Judul tab", widget: string }
+              - { name: description, label: "Deskripsi SEO", widget: text }
+          - { name: waText, label: "Pesan WhatsApp", widget: text }
+          - name: faqs
+            label: "Pertanyaan"
+            widget: list
+            fields:
+              - { name: q, label: "Pertanyaan", widget: string }
+              - { name: a, label: "Jawaban", widget: text }
+
   # ---------------- BLOG ----------------
   - name: blog
     label: "Blog"

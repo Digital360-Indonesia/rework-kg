@@ -1,0 +1,16 @@
+{
+  "meta": {
+    "title": "FAQ | Kustom Garment",
+    "description": "Pertanyaan yang sering ditanyakan seputar order custom di Kustom Garment — minimum order, bahan, pengerjaan, pengiriman, dan pembayaran."
+  },
+  "waText": "Halo Kustom Garment, saya mau tanya-tanya.",
+  "faqs": [
+    { "q": "Apakah ada minimum order?", "a": "Nggak ada. Mau satu potong atau seribu, kami kerjakan dengan standar kualitas yang sama." },
+    { "q": "Bisa desain sendiri?", "a": "Bisa banget. Kirim desainmu dan kami eksekusi — atau mulai dari nol, tim kami bantu dari konsep sampai jadi." },
+    { "q": "Berapa lama pengerjaannya?", "a": "Tergantung jumlah dan jenis produk. Untuk order satuan biasanya lebih cepat; untuk partai besar kami kasih estimasi jelas di awal." },
+    { "q": "Bahan apa saja yang tersedia?", "a": "Cotton combed, fleece, drill, oxford, lacoste, ripstop, sampai bahan teknis. Tinggal sesuaikan kebutuhan dan budget." },
+    { "q": "Bisa kirim ke luar kota?", "a": "Bisa. Tersedia pickup & delivery, dan kami kirim ke seluruh Indonesia." },
+    { "q": "Metode pembayaran & invoice?", "a": "Transfer dengan sistem DP. Invoice dan faktur pajak tersedia untuk kebutuhan bisnis maupun instansi." },
+    { "q": "Ada harga khusus untuk jumlah besar?", "a": "Ada. Semakin banyak, semakin bersahabat harganya. Chat kami untuk hitung harga grosir." }
+  ]
+}

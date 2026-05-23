@@ -1,29 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import partnership from '../data/partnership.json';
 
-const metaTitle = 'Partner & Sponsorship | Kustom Garment';
-const metaDescription = 'Kolaborasi bareng Kustom Garment — brand collab, community partner, event sponsorship, dan kemitraan produksi B2B.';
-
-const wa = 'https://wa.me/6285161202499?text=' + encodeURIComponent('Halo Kustom Garment, saya tertarik kolaborasi/partnership.');
-
-const logos = ['klien-1.png','klien-2.png','klien-3.png','klien-4.png','klien-5.png','klien-6.png','klien-7.png','klien-8.png','klien-9.png','klien-10.png','klien-11.png','klien-12.png','klien-13.png'];
-
-const ways = [
-  { no: '01', title: 'Brand Collaboration', desc: 'Co-design dan produksi koleksi bareng. Dari konsep, sampling, sampai drop — kami eksekusi.' },
-  { no: '02', title: 'Community Partner', desc: 'Harga khusus, support produksi, dan benefit berkelanjutan buat komunitas kamu.' },
-  { no: '03', title: 'Event Sponsorship', desc: 'Dukungan merch & apparel untuk event, turnamen, dan acara kampus.' },
-  { no: '04', title: 'Reseller / B2B', desc: 'Jadi mitra produksi untuk bisnis apparel kamu, dengan kapasitas dan kualitas terjaga.' },
-];
-
-const collabs = [
-  { img: '/images/placeholder/theme-image-1777040341996.png', title: 'Campus Festival — merch resmi', desc: 'Kaos dan tote bag untuk panitia dan peserta, lengkap dengan bordir nama divisi. Ribuan pcs, kelar tepat sebelum hari acara.' },
-  { img: '/images/placeholder/theme-image-1777126525887.png', title: 'Run Club Surabaya — jersey tim', desc: 'Jersey lari dry-fit dengan nama tiap member. Bahan adem dan ringan, tetap rapi dipakai latihan rutin tiap minggu.' },
-  { img: '/images/placeholder/theme-image-1777126637504.png', title: 'Capsule drop brand lokal', desc: 'Produksi koleksi limited bareng brand lokal — dari sampling, pemilihan bahan, sampai jadi. Siap langsung dijual ke pasar.' },
-  { img: '/images/placeholder/theme-image-1777385298306.png', title: 'Turnamen futsal kampus', desc: 'Jersey tim plus bib wasit untuk seluruh peserta. Desain per tim dan nomor punggung, semuanya siap di hari-H.' },
-  { img: '/images/placeholder/sample-section3a.webp', title: 'Bazaar komunitas', desc: 'Merch komunitas buat dijual ulang di bazaar. Kaos, tote bag, dan aksesoris dengan kualitas yang bikin cepat laris.' },
-  { img: '/images/placeholder/sample-section3b.webp', title: 'Merch band indie', desc: 'Kaos tur dan hoodie edisi terbatas untuk fans. Sablon detail dan bahan tebal, tahan dipakai bertahun-tahun.' },
-  { img: '/images/placeholder/sample-section3c.webp', title: 'Seragam startup', desc: 'Polo dan kemeja kantor dengan bordir logo perusahaan. Rapi, nyaman, dan konsisten untuk seluruh tim.' },
-];
+const metaTitle = partnership.meta.title;
+const metaDescription = partnership.meta.description;
+const wa = 'https://wa.me/6285161202499?text=' + encodeURIComponent(partnership.waText);
+const { logos, ways, collabs } = partnership;
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>

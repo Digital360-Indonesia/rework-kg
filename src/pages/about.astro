@@ -1,24 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import about from '../data/about.json';
 
-const metaTitle = 'About Us | Kustom Garment';
-const metaDescription = 'Kustom Garment — konveksi custom satuan asal Surabaya. Bikin baju tanpa minimum order, desain bebas, bahan premium. Untuk bisnis, komunitas, kampus, dan personal.';
-
-const stats = [
-  { value: 2015, suffix: '', label: 'Mulai dari Surabaya' },
-  { value: 10, suffix: 'rb+', label: 'Produk dikerjakan' },
-  { value: 500, suffix: '+', label: 'Brand & komunitas' },
-  { value: 1, suffix: ' pcs', label: 'Minimum order' },
-];
-
-const values = [
-  { title: 'Tanpa minimum order', desc: 'Mau satu atau seribu, kami kerjakan dengan standar yang sama.' },
-  { title: 'Desain bebas', desc: 'Idemu, warnamu, potonganmu. Kami bantu wujudkan dari nol.' },
-  { title: 'Bahan premium', desc: 'Cotton combed, fleece, drill, sampai bahan teknis — semua kualitas pilihan.' },
-];
-
-const aboutImage = '/images/placeholder/theme-image-1777126637504.png';
-const clientLogos = ['klien-1.png','klien-2.png','klien-3.png','klien-4.png','klien-5.png','klien-6.png','klien-7.png','klien-8.png','klien-9.png','klien-10.png'];
+const metaTitle = about.meta.title;
+const metaDescription = about.meta.description;
+const { stats, values, aboutImage, clientLogos } = about;
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>
