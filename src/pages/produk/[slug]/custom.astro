@@ -1,0 +1,986 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import catalog from '../../../data/products/catalog.json';
+import siteConfig from '../../../data/site-config.json';
+
+export function getStaticPaths() {
+  return catalog.archetypes.map((a) => ({ params: { slug: a.slug }, props: { product: a } }));
+}
+
+const { product } = Astro.props;
+const garment = catalog.garment_types.find((g) => g.id === product.garment_type)!;
+const fabrics = catalog.fabrics.filter((f) => f.garment_type === product.garment_type);
+const colors = catalog.colors;
+const decos = catalog.decoration_types;
+const rules = catalog.pricing_rules;
+
+const defaultDecos = (product.default_decoration || []).map((d: any) => {
+  const t = decos.find((dt) => dt.name.toLowerCase().startsWith(String(d.type).toLowerCase()));
+  return { typeId: t ? t.id : decos[0].id, placement: d.placement };
+});
+
+const waBase = (siteConfig as any)?.contact?.whatsappUrl || 'https://wa.me/6285161202499';
+const lockedSpec = Object.entries(product.locked_spec) as [string, string][];
+const styleOptions = (garment as any).style_options || {};
+const styleAttrs = lockedSpec.map(([k]) => k).filter((k) => styleOptions[k]);
+
+// decoration placement map — where each placement sits on the garment diagram (% of the SVG box)
+const PLACE_MAP: Record<string, { view: string; x: number; y: number; label: string }> = {
+  'Collar': { view: 'front', x: 50, y: 17, label: 'Kerah' },
+  'Left chest': { view: 'front', x: 37, y: 35, label: 'Dada kiri' },
+  'Right chest': { view: 'front', x: 63, y: 35, label: 'Dada kanan' },
+  'Name tag right chest': { view: 'front', x: 63, y: 47, label: 'Name tag' },
+  'Sleeve Left': { view: 'front', x: 14, y: 45, label: 'Lengan kiri' },
+  'Sleeve Right': { view: 'front', x: 86, y: 45, label: 'Lengan kanan' },
+  'Back center': { view: 'back', x: 50, y: 40, label: 'Punggung' },
+};
+const placeHots = garment.placements.map((p: string) => ({ name: p, ...(PLACE_MAP[p] || { view: 'front', x: 50, y: 62, label: p }) }));
+const frontHots = placeHots.filter((h) => h.view === 'front');
+const backHots = placeHots.filter((h) => h.view === 'back');
+
+// size guide (placeholder cm, flat measurement) — swap for the real chart later
+const SIZE_GUIDE: Record<string, [number, number]> = { S: [48, 68], M: [51, 70], L: [54, 72], XL: [57, 74], XXL: [60, 76] };
+const sizeGuideRows = garment.size_run.map((s: string) => ({ size: s, chest: SIZE_GUIDE[s]?.[0] ?? '—', length: SIZE_GUIDE[s]?.[1] ?? '—' }));
+
+const cfg = {
+  slug: product.slug, name: product.name, basePrice: product.base_price_per_pc,
+  defaultFabric: product.default_fabric, defaultColor: product.color_default,
+  placements: garment.placements, sizeRun: garment.size_run,
+  fabrics, colors, decos, rules, defaultDecos, waBase, lockedSpec,
+  styleOptions, styleAttrs, defaultStyle: product.locked_spec,
+};
+const metaTitle = `Custom ${product.name} | Kustom Garment`;
+---
+
+<BaseLayout title={metaTitle} description={`Kustomisasi ${product.name}`} noCurtain={true} noFooter={true}>
+  <style is:global>@media (min-width: 860px) { html, body { height: 100%; overflow: hidden; } }</style>
+  <div class="cz">
+    <div class="cz-top">
+      <a class="cz-back" href={`/produk/${product.slug}`}>← {product.name}</a>
+      <nav class="cz-tabs" id="cz-tabs">
+        <button class="cz-tab active" data-tab="fabric">Fabric</button>
+        <button class="cz-tab" data-tab="color">Color</button>
+        <button class="cz-tab" data-tab="style">Style</button>
+        <button class="cz-tab" data-tab="decoration">Decoration</button>
+        <button class="cz-tab" data-tab="size">Size</button>
+        <button class="cz-tab" data-tab="summary">Summary</button>
+      </nav>
+    </div>
+
+    <div class="cz-body">
+      <div class="cz-preview">
+        <img src={product.gallery[0]} alt={product.name} />
+        <div class="cz-sel" id="cz-sel"></div>
+      </div>
+
+      <div class="cz-panels">
+        <section class="cz-panel active" data-panel="fabric">
+          <div class="fab-head">
+            <h2 class="fab-title">Bahan</h2>
+            <div class="fab-tools">
+              <button class="fab-filter" aria-label="Filter">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h9M19 7h1M4 17h1M11 17h9"/><circle cx="16" cy="7" r="2.4"/><circle cx="8" cy="17" r="2.4"/></svg>
+              </button>
+              <input class="fab-search" id="cz-fabsearch" type="text" placeholder="Cari bahan…" />
+            </div>
+          </div>
+          <p class="cz-subline">Pilih bahan dasar — harga menyesuaikan pilihan &amp; jumlah order.</p>
+          <div class="fab-grid" id="cz-fabrics">
+            {fabrics.map((f) => (
+              <button class:list={['fab-card', { sel: f.id === product.default_fabric }]} data-fab={f.id} data-name={f.name}>
+                <span class="fab-img">{f.swatch_image ? <img src={f.swatch_image} alt="" /> : <span class="cz-tex" />}</span>
+                <span class="fab-check">✓</span>
+                <span class="fab-cap">{f.name}</span>
+                <span class="fab-info" role="button" tabindex="0" aria-label="Info bahan">i</span>
+              </button>
+            ))}
+          </div>
+          <div class="fab-detail">
+            <div class="fab-detail-main">
+              <div>
+                <div class="fab-name" id="fd-name"></div>
+                <div class="fab-sub" id="fd-sub"></div>
+              </div>
+              <div class="fab-detail-r">
+                <div class="fab-bar-row"><span class="fab-bar"><span id="fd-bar1"></span></span><span class="fab-bar-lbl" id="fd-lbl1"></span></div>
+                <div class="fab-bar-row"><span class="fab-bar"><span id="fd-bar2"></span></span><span class="fab-bar-lbl" id="fd-lbl2"></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="fab-pop" id="fab-pop" hidden><span class="fab-pop-body" id="fab-pop-body"></span><span class="fab-pop-arrow"></span></div>
+        </section>
+
+        <section class="cz-panel" data-panel="color">
+          <div class="col-head">
+            <h2 class="col-title">Warna</h2>
+            <label class="col-customwrap">
+              <span class="col-customlbl">Custom?</span>
+              <input class="col-customin" id="cz-customcolor" type="text" placeholder="Tulis warna / kode" />
+            </label>
+          </div>
+          <p class="cz-subline">Warna dasar kain. Butuh warna spesifik? Isi kolom custom.</p>
+          <div class="col-grid" id="cz-colors">
+            {colors.map((c) => (
+              <button class:list={['col-card', { sel: c.id === product.color_default }]} data-color={c.id} data-name={c.name} data-hex={c.hex}>
+                <span class="col-sw" style={`--c:${c.hex}`}><span class="col-check">✓</span></span>
+                <span class="col-cardname">{c.name}</span>
+              </button>
+            ))}
+          </div>
+          <div class="col-detail">
+            <div class="col-detail-main">
+              <span class="col-detail-sw" id="cd-sw"></span>
+              <div>
+                <div class="col-name" id="cd-name"></div>
+                <div class="col-sub" id="cd-sub"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="cz-panel" data-panel="style">
+          <div class="st-stage">
+              <!-- pane 0: LIST -->
+              <div class="st-pane">
+                <div class="st-list" id="st-list">
+                  <div class="st-lhead">
+                    <h2 class="st-title">Style</h2>
+                    <p class="st-lsub">Pakai default kurasi kami, atau ubah tiap detail.</p>
+                  </div>
+                  <div class="st-rows">
+                    {styleAttrs.map((k) => (
+                      <button class="st-row" data-attr={k}>
+                        <span class="st-row-k">{k}</span>
+                        <span class="st-row-r"><span class="st-row-v" data-valfor={k}>{(product.locked_spec as any)[k]}</span><span class="st-chev"></span></span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <!-- panes 1..n: DETAIL per attribute -->
+              {styleAttrs.map((k) => (
+                <div class="st-pane" hidden>
+                  <div class="st-detail-view" data-attrview={k}>
+                    <aside class="st-rail">
+                      {styleAttrs.map((k2) => (
+                        <button class:list={['st-railitem', { on: k2 === k }]} data-railattr={k2}>{k2}</button>
+                      ))}
+                    </aside>
+                    <div class="st-main">
+                      <div class="st-dhead">
+                        <button class="st-back" data-back aria-label="Kembali">‹</button>
+                        <h2 class="st-dtitle">{k}</h2>
+                      </div>
+                      <div class="st-optgrid">
+                        {(styleOptions[k] || []).map((o: any) => (
+                          <button class:list={['st-opt', { sel: o.name === (product.locked_spec as any)[k] }]} data-attr={k} data-opt={o.name}>
+                            <span class="st-opt-ill"><img src={o.illustration} alt="" /><span class="st-opt-check">✓</span></span>
+                            <span class="st-opt-name">{o.name}</span>
+                          </button>
+                        ))}
+                      </div>
+                      <div class="st-detail">
+                        <div class="st-detail-l">
+                          <div class="st-dname"></div>
+                          <div class="st-ddesc"></div>
+                        </div>
+                        <div class="st-dsug"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </section>
+
+        <section class="cz-panel" data-panel="decoration">
+          <div class="deco-head"><h2 class="deco-title">Dekorasi</h2></div>
+          <p class="cz-subline">Klik titik di baju, lalu pilih teknik untuk titik itu.</p>
+          <div class="dm-scroll">
+            <div class="dm-views">
+              <button class="dm-viewtab on" data-view="front">Depan</button>
+              <button class="dm-viewtab" data-view="back">Belakang</button>
+            </div>
+            <div class="dm-stage">
+              <div class="dm-shirt" data-shirtview="front">
+                <svg viewBox="0 0 200 230" fill="none" stroke="#cfcfcf" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+                  <path d="M74 26 L58 18 L18 46 L34 72 L50 64 L50 208 Q100 218 150 208 L150 64 L166 72 L182 46 L142 18 L126 26 Q100 48 74 26 Z"/>
+                  <path d="M74 26 Q100 50 126 26"/>
+                  <path d="M82 22 Q100 40 118 22"/>
+                  <path d="M100 48 L100 200" stroke-dasharray="3 6"/>
+                </svg>
+                {frontHots.map((h) => (
+                  <button class="dm-hot" data-place={h.name} data-label={h.label} style={`left:${h.x}%;top:${h.y}%`}>
+                    <span class="dm-dot"></span><span class="dm-htlabel">{h.label}</span>
+                  </button>
+                ))}
+              </div>
+              <div class="dm-shirt" data-shirtview="back" hidden>
+                <svg viewBox="0 0 200 230" fill="none" stroke="#cfcfcf" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+                  <path d="M74 26 L58 18 L18 46 L34 72 L50 64 L50 208 Q100 218 150 208 L150 64 L166 72 L182 46 L142 18 L126 26 Q100 36 74 26 Z"/>
+                  <path d="M76 24 Q100 34 124 24"/>
+                  <path d="M54 60 Q100 72 146 60"/>
+                </svg>
+                {backHots.map((h) => (
+                  <button class="dm-hot" data-place={h.name} data-label={h.label} style={`left:${h.x}%;top:${h.y}%`}>
+                    <span class="dm-dot"></span><span class="dm-htlabel">{h.label}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+            <p class="dm-hint">Titik oranye sudah ada dekorasi — klik untuk ubah.</p>
+            <div class="dm-chooser" id="dm-chooser" hidden></div>
+          </div>
+          <div class="deco-detail">
+            <div class="deco-detail-l"><span id="deco-count">0 dekorasi</span></div>
+            <div class="deco-detail-r"><span class="deco-detail-lbl">Tambahan</span><span id="deco-total">+Rp 0</span><span class="deco-detail-note">/pc</span></div>
+          </div>
+        </section>
+
+        <section class="cz-panel" data-panel="size">
+          <div class="sz-head">
+            <h2 class="sz-title">Ukuran</h2>
+            <button class="sz-guide-btn" id="sz-guidebtn">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4-4 14 14-4 4z"/><path d="M8 8l1.5 1.5M11 11l1.5 1.5M14 14l1.5 1.5"/></svg>
+              Panduan ukuran
+            </button>
+          </div>
+          <p class="cz-subline">Isi jumlah per ukuran. Minimum order 24 pcs.</p>
+          <div class="sz-scroll">
+            <div class="sz-group">
+              <div class="sz-grouplabel">Fit</div>
+              <div class="sz-seg" id="sz-fit">
+                <button class="sz-segopt locked" data-fit="slim" disabled>Slim</button>
+                <button class="sz-segopt on" data-fit="regular">Regular</button>
+                <button class="sz-segopt locked" data-fit="relaxed" disabled>Relaxed</button>
+              </div>
+              <p class="sz-soon">Slim &amp; Relaxed segera hadir.</p>
+            </div>
+            <div class="sz-group">
+              <div class="sz-grouplabel" id="sz-lenlabel">Length</div>
+              <div class="sz-seg" id="sz-length">
+                <button class="sz-segopt locked" data-length="short" disabled>Short</button>
+                <button class="sz-segopt on" data-length="regular">Regular</button>
+                <button class="sz-segopt locked" data-length="tall" disabled>Tall</button>
+              </div>
+              <p class="sz-soon">Short &amp; Tall segera hadir.</p>
+            </div>
+            <div class="sz-group">
+              <div class="sz-grouplabel">Jumlah per ukuran</div>
+              <div class="cz-sizes" id="cz-sizes"></div>
+            </div>
+          </div>
+          <div class="sz-detail">
+            <div class="sz-detail-l">Total <strong id="cz-qty">0</strong> pcs</div>
+            <div class="sz-detail-r" id="sz-fitsum">Regular · Regular</div>
+          </div>
+        </section>
+
+        <section class="cz-panel" data-panel="summary">
+          <div class="sm-head"><h2 class="sm-title">Ringkasan</h2></div>
+          <p class="cz-subline">Cek detail pesanan, lalu lanjut ke WhatsApp untuk konfirmasi &amp; harga final.</p>
+          <div class="sm-scroll">
+            <div class="sm-price" id="cz-pricecard"></div>
+            <div id="cz-summary"></div>
+          </div>
+          <div class="sm-cta">
+            <a class="sm-wa" id="cz-wa" href="#" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18.2c-1.5 0-2.9-.4-4.2-1.1l-.3-.18-2.85.9.93-2.78-.2-.32A8.2 8.2 0 1 1 12 20.2zm4.6-6.1c-.25-.13-1.47-.73-1.7-.8-.23-.1-.4-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.1-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.42l-.48-.01c-.16 0-.43.06-.65.31-.22.25-.86.84-.86 2.05 0 1.2.88 2.37 1 2.53.13.17 1.74 2.65 4.2 3.72.59.25 1.05.4 1.4.52.6.18 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.29z"/></svg>
+              Lanjut via WhatsApp
+            </a>
+            <p class="sm-disclaimer">Estimasi harga. Final price &amp; ketersediaan dikonfirmasi via WhatsApp.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="cz-bar">
+      <button class="cz-nav" id="cz-prev">Kembali</button>
+      <div class="cz-price"><span id="cz-perpc">—</span> <span class="cz-perpc-note">/pc (est.)</span></div>
+      <button class="cz-nav cz-next" id="cz-next">Lanjut →</button>
+    </div>
+
+    <div class="sz-modal" id="sz-modal" hidden>
+      <div class="sz-modal-backdrop" id="sz-modalbd"></div>
+      <div class="sz-modal-card">
+        <div class="sz-modal-head">
+          <h3>Panduan Ukuran — {garment.name}</h3>
+          <button class="sz-modal-close" id="sz-modalclose" aria-label="Tutup">✕</button>
+        </div>
+        <table class="sz-table">
+          <thead><tr><th>Ukuran</th><th>Lebar dada</th><th>Panjang badan</th></tr></thead>
+          <tbody>
+            {sizeGuideRows.map((r) => (
+              <tr><td>{r.size}</td><td>{r.chest} cm</td><td>{r.length} cm</td></tr>
+            ))}
+          </tbody>
+        </table>
+        <p class="sz-modal-note">Flat measurement, toleransi ±1–2 cm. Butuh ukuran khusus atau size chart per orang? Konfirmasi via WhatsApp.</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="application/json" id="cz-cfg" set:html={JSON.stringify(cfg)}></script>
+</BaseLayout>
+
+<style is:global>
+  /* global (not scoped): much of this panel is rendered by JS (innerHTML), and Astro scoped
+     styles don't reach JS-injected nodes. Selectors are all .cz-/.fab-/.col-/.st-/.deco- specific,
+     and this CSS only ships on the customizer route, so global is safe here. */
+  .cz { font-family: var(--font-sans); display: flex; flex-direction: column; min-height: calc(100vh - 88px); background: #fff; }
+  /* Desktop: lock the customizer to one screen — no page scroll, panels scroll internally */
+  @media (min-width: 860px) { .cz { height: calc(100vh - 88px); min-height: 0; overflow: hidden; } }
+  .cz-top { border-bottom: 1px solid #ececec; padding: 0.5rem 1.25rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+  .cz-back { color: #6b7280; text-decoration: none; font-size: 0.85rem; font-weight: 600; white-space: nowrap; }
+  .cz-back:hover { color: #ff4c00; }
+  .cz-tabs { display: flex; gap: 1.4rem; overflow-x: auto; scrollbar-width: none; }
+  .cz-tabs::-webkit-scrollbar { display: none; }
+  .cz-tab { background: none; border: 0; padding: 0.9rem 0; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 160ms ease; }
+  .cz-tab.active { color: #1a1a1a; border-bottom-color: #ff4c00; }
+
+  .cz-body { flex: 1; display: grid; grid-template-columns: 1fr; }
+  @media (min-width: 860px) { .cz-body { grid-template-columns: 1fr 1fr; min-height: 0; overflow: hidden; } }
+
+  .cz-preview { background: #f4f4f4; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem 1.5rem; gap: 1rem; }
+  @media (min-width: 860px) { .cz-preview { height: 100%; min-height: 0; overflow: hidden; } }
+  .cz-preview img { max-width: 100%; max-height: 60vh; object-fit: contain; border-radius: 0.75rem; }
+  .cz-sel { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+  .cz-sel .chip { font-size: 0.75rem; font-weight: 600; color: #374151; background: #fff; border: 1px solid #ececec; border-radius: 999px; padding: 0.25rem 0.6rem; }
+
+  .cz-panels { display: flex; flex-direction: column; min-height: 0; }
+  @media (min-width: 860px) { .cz-panels { height: 100%; overflow: hidden; } }
+  .cz-panel { display: none; }
+  .cz-panel.active { display: block; animation: czfade 0.35s cubic-bezier(0.19,1,0.22,1); }
+  @media (min-width: 860px) {
+    .cz-panel.active { flex: 1; min-height: 0; }
+  }
+  @keyframes czfade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .cz-h { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.01em; color: #1a1a1a; margin: 0 0 1.25rem; }
+  .cz-h-note { font-size: 0.9rem; font-weight: 600; color: #9ca3af; letter-spacing: 0; }
+  .cz-hint { font-size: 0.85rem; color: #6b7280; margin: 1rem 0 0; }
+  .cz-panel[data-panel="size"] .cz-hint { margin: -0.6rem 0 1.2rem; }
+  /* short caption under a panel header (fabric / color), matching the style list subline */
+  .cz-subline { flex: 0 0 auto; padding: 0 1.5rem; margin: -0.7rem 0 0.9rem; font-size: 0.85rem; color: #9ca3af; }
+
+  /* FABRIC — exact Proper Cloth "Fabrics" panel */
+  .cz-tex { background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.55) 0 1px, transparent 1px 4px), repeating-linear-gradient(-45deg, rgba(0,0,0,.045) 0 1px, transparent 1px 4px); }
+  .cz-panel[data-panel="fabric"], .cz-panel[data-panel="color"], .cz-panel[data-panel="style"], .cz-panel[data-panel="decoration"], .cz-panel[data-panel="size"], .cz-panel[data-panel="summary"] { background: #eeeeee; }
+  .cz-panel[data-panel="fabric"].active, .cz-panel[data-panel="color"].active, .cz-panel[data-panel="style"].active, .cz-panel[data-panel="decoration"].active, .cz-panel[data-panel="size"].active, .cz-panel[data-panel="summary"].active { display: flex; flex-direction: column; }
+  @media (min-width: 860px) { .cz-panel[data-panel="fabric"].active, .cz-panel[data-panel="color"].active, .cz-panel[data-panel="style"].active, .cz-panel[data-panel="decoration"].active, .cz-panel[data-panel="size"].active, .cz-panel[data-panel="summary"].active { overflow: hidden; } }
+  .fab-head { display: flex; align-items: center; gap: 1rem; padding: 1.5rem 1.5rem 1.3rem; flex: 0 0 auto; }
+  .fab-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; color: #1a1a1a; margin: 0; }
+  .fab-tools { margin-left: auto; display: flex; align-items: center; gap: 0.7rem; flex: 1; max-width: 24rem; }
+  .fab-filter { background: none; border: 0; color: #9ca3af; cursor: pointer; display: flex; padding: 0.3rem; }
+  .fab-filter:hover { color: #1a1a1a; }
+  .fab-search { flex: 1; background: #e2e2e2; border: 0; border-radius: 0.5rem; padding: 0.6rem 0.9rem; font: inherit; font-size: 0.9rem; color: #1a1a1a; }
+  .fab-search::placeholder { color: #9ca3af; }
+  .fab-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; align-content: start; padding: 0 1.5rem 1.2rem; }
+  @media (min-width: 860px) { .fab-grid { flex: 1 1 auto; min-height: 0; overflow-y: auto; } }
+  @media (max-width: 600px) { .fab-grid { grid-template-columns: repeat(2, 1fr); gap: 0.85rem; } }
+  .fab-card { position: relative; padding: 0; border: 0; background: none; cursor: pointer; }
+  .fab-img { display: block; aspect-ratio: 3 / 2; border-radius: 0.6rem; overflow: hidden; border: 1px solid #dadada; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+  .fab-card.sel .fab-img { border: 2px solid #1a1a1a; }
+  .fab-img img, .fab-img .cz-tex { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .fab-check { position: absolute; top: 0.55rem; right: 0.55rem; width: 1.7rem; height: 1.7rem; border-radius: 999px; background: #1a1a1a; color: #fff; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 4px rgba(0,0,0,0.3); opacity: 0; transform: scale(0); transition: opacity 180ms ease, transform 260ms cubic-bezier(0.34,1.56,0.64,1); }
+  .fab-card.sel .fab-check { opacity: 1; transform: scale(1); }
+  /* hover: name shown as a label below the swatch (outside), no zoom — just fade */
+  .fab-cap { position: absolute; top: calc(100% + 0.4rem); left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 0.78rem; font-weight: 700; color: #1a1a1a; background: rgba(255,255,255,0.96); padding: 0.12rem 0.5rem; border-radius: 0.35rem; box-shadow: 0 1px 5px rgba(0,0,0,0.12); opacity: 0; transition: opacity 140ms ease; pointer-events: none; z-index: 4; }
+  .fab-card:hover .fab-cap, .fab-card:focus-within .fab-cap { opacity: 1; }
+  .fab-info { position: absolute; bottom: 0.55rem; right: 0.55rem; width: 1.7rem; height: 1.7rem; border-radius: 999px; background: rgba(255,255,255,0.92); color: #6b7280; font-family: Georgia, 'Times New Roman', serif; font-style: italic; font-weight: 700; font-size: 0.85rem; display: none; align-items: center; justify-content: center; box-shadow: 0 1px 4px rgba(0,0,0,0.18); cursor: pointer; }
+  .fab-card:hover .fab-info, .fab-card:focus-within .fab-info { display: flex; }
+  .fab-info:hover { color: #1a1a1a; background: #fff; }
+  .fab-detail { flex: 0 0 auto; padding: 1.1rem 1.5rem 1.2rem; background: #e6e6e6; border-top: 1px solid #d6d6d6; }
+  .fab-detail-main { display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
+  .fab-name { font-size: 1.05rem; font-weight: 700; color: #1a1a1a; }
+  .fab-sub { font-size: 0.85rem; color: #6b7280; margin-top: 0.15rem; }
+  /* info bubble: click the ⓘ on a swatch to pop the fabric's description right there */
+  .fab-pop { position: fixed; z-index: 50; max-width: 15rem; background: #1a1a1a; color: #fff; font-size: 0.78rem; line-height: 1.45; padding: 0.6rem 0.75rem; border-radius: 0.5rem; box-shadow: 0 8px 22px rgba(0,0,0,0.28); pointer-events: none; }
+  .fab-pop[hidden] { display: none; }
+  .fab-pop-arrow { position: absolute; bottom: -5px; transform: translateX(-50%) rotate(45deg); width: 10px; height: 10px; background: #1a1a1a; }
+  .fab-detail-r { flex: 0 0 auto; min-width: 12rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .fab-bar-row { display: flex; align-items: center; gap: 0.8rem; }
+  .fab-bar { flex: 1; height: 2px; background: #cfcfcf; position: relative; }
+  .fab-bar > span { position: absolute; left: 0; top: 0; height: 100%; background: #1a1a1a; transition: width 300ms ease; }
+  .fab-bar-lbl { font-size: 0.8rem; color: #6b7280; white-space: nowrap; }
+
+  /* COLOR — same browse layout as Fabric (head / grid scroll / pinned detail) */
+  .col-head { display: flex; align-items: center; gap: 1rem; padding: 1.5rem 1.5rem 1.3rem; flex: 0 0 auto; }
+  .col-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; color: #1a1a1a; margin: 0; }
+  .col-customwrap { margin-left: auto; display: flex; align-items: center; gap: 0.6rem; flex: 1; max-width: 22rem; }
+  .col-customlbl { font-size: 0.85rem; font-weight: 600; color: #6b7280; white-space: nowrap; }
+  .col-customin { flex: 1; background: #e2e2e2; border: 0; border-radius: 0.5rem; padding: 0.6rem 0.9rem; font: inherit; font-size: 0.9rem; color: #1a1a1a; }
+  .col-customin::placeholder { color: #9ca3af; }
+
+  .col-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; align-content: start; padding: 0 1.5rem 1.2rem; }
+  @media (min-width: 860px) { .col-grid { flex: 1 1 auto; min-height: 0; overflow-y: auto; } }
+  @media (max-width: 600px) { .col-grid { grid-template-columns: repeat(3, 1fr); gap: 0.85rem; } }
+  .col-card { position: relative; padding: 0; border: 0; background: none; cursor: pointer; text-align: center; }
+  .col-sw { position: relative; display: block; aspect-ratio: 1; border-radius: 0.6rem; border: 1px solid rgba(0,0,0,0.12); box-shadow: 0 1px 3px rgba(0,0,0,0.06); background-color: var(--c); transition: box-shadow 180ms ease, transform 180ms ease; }
+  .col-card:hover .col-sw { box-shadow: 0 7px 18px rgba(0,0,0,0.14); transform: translateY(-2px); }
+  .col-card.sel .col-sw { border: 2px solid #1a1a1a; }
+  .col-check { position: absolute; top: 0.4rem; right: 0.4rem; width: 1.5rem; height: 1.5rem; border-radius: 999px; background: #fff; color: #1a1a1a; font-size: 0.78rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 4px rgba(0,0,0,0.25); opacity: 0; transform: scale(0); transition: opacity 180ms ease, transform 260ms cubic-bezier(0.34,1.56,0.64,1); }
+  .col-card.sel .col-check { opacity: 1; transform: scale(1); }
+  .col-cardname { display: block; font-size: 0.8rem; font-weight: 600; color: #6b7280; margin-top: 0.5rem; }
+  .col-card.sel .col-cardname { color: #1a1a1a; }
+
+  .col-detail { flex: 0 0 auto; padding: 1.1rem 1.5rem 1.2rem; background: #e6e6e6; border-top: 1px solid #d6d6d6; }
+  .col-detail-main { display: flex; align-items: center; gap: 1rem; }
+  .col-detail-sw { width: 3rem; height: 3rem; border-radius: 0.5rem; border: 1px solid rgba(0,0,0,0.12); flex: 0 0 auto; background-color: var(--c); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.35); }
+  /* fabric-driven weave texture on color swatches — overlays the solid color, follows selected fabric */
+  .col-sw[data-weave="twill"], .col-detail-sw[data-weave="twill"] { background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 4px), repeating-linear-gradient(45deg, rgba(255,255,255,0.16) 2px 3px, transparent 3px 6px); }
+  .col-sw[data-weave="ripstop"], .col-detail-sw[data-weave="ripstop"] { background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0 1px, transparent 1px 5px), repeating-linear-gradient(90deg, rgba(0,0,0,0.05) 0 1px, transparent 1px 5px), repeating-linear-gradient(0deg, rgba(0,0,0,0.09) 0 1.3px, transparent 1.3px 17px), repeating-linear-gradient(90deg, rgba(0,0,0,0.09) 0 1.3px, transparent 1.3px 17px); }
+  .col-sw[data-weave="sateen"], .col-detail-sw[data-weave="sateen"] { background-image: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0) 45%, rgba(0,0,0,0.07)); }
+  .col-name { font-size: 1.05rem; font-weight: 700; color: #1a1a1a; }
+  .col-sub { font-size: 0.85rem; color: #6b7280; margin-top: 0.15rem; }
+
+  /* STYLE — list view → per-attribute illustrated grid (Proper Cloth concept) */
+  /* overlay panes: list + each attribute stack on the stage; we push exactly two at a time (any distance = one push) */
+  .st-stage { flex: 1 1 auto; min-height: 0; overflow: hidden; position: relative; }
+  @media (max-width: 859px) { .st-stage { min-height: 80vh; } }
+  .st-pane { position: absolute; inset: 0; min-height: 0; display: flex; flex-direction: column; will-change: transform; }
+  .st-pane[hidden] { display: none; }
+  .st-list { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+  .st-list[hidden] { display: none; }
+  .st-lhead { padding: 1.5rem 1.5rem 1rem; flex: 0 0 auto; }
+  .st-title { font-size: 1.6rem; font-weight: 700; color: #1a1a1a; margin: 0; letter-spacing: -0.01em; }
+  .st-lsub { font-size: 0.85rem; color: #9ca3af; margin: 0.4rem 0 0; }
+  .st-rows { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0 1.5rem 1.2rem; }
+  .st-row { width: 100%; background: none; border: 0; border-top: 1px solid #dcdcdc; padding: 1.15rem 0.2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; text-align: left; }
+  .st-row:last-child { border-bottom: 1px solid #dcdcdc; }
+  .st-row-k { font-size: 1rem; color: #1a1a1a; font-weight: 600; transition: color 140ms ease; }
+  .st-row:hover .st-row-k { color: #ff4c00; }
+  .st-row-r { display: flex; align-items: center; gap: 0.7rem; }
+  .st-row-v { font-size: 0.95rem; color: #6b7280; }
+  .st-chev { width: 0.5rem; height: 0.5rem; border-right: 2px solid #b0b0b0; border-top: 2px solid #b0b0b0; transform: rotate(45deg); }
+
+  .st-detail-view { flex: 1; min-height: 0; display: flex; }
+  .st-detail-view[hidden] { display: none; }
+  .st-rail { display: none; }
+  @media (min-width: 1040px) {
+    .st-rail { display: flex; flex-direction: column; gap: 0.15rem; flex: 0 0 auto; width: 7rem; padding: 3.7rem 0 0; border-right: 1px solid #dcdcdc; overflow-y: auto; }
+    .st-railitem { background: none; border: 0; text-align: left; padding: 0.5rem 1rem; font-size: 0.84rem; color: #9ca3af; cursor: pointer; border-left: 2px solid transparent; transition: color 140ms ease; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .st-railitem:hover { color: #1a1a1a; }
+    .st-railitem.on { color: #1a1a1a; font-weight: 700; border-left-color: #1a1a1a; }
+  }
+  .st-main { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; min-height: 0; }
+  .st-dhead { display: flex; align-items: center; gap: 0.5rem; padding: 1.2rem 1.5rem 1rem; flex: 0 0 auto; }
+  .st-back { background: #e2e2e2; border: 0; border-radius: 0.45rem; width: 2rem; height: 2rem; font-size: 1.25rem; line-height: 1; color: #1a1a1a; cursor: pointer; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
+  .st-back:hover { background: #d6d6d6; }
+  .st-dtitle { font-size: 1.3rem; font-weight: 700; color: #1a1a1a; margin: 0; text-align: center; flex: 1; }
+  .st-optgrid { flex: 1 1 auto; min-height: 0; overflow-y: auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; align-content: start; padding: 0 1.5rem 1.2rem; }
+  @media (min-width: 1180px) { .st-optgrid { grid-template-columns: repeat(3, 1fr); } }
+  .st-opt { background: none; border: 0; cursor: pointer; padding: 0; text-align: center; }
+  .st-opt-ill { position: relative; display: flex; align-items: center; justify-content: center; aspect-ratio: 1; border: 1.5px solid #e0e0e0; border-radius: 0.7rem; background: #fff; opacity: 0.62; transition: border-color 160ms ease, box-shadow 180ms ease, opacity 160ms ease; }
+  .st-opt:hover .st-opt-ill { opacity: 1; box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
+  .st-opt.sel .st-opt-ill { opacity: 1; border-color: #1a1a1a; border-width: 2px; }
+  .st-opt-ill img { width: 66%; height: 66%; object-fit: contain; }
+  .st-opt-check { position: absolute; top: 0.4rem; right: 0.4rem; width: 1.4rem; height: 1.4rem; border-radius: 999px; background: #1a1a1a; color: #fff; font-size: 0.72rem; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0); transition: opacity 180ms ease, transform 260ms cubic-bezier(0.34,1.56,0.64,1); }
+  .st-opt.sel .st-opt-check { opacity: 1; transform: scale(1); }
+  .st-opt-name { display: block; font-size: 0.82rem; font-weight: 600; color: #9ca3af; margin-top: 0.5rem; }
+  .st-opt:hover .st-opt-name, .st-opt.sel .st-opt-name { color: #1a1a1a; }
+  .st-detail { flex: 0 0 auto; padding: 1rem 1.5rem 1.1rem; background: #e6e6e6; border-top: 1px solid #d6d6d6; display: flex; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
+  .st-detail-l { min-width: 0; }
+  .st-dname { font-size: 1.05rem; font-weight: 700; color: #1a1a1a; }
+  .st-ddesc { font-size: 0.82rem; color: #6b7280; line-height: 1.5; margin-top: 0.2rem; }
+  .st-dsug { font-size: 0.78rem; color: #9ca3af; white-space: nowrap; flex: 0 0 auto; text-align: right; line-height: 1.4; }
+  .st-dsug strong { color: #1a1a1a; display: block; font-size: 0.85rem; }
+
+  /* DECORATION — browse layout: header / scrollable cards + add / pinned total */
+  .deco-head { padding: 1.5rem 1.5rem 1.3rem; flex: 0 0 auto; }
+  .deco-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; color: #1a1a1a; margin: 0; }
+  .dm-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0 1.5rem 1.2rem; }
+  .dm-views { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 0.7rem; }
+  .dm-viewtab { background: #e4e4e4; border: 0; border-radius: 999px; padding: 0.35rem 1rem; font: inherit; font-size: 0.8rem; font-weight: 700; color: #6b7280; cursor: pointer; transition: background 140ms ease, color 140ms ease; }
+  .dm-viewtab.on { background: #1a1a1a; color: #fff; }
+  .dm-stage { position: relative; max-width: 17rem; margin: 0 auto; }
+  .dm-shirt { position: relative; }
+  .dm-shirt[hidden] { display: none; }
+  .dm-shirt svg { width: 100%; height: auto; display: block; }
+  .dm-hot { position: absolute; transform: translate(-50%, -50%); background: none; border: 0; padding: 0; cursor: pointer; z-index: 1; }
+  .dm-dot { display: flex; align-items: center; justify-content: center; width: 1.7rem; height: 1.7rem; border-radius: 999px; border: 2px dashed #9ca3af; background: rgba(255,255,255,0.85); color: #fff; transition: transform 160ms ease, border-color 160ms ease, background 160ms ease; }
+  .dm-hot:hover .dm-dot { border-color: #1a1a1a; transform: scale(1.1); }
+  .dm-hot.filled .dm-dot { border: 0; background: #ff4c00; box-shadow: 0 2px 8px rgba(255,76,0,0.4); }
+  .dm-hot.filled .dm-dot svg { width: 1rem; height: 1rem; }
+  .dm-hot.active .dm-dot { outline: 3px solid rgba(255,76,0,0.28); outline-offset: 2px; border-color: #ff4c00; }
+  .dm-htlabel { position: absolute; top: 118%; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 0.7rem; font-weight: 600; color: #4b5563; background: rgba(255,255,255,0.92); padding: 0.05rem 0.4rem; border-radius: 0.3rem; opacity: 0; transition: opacity 140ms ease; pointer-events: none; }
+  .dm-hot:hover .dm-htlabel, .dm-hot.filled .dm-htlabel, .dm-hot.active .dm-htlabel { opacity: 1; }
+  .dm-hint { text-align: center; font-size: 0.78rem; color: #9ca3af; margin: 0.9rem 0 0; }
+  .dm-chooser { margin-top: 1rem; background: #fff; border: 1px solid #e2e2e2; border-radius: 0.7rem; padding: 0.9rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+  .dm-chooser[hidden] { display: none; }
+  .dm-ch-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.7rem; }
+  .dm-ch-title { font-size: 0.95rem; font-weight: 700; color: #1a1a1a; }
+  .dm-ch-close { background: none; border: 0; color: #9ca3af; font-size: 0.78rem; font-weight: 700; cursor: pointer; }
+  .dm-ch-close:hover { color: #1a1a1a; }
+  .dm-ch-opts { display: flex; flex-direction: column; gap: 0.4rem; }
+  .dm-ch-opt { display: flex; align-items: center; gap: 0.6rem; background: #fafafa; border: 1px solid #e6e6e6; border-radius: 0.55rem; padding: 0.5rem 0.65rem; cursor: pointer; text-align: left; transition: border-color 140ms ease, background 140ms ease; }
+  .dm-ch-opt:hover { border-color: #c8c8c8; }
+  .dm-ch-opt.on { border-color: #1a1a1a; background: #fff; }
+  .dm-ch-ic { width: 1.7rem; height: 1.7rem; flex: 0 0 auto; color: #1a1a1a; display: flex; align-items: center; justify-content: center; }
+  .dm-ch-ic svg { width: 1.15rem; height: 1.15rem; }
+  .dm-ch-name { font-size: 0.82rem; color: #374151; flex: 1; min-width: 0; }
+  .dm-ch-opt.on .dm-ch-name { color: #1a1a1a; font-weight: 600; }
+  .dm-ch-price { font-size: 0.78rem; font-weight: 700; color: #1a1a1a; white-space: nowrap; }
+  .dm-ch-remove { width: 100%; margin-top: 0.7rem; background: none; border: 1px solid #f1cdd1; color: #d04658; border-radius: 0.5rem; padding: 0.5rem; font-weight: 700; font-size: 0.8rem; cursor: pointer; transition: background 140ms ease; }
+  .dm-ch-remove:hover { background: #fff5f6; }
+  .deco-detail { flex: 0 0 auto; padding: 1rem 1.5rem 1.1rem; background: #e6e6e6; border-top: 1px solid #d6d6d6; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .deco-detail-l { font-size: 0.95rem; font-weight: 700; color: #1a1a1a; }
+  .deco-detail-r { display: flex; align-items: baseline; gap: 0.4rem; }
+  .deco-detail-lbl { font-size: 0.78rem; color: #9ca3af; font-weight: 600; }
+  .deco-detail-r #deco-total { font-size: 1.05rem; font-weight: 700; color: #1a1a1a; }
+  .deco-detail-note { font-size: 0.75rem; color: #9ca3af; }
+
+  /* SIZE — browse layout: header + guide btn / fit + length + qty / pinned total */
+  .sz-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 1.5rem 1.3rem; flex: 0 0 auto; }
+  .sz-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; color: #1a1a1a; margin: 0; }
+  .sz-guide-btn { background: #e4e4e4; border: 0; border-radius: 0.5rem; padding: 0.5rem 0.85rem; font: inherit; font-size: 0.8rem; font-weight: 700; color: #1a1a1a; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 0.4rem; transition: background 140ms ease; }
+  .sz-guide-btn:hover { background: #d8d8d8; }
+  .sz-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0 1.5rem 1.2rem; }
+  .sz-group { margin-bottom: 1.5rem; }
+  .sz-grouplabel { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #6b7280; margin-bottom: 0.6rem; }
+  .sz-seg { display: inline-flex; background: #e4e4e4; border-radius: 0.6rem; padding: 0.25rem; gap: 0.2rem; max-width: 100%; flex-wrap: wrap; }
+  .sz-segopt { background: none; border: 0; border-radius: 0.45rem; padding: 0.5rem 1.1rem; font: inherit; font-size: 0.85rem; font-weight: 600; color: #6b7280; cursor: pointer; transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease; }
+  .sz-segopt.on { background: #fff; color: #1a1a1a; font-weight: 700; box-shadow: 0 1px 3px rgba(0,0,0,0.12); }
+  .sz-segopt:not(.on):not(.locked):hover { color: #1a1a1a; }
+  .sz-segopt.locked { opacity: 0.4; cursor: not-allowed; }
+  .sz-soon { font-size: 0.72rem; color: #b0b0b0; margin: 0.45rem 0 0; }
+  .cz-sizes { display: grid; grid-template-columns: repeat(auto-fit, minmax(4.5rem, 1fr)); gap: 0.7rem; }
+  .cz-sizebox { border: 1px solid #dcdcdc; background: #fff; border-radius: 0.6rem; padding: 0.7rem; text-align: center; transition: border-color 160ms ease; }
+  .cz-sizebox:focus-within { border-color: #ff4c00; }
+  .cz-sizebox label { display: block; font-weight: 700; font-size: 0.85rem; margin-bottom: 0.4rem; }
+  .cz-sizebox input { width: 100%; text-align: center; font: inherit; padding: 0.45rem; border: 1px solid #ececec; border-radius: 0.4rem; }
+  .sz-detail { flex: 0 0 auto; padding: 1rem 1.5rem 1.1rem; background: #e6e6e6; border-top: 1px solid #d6d6d6; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .sz-detail-l { font-size: 0.95rem; color: #374151; }
+  .sz-detail-l strong { font-size: 1.15rem; color: #1a1a1a; }
+  .sz-detail-r { font-size: 0.85rem; font-weight: 700; color: #1a1a1a; }
+  /* size-guide modal */
+  .sz-modal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 1.5rem; }
+  .sz-modal[hidden] { display: none; }
+  .sz-modal-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+  .sz-modal-card { position: relative; background: #fff; border-radius: 0.9rem; max-width: 30rem; width: 100%; max-height: 85vh; overflow-y: auto; padding: 1.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .sz-modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+  .sz-modal-head h3 { font-size: 1.1rem; font-weight: 700; color: #1a1a1a; margin: 0; }
+  .sz-modal-close { background: #f0f0f0; border: 0; border-radius: 999px; width: 2rem; height: 2rem; font-size: 0.85rem; color: #1a1a1a; cursor: pointer; flex: 0 0 auto; }
+  .sz-modal-close:hover { background: #e2e2e2; }
+  .sz-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  .sz-table th, .sz-table td { padding: 0.6rem 0.5rem; text-align: center; border-bottom: 1px solid #ececec; }
+  .sz-table th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em; color: #9ca3af; font-weight: 700; }
+  .sz-table td:first-child, .sz-table th:first-child { text-align: left; font-weight: 700; color: #1a1a1a; }
+  .sz-modal-note { font-size: 0.8rem; color: #6b7280; margin: 1rem 0 0; line-height: 1.5; }
+
+  /* SUMMARY — browse layout: header / scroll recap / pinned WA CTA */
+  .sm-head { padding: 1.5rem 1.5rem 1.3rem; flex: 0 0 auto; }
+  .sm-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; color: #1a1a1a; margin: 0; }
+  .sm-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 0 1.5rem 1.2rem; }
+  .sm-price { background: #ff4c00; color: #fff; border-radius: 0.8rem; padding: 1.05rem 1.2rem; margin-bottom: 1.3rem; }
+  .sm-price-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .sm-price-row + .sm-price-row { margin-top: 0.55rem; padding-top: 0.55rem; border-top: 1px solid rgba(255,255,255,0.12); }
+  .sm-price-row span { font-size: 0.82rem; opacity: 0.7; }
+  .sm-price-row strong { font-size: 1.15rem; font-weight: 700; }
+  .sm-price-row.sub strong { font-size: 0.98rem; opacity: 0.9; }
+  .sm-group { margin-bottom: 1.2rem; }
+  .sm-glabel { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #9ca3af; margin-bottom: 0.5rem; }
+  .sm-grows { background: #fff; border: 1px solid #e6e6e6; border-radius: 0.7rem; overflow: hidden; }
+  .sm-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 0.6rem 0.9rem; font-size: 0.88rem; }
+  .sm-row + .sm-row { border-top: 1px solid #f0f0f0; }
+  .sm-row span:first-child { color: #6b7280; }
+  .sm-row span:last-child { color: #1a1a1a; font-weight: 600; text-align: right; }
+  .sm-empty { padding: 0.6rem 0.9rem; font-size: 0.85rem; color: #9ca3af; }
+  .sm-cta { flex: 0 0 auto; padding: 0.9rem 1.5rem 1.1rem; background: #e6e6e6; border-top: 1px solid #d6d6d6; }
+  .sm-wa { display: flex; align-items: center; justify-content: center; gap: 0.5rem; background: #1a1a1a; color: #fff; text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 0.9rem; border-radius: 0.7rem; transition: background 160ms ease; }
+  .sm-wa:hover { background: #ff4c00; }
+  .sm-wa svg { width: 1.2rem; height: 1.2rem; }
+  .sm-disclaimer { font-size: 0.72rem; color: #9ca3af; text-align: center; margin: 0.55rem 0 0; line-height: 1.45; }
+
+  /* bottom bar */
+  .cz-bar { position: sticky; bottom: 0; background: #fff; color: #1a1a1a; border-top: 1px solid #e6e6e6; box-shadow: 0 -2px 12px rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.25rem; gap: 1rem; }
+  .cz-nav { background: transparent; color: #1a1a1a; border: 1px solid #d4d4d4; border-radius: 0.5rem; padding: 0.6rem 1.1rem; font-weight: 700; font-size: 0.85rem; cursor: pointer; }
+  .cz-nav:hover { border-color: #1a1a1a; }
+  .cz-next { background: #ff4c00; border-color: #ff4c00; color: #fff; }
+  .cz-next:hover { background: #ff6326; }
+  .cz-price { font-weight: 700; font-size: 1.05rem; }
+  .cz-perpc-note { font-size: 0.75rem; font-weight: 500; opacity: 0.6; }
+</style>
+
+<script>
+  const cfg = JSON.parse(document.getElementById('cz-cfg')!.textContent || '{}');
+  const rp = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(Math.round(n / 500) * 500);
+  const TABS = ['fabric', 'color', 'style', 'decoration', 'size', 'summary'];
+  const TIER_TONE: Record<string, string> = { budget: '#eceae5', standard: '#e7e3db', mid: '#e1dccf', premium: '#dad2c1', top: '#d2c8b2' };
+  const TIER_RANK: Record<string, number> = { budget: 1, standard: 2, mid: 3, premium: 4, top: 5 };
+  const STYLE_DESC: Record<string, string> = {
+    Collar: 'Bentuk kerah default — dipilih agar pas dengan positioning produk ini.',
+    Cuff: 'Model manset default yang rapi dan serbaguna.',
+    Front: 'Tipe placket depan standar untuk tampilan bersih.',
+    Pocket: 'Konfigurasi saku default untuk archetype ini.',
+    Yoke: 'Potongan bahu (yoke) default.',
+    'Bottom Hem': 'Potongan bawah default.',
+    Sleeve: 'Panjang lengan default.',
+  };
+
+  const state: any = {
+    fabricId: cfg.defaultFabric, colorId: cfg.defaultColor, customColor: '',
+    style: Object.fromEntries(cfg.styleAttrs.map((k: string) => [k, cfg.defaultStyle[k]])),
+    decorations: JSON.parse(JSON.stringify(cfg.defaultDecos || [])),
+    fit: 'regular', length: 'regular',
+    sizes: Object.fromEntries(cfg.sizeRun.map((s: string) => [s, 0])),
+  };
+  let tab = 'fabric';
+  let stIdx = 0; // current style pane (0 = list, 1..n = attribute detail)
+  const $ = (id: string) => document.getElementById(id)!;
+  const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+  // smooth micro-transitions (respect reduced-motion)
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function anim(el: Element | null, kf: Keyframe[], ms: number, easing = 'cubic-bezier(0.22,1,0.36,1)') { if (el && !reduce) (el as HTMLElement).animate(kf, { duration: ms, easing }); }
+  function pulseDetail(el: Element | null) { anim(el, [{ opacity: 0.4, transform: 'translateY(5px)' }, { opacity: 1, transform: 'none' }], 300); }
+  function pressCard(el: Element | null) { anim(el, [{ transform: 'scale(0.95)' }, { transform: 'scale(1)' }], 280, 'cubic-bezier(0.34,1.56,0.64,1)'); }
+
+  function multiplierFor(qty: number) {
+    if (qty <= 0) return 1.0;
+    for (const r of cfg.rules) if (qty >= r.min_qty && qty <= r.max_qty) return r.multiplier;
+    return cfg.rules[cfg.rules.length - 1].multiplier;
+  }
+  function compute() {
+    const fabric = cfg.fabrics.find((f: any) => f.id === state.fabricId);
+    const fabricAdj = cfg.basePrice + (fabric ? fabric.delta_per_pc : 0);
+    const totalQty = (Object.values(state.sizes) as number[]).reduce((a, b) => a + (+b || 0), 0);
+    const qtyAdj = fabricAdj * multiplierFor(totalQty);
+    const decoTotal = state.decorations.reduce((s: number, d: any) => { const t = cfg.decos.find((x: any) => x.id === d.typeId); return s + (t ? t.add_on_per_pc : 0); }, 0);
+    const finalPerPc = qtyAdj + decoTotal;
+    return { finalPerPc, low: finalPerPc * 0.9, high: finalPerPc * 1.1, totalQty, decoTotal };
+  }
+
+  // fabric grid is static HTML; we only toggle selection + update the detail bar (no rebuild = no flicker)
+  function updateFabDetail(id: string = state.fabricId) {
+    const f = cfg.fabrics.find((x: any) => x.id === id); if (!f) return;
+    const d = f.delta_per_pc;
+    const deltas = cfg.fabrics.map((x: any) => x.delta_per_pc);
+    const minD = Math.min(...deltas), maxD = Math.max(...deltas);
+    const pricePct = maxD === minD ? 50 : Math.round((d - minD) / (maxD - minD) * 100);
+    const tierPct = (TIER_RANK[f.tier] || 3) / 5 * 100;
+    const dTxt = d === 0 ? 'Termasuk' : (d > 0 ? '+' : '−') + rp(Math.abs(d)) + '/pc';
+    const tierName = f.tier.charAt(0).toUpperCase() + f.tier.slice(1);
+    $('fd-name').textContent = f.name;
+    $('fd-sub').textContent = `${tierName} · ${dTxt}`;
+    ($('fd-bar1') as HTMLElement).style.width = tierPct + '%'; $('fd-lbl1').textContent = tierName;
+    ($('fd-bar2') as HTMLElement).style.width = pricePct + '%'; $('fd-lbl2').textContent = dTxt;
+  }
+  function selectFabric(id: string) {
+    state.fabricId = id;
+    document.querySelectorAll<HTMLElement>('.fab-card').forEach((c) => c.classList.toggle('sel', c.dataset.fab === id));
+    updateFabDetail(); applyFabricColors(); refresh();
+    pulseDetail(document.querySelector('.fab-detail-main'));
+    pressCard(document.querySelector(`.fab-card[data-fab="${id}"] .fab-img`));
+  }
+  // ⓘ info bubble: pop the fabric description anchored to the clicked button
+  function showFabPop(btn: HTMLElement, fabId: string) {
+    const f = cfg.fabrics.find((x: any) => x.id === fabId); if (!f) return;
+    const pop = $('fab-pop') as HTMLElement;
+    $('fab-pop-body').textContent = f.description || '';
+    pop.hidden = false;
+    const br = btn.getBoundingClientRect();
+    const pr = pop.getBoundingClientRect();
+    let left = br.left + br.width / 2 - pr.width / 2;
+    left = Math.max(8, Math.min(left, window.innerWidth - pr.width - 8));
+    let top = br.top - pr.height - 9;
+    if (top < 8) top = br.bottom + 9; // flip below if no room above
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+    (pop.querySelector('.fab-pop-arrow') as HTMLElement).style.left = (br.left + br.width / 2 - left) + 'px';
+    anim(pop, [{ opacity: 0, transform: 'translateY(4px)' }, { opacity: 1, transform: 'none' }], 150);
+  }
+  function hideFabPop() { ($('fab-pop') as HTMLElement).hidden = true; }
+  // color grid is static HTML; show only colors the fabric offers + tint with its weave (no rebuild = no flicker)
+  let curWeave = 'twill';
+  function applyFabricColors() {
+    const f = cfg.fabrics.find((x: any) => x.id === state.fabricId);
+    curWeave = (f && f.weave) || 'twill';
+    const avail: string[] = (f && f.colors && f.colors.length) ? f.colors : cfg.colors.map((c: any) => c.id);
+    document.querySelectorAll<HTMLElement>('.col-card').forEach((c) => {
+      c.style.display = avail.includes(c.dataset.color!) ? '' : 'none';
+      const sw = c.querySelector<HTMLElement>('.col-sw'); if (sw) sw.dataset.weave = curWeave;
+    });
+    if (!state.customColor && !avail.includes(state.colorId)) {
+      state.colorId = avail[0];
+      document.querySelectorAll<HTMLElement>('.col-card').forEach((c) => c.classList.toggle('sel', c.dataset.color === state.colorId));
+    }
+    updateColDetail();
+  }
+  function toneOf(hex: string) {
+    const h = hex.replace('#', '');
+    const r = parseInt(h.slice(0, 2), 16), g = parseInt(h.slice(2, 4), 16), b = parseInt(h.slice(4, 6), 16);
+    const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return lum > 0.72 ? 'Terang' : lum < 0.32 ? 'Gelap' : 'Netral';
+  }
+  function updateColDetail(id?: string) {
+    const cdsw = $('cd-sw') as HTMLElement;
+    if (id == null && state.customColor) {
+      cdsw.removeAttribute('data-weave');
+      cdsw.style.removeProperty('--c');
+      cdsw.style.background = 'repeating-conic-gradient(#d4d4d4 0 25%, #fff 0 50%) 0 0 / 14px 14px';
+      $('cd-name').textContent = state.customColor;
+      $('cd-sub').textContent = 'Warna custom · dikonfirmasi via WhatsApp';
+      return;
+    }
+    const c = cfg.colors.find((x: any) => x.id === (id != null ? id : state.colorId)); if (!c) return;
+    cdsw.style.background = '';
+    cdsw.style.setProperty('--c', c.hex);
+    cdsw.dataset.weave = curWeave;
+    $('cd-name').textContent = c.name;
+    $('cd-sub').textContent = `${c.hex.toUpperCase()} · ${toneOf(c.hex)}`;
+  }
+  function selectColor(id: string) {
+    state.colorId = id; state.customColor = '';
+    ($('cz-customcolor') as HTMLInputElement).value = '';
+    document.querySelectorAll<HTMLElement>('.col-card').forEach((c) => c.classList.toggle('sel', c.dataset.color === id));
+    updateColDetail(); refresh();
+    pulseDetail(document.querySelector('.col-detail-main'));
+    pressCard(document.querySelector(`.col-card[data-color="${id}"] .col-sw`));
+  }
+  // style is static (list + per-attribute detail views); toggle visibility/selection only (no rebuild)
+  function styleDetailBar(attr: string, name: string) {
+    const view = document.querySelector<HTMLElement>(`.st-detail-view[data-attrview="${attr}"]`); if (!view) return;
+    const opt = (cfg.styleOptions[attr] || []).find((o: any) => o.name === name); if (!opt) return;
+    (view.querySelector('.st-dname') as HTMLElement).textContent = opt.name;
+    (view.querySelector('.st-ddesc') as HTMLElement).textContent = opt.desc || '';
+    (view.querySelector('.st-dsug') as HTMLElement).innerHTML = opt.suggested ? `Disarankan<strong>${opt.suggested}</strong>` : '';
+  }
+  function selectStyleOpt(attr: string, name: string) {
+    state.style[attr] = name;
+    const view = document.querySelector<HTMLElement>(`.st-detail-view[data-attrview="${attr}"]`);
+    if (view) view.querySelectorAll<HTMLElement>('.st-opt').forEach((o) => o.classList.toggle('sel', o.dataset.opt === name));
+    styleDetailBar(attr, name);
+    const rowv = document.querySelector<HTMLElement>(`.st-row-v[data-valfor="${attr}"]`); if (rowv) rowv.textContent = name;
+    refresh();
+    if (view) { pulseDetail(view.querySelector('.st-detail')); pressCard(view.querySelector('.st-opt.sel .st-opt-ill')); }
+  }
+  // push exactly two panes (any distance = one push). list↔detail = horizontal drill;
+  // detail↔detail = vertical, mirroring the rail (lower item pushes down, higher item pushes up).
+  function pushPane(toIdx: number) {
+    const panes = Array.from(document.querySelectorAll<HTMLElement>('.st-stage .st-pane'));
+    if (toIdx < 0 || toIdx >= panes.length) return;
+    panes.forEach((p, i) => { p.hidden = i !== stIdx; }); // normalize (clean up any interrupted push)
+    if (toIdx === stIdx) return;
+    const fromIdx = stIdx, cur = panes[fromIdx], next = panes[toIdx];
+    stIdx = toIdx;
+    if (reduce) { cur.hidden = true; next.hidden = false; return; }
+    next.hidden = false;
+    const ease = 'cubic-bezier(0.65, 0, 0.35, 1)', dur = 480;
+    const vertical = fromIdx !== 0 && toIdx !== 0;   // both attribute panes → follow rail up/down
+    const s = toIdx > fromIdx ? 1 : -1;
+    const axis = vertical ? 'Y' : 'X';
+    const out = -s;                                   // vertical: lower item enters from below (pushes up); horizontal: forward exits left
+    cur.animate([{ transform: `translate${axis}(0)` }, { transform: `translate${axis}(${out * 100}%)` }], { duration: dur, easing: ease });
+    const a = next.animate([{ transform: `translate${axis}(${-out * 100}%)` }, { transform: `translate${axis}(0)` }], { duration: dur, easing: ease });
+    a.onfinish = () => { if (stIdx === toIdx) cur.hidden = true; };
+  }
+  function showStyleAttr(attr: string) {
+    const i = cfg.styleAttrs.indexOf(attr); if (i < 0) return;
+    const view = document.querySelector<HTMLElement>(`.st-detail-view[data-attrview="${attr}"]`);
+    if (view) { const g = view.querySelector('.st-optgrid') as HTMLElement | null; if (g) g.scrollTop = 0; }
+    pushPane(i + 1);
+  }
+  function showStyleList() { pushPane(0); }
+  const DECO_ICON: Record<string, string> = {
+    embroidery: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l6.5-6.5"/><circle cx="15" cy="9" r="3.2"/><path d="M15 5.8V2.5M18.2 9h3.3M15 12.2v1.3M11.8 9H10"/></svg>',
+    screen_print: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="12" rx="1.5"/><path d="M3.5 19h17"/><path d="M7 8h10M7 11.5h6"/></svg>',
+    patch: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.2-3 6.8-7 8.5-4-1.7-7-4.3-7-8.5V6z" stroke-dasharray="2.6 2.2"/></svg>',
+    individual_name: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19l5-14 5 14"/><path d="M6.6 14.5h6.8"/><path d="M19 5v14"/></svg>',
+  };
+  function techIcon(t: string) { return DECO_ICON[t] || DECO_ICON.embroidery; }
+  function updateDecoDetail() {
+    const total = state.decorations.reduce((s: number, d: any) => { const t = cfg.decos.find((x: any) => x.id === d.typeId); return s + (t ? t.add_on_per_pc : 0); }, 0);
+    $('deco-count').textContent = `${state.decorations.length} dekorasi`;
+    $('deco-total').textContent = `+${rp(total)}`;
+  }
+  // decoration = a garment map: each placement is a hotspot; click → assign a technique to that point
+  let dmActive: string | null = null;
+  function decoFor(place: string) { return state.decorations.find((d: any) => d.placement === place); }
+  function placeLabel(place: string) { const el = document.querySelector<HTMLElement>(`.dm-hot[data-place="${place}"]`); return el ? (el.dataset.label || place) : place; }
+  function renderDecoHotspots() {
+    document.querySelectorAll<HTMLElement>('.dm-hot').forEach((h) => {
+      const d = decoFor(h.dataset.place!);
+      h.classList.toggle('filled', !!d);
+      h.classList.toggle('active', h.dataset.place === dmActive);
+      const dot = h.querySelector<HTMLElement>('.dm-dot');
+      if (dot) dot.innerHTML = d ? techIcon((cfg.decos.find((x: any) => x.id === d.typeId) || {}).technique) : '';
+    });
+  }
+  function renderChooser() {
+    const box = $('dm-chooser');
+    if (!dmActive) { (box as HTMLElement).hidden = true; box.innerHTML = ''; return; }
+    (box as HTMLElement).hidden = false;
+    const cur = decoFor(dmActive);
+    box.innerHTML = `<div class="dm-ch-head"><span class="dm-ch-title">${placeLabel(dmActive)}</span><button class="dm-ch-close" id="dm-chclose">Tutup ✕</button></div>
+      <div class="dm-ch-opts">` +
+      cfg.decos.map((t: any) => `<button class="dm-ch-opt${cur && cur.typeId === t.id ? ' on' : ''}" data-tech="${t.id}"><span class="dm-ch-ic">${techIcon(t.technique)}</span><span class="dm-ch-name">${t.name}</span><span class="dm-ch-price">+${rp(t.add_on_per_pc)}</span></button>`).join('') +
+      `</div>` + (cur ? `<button class="dm-ch-remove" id="dm-chremove">Hapus dari titik ini</button>` : '');
+    box.querySelectorAll<HTMLElement>('.dm-ch-opt').forEach((b) => b.addEventListener('click', () => assignTech(dmActive!, b.dataset.tech!)));
+    const rm = document.getElementById('dm-chremove'); if (rm) rm.addEventListener('click', () => removePlace(dmActive!));
+    const cl = document.getElementById('dm-chclose'); if (cl) cl.addEventListener('click', closeChooser);
+  }
+  let chooserGen = 0;
+  function openChooser(place: string) {
+    chooserGen++;
+    dmActive = place;
+    renderChooser(); renderDecoHotspots();
+    const box = $('dm-chooser') as HTMLElement;
+    anim(box, [{ opacity: 0, transform: 'translateY(-10px)' }, { opacity: 1, transform: 'none' }], 300);
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  function closeChooser() {
+    const box = $('dm-chooser') as HTMLElement;
+    dmActive = null; renderDecoHotspots();
+    if (box.hidden) return;
+    const g = ++chooserGen;
+    if (reduce) { box.hidden = true; box.innerHTML = ''; return; }
+    const a = box.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(-10px)' }], { duration: 200, easing: 'ease' });
+    a.onfinish = () => { if (g === chooserGen) { box.hidden = true; box.innerHTML = ''; } };
+  }
+  function assignTech(place: string, typeId: string) {
+    const d = decoFor(place);
+    if (d) d.typeId = typeId; else state.decorations.push({ typeId, placement: place });
+    renderDecoHotspots(); renderChooser(); updateDecoDetail(); refresh();
+    pulseDetail(document.querySelector('.deco-detail'));
+  }
+  function removePlace(place: string) {
+    const i = state.decorations.findIndex((d: any) => d.placement === place);
+    if (i >= 0) state.decorations.splice(i, 1);
+    updateDecoDetail(); refresh(); closeChooser();
+  }
+  function renderDecos() { renderDecoHotspots(); renderChooser(); updateDecoDetail(); }
+  function renderSizes() {
+    $('cz-sizes').innerHTML = cfg.sizeRun.map((s: string) =>
+      `<div class="cz-sizebox"><label>${s}</label><input type="number" min="0" inputmode="numeric" data-size="${s}" value="${state.sizes[s] || 0}"></div>`).join('');
+    $('cz-sizes').querySelectorAll<HTMLInputElement>('input').forEach((inp) =>
+      inp.addEventListener('input', () => { state.sizes[inp.dataset.size!] = Math.max(0, +inp.value || 0); refresh(); }));
+  }
+  function renderSelChips() {
+    const fabric = cfg.fabrics.find((f: any) => f.id === state.fabricId);
+    const color = cfg.colors.find((c: any) => c.id === state.colorId);
+    const chips = [fabric && fabric.name, state.customColor || (color && color.name), `${state.decorations.length} dekorasi`].filter(Boolean);
+    $('cz-sel').innerHTML = chips.map((c) => `<span class="chip">${c}</span>`).join('');
+  }
+  function waMessage() {
+    const fabric = cfg.fabrics.find((f: any) => f.id === state.fabricId);
+    const color = state.customColor || (cfg.colors.find((c: any) => c.id === state.colorId) || {}).name || '-';
+    const c = compute();
+    const decoLines = state.decorations.map((d: any) => { const t = cfg.decos.find((x: any) => x.id === d.typeId); return `- ${t ? t.name : d.typeId} — ${d.placement}`; }).join('\n') || '- (belum dipilih)';
+    const sizeLines = cfg.sizeRun.filter((s: string) => state.sizes[s] > 0).map((s: string) => `- ${s}: ${state.sizes[s]}`).join('\n') || '- (belum diisi)';
+    const styleLines = cfg.styleAttrs.map((k: string) => `- ${k}: ${state.style[k]}`).join('\n');
+    return `Halo Kustom Garment, saya ingin order:\n\nProduct: ${cfg.name}\nBahan: ${fabric ? fabric.name : '-'}\nWarna: ${color}\nFit: ${cap(state.fit)}\nLength: ${cap(state.length)}\nStyle:\n${styleLines}\nDekorasi:\n${decoLines}\nQuantity: ${c.totalQty} pcs\n${sizeLines}\n\nEstimasi harga (dari web): ${rp(c.low)} – ${rp(c.high)} /pc\n\nMohon konfirmasi final price dan availability. Terima kasih!`;
+  }
+  function renderSummary() {
+    const fabric = cfg.fabrics.find((f: any) => f.id === state.fabricId);
+    const color = state.customColor || (cfg.colors.find((c: any) => c.id === state.colorId) || {}).name || '-';
+    const c = compute();
+    $('cz-pricecard').innerHTML =
+      `<div class="sm-price-row"><span>Estimasi / pc</span><strong>${rp(c.low)} – ${rp(c.high)}</strong></div>` +
+      (c.totalQty > 0
+        ? `<div class="sm-price-row sub"><span>Total ${c.totalQty} pcs</span><strong>${rp(c.low * c.totalQty)} – ${rp(c.high * c.totalQty)}</strong></div>`
+        : `<div class="sm-price-row sub"><span>Total</span><strong>Isi jumlah dulu</strong></div>`);
+    const fabricName = fabric ? `${fabric.name} · ${cap(fabric.tier)}` : '-';
+    const specRows = [['Produk', cfg.name], ['Bahan', fabricName], ['Warna', color], ['Fit', cap(state.fit)], ['Length', cap(state.length)]];
+    const styleRows = cfg.styleAttrs.map((k: string) => [k, state.style[k]]);
+    const decoRows = state.decorations.map((d: any) => { const t = cfg.decos.find((x: any) => x.id === d.typeId); return [t ? t.name : d.typeId, placeLabel(d.placement)]; });
+    const sizeRows = cfg.sizeRun.filter((s: string) => state.sizes[s] > 0).map((s: string) => [s, state.sizes[s] + ' pcs']);
+    const group = (label: string, rows: any[], empty: string) => `<div class="sm-group"><div class="sm-glabel">${label}</div><div class="sm-grows">${rows.length ? rows.map((r) => `<div class="sm-row"><span>${r[0]}</span><span>${r[1]}</span></div>`).join('') : `<div class="sm-empty">${empty}</div>`}</div></div>`;
+    $('cz-summary').innerHTML =
+      group('Spesifikasi', specRows, '') +
+      group('Style', styleRows, '') +
+      group('Dekorasi', decoRows, 'Belum ada dekorasi') +
+      group('Ukuran', sizeRows.length ? [...sizeRows, ['Total', c.totalQty + ' pcs']] : [], 'Belum diisi — min. 24 pcs');
+    ($('cz-wa') as HTMLAnchorElement).href = `${cfg.waBase}?text=${encodeURIComponent(waMessage())}`;
+  }
+  function refresh() {
+    const c = compute();
+    $('cz-perpc').textContent = `${rp(c.low)} – ${rp(c.high)}`;
+    $('cz-qty').textContent = String(c.totalQty);
+    renderSelChips();
+    if (tab === 'summary') renderSummary();
+  }
+  function showTab(t: string) {
+    tab = t;
+    document.querySelectorAll<HTMLElement>('.cz-tab').forEach((el) => el.classList.toggle('active', el.dataset.tab === t));
+    document.querySelectorAll<HTMLElement>('.cz-panel').forEach((el) => el.classList.toggle('active', el.dataset.panel === t));
+    ($('cz-next') as HTMLButtonElement).style.visibility = t === 'summary' ? 'hidden' : 'visible';
+    ($('cz-prev') as HTMLButtonElement).style.visibility = t === 'fabric' ? 'hidden' : 'visible';
+    if (t === 'summary') renderSummary();
+    document.querySelector('.cz-panels')!.scrollTop = 0;
+  }
+
+  renderDecos(); renderSizes();
+  document.querySelectorAll<HTMLElement>('.fab-card').forEach((c) => {
+    c.addEventListener('click', () => selectFabric(c.dataset.fab!));
+    c.addEventListener('mouseenter', () => updateFabDetail(c.dataset.fab!));
+    c.addEventListener('mouseleave', () => updateFabDetail());
+    const info = c.querySelector<HTMLElement>('.fab-info');
+    if (info) info.addEventListener('click', (e) => { e.stopPropagation(); showFabPop(info, c.dataset.fab!); });
+  });
+  document.querySelectorAll<HTMLElement>('.col-card').forEach((c) => {
+    c.addEventListener('click', () => selectColor(c.dataset.color!));
+    c.addEventListener('mouseenter', () => updateColDetail(c.dataset.color!));
+    c.addEventListener('mouseleave', () => updateColDetail());
+  });
+  document.querySelectorAll<HTMLElement>('.st-row').forEach((r) => r.addEventListener('click', () => showStyleAttr(r.dataset.attr!)));
+  document.querySelectorAll<HTMLElement>('.st-back').forEach((b) => b.addEventListener('click', showStyleList));
+  document.querySelectorAll<HTMLElement>('.st-railitem').forEach((r) => r.addEventListener('click', () => showStyleAttr(r.dataset.railattr!)));
+  document.querySelectorAll<HTMLElement>('.st-opt').forEach((o) => {
+    o.addEventListener('click', () => selectStyleOpt(o.dataset.attr!, o.dataset.opt!));
+    o.addEventListener('mouseenter', () => styleDetailBar(o.dataset.attr!, o.dataset.opt!));
+    o.addEventListener('mouseleave', () => styleDetailBar(o.dataset.attr!, state.style[o.dataset.attr!]));
+  });
+  cfg.styleAttrs.forEach((k: string) => styleDetailBar(k, state.style[k]));
+  $('cz-fabsearch').addEventListener('input', () => {
+    const q = (($('cz-fabsearch') as HTMLInputElement).value || '').toLowerCase();
+    document.querySelectorAll<HTMLElement>('.fab-card').forEach((c) => { c.style.display = (c.dataset.name || '').toLowerCase().includes(q) ? '' : 'none'; });
+  });
+  document.addEventListener('click', hideFabPop);
+  document.getElementById('cz-fabrics')!.addEventListener('scroll', hideFabPop);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideFabPop(); });
+  updateFabDetail(); applyFabricColors(); refresh(); showTab('fabric');
+  document.getElementById('cz-tabs')!.addEventListener('click', (e) => { const b = (e.target as HTMLElement).closest<HTMLElement>('.cz-tab'); if (b) showTab(b.dataset.tab!); });
+  $('cz-next').addEventListener('click', () => { const i = TABS.indexOf(tab); if (i < TABS.length - 1) showTab(TABS[i + 1]); });
+  $('cz-prev').addEventListener('click', () => { const i = TABS.indexOf(tab); if (i > 0) showTab(TABS[i - 1]); });
+  document.querySelectorAll<HTMLElement>('.dm-hot').forEach((h) => h.addEventListener('click', () => { if (dmActive === h.dataset.place) closeChooser(); else openChooser(h.dataset.place!); }));
+  document.querySelectorAll<HTMLElement>('.dm-viewtab').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll<HTMLElement>('.dm-viewtab').forEach((x) => x.classList.toggle('on', x === b));
+    document.querySelectorAll<HTMLElement>('.dm-shirt').forEach((s) => { s.hidden = s.dataset.shirtview !== b.dataset.view; });
+    if (dmActive) { const a = document.querySelector<HTMLElement>(`.dm-hot[data-place="${dmActive}"]`); if (a && (a.closest('.dm-shirt') as HTMLElement).dataset.shirtview !== b.dataset.view) closeChooser(); }
+  }));
+  $('cz-customcolor').addEventListener('input', (e) => {
+    state.customColor = (e.target as HTMLInputElement).value;
+    if (state.customColor) document.querySelectorAll<HTMLElement>('.col-card').forEach((c) => c.classList.remove('sel'));
+    else document.querySelectorAll<HTMLElement>('.col-card').forEach((c) => c.classList.toggle('sel', c.dataset.color === state.colorId));
+    updateColDetail(); refresh();
+  });
+
+  // SIZE — fit / length segmented controls + size-guide modal
+  const fitLabel = () => `${cap(state.fit)} · ${cap(state.length)}`;
+  document.querySelectorAll<HTMLElement>('#sz-fit .sz-segopt').forEach((b) => b.addEventListener('click', () => {
+    state.fit = b.dataset.fit!;
+    document.querySelectorAll<HTMLElement>('#sz-fit .sz-segopt').forEach((x) => x.classList.toggle('on', x === b));
+    $('sz-fitsum').textContent = fitLabel(); refresh();
+  }));
+  document.querySelectorAll<HTMLElement>('#sz-length .sz-segopt').forEach((b) => b.addEventListener('click', () => {
+    state.length = b.dataset.length!;
+    document.querySelectorAll<HTMLElement>('#sz-length .sz-segopt').forEach((x) => x.classList.toggle('on', x === b));
+    $('sz-fitsum').textContent = fitLabel(); refresh();
+  }));
+  const szModal = $('sz-modal') as HTMLElement;
+  function openSzModal() {
+    szModal.hidden = false;
+    anim(szModal.querySelector('.sz-modal-backdrop'), [{ opacity: 0 }, { opacity: 1 }], 200);
+    anim(szModal.querySelector('.sz-modal-card'), [{ opacity: 0, transform: 'translateY(12px) scale(0.98)' }, { opacity: 1, transform: 'none' }], 280);
+  }
+  function closeSzModal() {
+    if (reduce) { szModal.hidden = true; return; }
+    szModal.querySelector('.sz-modal-backdrop')!.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 170 });
+    const a = (szModal.querySelector('.sz-modal-card') as HTMLElement).animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(12px) scale(0.98)' }], { duration: 170, easing: 'ease' });
+    a.onfinish = () => { szModal.hidden = true; };
+  }
+  $('sz-guidebtn').addEventListener('click', openSzModal);
+  $('sz-modalclose').addEventListener('click', closeSzModal);
+  $('sz-modalbd').addEventListener('click', closeSzModal);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !szModal.hidden) closeSzModal(); });
+</script>

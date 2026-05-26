@@ -18,6 +18,8 @@ export interface Props {
   publishedTime?: string;
   modifiedTime?: string;
   canonicalURL?: string;
+  noCurtain?: boolean;
+  noFooter?: boolean;
 }
 
 const {
@@ -29,6 +31,8 @@ const {
   publishedTime,
   modifiedTime,
   canonicalURL,
+  noCurtain = false,
+  noFooter = false,
 } = Astro.props;
 
 // Generate canonical URL
@@ -118,6 +122,9 @@ const currentPath = Astro.url.pathname;
 </head>
 
 <body class="min-h-screen flex flex-col">
+  <!-- Page-transition curtain: orange sweeps up (cover on leave, reveal on enter) -->
+  {!noCurtain && <div class="page-curtain" aria-hidden="true"></div>}
+
   <!-- Skip to main content for accessibility -->
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-lg z-50">
     Skip to main content
@@ -132,7 +139,7 @@ const currentPath = Astro.url.pathname;
   </main>
 
   <!-- Footer -->
-  <Footer />
+  {!noFooter && <Footer />}
 
   <!-- Back to Top Button -->
   <button
@@ -181,6 +188,53 @@ const currentPath = Astro.url.pathname;
       if (_el) {
         addEventListener('load', () => setTimeout(() => _el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150));
       }
+    }
+  </script>
+
+  <!-- Page-transition curtain -->
+  <style>
+    .page-curtain {
+      position: fixed;
+      inset: 0;
+      background: #ff4c00;
+      z-index: 9999;
+      pointer-events: none;
+      transform: translateY(-100%);
+      animation: curtain-in 0.7s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    }
+    /* enter: orange covers, then sweeps up & out to reveal the page */
+    @keyframes curtain-in {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .page-curtain { animation: none; transform: translateY(-100%); }
+    }
+  </style>
+  <script>
+    // On internal navigation, sweep the orange curtain up to cover, then go.
+    const curtain = document.querySelector('.page-curtain');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (curtain && !reduce) {
+      document.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        const a = (e.target instanceof Element) ? e.target.closest('a') : null;
+        if (!a) return;
+        const href = a.getAttribute('href');
+        if (!href || a.target === '_blank' || a.hasAttribute('download')) return;
+        if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+        let url;
+        try { url = new URL(href, location.href); } catch { return; }
+        if (url.origin !== location.origin) return;            // external (wa.me, IG, portfolio.) → open normally
+        if (url.pathname === location.pathname && url.hash) return; // same-page anchor
+        e.preventDefault();
+        curtain.style.animation = 'none';
+        const anim = curtain.animate(
+          [{ transform: 'translateY(100%)' }, { transform: 'translateY(0)' }],
+          { duration: 520, easing: 'cubic-bezier(0.76, 0, 0.24, 1)', fill: 'forwards' }
+        );
+        anim.onfinish = () => { window.location.href = url.href; };
+      });
     }
   </script>
 </body>

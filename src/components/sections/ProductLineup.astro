@@ -1,0 +1,102 @@
+---
+/**
+ * ProductLineup — catalog-driven "customize online" grid.
+ * Pulls archetypes from products/catalog.json (optionally filtered by segment),
+ * each card links to /produk/[slug] → single product page → customizer.
+ * Renders nothing if no matching products (safe to drop on any page).
+ */
+import catalog from '../../data/products/catalog.json';
+
+interface Props {
+  segment?: string;
+  title?: string;
+  subtitle?: string;
+}
+const {
+  segment,
+  title = 'Bisa kamu kustom online',
+  subtitle = 'Pilih produk, atur sendiri bahan, warna, style & dekorasi — lalu lanjut via WhatsApp.',
+} = Astro.props;
+
+const items = (catalog.archetypes as any[]).filter((a) => !segment || a.segment === segment);
+const rp = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(n);
+---
+
+{items.length > 0 && (
+  <section class="pl">
+    <div class="pl-wrap">
+      <div class="pl-head reveal">
+        <h2 class="pl-h2">{title}</h2>
+        <p class="pl-sub">{subtitle}</p>
+      </div>
+      <div class="pl-grid">
+        {items.map((p, i) => (
+          <a class="pl-card reveal" style={`transition-delay:${i * 60}ms`} href={`/produk/${p.slug}`}>
+            <div class="pl-frame">
+              {p.badge && <span class="pl-badge">{p.badge}</span>}
+              <img src={p.gallery[0]} alt={p.name} loading="lazy" />
+              <span class="pl-cta">Custom Sekarang <span aria-hidden="true">→</span></span>
+            </div>
+            <div class="pl-row">
+              <h3 class="pl-name">{p.name}</h3>
+              <span class="pl-rating" aria-label={`Rating ${p.rating}`}>★ {p.rating}</span>
+            </div>
+            <p class="pl-price">{rp(p.price_min)} – {rp(p.price_max)} <span class="pl-pcs">/pc</span></p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .pl { background: #ffffff; padding: 4.5rem 0; }
+  @media (min-width: 1024px) { .pl { padding: 6rem 0; } }
+  .pl-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 1024px) { .pl-wrap { padding: 0 2.5rem; } }
+  .pl-head { margin-bottom: 2.25rem; }
+  .pl-h2 { font-family: var(--font-sans); font-weight: 700; font-size: clamp(1.6rem, 3.5vw, 2.6rem); letter-spacing: -0.02em; color: #1a1a1a; margin: 0 0 0.5rem; }
+  .pl-sub { font-family: var(--font-sans); font-weight: 600; font-size: clamp(0.9rem, 1.4vw, 1.05rem); line-height: 1.5; color: #6b7280; margin: 0; max-width: 38rem; }
+
+  .pl-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1.25rem; }
+  @media (min-width: 820px) { .pl-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem 1.5rem; } }
+
+  .pl-card { display: block; text-decoration: none; }
+  .pl-frame { position: relative; border-radius: 1.1rem; overflow: hidden; aspect-ratio: 4 / 5; background: #f5f5f5; }
+  .pl-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms cubic-bezier(0.19,1,0.22,1); }
+  .pl-badge {
+    position: absolute; top: 0.85rem; left: 0.85rem; z-index: 2;
+    font-family: var(--font-sans); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    color: #1a1a1a; background: rgba(255,255,255,0.94); padding: 0.3rem 0.6rem; border-radius: 0.35rem;
+  }
+  .pl-cta {
+    position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.85rem; color: #fff;
+    background: #ff4c00; padding: 0.7rem; transform: translateY(100%); transition: transform 280ms cubic-bezier(0.19,1,0.22,1);
+  }
+  .pl-row { display: flex; align-items: baseline; justify-content: space-between; gap: 0.6rem; margin: 0.9rem 0 0.25rem; }
+  .pl-name { font-family: var(--font-sans); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; color: #1a1a1a; margin: 0; transition: color 200ms ease; }
+  .pl-rating { font-family: var(--font-sans); font-weight: 700; font-size: 0.82rem; color: #ff4c00; white-space: nowrap; }
+  .pl-price { font-family: var(--font-sans); font-weight: 700; font-size: 0.92rem; color: #374151; margin: 0; }
+  .pl-pcs { font-weight: 600; font-size: 0.78rem; color: #9ca3af; }
+  @media (hover: hover) {
+    .pl-card:hover .pl-frame img { transform: scale(1.05); }
+    .pl-card:hover .pl-cta { transform: translateY(0); }
+    .pl-card:hover .pl-name { color: #ff4c00; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity 650ms ease, transform 650ms cubic-bezier(0.19,1,0.22,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .pl-frame img, .pl-cta { transition: none; }
+  }
+</style>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.pl .reveal').forEach((el) => io.observe(el));
+</script>

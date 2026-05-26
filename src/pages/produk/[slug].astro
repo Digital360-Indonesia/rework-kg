@@ -1,0 +1,175 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import catalog from '../../data/products/catalog.json';
+import siteConfig from '../../data/site-config.json';
+
+export function getStaticPaths() {
+  return catalog.archetypes.map((a) => ({ params: { slug: a.slug }, props: { product: a } }));
+}
+
+const { product } = Astro.props;
+const rp = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(n);
+const priceRange = `${rp(product.price_min)} – ${rp(product.price_max)}`;
+const defaultFabric = catalog.fabrics.find((f) => f.id === product.default_fabric);
+
+const waBase = (siteConfig as any)?.contact?.whatsappUrl || 'https://wa.me/6285161202499';
+const waHref = `${waBase}?text=${encodeURIComponent(`Halo Kustom Garment, saya tertarik dengan ${product.name}. Boleh info lebih lanjut?`)}`;
+
+const metaTitle = `${product.name} | Kustom Garment`;
+const metaDescription = product.positioning;
+const lockedSpec = Object.entries(product.locked_spec) as [string, string][];
+---
+
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <section class="pdp">
+    <div class="pdp-grid">
+      <!-- Gallery: thumbnail rail + main preview -->
+      <div class="pdp-gallery">
+        <div class="pdp-thumbs" role="list">
+          {product.gallery.map((src: string, i: number) => (
+            <button class:list={['pdp-thumb', { active: i === 0 }]} data-src={src} aria-label={`Lihat gambar ${i + 1}`}>
+              <img src={src} alt="" loading="lazy" />
+            </button>
+          ))}
+        </div>
+        <div class="pdp-main">
+          {product.badge && <span class="pdp-badge">{product.badge}</span>}
+          <img id="pdp-main-img" src={product.gallery[0]} alt={product.name} />
+        </div>
+      </div>
+
+      <!-- Right rail -->
+      <div class="pdp-rail">
+        <h1 class="pdp-title">{product.name}</h1>
+
+        <div class="pdp-rating" aria-label={`Rating ${product.rating} dari 5`}>
+          <span class="pdp-stars" aria-hidden="true">★★★★★</span>
+          <span class="pdp-reviews">({product.reviews})</span>
+        </div>
+
+        <div class="pdp-price">
+          {priceRange}
+          <span class="pdp-price-note">{product.price_note}</span>
+        </div>
+
+        <div class="pdp-actions">
+          <a class="pdp-btn pdp-btn-wa" href={waHref} target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a>
+          <a class="pdp-btn pdp-btn-custom" href={`/produk/${product.slug}/custom`}>Custom Sekarang</a>
+        </div>
+        <p class="pdp-reassure">Tanpa minimum order · Desain dibantu gratis · Made-by-order</p>
+
+        <div class="pdp-acc">
+          <details open>
+            <summary>Description<span class="chev" aria-hidden="true"></span></summary>
+            <div class="pdp-acc-body"><p>{product.description}</p></div>
+          </details>
+          <details>
+            <summary>Design<span class="chev" aria-hidden="true"></span></summary>
+            <div class="pdp-acc-body">
+              <ul class="pdp-spec">
+                {lockedSpec.map(([k, v]) => (
+                  <li><span class="pdp-spec-k">{k}</span><span class="pdp-spec-v">{v}</span></li>
+                ))}
+              </ul>
+              <p class="pdp-acc-hint">Mau collar / cuff / pocket beda? Bahas langsung via WhatsApp.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Fabric &amp; Care<span class="chev" aria-hidden="true"></span></summary>
+            <div class="pdp-acc-body">
+              {defaultFabric && <p><strong>{defaultFabric.name}</strong> — {defaultFabric.description}</p>}
+              <p>{product.care}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .pdp { background: #fff; padding: 1.5rem 0 5rem; }
+  .pdp-grid {
+    max-width: 84rem; margin: 0 auto; padding: 0 1.25rem;
+    display: grid; grid-template-columns: 1fr; gap: 2rem;
+  }
+  @media (min-width: 960px) {
+    .pdp { padding: 2.5rem 0 6rem; }
+    .pdp-grid { grid-template-columns: minmax(0, 1.35fr) minmax(22rem, 1fr); gap: 3.5rem; padding: 0 2.5rem; align-items: start; }
+    .pdp-rail { position: sticky; top: 100px; }
+  }
+
+  /* Gallery */
+  .pdp-gallery { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; }
+  @media (max-width: 540px) { .pdp-gallery { grid-template-columns: 3.5rem 1fr; gap: 0.6rem; } }
+  .pdp-thumbs { display: flex; flex-direction: column; gap: 0.6rem; }
+  .pdp-thumb {
+    padding: 0; border: 1px solid #ececec; border-radius: 0.6rem; overflow: hidden;
+    background: #f6f6f6; cursor: pointer; aspect-ratio: 4 / 5; transition: border-color 160ms ease;
+  }
+  .pdp-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pdp-thumb:hover { border-color: #c9c9c9; }
+  .pdp-thumb.active { border-color: #1a1a1a; }
+  .pdp-main {
+    position: relative; border-radius: 1rem; overflow: hidden; background: #f4f4f4; aspect-ratio: 4 / 5;
+  }
+  .pdp-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pdp-badge {
+    position: absolute; top: 1rem; left: 1rem; z-index: 2;
+    font-family: var(--font-sans); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; color: #1a1a1a; background: rgba(255,255,255,0.92);
+    padding: 0.35rem 0.7rem; border-radius: 0.4rem; border: 1px solid #ececec;
+  }
+
+  /* Rail */
+  .pdp-rail { font-family: var(--font-sans); }
+  .pdp-title { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; color: #1a1a1a; margin: 0 0 0.6rem; }
+  .pdp-rating { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 1rem; }
+  .pdp-stars { color: #ff4c00; letter-spacing: 0.1em; font-size: 0.95rem; }
+  .pdp-reviews { color: #6b7280; font-size: 0.85rem; font-weight: 600; }
+  .pdp-price { font-size: 1.25rem; font-weight: 700; color: #1a1a1a; margin-bottom: 1.75rem; }
+  .pdp-price-note { display: block; font-size: 0.8rem; font-weight: 600; color: #9ca3af; margin-top: 0.2rem; }
+
+  .pdp-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  @media (max-width: 380px) { .pdp-actions { grid-template-columns: 1fr; } }
+  .pdp-btn {
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    font-size: 0.9rem; font-weight: 700; letter-spacing: 0.02em; text-decoration: none;
+    padding: 1rem 1rem; border-radius: 0.7rem; transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+  }
+  .pdp-btn-wa { background: #1a1a1a; color: #fff; border: 1.5px solid #1a1a1a; }
+  .pdp-btn-wa:hover { background: #000; }
+  .pdp-btn-custom { background: #fff; color: #ff4c00; border: 1.5px solid #ff4c00; }
+  .pdp-btn-custom:hover { background: #ff4c00; color: #fff; }
+  .pdp-reassure { text-align: center; font-size: 0.78rem; font-weight: 600; color: #9ca3af; margin: 0.85rem 0 1.75rem; }
+
+  /* Accordions */
+  .pdp-acc { border-top: 1px solid #ececec; }
+  .pdp-acc details { border-bottom: 1px solid #ececec; }
+  .pdp-acc summary {
+    list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 0; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #1a1a1a;
+  }
+  .pdp-acc summary::-webkit-details-marker { display: none; }
+  .chev { width: 0.62rem; height: 0.62rem; border-right: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a; transform: rotate(45deg); transition: transform 220ms ease; margin-bottom: 3px; }
+  .pdp-acc details[open] .chev { transform: rotate(-135deg); margin-top: 3px; margin-bottom: 0; }
+  .pdp-acc-body { padding: 0 0 1.3rem; font-size: 0.92rem; line-height: 1.6; color: #374151; }
+  .pdp-acc-body p { margin: 0 0 0.7rem; }
+  .pdp-acc-hint { color: #6b7280; font-size: 0.85rem; font-style: italic; }
+  .pdp-spec { list-style: none; padding: 0; margin: 0 0 0.8rem; }
+  .pdp-spec li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-bottom: 1px dashed #f0f0f0; font-size: 0.88rem; }
+  .pdp-spec-k { color: #6b7280; } .pdp-spec-v { color: #1a1a1a; font-weight: 600; text-align: right; }
+</style>
+
+<script>
+  // thumbnail → main image swap
+  const main = document.getElementById('pdp-main-img') as HTMLImageElement | null;
+  const thumbs = Array.from(document.querySelectorAll<HTMLButtonElement>('.pdp-thumb'));
+  if (main && thumbs.length) {
+    thumbs.forEach((t) => t.addEventListener('click', () => {
+      const src = t.dataset.src; if (!src) return;
+      main.src = src;
+      thumbs.forEach((x) => x.classList.toggle('active', x === t));
+    }));
+  }
+</script>

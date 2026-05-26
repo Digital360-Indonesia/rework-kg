@@ -1,0 +1,200 @@
+{
+  "_note": "Phase-0 catalog — shaped to match the planned PocketBase collections so migration is 1:1. Working values per spec addendum #1; photos/reviews are placeholders.",
+
+  "garment_types": [
+    {
+      "id": "kemeja",
+      "name": "Kemeja",
+      "placements": ["Left chest", "Right chest", "Back center", "Sleeve Left", "Sleeve Right", "Collar", "Name tag right chest"],
+      "size_run": ["S", "M", "L", "XL", "XXL"],
+      "style_options": {
+        "Collar": [
+          { "name": "Regular Spread", "illustration": "/images/customizer/style/collar-spread.svg", "desc": "Kerah spread klasik — serbaguna & rapi.", "suggested": "Business, Formal" },
+          { "name": "Cutaway", "illustration": "/images/customizer/style/collar-cutaway.svg", "desc": "Sudut lebar, modern & dressy." },
+          { "name": "Button Down", "illustration": "/images/customizer/style/collar-buttondown.svg", "desc": "Ujung kerah berkancing — kasual rapi." }
+        ],
+        "Cuff": [
+          { "name": "Standard Single Button", "illustration": "/images/customizer/style/cuff-single.svg", "desc": "Manset standar satu kancing." },
+          { "name": "Double Button", "illustration": "/images/customizer/style/cuff-double.svg", "desc": "Dua kancing — lebih rapi & adjustable." }
+        ],
+        "Front": [
+          { "name": "Standard Placket", "illustration": "/images/customizer/style/front-standard.svg", "desc": "Placket depan standar dengan kancing terlihat." },
+          { "name": "Hidden Placket", "illustration": "/images/customizer/style/front-hidden.svg", "desc": "Kancing tersembunyi — tampilan bersih." }
+        ],
+        "Pocket": [
+          { "name": "None", "illustration": "/images/customizer/style/pocket-none.svg", "desc": "Tanpa saku — bersih & formal." },
+          { "name": "1 Chest Pocket", "illustration": "/images/customizer/style/pocket-one.svg", "desc": "Satu saku dada." },
+          { "name": "2 Chest + Flap", "illustration": "/images/customizer/style/pocket-two.svg", "desc": "Dua saku dada berflap — workwear." }
+        ],
+        "Yoke": [
+          { "name": "Standard", "illustration": "/images/customizer/style/generic.svg", "desc": "Yoke standar." },
+          { "name": "Split Back Yoke", "illustration": "/images/customizer/style/generic.svg", "desc": "Yoke belah belakang — lebih kuat." }
+        ],
+        "Bottom Hem": [
+          { "name": "Straight (tucked)", "illustration": "/images/customizer/style/generic.svg", "desc": "Bawah lurus — pas dimasukkan." },
+          { "name": "Curved (untucked-friendly)", "illustration": "/images/customizer/style/generic.svg", "desc": "Bawah melengkung — nyaman dikeluarkan." }
+        ],
+        "Sleeve": [
+          { "name": "Long", "illustration": "/images/customizer/style/generic.svg", "desc": "Lengan panjang." },
+          { "name": "Short", "illustration": "/images/customizer/style/generic.svg", "desc": "Lengan pendek." }
+        ]
+      }
+    }
+  ],
+
+  "_fabric_note": "weave drives the color-swatch texture (twill/ripstop/sateen). colors = which color ids this fabric is available in (PLACEHOLDER — edit to real stock availability).",
+  "fabrics": [
+    { "id": "ribstop", "name": "Ribstop", "garment_type": "kemeja", "delta_per_pc": -8000, "tier": "budget", "weave": "ripstop", "colors": ["white", "black", "navy", "grey", "light-blue", "orange-safety"], "description": "Ringan & breathable, cocok untuk frontliner.", "swatch_image": "/images/customizer/fabric/ribstop.svg" },
+    { "id": "american-drill", "name": "American Drill", "garment_type": "kemeja", "delta_per_pc": -5000, "tier": "standard", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon"], "description": "Drill standar yang kuat untuk kerja lapangan.", "swatch_image": "/images/customizer/fabric/american-drill.svg" },
+    { "id": "unione-drill", "name": "Unione Drill", "garment_type": "kemeja", "delta_per_pc": 0, "tier": "mid", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "light-blue", "cream", "orange-safety"], "description": "Drill mid-tier, halus & rapi — referensi harga.", "swatch_image": "/images/customizer/fabric/unione-drill.svg" },
+    { "id": "nagata", "name": "Nagata", "garment_type": "kemeja", "delta_per_pc": 8000, "tier": "premium", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "light-blue", "cream"], "description": "Drill premium, jatuh rapi, tahan kusut.", "swatch_image": "/images/customizer/fabric/nagata.svg" },
+    { "id": "texmoda", "name": "Texmoda", "garment_type": "kemeja", "delta_per_pc": 20000, "tier": "top", "weave": "sateen", "colors": ["white", "light-blue", "navy", "black", "cream", "grey"], "description": "Top premium — kesan dressy & mewah.", "swatch_image": "/images/customizer/fabric/texmoda.svg" }
+  ],
+
+  "colors": [
+    { "id": "white", "name": "White", "hex": "#FFFFFF", "sort_order": 1 },
+    { "id": "black", "name": "Black", "hex": "#1A1A1A", "sort_order": 2 },
+    { "id": "navy", "name": "Navy", "hex": "#1B2A4E", "sort_order": 3 },
+    { "id": "khaki", "name": "Khaki", "hex": "#8B7355", "sort_order": 4 },
+    { "id": "olive", "name": "Olive", "hex": "#4A5D3A", "sort_order": 5 },
+    { "id": "grey", "name": "Grey", "hex": "#6B7280", "sort_order": 6 },
+    { "id": "maroon", "name": "Maroon", "hex": "#6B1F2E", "sort_order": 7 },
+    { "id": "light-blue", "name": "Light Blue", "hex": "#A8C5E0", "sort_order": 8 },
+    { "id": "cream", "name": "Cream", "hex": "#F5E6D3", "sort_order": 9 },
+    { "id": "orange-safety", "name": "Orange Safety", "hex": "#FF6B1A", "sort_order": 10 }
+  ],
+
+  "decoration_types": [
+    { "id": "bordir-small", "name": "Bordir small (logo dada, ≤6cm)", "size_class": "small", "technique": "embroidery", "add_on_per_pc": 12000 },
+    { "id": "bordir-medium", "name": "Bordir medium (≤12cm)", "size_class": "medium", "technique": "embroidery", "add_on_per_pc": 20000 },
+    { "id": "bordir-large", "name": "Bordir large (≤25cm)", "size_class": "large", "technique": "embroidery", "add_on_per_pc": 35000 },
+    { "id": "sablon-small", "name": "Sablon 1-3 warna small", "size_class": "small", "technique": "screen_print", "add_on_per_pc": 8000 },
+    { "id": "sablon-large", "name": "Sablon 1-3 warna large", "size_class": "large", "technique": "screen_print", "add_on_per_pc": 18000 },
+    { "id": "sablon-multi", "name": "Sablon 4+ warna", "size_class": "large", "technique": "screen_print", "add_on_per_pc": 25000 },
+    { "id": "patch", "name": "Patch jahit", "size_class": "medium", "technique": "patch", "add_on_per_pc": 15000 },
+    { "id": "nama-bordir", "name": "Nama individu (bordir)", "size_class": "small", "technique": "individual_name", "add_on_per_pc": 8000 },
+    { "id": "nama-sablon", "name": "Nama individu (sablon)", "size_class": "small", "technique": "individual_name", "add_on_per_pc": 5000 }
+  ],
+
+  "pricing_rules": [
+    { "min_qty": 24, "max_qty": 30, "multiplier": 1.15 },
+    { "min_qty": 31, "max_qty": 50, "multiplier": 1.00 },
+    { "min_qty": 51, "max_qty": 100, "multiplier": 0.95 },
+    { "min_qty": 101, "max_qty": 200, "multiplier": 0.90 },
+    { "min_qty": 201, "max_qty": 100000, "multiplier": 0.85 }
+  ],
+
+  "archetypes": [
+    {
+      "slug": "boardroom-shirt",
+      "name": "Boardroom Shirt",
+      "garment_type": "kemeja",
+      "segment": "business",
+      "badge": "Best Seller",
+      "positioning": "Seragam kantor harian dengan kesan premium dan potongan slim formal.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "default_fabric": "nagata",
+      "upgrade_fabrics": ["unione-drill", "texmoda"],
+      "downgrade_fabrics": ["american-drill"],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        { "type": "Bordir small", "placement": "Left chest", "size": "small" }
+      ],
+      "description": "Kemeja kerja andalan yang bikin tim kelihatan rapi dan on-brand. Dibuat made-by-order — tanpa stok jadi, dijahit sesuai pesananmu, tanpa minimum order. Potongan slim formal yang pas dipakai dari meeting sampai ke lapangan.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/placeholder/forproducts/20250428-Business_Line-Up_Kemeja-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp",
+        "/images/categories/business.webp",
+        "/images/placeholder/sample-section3a.webp",
+        "/images/placeholder/sample-section3b.webp",
+        "/images/placeholder/sample-section3c.webp"
+      ]
+    },
+    {
+      "slug": "field-workshirt",
+      "name": "Field Workshirt",
+      "garment_type": "kemeja",
+      "segment": "business",
+      "badge": "Workwear",
+      "positioning": "Kemeja kerja lapangan yang kuat — drill tebal, dua saku flap, jahitan rangkap.",
+      "rating": 4.7,
+      "reviews": 84,
+      "price_min": 90000,
+      "price_max": 120000,
+      "base_price_per_pc": 105000,
+      "price_note": "per pc · est. di 50 pcs",
+      "default_fabric": "american-drill",
+      "upgrade_fabrics": ["unione-drill", "nagata"],
+      "downgrade_fabrics": ["ribstop"],
+      "color_default": "khaki",
+      "locked_spec": {
+        "Collar": "Button Down",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "2 Chest + Flap",
+        "Yoke": "Split Back Yoke",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        { "type": "Bordir small", "placement": "Left chest", "size": "small" }
+      ],
+      "description": "Kemeja kerja lapangan yang dibuat buat tahan banting — bahan drill tebal, dua saku dada berflap, dan yoke belah belakang yang lebih kuat. Cocok untuk tim teknik, gudang, dan operasional. Made-by-order, tanpa minimum.",
+      "care": "Default bahan American Drill — kuat untuk kerja lapangan. Cuci mesin, boleh sikat lembut di noda, setrika suhu sedang. Bahan lain tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/placeholder/forproducts/p6.jpg",
+        "/images/placeholder/forproducts/weared6.jpg",
+        "/images/categories/business.webp"
+      ]
+    },
+    {
+      "slug": "oxford-buttondown",
+      "name": "Oxford Button-Down",
+      "garment_type": "kemeja",
+      "segment": "business",
+      "badge": "Klasik",
+      "positioning": "Kemeja oxford button-down — kasual rapi, serbaguna dari kantor sampai akhir pekan.",
+      "rating": 4.9,
+      "reviews": 102,
+      "price_min": 100000,
+      "price_max": 135000,
+      "base_price_per_pc": 118000,
+      "price_note": "per pc · est. di 50 pcs",
+      "default_fabric": "unione-drill",
+      "upgrade_fabrics": ["nagata", "texmoda"],
+      "downgrade_fabrics": ["american-drill"],
+      "color_default": "light-blue",
+      "locked_spec": {
+        "Collar": "Button Down",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "1 Chest Pocket",
+        "Yoke": "Standard",
+        "Bottom Hem": "Curved (untucked-friendly)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [],
+      "description": "Kemeja oxford button-down yang gampang dipadupadankan — rapi dimasukin, santai dikeluarin. Potongan reguler yang nyaman, kerah berkancing yang khas. Made-by-order, tanpa minimum.",
+      "care": "Default bahan Unione Drill — halus & rapi. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Bahan lain tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/placeholder/forproducts/p5.jpg",
+        "/images/placeholder/forproducts/weared5.jpg",
+        "/images/categories/business.webp"
+      ]
+    }
+  ]
+}
