@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
+import pers from '../data/personal.json';
 
-const metaTitle = 'Personal — Custom Satuan & OOTD | Kustom Garment';
-const metaDescription = 'Outfit harianmu, dibikin sesukamu. Kaos, hoodie, kemeja, sampai totebag — desain bebas, satu pun jadi, tanpa minimum order. Bikin baju. Satu pun oke.';
-
-// --- HERO (full-image lookbook — personal's own unique hero) ---
-const hero = {
-  image: '/images/placeholder/personal-hero.jpg',
-  imageAlt: 'OOTD custom Kustom Garment',
-  tagline: 'personal wear',
-  line1: 'Bikin',
-  line2: 'Sesukamu.',
-};
+const metaTitle = pers.meta.title;
+const metaDescription = pers.meta.description;
+// --- CMS-managed (src/data/personal.json — hero + lookbook) ---
+const hero = pers.hero;
 
 // Product-type filters (transparent lineup cutouts). 'all' renders a grid icon.
 const LU = (name: string) => `/images/placeholder/forproducts/20250428-Business_Line-Up_${name}-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp`;
@@ -45,14 +39,8 @@ const shopProducts = [
   { name: 'Kaos Quotes',   category: 'kaos',   base: `${fp}/p8.jpg`, weared: `${fp}/weared8.jpg`, colors: mk(['Hitam','Putih','Krem','Navy','Maroon']),      more: 9,  price: 'Rp 89.000' },
 ];
 
-// Editorial lookbook gallery (full-bleed) — placeholder lifestyle photos for now.
-const lookbook = [
-  { img: '/images/placeholder/personal-1.png', alt: 'OOTD custom Kustom Garment', span: 'tall' },
-  { img: '/images/placeholder/personal-2.png', alt: 'OOTD custom Kustom Garment', span: 'tall' },
-  { img: '/images/placeholder/personal-3.png', alt: 'OOTD custom Kustom Garment', span: 'wide' },
-  { img: '/images/placeholder/personal-4.png', alt: 'OOTD custom Kustom Garment', span: 'tall' },
-  { img: '/images/placeholder/personal-5.png', alt: 'OOTD custom Kustom Garment', span: 'tall' },
-];
+// Editorial lookbook gallery (full-bleed) — CMS-managed via src/data/personal.json
+const lookbook = pers.lookbook;
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>

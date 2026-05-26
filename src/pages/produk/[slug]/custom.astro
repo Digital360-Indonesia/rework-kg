@@ -64,7 +64,7 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
       <nav class="cz-tabs" id="cz-tabs">
         <button class="cz-tab active" data-tab="fabric">Fabric</button>
         <button class="cz-tab" data-tab="color">Color</button>
-        <button class="cz-tab" data-tab="style">Style</button>
+        {styleAttrs.length > 0 && <button class="cz-tab" data-tab="style">Style</button>}
         <button class="cz-tab" data-tab="decoration">Decoration</button>
         <button class="cz-tab" data-tab="size">Size</button>
         <button class="cz-tab" data-tab="summary">Summary</button>
@@ -142,6 +142,7 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
           </div>
         </section>
 
+        {styleAttrs.length > 0 && (
         <section class="cz-panel" data-panel="style">
           <div class="st-stage">
               <!-- pane 0: LIST -->
@@ -198,6 +199,7 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
               ))}
           </div>
         </section>
+        )}
 
         <section class="cz-panel" data-panel="decoration">
           <div class="deco-head"><h2 class="deco-title">Dekorasi</h2></div>
@@ -615,7 +617,7 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
 <script>
   const cfg = JSON.parse(document.getElementById('cz-cfg')!.textContent || '{}');
   const rp = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(Math.round(n / 500) * 500);
-  const TABS = ['fabric', 'color', 'style', 'decoration', 'size', 'summary'];
+  const TABS = Array.from(document.querySelectorAll<HTMLElement>('.cz-tab')).map((b) => b.dataset.tab!).filter(Boolean);
   const TIER_TONE: Record<string, string> = { budget: '#eceae5', standard: '#e7e3db', mid: '#e1dccf', premium: '#dad2c1', top: '#d2c8b2' };
   const TIER_RANK: Record<string, number> = { budget: 1, standard: 2, mid: 3, premium: 4, top: 5 };
   const STYLE_DESC: Record<string, string> = {

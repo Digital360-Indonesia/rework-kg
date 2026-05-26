@@ -2,20 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
 import catalog from '../data/products/catalog.json';
+import biz from '../data/business.json';
 
-const metaTitle = 'Business — Seragam & Apparel Kerja | Kustom Garment';
-const metaDescription = 'Seragam kantor, polo, kemeja, sampai wearpack — dibikin rapi dan on-brand untuk timmu. Tanpa minimum order, bordir logo beres, invoice & faktur pajak siap.';
+const metaTitle = biz.meta.title;
+const metaDescription = biz.meta.description;
 
-// --- CMS-ready content ---
-const hero = {
-  banner: '/images/placeholder/sample-herobusiness.png',
-  bannerAlt: 'Seragam & apparel kerja custom Kustom Garment',
-  title: 'Seragam & apparel kerja',
-  sub: 'Dari polo kantor sampai wearpack lapangan — bikin tim kamu tampil seragam, on-brand, dan nyaman dipakai kerja seharian. Tanpa minimum order, bordir logo rapi, invoice & faktur pajak siap.',
-};
-
-// Customer/client logos for the trust strip.
-const clients = ['klien-1.png','klien-2.png','klien-3.png','klien-4.png','klien-5.png','klien-6.png','klien-7.png','klien-8.png','klien-9.png','klien-10.png','klien-11.png','klien-12.png','klien-13.png'];
+// --- CMS-managed content (src/data/business.json — hero + clients) ---
+const hero = biz.hero;
+const clients = biz.clients;
 
 // Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
 const SEG = 'business';

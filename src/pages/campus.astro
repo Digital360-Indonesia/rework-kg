@@ -2,19 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
 import catalog from '../data/products/catalog.json';
+import camp from '../data/campus.json';
 
-const metaTitle = 'Campus — Jaket Angkatan, Merch Ospek & Wisuda | Kustom Garment';
-const metaDescription = 'Dari ospek sampai wisuda — jaket angkatan, kaos panitia, jersey turnamen, sampai totebag himpunan. Custom anak kampus, tanpa minimum order.';
-
-// --- HERO (orange split — campus keeps its own unique hero) ---
-const hero = {
-  eyebrow: 'Campus',
-  titleLead: 'Dari ospek',
-  titleAccent: 'sampai wisuda.',
-  sub: 'Jaket angkatan, kaos panitia, jersey turnamen, sampai totebag himpunan. Apa pun acara kampusmu, kami bikin merch-nya rapi dan kelar tepat waktu.',
-  image: '/images/categories/campus.webp',
-  imageAlt: 'Merch kampus custom Kustom Garment',
-};
+const metaTitle = camp.meta.title;
+const metaDescription = camp.meta.description;
+// --- CMS-managed (src/data/campus.json — hero) ---
+const hero = camp.hero;
 
 // Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
 const SEG = 'campus';

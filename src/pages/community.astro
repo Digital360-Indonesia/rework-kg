@@ -2,19 +2,12 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
 import catalog from '../data/products/catalog.json';
+import comm from '../data/community.json';
 
-const metaTitle = 'Community — Baju Komunitas & Jersey Tim | Kustom Garment';
-const metaDescription = 'Satukan squad-mu dengan jersey, kaos, dan jaket komunitas custom. Nama tiap member, desain bebas, tanpa minimum order. Bikin satu pun oke.';
-
-// --- HERO (white, big type) ---
-const hero = {
-  titleLead: 'Satukan',
-  titleAccent: 'squad-mu.',
-  sub: 'Run club, basecamp, fanbase, atau geng futsal — bikin identitas tim yang solid. Satu desain buat semua, nama tiap member, kompak dari kepala sampai kaki.',
-  // Placeholder: reusing the business wide banner for now — swap for a real community banner later.
-  image: '/images/placeholder/sample-herobusiness.png',
-  imageAlt: 'Baju komunitas custom Kustom Garment',
-};
+const metaTitle = comm.meta.title;
+const metaDescription = comm.meta.description;
+// --- CMS-managed (src/data/community.json — hero) ---
+const hero = comm.hero;
 
 // Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
 const SEG = 'community';

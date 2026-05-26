@@ -20,6 +20,24 @@ const waHref = `${waBase}?text=${encodeURIComponent(`Halo Kustom Garment, saya t
 const metaTitle = `${product.name} | Kustom Garment`;
 const metaDescription = product.positioning;
 const lockedSpec = Object.entries(product.locked_spec) as [string, string][];
+
+// "Style Mode" position on the Kasual → Formal axis (0-100), per archetype, derived from spec §6 positioning
+const STYLE_MODE: Record<string, number> = {
+  'boardroom-shirt': 80, 'launching-shirt': 90, 'field-operation-shirt': 25, 'service-shirt': 35,
+  'crew-field-shirt': 25, 'campus-drill-workshirt': 30, 'standard-issue-workshirt': 60,
+  'office-polo': 55, 'heavyweight-field-polo': 30, 'pique-student-polo': 35,
+  'brand-merch-tee': 20, 'the-event-tee': 15, 'combed-class-tee': 15,
+  'office-bomber': 55, 'corporate-drill-jacket': 40, 'event-windbreaker': 35,
+  'varsity-classic': 55, 'trail-windbreaker': 25, 'fleece-varsity': 50,
+  'field-utility-vest': 25, 'fleece-vest': 45, 'standard-issue-vest': 60,
+  'industrial-wearpack': 20,
+};
+const styleModeVal = STYLE_MODE[product.slug] ?? 50;
+
+// related products from the same segment (cap at 4)
+const related = (catalog.archetypes as any[])
+  .filter((a) => a.segment === product.segment && a.slug !== product.slug)
+  .slice(0, 4);
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>
@@ -86,9 +104,44 @@ const lockedSpec = Object.entries(product.locked_spec) as [string, string][];
             </div>
           </details>
         </div>
+
+        <div class="pdp-card pdp-feel">
+          <h3 class="pdp-card-h">How It Feels</h3>
+          <div class="pdp-feel-label">Style Mode</div>
+          <div class="pdp-feel-bar"><span class="pdp-feel-bar-fill" style={`width:${styleModeVal}%`}></span></div>
+          <div class="pdp-feel-ends"><span>Kasual</span><span>Formal</span></div>
+        </div>
+        {defaultFabric && (
+          <div class="pdp-card pdp-fabric">
+            <h3 class="pdp-card-h">Fabric / Material</h3>
+            <div class="pdp-fabric-img"><img src={defaultFabric.swatch_image} alt={defaultFabric.name} loading="lazy" /></div>
+            <div class="pdp-fabric-name">{defaultFabric.name}</div>
+            <p class="pdp-fabric-desc">{defaultFabric.description}</p>
+          </div>
+        )}
       </div>
     </div>
   </section>
+
+  {related.length > 0 && (
+    <section class="pdp-rec">
+      <div class="pdp-rec-wrap">
+        <h2 class="pdp-rec-h">Lihat juga</h2>
+        <div class="pdp-rec-grid">
+          {related.map((r) => (
+            <a class="pdp-rec-card" href={`/produk/${r.slug}`}>
+              <div class="pdp-rec-frame">
+                {r.badge && <span class="pdp-rec-badge">{r.badge}</span>}
+                <img src={r.gallery[0]} alt={r.name} loading="lazy" />
+              </div>
+              <h3 class="pdp-rec-name">{r.name}</h3>
+              <p class="pdp-rec-price"><span class="pdp-rec-price-pre">from</span> <span class="pdp-rec-price-amt">{rp(r.price_min)}</span></p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
@@ -98,9 +151,9 @@ const lockedSpec = Object.entries(product.locked_spec) as [string, string][];
     display: grid; grid-template-columns: 1fr; gap: 2rem;
   }
   @media (min-width: 960px) {
-    .pdp { padding: 2.5rem 0 6rem; }
+    .pdp { padding: 0.75rem 0 6rem; }
     .pdp-grid { grid-template-columns: minmax(0, 1.35fr) minmax(22rem, 1fr); gap: 3.5rem; padding: 0 2.5rem; align-items: start; }
-    .pdp-rail { position: sticky; top: 100px; }
+    .pdp-gallery { position: sticky; top: 100px; align-self: start; }
   }
 
   /* Gallery */
@@ -163,6 +216,39 @@ const lockedSpec = Object.entries(product.locked_spec) as [string, string][];
   .pdp-spec { list-style: none; padding: 0; margin: 0 0 0.8rem; }
   .pdp-spec li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.45rem 0; border-bottom: 1px dashed #f0f0f0; font-size: 0.88rem; }
   .pdp-spec-k { color: #6b7280; } .pdp-spec-v { color: #1a1a1a; font-weight: 600; text-align: right; }
+
+  /* "How It Feels" + "Fabric / Material" cards — inside the right rail, after the accordions, no chevron */
+  .pdp-card { background: #f7f7f7; border-radius: 0.85rem; padding: 1.1rem 1.15rem; margin-top: 0.9rem; }
+  .pdp-card-h { font-family: var(--font-sans); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #1a1a1a; margin: 0 0 1rem; }
+  .pdp-feel-label { font-family: var(--font-sans); font-size: 0.95rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.7rem; }
+  .pdp-feel-bar { display: block; height: 4px; background: #e6e6e6; border-radius: 999px; overflow: hidden; position: relative; }
+  .pdp-feel-bar-fill { display: block; height: 100%; background: #1a1a1a; border-radius: 999px; }
+  .pdp-feel-ends { display: flex; justify-content: space-between; margin-top: 0.55rem; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 400; font-size: 0.8rem; color: #6b7280; }
+  .pdp-fabric-img { border-radius: 0.7rem; overflow: hidden; aspect-ratio: 16 / 9; background: #f0f0f0; margin-bottom: 1rem; }
+  .pdp-fabric-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pdp-fabric-name { font-family: var(--font-sans); font-size: 1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.3rem; }
+  .pdp-fabric-desc { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 400; font-size: 0.88rem; line-height: 1.55; color: #6b7280; margin: 0; }
+
+  /* "Lihat juga" — recommended products from the same segment, appears after the PDP */
+  .pdp-rec { background: #fff; padding: 3rem 0 5rem; border-top: 1px solid #f0f0f0; }
+  @media (min-width: 960px) { .pdp-rec { padding: 4rem 0 6rem; } }
+  .pdp-rec-wrap { max-width: 84rem; margin: 0 auto; padding: 0 1.25rem; }
+  @media (min-width: 960px) { .pdp-rec-wrap { padding: 0 2.5rem; } }
+  .pdp-rec-h { font-family: var(--font-sans); font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; color: #1a1a1a; margin: 0 0 1.5rem; }
+  .pdp-rec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+  @media (min-width: 720px) { .pdp-rec-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem 1.5rem; } }
+  .pdp-rec-card { display: block; text-decoration: none; color: inherit; }
+  .pdp-rec-frame { position: relative; border-radius: 0.85rem; overflow: hidden; aspect-ratio: 4 / 5; background: #f5f5f5; }
+  .pdp-rec-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms cubic-bezier(0.19,1,0.22,1); }
+  .pdp-rec-badge { position: absolute; top: 0.65rem; left: 0.65rem; z-index: 2; font-family: var(--font-sans); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1a1a1a; background: rgba(255,255,255,0.94); padding: 0.25rem 0.5rem; border-radius: 0.3rem; }
+  .pdp-rec-name { font-family: var(--font-sans); font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.8rem 0 0.25rem; transition: color 180ms ease; }
+  .pdp-rec-price { font-family: var(--font-sans); font-size: 0.85rem; margin: 0; }
+  .pdp-rec-price-pre { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 400; color: #6b7280; }
+  .pdp-rec-price-amt { font-weight: 700; color: #ff4c00; }
+  @media (hover: hover) {
+    .pdp-rec-card:hover .pdp-rec-frame img { transform: scale(1.05); }
+    .pdp-rec-card:hover .pdp-rec-name { color: #ff4c00; }
+  }
 </style>
 
 <script>
