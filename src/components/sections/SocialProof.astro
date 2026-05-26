@@ -3,10 +3,11 @@
 // in alternating directions; the loop duplicate is generated in the template.
 import home from '../../data/home.json';
 
-type Item = { type: 'video'; src: string; href: string; slow: boolean };
+type Item = { type: 'video'; src: string; poster: string; href: string; slow: boolean };
 const reel = (code: string, slow = false): Item => ({
   type: 'video',
   src: `/videos/ig-${code}.mp4`,
+  poster: `/videos/posters/ig-${code}.jpg`,
   href: `https://www.instagram.com/reel/${code}/`,
   slow,
 });
@@ -38,9 +39,7 @@ const { headlinePrefix, handle, handleUrl } = home.social;
               tabindex={i >= items.length ? -1 : undefined}
             >
               {it.type === 'video' ? (
-                <video class="wall-media" muted loop playsinline preload="none" data-video data-slow={it.slow ? 'true' : undefined}>
-                  <source src={it.src} type="video/mp4" />
-                </video>
+                <video class="wall-media" muted loop playsinline preload="none" poster={it.poster} data-video data-src={it.src} data-slow={it.slow ? 'true' : undefined}></video>
               ) : (
                 <img class="wall-media" src={it.src} alt="" loading="lazy" />
               )}
@@ -168,26 +167,6 @@ const { headlinePrefix, handle, handleUrl } = home.social;
     height: 100%;
     object-fit: cover;
     display: block;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-  /* skeleton: shimmer every tile until ALL reels have loaded, then reveal together */
-  .wall.is-ready .wall-media { opacity: 1; }
-  .wall:not(.is-ready) .wall-item::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    background: linear-gradient(100deg, #ececec 30%, #f6f6f6 50%, #ececec 70%);
-    background-size: 200% 100%;
-    animation: wall-skeleton 1.3s ease-in-out infinite;
-  }
-  @keyframes wall-skeleton {
-    0%   { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .wall:not(.is-ready) .wall-item::after { animation: none; }
   }
 
   .wall-overlay {
@@ -213,56 +192,48 @@ const { headlinePrefix, handle, handleUrl } = home.social;
 </style>
 
 <script>
-  // Autoplay videos only while in view; pause off-screen to save resources.
+  // Only attach + play the videos currently in viewport. Posters paint immediately
+  // (~25 KB each); the .mp4 (~1 MB) is fetched lazily, one at a time as it scrolls in.
+  // This is the cure for "lag on the reels section" — we never burst-load all 26 reels.
+  const wall = document.querySelector<HTMLElement>('.wall');
   const vids = document.querySelectorAll<HTMLVideoElement>('.wall [data-video]');
+
+  const attachSource = (v: HTMLVideoElement) => {
+    if (v.querySelector('source')) return;
+    const src = v.dataset.src;
+    if (!src) return;
+    const s = document.createElement('source');
+    s.src = src;
+    s.type = 'video/mp4';
+    v.appendChild(s);
+    try { v.load(); } catch (e) {}
+  };
+
   if (vids.length) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const v = entry.target as HTMLVideoElement;
         if (entry.isIntersecting) {
+          attachSource(v);
           if (v.dataset.slow !== undefined) v.playbackRate = 0.8;
           v.play().catch(() => {});
         } else v.pause();
       });
-    }, { threshold: 0.2 });
-    vids.forEach((v) => {
-      if (v.dataset.slow !== undefined) v.playbackRate = 0.8;
-      io.observe(v);
-    });
+    }, { threshold: 0.25 });
+    vids.forEach((v) => io.observe(v));
   }
 
-  // Pause the marquee animation entirely while the wall is off-screen — stops the
-  // 3 tracks from compositing nonstop (the main "lag on the homepage" cost).
-  const wall = document.querySelector<HTMLElement>('.wall');
+  // Pause the marquee animation AND all videos while the wall is off-screen.
+  // Stops the 3 tracks from compositing + decoding nonstop when the user isn't there.
   if (wall) {
     wall.classList.add('is-offscreen'); // start paused; resume when scrolled into view
     const sectionIO = new IntersectionObserver((entries) => {
-      entries.forEach((e) => wall.classList.toggle('is-offscreen', !e.isIntersecting));
+      entries.forEach((e) => {
+        const off = !e.isIntersecting;
+        wall.classList.toggle('is-offscreen', off);
+        if (off) vids.forEach((v) => v.pause());
+      });
     }, { rootMargin: '200px 0px' });
     sectionIO.observe(wall);
-  }
-
-  // ---- skeleton: hold all reels behind a shimmer until they've ALL loaded, then reveal together ----
-  if (wall && vids.length) {
-    let revealed = false;
-    const reveal = () => { if (revealed) return; revealed = true; wall.classList.add('is-ready'); };
-    let loaded = 0;
-    const tick = () => { loaded += 1; if (loaded >= vids.length) reveal(); };
-    let started = false;
-    const startLoad = () => {
-      if (started) return; started = true;
-      vids.forEach((v) => {
-        if (v.readyState >= 2) { tick(); return; }      // already has its first frame
-        v.addEventListener('loadeddata', tick, { once: true });
-        v.addEventListener('error', tick, { once: true });
-        try { v.preload = 'auto'; v.load(); } catch (e) {}
-      });
-      setTimeout(reveal, 12000);  // fallback so it never skeletons forever
-    };
-    // start loading a bit before the wall scrolls into view
-    const loadIO = new IntersectionObserver((es) => {
-      if (es.some((e) => e.isIntersecting)) { startLoad(); loadIO.disconnect(); }
-    }, { rootMargin: '600px 0px' });
-    loadIO.observe(wall);
   }
 </script>
