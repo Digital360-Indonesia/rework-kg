@@ -1,116 +1,94 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import EndCta from '../components/sections/EndCta.astro';
 
 const metaTitle = 'Personal — Custom Satuan & OOTD | Kustom Garment';
 const metaDescription = 'Outfit harianmu, dibikin sesukamu. Kaos, hoodie, kemeja, sampai totebag — desain bebas, satu pun jadi, tanpa minimum order. Bikin baju. Satu pun oke.';
 
-// --- CMS-ready content ---
+// --- HERO (full-image lookbook — personal's own unique hero) ---
 const hero = {
-  eyebrow: 'Personal',
-  titleLead: 'Outfit harianmu,',
-  titleAccent: 'dibikin sesukamu.',
-  sub: 'Punya desain di kepala? Wujudin jadi satu potong nyata. Kaos, hoodie, kemeja, atau totebag — bikin baju, satu pun oke. Tanpa minimum order.',
-  image: '/images/categories/personal.webp',
+  image: '/images/placeholder/personal-hero.jpg',
   imageAlt: 'OOTD custom Kustom Garment',
+  tagline: 'personal wear',
+  line1: 'Bikin',
+  line2: 'Sesukamu.',
 };
 
-const products = [
-  { image: '/images/placeholder/sample-section3a1%201.png', title: 'T-Shirt Custom', desc: 'Cotton combed premium. DTG, plastisol, atau bordir — desainmu, finishing-mu.' },
-  { image: '/images/placeholder/sample-section3a3%201.png', title: 'Hoodie & Jaket', desc: 'Fleece tebal yang adem-anget. Bikin satu buat dipakai sendiri pun bisa.' },
-  { image: '/images/placeholder/sample-section3a2%201.png', title: 'Kemeja Custom', desc: 'Oxford & poplin dengan motif atau bordir nama. Buat acara atau OOTD.' },
-  { image: '/images/placeholder/sample-section3a4%201.png', title: 'Polo Personal', desc: 'Pique cotton rapi buat tampil casual tapi tetap niat. Warna bebas pilih.' },
-  { image: '/images/placeholder/sample-section3a5%201.png', title: 'Totebag & Aksesoris', desc: 'Tote bag, topi, dan aksesoris custom. Lengkapin gaya harianmu.' },
+// Product-type filters (transparent lineup cutouts). 'all' renders a grid icon.
+const LU = (name: string) => `/images/placeholder/forproducts/20250428-Business_Line-Up_${name}-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp`;
+const lineupFilters = [
+  { id: 'all',    label: 'Semua',  image: '' },
+  { id: 'kaos',   label: 'Kaos',   image: LU('Kaos') },
+  { id: 'jaket',  label: 'Jaket',  image: LU('Jaket') },
+  { id: 'kemeja', label: 'Kemeja', image: LU('Kemeja') },
+  { id: 'polo',   label: 'Polo',   image: LU('Polo') },
 ];
 
-const useCases = [
-  { no: '01', title: 'Satu pun jadi', desc: 'Nggak harus banyak. Mau bikin satu buat dipakai sendiri? Kami kerjakan dengan standar yang sama.' },
-  { no: '02', title: 'Hadiah yang berkesan', desc: 'Bikin baju custom buat sahabat, pasangan, atau keluarga. Personal dan nggak pasaran.' },
-  { no: '03', title: 'Wujudin ide jadi nyata', desc: 'Sketsa di HP, motif favorit, quotes andalan — kami bantu jadiin produk beneran.' },
-];
-
-const showcase = [
-  { img: '/images/categories/20250412-section4-4.webp', alt: 'OOTD custom personal' },
-  { img: '/images/placeholder/sample-section3d.webp', alt: 'Kaos custom personal' },
-  { img: '/images/categories/20250412-section4-3.webp', alt: 'Hoodie custom personal' },
-];
-
-const cta = {
-  lead: 'Punya ide outfit di kepala?',
-  label: 'Bikin baju, satu pun oke',
-  wa: 'https://wa.me/6285161202499?text=' + encodeURIComponent('Halo Kustom Garment, saya mau bikin baju custom personal / OOTD. Satu pun oke ya?'),
+// Color palette (name → hex). SAMPLE.
+const C: Record<string, string> = {
+  'Putih': '#f4f4f4', 'Hitam': '#1a1a1a', 'Navy': '#1b2a4a', 'Abu': '#9ca3af',
+  'Abu Misty': '#b8bcc2', 'Krem': '#e8dcc6', 'Biru Muda': '#bcd3e8', 'Maroon': '#6d1f2f',
+  'Olive': '#5b6236', 'Khaki': '#b3a06a', 'Sage': '#b3c2a3',
 };
+const mk = (names: string[]) => names.map((n) => ({ name: n, hex: C[n] }));
+
+// Product grid (SAMPLE — placeholder shirt photos; swap for real personal product/weared pairs).
+const fp = '/images/placeholder/forproducts';
+const shopProducts = [
+  { name: 'Kaos Custom',   category: 'kaos',   base: `${fp}/p1.jpg`, weared: `${fp}/weared1.jpg`, colors: mk(['Hitam','Putih','Navy','Maroon','Olive']),     more: 14, price: 'Rp 89.000' },
+  { name: 'Jaket Harian',  category: 'jaket',  base: `${fp}/p2.jpg`, weared: `${fp}/weared2.jpg`, colors: mk(['Navy','Hitam','Olive','Khaki','Maroon']),     more: 5,  price: 'Rp 219.000' },
+  { name: 'Kemeja Custom', category: 'kemeja', base: `${fp}/p3.jpg`, weared: `${fp}/weared3.jpg`, colors: mk(['Putih','Biru Muda','Navy','Abu','Hitam']),    more: 6,  price: 'Rp 165.000' },
+  { name: 'Kaos OOTD',     category: 'kaos',   base: `${fp}/p4.jpg`, weared: `${fp}/weared4.jpg`, colors: mk(['Putih','Hitam','Abu Misty','Navy','Krem']),   more: 12, price: 'Rp 95.000' },
+  { name: 'Polo Personal', category: 'polo',   base: `${fp}/p5.jpg`, weared: `${fp}/weared5.jpg`, colors: mk(['Navy','Putih','Hitam','Abu','Maroon']),       more: 6,  price: 'Rp 125.000' },
+  { name: 'Hoodie Custom', category: 'jaket',  base: `${fp}/p6.jpg`, weared: `${fp}/weared6.jpg`, colors: mk(['Hitam','Navy','Olive','Abu','Maroon']),       more: 7,  price: 'Rp 195.000' },
+  { name: 'Kemeja Motif',  category: 'kemeja', base: `${fp}/p7.jpg`, weared: `${fp}/weared7.jpg`, colors: mk(['Biru Muda','Putih','Sage','Abu','Navy']),     more: 5,  price: 'Rp 169.000' },
+  { name: 'Kaos Quotes',   category: 'kaos',   base: `${fp}/p8.jpg`, weared: `${fp}/weared8.jpg`, colors: mk(['Hitam','Putih','Krem','Navy','Maroon']),      more: 9,  price: 'Rp 89.000' },
+];
+
+// Editorial lookbook gallery (full-bleed) — placeholder lifestyle photos for now.
+const lookbook = [
+  { img: '/images/placeholder/personal-1.png', alt: 'OOTD custom Kustom Garment', span: 'tall' },
+  { img: '/images/placeholder/personal-2.png', alt: 'OOTD custom Kustom Garment', span: 'tall' },
+  { img: '/images/placeholder/personal-3.png', alt: 'OOTD custom Kustom Garment', span: 'wide' },
+  { img: '/images/placeholder/personal-4.png', alt: 'OOTD custom Kustom Garment', span: 'tall' },
+  { img: '/images/placeholder/personal-5.png', alt: 'OOTD custom Kustom Garment', span: 'tall' },
+];
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>
   <main class="cat">
-    <!-- HERO (white, big type) -->
-    <section class="cat-hero is-white">
-      <div class="cat-wrap">
-        <span class="cat-eyebrow reveal">{hero.eyebrow}</span>
-        <h1 class="cat-hero-title reveal">{hero.titleLead}<br /><span class="cat-hero-accent-fill">{hero.titleAccent}</span></h1>
-        <p class="cat-hero-sub reveal">{hero.sub}</p>
-        <div class="cat-hero-banner reveal">
-          <img src={hero.image} alt={hero.imageAlt} loading="eager" />
+    <!-- HERO (full-image lookbook) -->
+    <section class="cat-hero is-image">
+      <div class="cat-hero-frame">
+        <img class="cat-hero-bg" src={hero.image} alt={hero.imageAlt} loading="eager" />
+        <div class="cat-hero-center">
+          <div class="cat-hero-lockup reveal">
+            <img class="cat-hero-logo" src="/images/logos/kg-logo.png" alt="Kustom Garment" />
+            <span class="cat-hero-tag">{hero.tagline}</span>
+          </div>
+          <h1 class="cat-hero-big reveal">
+            <span>{hero.line1}</span>
+            <span>{hero.line2}</span>
+          </h1>
         </div>
       </div>
     </section>
 
-    <!-- PRODUCTS -->
-    <section class="cat-products">
-      <div class="cat-wrap">
-        <h2 class="cat-h2 reveal">Bikin apa aja, sesukamu</h2>
-        <div class="cat-prod-grid">
-          {products.map((p, i) => (
-            <article class="cat-prod reveal" style={`transition-delay:${i * 60}ms`}>
-              <div class="cat-prod-frame">
-                <img src={p.image} alt={p.title} loading="lazy" />
-              </div>
-              <h3 class="cat-prod-title">{p.title}</h3>
-              <p class="cat-prod-desc">{p.desc}</p>
-            </article>
-          ))}
-        </div>
+    <!-- LOOKBOOK (editorial photo grid) -->
+    <section class="cat-look">
+      <div class="cat-look-grid">
+        {lookbook.map((l) => (
+          <div class:list={["cat-look-cell", l.span]}>
+            <img src={l.img} alt={l.alt} loading="lazy" />
+          </div>
+        ))}
       </div>
     </section>
 
-    <!-- USE CASES -->
-    <section class="cat-why">
-      <div class="cat-wrap">
-        <h2 class="cat-h2 reveal">Buat apa aja bisa</h2>
-        <div class="cat-why-grid">
-          {useCases.map((u, i) => (
-            <div class="cat-card reveal" style={`transition-delay:${i * 70}ms`}>
-              <span class="cat-card-no">{u.no}</span>
-              <h3 class="cat-card-title">{u.title}</h3>
-              <p class="cat-card-desc">{u.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    {/* Product catalog (filter + grid) hidden for personal for now — data/styles kept below for easy restore. */}
 
-    <!-- SHOWCASE -->
-    <section class="cat-showcase">
-      <div class="cat-wrap">
-        <div class="cat-show-grid">
-          {showcase.map((s) => (
-            <div class="cat-show-frame reveal">
-              <img src={s.img} alt={s.alt} loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cat-cta-sec">
-      <div class="cat-wrap">
-        <p class="cat-cta-lead reveal">{cta.lead}</p>
-        <a class="cat-cta reveal" href={cta.wa} target="_blank" rel="noopener noreferrer">
-          {cta.label} <span aria-hidden="true">→</span>
-        </a>
-      </div>
-    </section>
+    <!-- BANNER (reused homepage end-CTA) closes the page -->
+    <EndCta />
   </main>
 </BaseLayout>
 
@@ -119,101 +97,105 @@ const cta = {
   .cat-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
   @media (min-width: 1024px) { .cat-wrap { padding: 0 2.5rem; } }
 
-  /* HERO (white, big type) */
-  .cat-hero.is-white { background: #ffffff; color: #1a1a1a; padding: 4.5rem 0 1rem; text-align: left; }
-  @media (min-width: 1024px) { .cat-hero.is-white { padding: 7rem 0 2rem; } }
-  .cat-eyebrow {
-    display: inline-block; font-family: var(--font-sans); font-weight: 700;
-    font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: #ff4c00; margin-bottom: 1.25rem;
-  }
-  .cat-hero-title {
-    font-family: var(--font-sans); font-weight: 700;
-    font-size: clamp(2.75rem, 9vw, 6rem); line-height: 1.0; letter-spacing: -0.03em;
-    margin: 0 0 1.5rem; color: #1a1a1a; max-width: 18ch;
-  }
-  .cat-hero-accent-fill { color: #ff4c00; }
-  .cat-hero-sub {
-    font-family: var(--font-sans); font-weight: 600;
-    font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.55;
-    color: #525252; max-width: 42rem; margin: 0 0 2.5rem;
-  }
-  .cat-hero-banner { border-radius: 1.5rem; overflow: hidden; aspect-ratio: 16 / 7; background: #f4f4f4; }
-  .cat-hero-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  /* Shared H2 */
-  .cat-h2 {
-    font-family: var(--font-sans); font-weight: 700;
-    font-size: clamp(1.75rem, 4vw, 3rem); letter-spacing: -0.02em;
-    color: #1a1a1a; margin: 0 0 2.5rem;
+  /* HERO (full-image lookbook, framed full-screen with light margins) */
+  .cat-hero.is-image { background: #ffffff; padding: 0.6rem 0.6rem 0; }
+  @media (min-width: 1024px) { .cat-hero.is-image { padding: 0.85rem 0.85rem 0; } }
+  .cat-hero-frame { position: relative; min-height: calc(100svh - 0.6rem); display: grid; place-items: center; overflow: hidden; border-radius: 1.25rem; background: #141414; }
+  @media (min-width: 1024px) { .cat-hero-frame { min-height: calc(100svh - 0.85rem); border-radius: 1.5rem; } }
+  .cat-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cat-hero-center { position: relative; z-index: 1; text-align: center; padding: 0 1.5rem; color: #ffffff; }
+  /* Header auto-hides over this full-screen hero; peeks on hover-to-top / scroll-up (personal only) */
+  :global(#main-header) { position: fixed; left: 0; right: 0; top: 0; transform: translateY(-100%); transition: transform 320ms cubic-bezier(0.19, 1, 0.22, 1); will-change: transform; }
+  :global(body.hdr-show #main-header) { transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { :global(#main-header) { transition: none; } }
+  .cat-hero-lockup { display: inline-flex; align-items: center; gap: 0.55rem; margin-bottom: 1.1rem; }
+  .cat-hero-logo { height: 1.15rem; width: auto; display: block; filter: brightness(0) invert(1); }
+  .cat-hero-tag { font-family: Constantia, Georgia, 'Times New Roman', serif; font-weight: 400; font-size: 0.9375rem; letter-spacing: 0.06em; color: rgba(255,255,255,0.92); }
+  .cat-hero-big {
+    font-family: Constantia, Georgia, 'Times New Roman', serif; font-weight: 400;
+    font-size: clamp(3.5rem, 13vw, 9.5rem); line-height: 0.92; letter-spacing: -0.03em;
+    color: #ffffff; margin: 0; display: flex; flex-direction: column;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.25);
   }
 
-  /* PRODUCTS */
-  .cat-products { padding: 5rem 0 1rem; }
-  @media (min-width: 1024px) { .cat-products { padding: 7rem 0 1.5rem; } }
-  .cat-prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 1.25rem; }
-  @media (min-width: 768px) { .cat-prod-grid { grid-template-columns: repeat(3, 1fr); gap: 2.25rem 1.75rem; } }
-  .cat-prod { display: block; }
-  .cat-prod-frame {
-    position: relative; border-radius: 1.25rem; overflow: hidden;
-    aspect-ratio: 4 / 3; background: #f5f5f5; display: grid; place-items: center;
+  /* PRODUCT FILTER (lineup) */
+  .cat-lineup { padding: 4.5rem 0 0.5rem; }
+  @media (min-width: 1024px) { .cat-lineup { padding: 6rem 0 0.5rem; } }
+  .cat-lineup-row {
+    display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x proximity;
+    scrollbar-width: none; padding-top: 0.5rem; padding-bottom: 0.5rem;
+    margin: 0 -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem;
   }
-  .cat-prod-frame img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 700ms cubic-bezier(0.19,1,0.22,1); }
-  @media (hover: hover) { .cat-prod:hover .cat-prod-frame img { transform: scale(1.06); } }
-  .cat-prod-title { font-family: var(--font-sans); font-weight: 700; font-size: 1.125rem; letter-spacing: -0.01em; color: #1a1a1a; margin: 1rem 0 0.35rem; }
-  .cat-prod-desc { font-family: var(--font-sans); font-weight: 600; font-size: 0.875rem; line-height: 1.5; color: #6b7280; margin: 0; }
-
-  /* WHY / USE CASES */
-  .cat-why { padding: 5rem 0; }
-  @media (min-width: 1024px) { .cat-why { padding: 7rem 0; } }
-  .cat-why-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-  @media (min-width: 768px) { .cat-why-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
-  .cat-card { background: #f5f5f5; border-radius: 1.25rem; padding: 2rem; transition: background 280ms ease, transform 280ms ease, opacity 700ms ease; }
-  .cat-card-no { font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; color: #ff4c00; letter-spacing: 0.1em; }
-  .cat-card-title { font-family: var(--font-sans); font-weight: 700; font-size: 1.375rem; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.75rem 0 0.5rem; }
-  .cat-card-desc { font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.55; color: #6b7280; margin: 0; }
+  .cat-lineup-row::-webkit-scrollbar { display: none; }
+  @media (min-width: 1024px) { .cat-lineup-row { margin: 0 -2.5rem; padding-left: 2.5rem; padding-right: 2.5rem; justify-content: flex-start; } }
+  .cat-lineup-item {
+    flex: 0 0 auto; width: 6rem; background: none; border: none; padding: 0; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 0.55rem; scroll-snap-align: start;
+  }
+  .cat-lineup-thumb { width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; background: #f4f4f4; display: grid; place-items: center; padding: 16%; box-shadow: 0 0 0 2px transparent, 0 0 0 4px transparent; transition: box-shadow 200ms ease; }
+  .cat-lineup-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 600ms cubic-bezier(0.19,1,0.22,1); }
+  .cat-lineup-all { display: grid; grid-template-columns: 1fr 1fr; gap: 22%; width: 64%; height: 64%; }
+  .cat-lineup-all i { background: #c4c4c4; border-radius: 0.2rem; transition: background 200ms ease; }
+  .cat-lineup-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.8125rem; color: #6b7280; transition: color 200ms ease; }
+  .cat-lineup-item.is-active .cat-lineup-thumb { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ff4c00; }
+  .cat-lineup-item.is-active .cat-lineup-all i { background: #ff4c00; }
+  .cat-lineup-item.is-active .cat-lineup-label { color: #1a1a1a; }
   @media (hover: hover) {
-    .cat-card:hover { background: #ff4c00; transform: translateY(-4px); }
-    .cat-card:hover .cat-card-no { color: #ffffff; }
-    .cat-card:hover .cat-card-title { color: #ffffff; }
-    .cat-card:hover .cat-card-desc { color: rgba(255,255,255,0.9); }
+    .cat-lineup-item:hover .cat-lineup-thumb img { transform: scale(1.06); }
+    .cat-lineup-item:hover .cat-lineup-label { color: #ff4c00; }
   }
 
-  /* SHOWCASE */
-  .cat-showcase { padding: 0 0 5rem; }
-  @media (min-width: 1024px) { .cat-showcase { padding: 0 0 7rem; } }
-  .cat-show-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-  @media (min-width: 768px) { .cat-show-grid { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
-  .cat-show-frame { border-radius: 1.25rem; overflow: hidden; aspect-ratio: 4 / 5; background: #f4f4f4; }
-  .cat-show-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 800ms cubic-bezier(0.19,1,0.22,1); }
-  @media (hover: hover) { .cat-show-frame:hover img { transform: scale(1.05); } }
-
-  /* CTA */
-  .cat-cta-sec { padding: 0 0 6rem; }
-  @media (min-width: 1024px) { .cat-cta-sec { padding: 0 0 8rem; } }
-  .cat-cta-lead { font-family: var(--font-sans); font-weight: 600; font-size: 1rem; color: #6b7280; margin: 0 0 0.5rem; }
-  .cat-cta {
-    display: inline-flex; align-items: baseline; gap: 0.5rem; position: relative;
-    font-family: var(--font-sans); font-weight: 700; font-size: clamp(1.75rem, 4vw, 3rem);
-    letter-spacing: -0.02em; color: #1a1a1a; text-decoration: none; padding-bottom: 0.12em;
-  }
-  .cat-cta span { color: #ff4c00; display: inline-block; transition: transform 320ms cubic-bezier(0.19,1,0.22,1); }
-  .cat-cta::after {
-    content: ''; position: absolute; left: 0; bottom: 0; width: 100%; height: 3px;
-    background: #ff4c00; transform: scaleX(0); transform-origin: left;
-    transition: transform 460ms cubic-bezier(0.19,1,0.22,1);
-  }
+  /* PRODUCT GRID */
+  @media (min-width: 1024px) { .cat-lineup .cat-wrap, .cat-shop .cat-wrap { max-width: 90rem; } }
+  .cat-shop { padding: 2.5rem 0 5rem; }
+  @media (min-width: 1024px) { .cat-shop { padding: 3rem 0 7rem; } }
+  .cat-shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 1.25rem; }
+  @media (min-width: 768px) { .cat-shop-grid { grid-template-columns: repeat(3, 1fr); gap: 2.75rem 1.5rem; } }
+  @media (min-width: 1024px) { .cat-shop-grid { grid-template-columns: repeat(5, 1fr); } }
+  .cat-shop-card { display: block; }
+  .cat-shop-card.is-hidden { display: none; }
+  .cat-shop-card.cat-shop-anim { animation: cat-shop-pop 460ms cubic-bezier(0.19,1,0.22,1) both; }
+  @keyframes cat-shop-pop { from { opacity: 0; transform: translateY(12px) scale(0.985); } to { opacity: 1; transform: none; } }
+  .cat-shop-frame { position: relative; border-radius: 1rem; overflow: hidden; aspect-ratio: 3 / 4; background: #f4f4f4; }
+  .cat-shop-base, .cat-shop-weared { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 450ms ease; }
+  .cat-shop-weared { opacity: 0; }
   @media (hover: hover) {
-    .cat-cta:hover::after { transform: scaleX(1); }
-    .cat-cta:hover span { transform: translateX(8px); }
+    .cat-shop-card:hover .cat-shop-base { opacity: 0; }
+    .cat-shop-card:hover .cat-shop-weared { opacity: 1; }
   }
+  .cat-shop-name { font-family: var(--font-sans); font-weight: 400; font-size: 1.0625rem; line-height: 1.2; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.9rem 0 0; }
+  .cat-shop-color { font-family: var(--font-sans); font-weight: 400; font-size: 0.875rem; color: #9ca3af; margin: 0.2rem 0 0; }
+  .cat-shop-swatches { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.7rem; }
+  .cat-shop-swatch {
+    width: 1.5rem; height: 1.2rem; border-radius: 0.3rem; background: var(--sw);
+    border: 1px solid rgba(0,0,0,0.12); padding: 0; cursor: pointer;
+    box-shadow: 0 0 0 2px #fff, 0 0 0 2px transparent; transition: box-shadow 180ms ease;
+  }
+  .cat-shop-swatch.is-active { box-shadow: 0 0 0 2px #fff, 0 0 0 3px #9ca3af; }
+  .cat-shop-more { font-family: var(--font-sans); font-weight: 600; font-size: 0.8125rem; color: #6b7280; margin-left: 0.2rem; }
+  .cat-shop-price { font-family: var(--font-sans); font-size: 0.8125rem; margin: 0.75rem 0 0; }
+  .cat-shop-price-pre { font-weight: 400; font-size: 0.8125rem; color: #6b7280; }
+  .cat-shop-price-amt { font-weight: 600; color: #ff4c00; }
+
+  /* LOOKBOOK (editorial photo grid, full-bleed) */
+  .cat-look { background: #ffffff; padding: 2px 0.6rem 0; }
+  @media (min-width: 1024px) { .cat-look { padding: 2px 0.85rem 0; } }
+  .cat-look-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .cat-look-cell { overflow: hidden; background: #f4f4f4; }
+  .cat-look-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* 2-up rows: full-width split, center grid line, height fits the screen exactly */
+  .cat-look-cell.tall { height: 62svh; }
+  @media (min-width: 768px) { .cat-look-cell.tall { height: 100svh; } }
+  .cat-look-cell.wide { grid-column: 1 / -1; aspect-ratio: 16 / 7; max-height: 90vh; }
+  @media (max-width: 640px) { .cat-look-cell.wide { aspect-ratio: 16 / 11; } }
 
   /* Reveal */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.19,1,0.22,1); }
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
-    .cat-prod-frame img, .cat-show-frame img { transition: none; }
+    .cat-lineup-thumb img, .cat-shop-base, .cat-shop-weared, .cat-look-cell img { transition: none; }
+    .cat-shop-card.cat-shop-anim { animation: none; }
   }
 </style>
 
@@ -222,4 +204,57 @@ const cta = {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Personal: header stays hidden; reveals only when hovering to the very top.
+  // Touch devices have no hover, so they fall back to scroll-up for nav access.
+  const hoverCapable = window.matchMedia('(hover: hover)').matches;
+  let lastY = window.scrollY;
+  const syncHeader = (mouseY: number | null) => {
+    const y = window.scrollY;
+    const up = y < lastY - 2;
+    lastY = y;
+    const nearTop = mouseY != null && mouseY < 90;
+    const show = hoverCapable ? nearTop : (up && y > 60);
+    document.body.classList.toggle('hdr-show', show);
+  };
+  window.addEventListener('mousemove', (e) => syncHeader(e.clientY), { passive: true });
+  window.addEventListener('scroll', () => syncHeader(null), { passive: true });
+  syncHeader(null);
+
+  // Lineup filter — sets active state and filters the product grid
+  const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('.cat-lineup-item'));
+  const shopCards = Array.from(document.querySelectorAll<HTMLElement>('.cat-shop-card'));
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filters.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const cat = btn.dataset.filter;
+      let vis = 0;
+      shopCards.forEach((c) => {
+        const show = cat === 'all' || c.dataset.category === cat;
+        c.classList.toggle('is-hidden', !show);
+        if (show) {
+          c.classList.add('in');
+          c.classList.remove('cat-shop-anim');
+          void c.offsetWidth;
+          c.style.animationDelay = `${vis * 45}ms`;
+          c.classList.add('cat-shop-anim');
+          vis++;
+        }
+      });
+    });
+  });
+
+  // Color swatches — active state + update the shown color name, per card
+  document.querySelectorAll<HTMLElement>('.cat-shop-card').forEach((card) => {
+    const nameEl = card.querySelector<HTMLElement>('.cat-shop-color');
+    const swatches = Array.from(card.querySelectorAll<HTMLButtonElement>('.cat-shop-swatch'));
+    swatches.forEach((sw) => {
+      sw.addEventListener('click', () => {
+        swatches.forEach((s) => s.classList.remove('is-active'));
+        sw.classList.add('is-active');
+        if (nameEl && sw.dataset.color) nameEl.textContent = sw.dataset.color;
+      });
+    });
+  });
 </script>

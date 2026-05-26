@@ -168,6 +168,26 @@ const { headlinePrefix, handle, handleUrl } = home.social;
     height: 100%;
     object-fit: cover;
     display: block;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  /* skeleton: shimmer every tile until ALL reels have loaded, then reveal together */
+  .wall.is-ready .wall-media { opacity: 1; }
+  .wall:not(.is-ready) .wall-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background: linear-gradient(100deg, #ececec 30%, #f6f6f6 50%, #ececec 70%);
+    background-size: 200% 100%;
+    animation: wall-skeleton 1.3s ease-in-out infinite;
+  }
+  @keyframes wall-skeleton {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .wall:not(.is-ready) .wall-item::after { animation: none; }
   }
 
   .wall-overlay {
@@ -220,5 +240,29 @@ const { headlinePrefix, handle, handleUrl } = home.social;
       entries.forEach((e) => wall.classList.toggle('is-offscreen', !e.isIntersecting));
     }, { rootMargin: '200px 0px' });
     sectionIO.observe(wall);
+  }
+
+  // ---- skeleton: hold all reels behind a shimmer until they've ALL loaded, then reveal together ----
+  if (wall && vids.length) {
+    let revealed = false;
+    const reveal = () => { if (revealed) return; revealed = true; wall.classList.add('is-ready'); };
+    let loaded = 0;
+    const tick = () => { loaded += 1; if (loaded >= vids.length) reveal(); };
+    let started = false;
+    const startLoad = () => {
+      if (started) return; started = true;
+      vids.forEach((v) => {
+        if (v.readyState >= 2) { tick(); return; }      // already has its first frame
+        v.addEventListener('loadeddata', tick, { once: true });
+        v.addEventListener('error', tick, { once: true });
+        try { v.preload = 'auto'; v.load(); } catch (e) {}
+      });
+      setTimeout(reveal, 12000);  // fallback so it never skeletons forever
+    };
+    // start loading a bit before the wall scrolls into view
+    const loadIO = new IntersectionObserver((es) => {
+      if (es.some((e) => e.isIntersecting)) { startLoad(); loadIO.disconnect(); }
+    }, { rootMargin: '600px 0px' });
+    loadIO.observe(wall);
   }
 </script>

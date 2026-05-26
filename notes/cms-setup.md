@@ -11,8 +11,8 @@ All editable content is externalized into JSON the components import:
 | `src/data/site-config.json` | Header nav + CTA, contact, socials, **footer** (tagline, info links, legal, descriptor) | ✅ wired |
 | `src/data/home.json` | Homepage: ticker, hero slides, scene gallery, social wall (reels), end-CTA banner | ✅ wired |
 | `src/data/categories.json` | Homepage category showcases (business/community/campus/personal). `categories.ts` is now a typed wrapper around it. | ✅ wired |
-| `src/pages/about.astro`, `partnership.astro`, `faq.astro` | content hardcoded in frontmatter objects | ⏳ to externalize (after page agent finishes, to avoid conflicts) |
-| `src/pages/business|community|campus|personal.astro` | content in frontmatter objects | ⏳ to externalize |
+| `src/data/about.json`, `partnership.json`, `faq.json` | About / Partner / FAQ content (meta, stats, values, ways, collabs, logos, Q&A) | ✅ wired — "pages" collection (2026-05-23) |
+| `src/pages/business|community|campus|personal.astro` | content in frontmatter objects | ⏳ to externalize (after Page-Builder finishes their WIP on these) |
 | `src/content/blog/` | Blog posts (markdown) | ✅ collection defined |
 
 Components that read the model: `Ticker`, `Hero`, `SceneGallery`, `SocialProof`, `EndCta`, `Footer`, `Header`.
