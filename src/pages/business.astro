@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
-import ProductLineup from '../components/sections/ProductLineup.astro';
+import catalog from '../data/products/catalog.json';
 
 const metaTitle = 'Business — Seragam & Apparel Kerja | Kustom Garment';
 const metaDescription = 'Seragam kantor, polo, kemeja, sampai wearpack — dibikin rapi dan on-brand untuk timmu. Tanpa minimum order, bordir logo beres, invoice & faktur pajak siap.';
@@ -17,40 +17,14 @@ const hero = {
 // Customer/client logos for the trust strip.
 const clients = ['klien-1.png','klien-2.png','klien-3.png','klien-4.png','klien-5.png','klien-6.png','klien-7.png','klien-8.png','klien-9.png','klien-10.png','klien-11.png','klien-12.png','klien-13.png'];
 
-// Product-type filters. Thumbnails = the transparent lineup cutouts. 'all' renders a grid icon.
+// Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
+const SEG = 'business';
+const rpFmt = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(n);
+const shopItems = (catalog.archetypes as any[]).filter((a) => a.segment === SEG);
+const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kaos', jaket: 'Jaket', rompi: 'Rompi', wearpack: 'Wearpack' };
 const LU = (name: string) => `/images/placeholder/forproducts/20250428-Business_Line-Up_${name}-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp`;
-const lineupFilters = [
-  { id: 'all',      label: 'Semua',    image: '' },
-  { id: 'kemeja',   label: 'Kemeja',   image: LU('Kemeja') },
-  { id: 'polo',     label: 'Polo',     image: LU('Polo') },
-  { id: 'kaos',     label: 'Kaos',     image: LU('Kaos') },
-  { id: 'jaket',    label: 'Jaket',    image: LU('Jaket') },
-  { id: 'wearpack', label: 'Wearpack', image: LU('Wearpack') },
-  { id: 'rompi',    label: 'Rompi',    image: LU('Rompi') },
-];
-
-// Color palette (name → hex). SAMPLE — swap for real warna/bahan later.
-const C: Record<string, string> = {
-  'Putih': '#f4f4f4', 'Hitam': '#1a1a1a', 'Navy': '#1b2a4a', 'Abu': '#9ca3af',
-  'Abu Misty': '#b8bcc2', 'Krem': '#e8dcc6', 'Biru Muda': '#bcd3e8', 'Maroon': '#6d1f2f',
-  'Olive': '#5b6236', 'Khaki': '#b3a06a', 'Pink Muda': '#e8c4cc', 'Oranye': '#ee6a2a',
-  'Sage': '#b3c2a3', 'Coklat': '#6b4a2f',
-};
-const mk = (names: string[]) => names.map((n) => ({ name: n, hex: C[n] }));
-
-// Product grid (SAMPLE). base = flat shot, weared = worn shot (hover swap).
-// Each card: own colors (first = default shown), '+more' count, and price — all sample data.
-const fp = '/images/placeholder/forproducts';
-const shopProducts = [
-  { name: 'Kemeja Formal Non-Iron',    category: 'kemeja',   base: `${fp}/p1.jpg`, weared: `${fp}/weared1.jpg`, colors: mk(['Putih','Biru Muda','Navy','Abu','Hitam']),    more: 8,  price: 'Rp 159.000' },
-  { name: 'Jaket Harrington',          category: 'jaket',    base: `${fp}/p2.jpg`, weared: `${fp}/weared2.jpg`, colors: mk(['Olive','Navy','Hitam','Khaki','Maroon']),     more: 4,  price: 'Rp 285.000' },
-  { name: 'Polo Pique Premium',        category: 'polo',     base: `${fp}/p3.jpg`, weared: `${fp}/weared3.jpg`, colors: mk(['Navy','Putih','Hitam','Abu','Maroon']),       more: 6,  price: 'Rp 129.000' },
-  { name: 'Kaos Cotton Combed 24s',    category: 'kaos',     base: `${fp}/p4.jpg`, weared: `${fp}/weared4.jpg`, colors: mk(['Hitam','Putih','Abu Misty','Navy','Maroon']), more: 12, price: 'Rp 89.000' },
-  { name: 'Kemeja Oxford Button-Down', category: 'kemeja',   base: `${fp}/p5.jpg`, weared: `${fp}/weared5.jpg`, colors: mk(['Biru Muda','Putih','Pink Muda','Abu','Navy']),more: 5,  price: 'Rp 169.000' },
-  { name: 'Wearpack Drill Pro',        category: 'wearpack', base: `${fp}/p6.jpg`, weared: `${fp}/weared6.jpg`, colors: mk(['Navy','Abu','Hitam','Oranye','Khaki']),       more: 3,  price: 'Rp 245.000' },
-  { name: 'Rompi Outdoor Lapangan',    category: 'rompi',    base: `${fp}/p7.jpg`, weared: `${fp}/weared7.jpg`, colors: mk(['Hitam','Olive','Navy','Abu','Oranye']),       more: 4,  price: 'Rp 119.000' },
-  { name: 'Kemeja Linen Krem',         category: 'kemeja',   base: `${fp}/p8.jpg`, weared: `${fp}/weared8.jpg`, colors: mk(['Krem','Putih','Biru Muda','Sage','Coklat']),  more: 6,  price: 'Rp 175.000' },
-];
+const presentTypes = [...new Set(shopItems.map((a) => a.garment_type))] as string[];
+const lineupFilters = [{ id: 'all', label: 'Semua', image: '' }, ...presentTypes.map((t) => ({ id: t, label: GTL[t] || t, image: LU(GTL[t] || t) }))];
 
 // Comparison — Kustom Garment vs the alternatives. KG is always ✓; the alternative is
 // 'no' (✗), 'partial' (– = terbatas/tergantung), or 'yes' (✓) per row.
@@ -114,9 +88,6 @@ const compare = {
       </div>
     </section>
 
-    <!-- CUSTOMIZE-ONLINE LINEUP (catalog-driven → product page → customizer) -->
-    <ProductLineup segment="business" title="Bisa kamu kustom online" subtitle="Pilih produk, atur sendiri bahan, warna, style & dekorasi, lalu lanjut via WhatsApp." />
-
     <!-- PRODUCT FILTER (lineup) -->
     <section class="cat-lineup">
       <div class="cat-wrap">
@@ -139,22 +110,17 @@ const compare = {
     <section class="cat-shop">
       <div class="cat-wrap">
         <div class="cat-shop-grid">
-          {shopProducts.map((p, i) => (
-            <article class="cat-shop-card reveal" style={`transition-delay:${(i % 4) * 60}ms`} data-category={p.category}>
+          {shopItems.map((p, i) => (
+            <a class="cat-shop-card reveal" style={`transition-delay:${(i % 4) * 60}ms`} data-category={p.garment_type} href={`/produk/${p.slug}`}>
               <div class="cat-shop-frame">
-                <img class="cat-shop-base" src={p.base} alt={p.name} loading="lazy" />
-                <img class="cat-shop-weared" src={p.weared} alt={`${p.name} dipakai`} loading="lazy" />
+                {p.badge && <span class="cat-shop-badge">{p.badge}</span>}
+                <img class="cat-shop-base" src={p.gallery[0]} alt={p.name} loading="lazy" />
+                {p.gallery[1] && <img class="cat-shop-weared" src={p.gallery[1]} alt="" loading="lazy" />}
               </div>
               <h3 class="cat-shop-name">{p.name}</h3>
-              <p class="cat-shop-color">{p.colors[0].name}</p>
-              <div class="cat-shop-swatches">
-                {p.colors.map((c, ci) => (
-                  <button class:list={["cat-shop-swatch", { 'is-active': ci === 0 }]} style={`--sw:${c.hex}`} data-color={c.name} title={c.name} aria-label={c.name} type="button"></button>
-                ))}
-                {p.more > 0 && <span class="cat-shop-more">+{p.more}</span>}
-              </div>
-              <p class="cat-shop-price"><span class="cat-shop-price-pre">from</span> <span class="cat-shop-price-amt">{p.price}</span></p>
-            </article>
+              <p class="cat-shop-color">{p.positioning}</p>
+              <p class="cat-shop-price"><span class="cat-shop-price-pre">from</span> <span class="cat-shop-price-amt">{rpFmt(p.price_min)}</span></p>
+            </a>
           ))}
         </div>
       </div>
@@ -280,8 +246,9 @@ const compare = {
   .cat-shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 1.25rem; }
   @media (min-width: 768px) { .cat-shop-grid { grid-template-columns: repeat(3, 1fr); gap: 2.75rem 1.5rem; } }
   @media (min-width: 1024px) { .cat-shop-grid { grid-template-columns: repeat(5, 1fr); } }
-  .cat-shop-card { display: block; }
+  .cat-shop-card { display: block; text-decoration: none; color: inherit; }
   .cat-shop-card.is-hidden { display: none; }
+  .cat-shop-badge { position: absolute; top: 0.7rem; left: 0.7rem; z-index: 2; font-family: var(--font-sans); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1a1a1a; background: rgba(255,255,255,0.94); padding: 0.25rem 0.5rem; border-radius: 0.3rem; }
   .cat-shop-card.cat-shop-anim { animation: cat-shop-pop 460ms cubic-bezier(0.19,1,0.22,1) both; }
   @keyframes cat-shop-pop { from { opacity: 0; transform: translateY(12px) scale(0.985); } to { opacity: 1; transform: none; } }
   .cat-shop-frame { position: relative; border-radius: 1rem; overflow: hidden; aspect-ratio: 3 / 4; background: #f4f4f4; }
@@ -292,11 +259,12 @@ const compare = {
     .cat-shop-card:hover .cat-shop-weared { opacity: 1; }
   }
   .cat-shop-name { font-family: var(--font-sans); font-weight: 400; font-size: 1.0625rem; line-height: 1.2; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.9rem 0 0; }
-  .cat-shop-color { font-family: var(--font-sans); font-weight: 400; font-size: 0.875rem; color: #9ca3af; margin: 0.2rem 0 0; }
+  /* tagline uses system fallback (SF Pro Display has no Regular loaded → falls back to Semibold) */
+  .cat-shop-color { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 400; font-size: 0.875rem; line-height: 1.4; color: #9ca3af; margin: 0.3rem 0 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.45em; }
   .cat-shop-swatches { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.7rem; }
   .cat-shop-swatch {
     width: 1.5rem; height: 1.2rem; border-radius: 0.3rem; background: var(--sw);
-    border: 1px solid rgba(0,0,0,0.12); padding: 0; cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.12); padding: 0; cursor: default; pointer-events: none;
     box-shadow: 0 0 0 2px #fff, 0 0 0 2px transparent; transition: box-shadow 180ms ease;
   }
   .cat-shop-swatch.is-active { box-shadow: 0 0 0 2px #fff, 0 0 0 3px #9ca3af; }

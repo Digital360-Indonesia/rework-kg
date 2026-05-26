@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
+import catalog from '../data/products/catalog.json';
 
 const metaTitle = 'Campus — Jaket Angkatan, Merch Ospek & Wisuda | Kustom Garment';
 const metaDescription = 'Dari ospek sampai wisuda — jaket angkatan, kaos panitia, jersey turnamen, sampai totebag himpunan. Custom anak kampus, tanpa minimum order.';
@@ -15,36 +16,14 @@ const hero = {
   imageAlt: 'Merch kampus custom Kustom Garment',
 };
 
-// Product-type filters (transparent lineup cutouts). 'all' renders a grid icon.
+// Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
+const SEG = 'campus';
+const rpFmt = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(n);
+const shopItems = (catalog.archetypes as any[]).filter((a) => a.segment === SEG);
+const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kaos', jaket: 'Jaket', rompi: 'Rompi', wearpack: 'Wearpack' };
 const LU = (name: string) => `/images/placeholder/forproducts/20250428-Business_Line-Up_${name}-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp`;
-const lineupFilters = [
-  { id: 'all',    label: 'Semua',  image: '' },
-  { id: 'kaos',   label: 'Kaos',   image: LU('Kaos') },
-  { id: 'jaket',  label: 'Jaket',  image: LU('Jaket') },
-  { id: 'kemeja', label: 'Kemeja', image: LU('Kemeja') },
-  { id: 'polo',   label: 'Polo',   image: LU('Polo') },
-];
-
-// Color palette (name → hex). SAMPLE.
-const C: Record<string, string> = {
-  'Putih': '#f4f4f4', 'Hitam': '#1a1a1a', 'Navy': '#1b2a4a', 'Abu': '#9ca3af',
-  'Abu Misty': '#b8bcc2', 'Krem': '#e8dcc6', 'Biru Muda': '#bcd3e8', 'Maroon': '#6d1f2f',
-  'Olive': '#5b6236', 'Khaki': '#b3a06a', 'Sage': '#b3c2a3',
-};
-const mk = (names: string[]) => names.map((n) => ({ name: n, hex: C[n] }));
-
-// Product grid (SAMPLE — placeholder shirt photos; swap for real campus product/weared pairs).
-const fp = '/images/placeholder/forproducts';
-const shopProducts = [
-  { name: 'Kaos Panitia',         category: 'kaos',   base: `${fp}/p1.jpg`, weared: `${fp}/weared1.jpg`, colors: mk(['Hitam','Putih','Navy','Maroon','Olive']),     more: 10, price: 'Rp 79.000' },
-  { name: 'Jaket Angkatan',       category: 'jaket',  base: `${fp}/p2.jpg`, weared: `${fp}/weared2.jpg`, colors: mk(['Navy','Hitam','Maroon','Olive','Khaki']),     more: 6,  price: 'Rp 245.000' },
-  { name: 'Kemeja Wisuda',        category: 'kemeja', base: `${fp}/p3.jpg`, weared: `${fp}/weared3.jpg`, colors: mk(['Putih','Biru Muda','Navy','Abu','Hitam']),    more: 5,  price: 'Rp 159.000' },
-  { name: 'Kaos Ospek',           category: 'kaos',   base: `${fp}/p4.jpg`, weared: `${fp}/weared4.jpg`, colors: mk(['Putih','Hitam','Abu Misty','Navy','Maroon']), more: 12, price: 'Rp 75.000' },
-  { name: 'Polo Himpunan',        category: 'polo',   base: `${fp}/p5.jpg`, weared: `${fp}/weared5.jpg`, colors: mk(['Navy','Putih','Hitam','Abu','Maroon']),       more: 6,  price: 'Rp 119.000' },
-  { name: 'Jaket Coach Fakultas', category: 'jaket',  base: `${fp}/p6.jpg`, weared: `${fp}/weared6.jpg`, colors: mk(['Hitam','Navy','Olive','Maroon','Khaki']),     more: 4,  price: 'Rp 235.000' },
-  { name: 'Kemeja Sidang',        category: 'kemeja', base: `${fp}/p7.jpg`, weared: `${fp}/weared7.jpg`, colors: mk(['Putih','Biru Muda','Abu','Sage','Navy']),     more: 5,  price: 'Rp 155.000' },
-  { name: 'Kaos Angkatan',        category: 'kaos',   base: `${fp}/p8.jpg`, weared: `${fp}/weared8.jpg`, colors: mk(['Hitam','Putih','Krem','Navy','Maroon']),      more: 8,  price: 'Rp 85.000' },
-];
+const presentTypes = [...new Set(shopItems.map((a) => a.garment_type))] as string[];
+const lineupFilters = [{ id: 'all', label: 'Semua', image: '' }, ...presentTypes.map((t) => ({ id: t, label: GTL[t] || t, image: LU(GTL[t] || t) }))];
 
 // Comparison — KG always ✓; alternative is 'no' (✗), 'partial' (–), or 'yes' (✓).
 const ICON_YES = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>';
@@ -119,22 +98,17 @@ const compare = {
     <section class="cat-shop">
       <div class="cat-wrap">
         <div class="cat-shop-grid">
-          {shopProducts.map((p, i) => (
-            <article class="cat-shop-card reveal" style={`transition-delay:${(i % 4) * 60}ms`} data-category={p.category}>
+          {shopItems.map((p, i) => (
+            <a class="cat-shop-card reveal" style={`transition-delay:${(i % 4) * 60}ms`} data-category={p.garment_type} href={`/produk/${p.slug}`}>
               <div class="cat-shop-frame">
-                <img class="cat-shop-base" src={p.base} alt={p.name} loading="lazy" />
-                <img class="cat-shop-weared" src={p.weared} alt={`${p.name} dipakai`} loading="lazy" />
+                {p.badge && <span class="cat-shop-badge">{p.badge}</span>}
+                <img class="cat-shop-base" src={p.gallery[0]} alt={p.name} loading="lazy" />
+                {p.gallery[1] && <img class="cat-shop-weared" src={p.gallery[1]} alt="" loading="lazy" />}
               </div>
               <h3 class="cat-shop-name">{p.name}</h3>
-              <p class="cat-shop-color">{p.colors[0].name}</p>
-              <div class="cat-shop-swatches">
-                {p.colors.map((c, ci) => (
-                  <button class:list={["cat-shop-swatch", { 'is-active': ci === 0 }]} style={`--sw:${c.hex}`} data-color={c.name} title={c.name} aria-label={c.name} type="button"></button>
-                ))}
-                {p.more > 0 && <span class="cat-shop-more">+{p.more}</span>}
-              </div>
-              <p class="cat-shop-price"><span class="cat-shop-price-pre">from</span> <span class="cat-shop-price-amt">{p.price}</span></p>
-            </article>
+              <p class="cat-shop-color">{p.positioning}</p>
+              <p class="cat-shop-price"><span class="cat-shop-price-pre">from</span> <span class="cat-shop-price-amt">{rpFmt(p.price_min)}</span></p>
+            </a>
           ))}
         </div>
       </div>
@@ -252,8 +226,9 @@ const compare = {
   .cat-shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 1.25rem; }
   @media (min-width: 768px) { .cat-shop-grid { grid-template-columns: repeat(3, 1fr); gap: 2.75rem 1.5rem; } }
   @media (min-width: 1024px) { .cat-shop-grid { grid-template-columns: repeat(5, 1fr); } }
-  .cat-shop-card { display: block; }
+  .cat-shop-card { display: block; text-decoration: none; color: inherit; }
   .cat-shop-card.is-hidden { display: none; }
+  .cat-shop-badge { position: absolute; top: 0.7rem; left: 0.7rem; z-index: 2; font-family: var(--font-sans); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1a1a1a; background: rgba(255,255,255,0.94); padding: 0.25rem 0.5rem; border-radius: 0.3rem; }
   .cat-shop-card.cat-shop-anim { animation: cat-shop-pop 460ms cubic-bezier(0.19,1,0.22,1) both; }
   @keyframes cat-shop-pop { from { opacity: 0; transform: translateY(12px) scale(0.985); } to { opacity: 1; transform: none; } }
   .cat-shop-frame { position: relative; border-radius: 1rem; overflow: hidden; aspect-ratio: 3 / 4; background: #f4f4f4; }
@@ -264,11 +239,12 @@ const compare = {
     .cat-shop-card:hover .cat-shop-weared { opacity: 1; }
   }
   .cat-shop-name { font-family: var(--font-sans); font-weight: 400; font-size: 1.0625rem; line-height: 1.2; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.9rem 0 0; }
-  .cat-shop-color { font-family: var(--font-sans); font-weight: 400; font-size: 0.875rem; color: #9ca3af; margin: 0.2rem 0 0; }
+  /* tagline uses system fallback (SF Pro Display has no Regular loaded → falls back to Semibold) */
+  .cat-shop-color { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 400; font-size: 0.875rem; line-height: 1.4; color: #9ca3af; margin: 0.3rem 0 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.45em; }
   .cat-shop-swatches { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.7rem; }
   .cat-shop-swatch {
     width: 1.5rem; height: 1.2rem; border-radius: 0.3rem; background: var(--sw);
-    border: 1px solid rgba(0,0,0,0.12); padding: 0; cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.12); padding: 0; cursor: default; pointer-events: none;
     box-shadow: 0 0 0 2px #fff, 0 0 0 2px transparent; transition: box-shadow 180ms ease;
   }
   .cat-shop-swatch.is-active { box-shadow: 0 0 0 2px #fff, 0 0 0 3px #9ca3af; }

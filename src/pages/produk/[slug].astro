@@ -11,6 +11,8 @@ const { product } = Astro.props;
 const rp = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(n);
 const priceRange = `${rp(product.price_min)} – ${rp(product.price_max)}`;
 const defaultFabric = catalog.fabrics.find((f) => f.id === product.default_fabric);
+// only garment types with a defined garment_types entry have the online customizer (v1: kemeja)
+const hasCustomizer = catalog.garment_types.some((g) => g.id === product.garment_type);
 
 const waBase = (siteConfig as any)?.contact?.whatsappUrl || 'https://wa.me/6285161202499';
 const waHref = `${waBase}?text=${encodeURIComponent(`Halo Kustom Garment, saya tertarik dengan ${product.name}. Boleh info lebih lanjut?`)}`;
@@ -54,7 +56,9 @@ const lockedSpec = Object.entries(product.locked_spec) as [string, string][];
 
         <div class="pdp-actions">
           <a class="pdp-btn pdp-btn-wa" href={waHref} target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a>
-          <a class="pdp-btn pdp-btn-custom" href={`/produk/${product.slug}/custom`}>Custom Sekarang</a>
+          {hasCustomizer
+            ? <a class="pdp-btn pdp-btn-custom" href={`/produk/${product.slug}/custom`}>Custom Sekarang</a>
+            : <a class="pdp-btn pdp-btn-custom" href={waHref} target="_blank" rel="noopener noreferrer">Kustom via WhatsApp</a>}
         </div>
         <p class="pdp-reassure">Tanpa minimum order · Desain dibantu gratis · Made-by-order</p>
 

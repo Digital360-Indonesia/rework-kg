@@ -4,7 +4,9 @@ import catalog from '../../../data/products/catalog.json';
 import siteConfig from '../../../data/site-config.json';
 
 export function getStaticPaths() {
-  return catalog.archetypes.map((a) => ({ params: { slug: a.slug }, props: { product: a } }));
+  // only archetypes whose garment_type has a defined garment_types entry get an online customizer (v1: kemeja)
+  const gtIds = new Set(catalog.garment_types.map((g) => g.id));
+  return catalog.archetypes.filter((a) => gtIds.has(a.garment_type)).map((a) => ({ params: { slug: a.slug }, props: { product: a } }));
 }
 
 const { product } = Astro.props;
