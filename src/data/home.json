@@ -13,22 +13,22 @@
   "hero": {
     "slides": [
       {
-        "image": "/images/uploads/WhatsApp Image 2026-05-25 at 16.04.07.jpeg",
+        "image": "/images/uploads/Banner 2.webp",
         "href": "https://wa.me/6285161202499?text=Saya%20mau%20bikin%20baju%20custom.",
         "alt": "Bikin baju custom satuan"
       },
       {
-        "image": "/images/uploads/WhatsApp Image 2026-05-25 at 16.15.53.jpeg",
+        "image": "/images/uploads/Banner 1.webp",
         "href": "https://portfolio.kustomgarment.com",
         "alt": "Portfolio Kustom Garment"
       },
       {
-        "image": "/images/uploads/WhatsApp Image 2026-05-25 at 16.15.53-2.jpeg",
+        "image": "/images/uploads/Banner 3.webp",
         "href": "/business/",
         "alt": "Seragam custom untuk bisnis"
       },
       {
-        "image": "/images/uploads/WhatsApp Image 2026-05-25 at 16.18.03.jpeg",
+        "image": "/images/uploads/Banner 4.webp",
         "href": "/community/",
         "alt": "Komunitas custom"
       }
@@ -40,32 +40,32 @@
       {
         "label": "BUSINESS",
         "href": "/business/",
-        "image": "/images/uploads/WhatsApp Image 2026-05-26 at 09.01.30.jpeg",
-        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.26 (1).jpeg"
+        "image": "/images/uploads/1.webp",
+        "hoverImage": "/images/uploads/1.1.webp"
       },
       {
         "label": "COMMUNITY",
         "href": "/community/",
-        "image": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.12 (2).jpeg",
-        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.27.jpeg"
+        "image": "/images/uploads/2.webp",
+        "hoverImage": "/images/uploads/2.1.webp"
       },
       {
         "label": "CAMPUS",
         "href": "/campus/",
-        "image": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.12 (1).jpeg",
-        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.26 (2).jpeg"
+        "image": "/images/uploads/3.webp",
+        "hoverImage": "/images/uploads/3.1.webp"
       },
       {
         "label": "PERSONAL",
         "href": "/personal/",
-        "image": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.13.jpeg",
-        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.27 (1).jpeg"
+        "image": "/images/uploads/4.webp",
+        "hoverImage": "/images/uploads/4.1.webp"
       },
       {
         "label": "ACTIVEWEAR",
         "href": "/produk/",
-        "image": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.11.jpeg",
-        "hoverImage": "/images/uploads/WhatsApp Image 2026-05-23 at 10.26.26.jpeg"
+        "image": "/images/uploads/5.webp",
+        "hoverImage": "/images/uploads/5.1.webp"
       }
     ]
   },
@@ -82,7 +82,7 @@
     ],
     "items": [
       {
-        "img": "/images/uploads/WhatsApp Image 2026-05-26 at 08.22.38.jpeg",
+        "img": "/images/uploads/1.webp",
         "title": "Streetwear & Jualan Online",
         "desc": "Produk best-seller berikutnya, dari kaos custom premium dan bahan siap-fashion.",
         "ratio": "4 / 5",
@@ -90,7 +90,7 @@
         "waText": "Halo, saya mau bikin koleksi streetwear / produk jualan custom."
       },
       {
-        "img": "/images/uploads/WhatsApp Image 2026-05-23 at 13.29.48 (2).jpeg",
+        "img": "/images/uploads/4.webp",
         "title": "Order Jumlah Besar",
         "desc": "Order banyak, harga grosir, tepat waktu. Invoice & faktur pajak beres.",
         "ratio": "4 / 3",
@@ -98,7 +98,7 @@
         "waText": "Halo, saya mau order jumlah besar. Minta info harga grosir ya."
       },
       {
-        "img": "/images/uploads/WhatsApp Image 2026-05-23 at 13.29.47 (1).jpeg",
+        "img": "/images/uploads/2.webp",
         "title": "Komunitas & Tim",
         "desc": "Satukan squad dengan kaos tim custom dan identitas komunitas yang solid.",
         "ratio": "4 / 3",
@@ -106,7 +106,7 @@
         "waText": "Halo, saya mau bikin baju komunitas / tim custom."
       },
       {
-        "img": "/images/uploads/WhatsApp Image 2026-05-23 at 13.29.48.jpeg",
+        "img": "/images/uploads/5.webp",
         "title": "Merch & Event",
         "desc": "Abadikan momen lewat kaos event custom, hoodie hype, dan merch koleksi.",
         "ratio": "4 / 5",
@@ -114,7 +114,7 @@
         "waText": "Halo, saya mau bikin merch / kaos event custom."
       },
       {
-        "img": "/images/uploads/WhatsApp Image 2026-05-23 at 13.29.48 (1).jpeg",
+        "img": "/images/uploads/3.webp",
         "title": "OOTD Personal",
         "desc": "Outfit harianmu, dibikin sesukamu. Satu pun jadi, tanpa minimum order.",
         "ratio": "4 / 5",
@@ -122,7 +122,7 @@
         "waText": "Halo, saya mau kustom OOTD / baju personal."
       },
       {
-        "img": "/images/uploads/WhatsApp Image 2026-05-23 at 13.29.49.jpeg",
+        "img": "/images/uploads/6.webp",
         "title": "Seragam Korporat Modern",
         "desc": "Tampil rapi di kantor dengan kemeja perusahaan dan basics yang on-brand.",
         "ratio": "4 / 3",
@@ -226,8 +226,8 @@
   "endCta": {
     "title": "Idemu, tinggal satu chat lagi.",
     "ctaText": "Mulai sekarang",
-    "bg": "/images/uploads/WhatsApp Image 2026-05-25 at 14.47.01.jpeg",
-    "bgHover": "/images/uploads/WhatsApp Image 2026-05-25 at 14.47.01.jpeg",
+    "bg": "/images/uploads/end CTA.jpg",
+    "bgHover": "/images/uploads/end CTA.jpg",
     "waText": "Halo Kustom Garment, saya mau mulai bikin baju custom."
   }
 }
