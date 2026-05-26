@@ -1,18 +1,28 @@
 {
-  "_note": "CMS-editable content for the /business category page. Product grid is driven by src/data/products/catalog.json (managed separately) and is NOT here.",
   "meta": {
     "title": "Business — Seragam & Apparel Kerja | Kustom Garment",
     "description": "Seragam kantor, polo, kemeja, sampai wearpack — dibikin rapi dan on-brand untuk timmu. Tanpa minimum order, bordir logo beres, invoice & faktur pajak siap."
   },
   "hero": {
-    "banner": "/images/placeholder/sample-herobusiness.png",
+    "banner": "/images/uploads/WhatsApp Image 2026-05-26 at 12.12.23.jpeg",
     "bannerAlt": "Seragam & apparel kerja custom Kustom Garment",
     "title": "Seragam & apparel kerja",
     "sub": "Dari polo kantor sampai wearpack lapangan — bikin tim kamu tampil seragam, on-brand, dan nyaman dipakai kerja seharian. Tanpa minimum order, bordir logo rapi, invoice & faktur pajak siap."
   },
   "clients": [
-    "klien-1.png", "klien-2.png", "klien-3.png", "klien-4.png", "klien-5.png",
-    "klien-6.png", "klien-7.png", "klien-8.png", "klien-9.png", "klien-10.png",
-    "klien-11.png", "klien-12.png", "klien-13.png"
-  ]
+    "klien-1.png",
+    "klien-2.png",
+    "klien-3.png",
+    "klien-4.png",
+    "klien-5.png",
+    "klien-6.png",
+    "klien-7.png",
+    "klien-8.png",
+    "klien-9.png",
+    "klien-10.png",
+    "klien-11.png",
+    "klien-12.png",
+    "klien-13.png"
+  ],
+  "_note": "CMS-editable content for the /business category page. Product grid is driven by src/data/products/catalog.json (managed separately) and is NOT here."
 }
