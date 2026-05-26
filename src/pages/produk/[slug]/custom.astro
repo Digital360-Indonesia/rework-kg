@@ -35,6 +35,8 @@ const PLACE_MAP: Record<string, { view: string; x: number; y: number; label: str
   'Sleeve Left': { view: 'front', x: 14, y: 45, label: 'Lengan kiri' },
   'Sleeve Right': { view: 'front', x: 86, y: 45, label: 'Lengan kanan' },
   'Back center': { view: 'back', x: 50, y: 40, label: 'Punggung' },
+  'Back upper': { view: 'back', x: 50, y: 22, label: 'Punggung atas' },
+  'Front center': { view: 'front', x: 50, y: 50, label: 'Tengah depan' },
 };
 const placeHots = garment.placements.map((p: string) => ({ name: p, ...(PLACE_MAP[p] || { view: 'front', x: 50, y: 62, label: p }) }));
 const frontHots = placeHots.filter((h) => h.view === 'front');
@@ -147,14 +149,16 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
                 <div class="st-list" id="st-list">
                   <div class="st-lhead">
                     <h2 class="st-title">Style</h2>
-                    <p class="st-lsub">Pakai default kurasi kami, atau ubah tiap detail.</p>
+                    <p class="st-lsub">{styleAttrs.length > 0 ? 'Pakai default kurasi kami, atau ubah tiap detail.' : 'Spec dasar terkunci — semua detail sudah disesuaikan untuk produk ini.'}</p>
                   </div>
                   <div class="st-rows">
-                    {styleAttrs.map((k) => (
+                    {styleAttrs.length > 0 ? styleAttrs.map((k) => (
                       <button class="st-row" data-attr={k}>
                         <span class="st-row-k">{k}</span>
                         <span class="st-row-r"><span class="st-row-v" data-valfor={k}>{(product.locked_spec as any)[k]}</span><span class="st-chev"></span></span>
                       </button>
+                    )) : lockedSpec.map(([k, v]) => (
+                      <div class="st-row st-row-locked"><span class="st-row-k">{k}</span><span class="st-row-r"><span class="st-row-v">{v}</span></span></div>
                     ))}
                   </div>
                 </div>
@@ -432,6 +436,10 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
   .col-sw[data-weave="twill"], .col-detail-sw[data-weave="twill"] { background-image: repeating-linear-gradient(45deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 4px), repeating-linear-gradient(45deg, rgba(255,255,255,0.16) 2px 3px, transparent 3px 6px); }
   .col-sw[data-weave="ripstop"], .col-detail-sw[data-weave="ripstop"] { background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0 1px, transparent 1px 5px), repeating-linear-gradient(90deg, rgba(0,0,0,0.05) 0 1px, transparent 1px 5px), repeating-linear-gradient(0deg, rgba(0,0,0,0.09) 0 1.3px, transparent 1.3px 17px), repeating-linear-gradient(90deg, rgba(0,0,0,0.09) 0 1.3px, transparent 1.3px 17px); }
   .col-sw[data-weave="sateen"], .col-detail-sw[data-weave="sateen"] { background-image: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0) 45%, rgba(0,0,0,0.07)); }
+  .col-sw[data-weave="pique"], .col-detail-sw[data-weave="pique"] { background-image: radial-gradient(rgba(0,0,0,0.10) 0.6px, transparent 0.7px), radial-gradient(rgba(255,255,255,0.14) 0.6px, transparent 0.7px); background-size: 5px 5px, 5px 5px; background-position: 0 0, 2.5px 2.5px; }
+  .col-sw[data-weave="combed"], .col-detail-sw[data-weave="combed"] { background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0 0.6px, transparent 0.6px 2px), repeating-linear-gradient(0deg, rgba(255,255,255,0.10) 1px 1.5px, transparent 1.5px 3px); }
+  .col-sw[data-weave="fleece"], .col-detail-sw[data-weave="fleece"] { background-image: radial-gradient(rgba(255,255,255,0.20) 1px, transparent 1.5px), radial-gradient(rgba(0,0,0,0.10) 1px, transparent 1.5px); background-size: 4px 4px, 6px 6px; background-position: 0 0, 2px 2px; }
+  .col-sw[data-weave="smooth"], .col-detail-sw[data-weave="smooth"] { background-image: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 50%, rgba(0,0,0,0.08)); }
   .col-name { font-size: 1.05rem; font-weight: 700; color: #1a1a1a; }
   .col-sub { font-size: 0.85rem; color: #6b7280; margin-top: 0.15rem; }
 
@@ -450,7 +458,8 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
   .st-row { width: 100%; background: none; border: 0; border-top: 1px solid #dcdcdc; padding: 1.15rem 0.2rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; text-align: left; }
   .st-row:last-child { border-bottom: 1px solid #dcdcdc; }
   .st-row-k { font-size: 1rem; color: #1a1a1a; font-weight: 600; transition: color 140ms ease; }
-  .st-row:hover .st-row-k { color: #ff4c00; }
+  .st-row:not(.st-row-locked):hover .st-row-k { color: #ff4c00; }
+  .st-row-locked { cursor: default; }
   .st-row-r { display: flex; align-items: center; gap: 0.7rem; }
   .st-row-v { font-size: 0.95rem; color: #6b7280; }
   .st-chev { width: 0.5rem; height: 0.5rem; border-right: 2px solid #b0b0b0; border-top: 2px solid #b0b0b0; transform: rotate(45deg); }

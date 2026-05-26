@@ -39,6 +39,41 @@
           { "name": "Short", "illustration": "/images/customizer/style/generic.svg", "desc": "Lengan pendek." }
         ]
       }
+    },
+    {
+      "id": "polo",
+      "name": "Polo",
+      "placements": ["Left chest", "Right chest", "Back upper", "Sleeve Left", "Sleeve Right", "Collar"],
+      "size_run": ["S", "M", "L", "XL", "XXL"],
+      "style_options": {}
+    },
+    {
+      "id": "kaos",
+      "name": "Kaos",
+      "placements": ["Left chest", "Right chest", "Back center", "Back upper", "Front center", "Sleeve Left", "Sleeve Right"],
+      "size_run": ["S", "M", "L", "XL", "XXL"],
+      "style_options": {}
+    },
+    {
+      "id": "jaket",
+      "name": "Jaket",
+      "placements": ["Left chest", "Right chest", "Back center", "Back upper", "Sleeve Left", "Sleeve Right"],
+      "size_run": ["S", "M", "L", "XL", "XXL"],
+      "style_options": {}
+    },
+    {
+      "id": "rompi",
+      "name": "Rompi",
+      "placements": ["Left chest", "Right chest", "Back center", "Name tag right chest"],
+      "size_run": ["S", "M", "L", "XL", "XXL"],
+      "style_options": {}
+    },
+    {
+      "id": "wearpack",
+      "name": "Wearpack",
+      "placements": ["Left chest", "Right chest", "Back center", "Sleeve Left", "Sleeve Right", "Name tag right chest"],
+      "size_run": ["S", "M", "L", "XL", "XXL"],
+      "style_options": {}
     }
   ],
 
@@ -48,7 +83,29 @@
     { "id": "american-drill", "name": "American Drill", "garment_type": "kemeja", "delta_per_pc": -5000, "tier": "standard", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon"], "description": "Drill standar yang kuat untuk kerja lapangan.", "swatch_image": "/images/customizer/fabric/american-drill.svg" },
     { "id": "unione-drill", "name": "Unione Drill", "garment_type": "kemeja", "delta_per_pc": 0, "tier": "mid", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "light-blue", "cream", "orange-safety"], "description": "Drill mid-tier, halus & rapi — referensi harga.", "swatch_image": "/images/customizer/fabric/unione-drill.svg" },
     { "id": "nagata", "name": "Nagata", "garment_type": "kemeja", "delta_per_pc": 8000, "tier": "premium", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "light-blue", "cream"], "description": "Drill premium, jatuh rapi, tahan kusut.", "swatch_image": "/images/customizer/fabric/nagata.svg" },
-    { "id": "texmoda", "name": "Texmoda", "garment_type": "kemeja", "delta_per_pc": 20000, "tier": "top", "weave": "sateen", "colors": ["white", "light-blue", "navy", "black", "cream", "grey"], "description": "Top premium — kesan dressy & mewah.", "swatch_image": "/images/customizer/fabric/texmoda.svg" }
+    { "id": "texmoda", "name": "Texmoda", "garment_type": "kemeja", "delta_per_pc": 20000, "tier": "top", "weave": "sateen", "colors": ["white", "light-blue", "navy", "black", "cream", "grey"], "description": "Top premium — kesan dressy & mewah.", "swatch_image": "/images/customizer/fabric/texmoda.svg" },
+
+    { "id": "lacoste-30s", "name": "Lacoste 30s", "garment_type": "polo", "delta_per_pc": -3000, "tier": "budget", "weave": "pique", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "light-blue", "cream"], "description": "Pique lacoste 30s — lebih ringan, jatuh halus.", "swatch_image": "/images/customizer/fabric/pique.svg" },
+    { "id": "lacoste-24s", "name": "Lacoste 24s", "garment_type": "polo", "delta_per_pc": 0, "tier": "standard", "weave": "pique", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "light-blue", "cream"], "description": "Pique lacoste 24s — workhorse standard, rapi & nyaman.", "swatch_image": "/images/customizer/fabric/pique.svg" },
+    { "id": "lacoste-18s", "name": "Lacoste 18s", "garment_type": "polo", "delta_per_pc": 5000, "tier": "premium", "weave": "pique", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "cream"], "description": "Pique lacoste 18s — lebih tebal, structured & premium.", "swatch_image": "/images/customizer/fabric/pique.svg" },
+
+    { "id": "combed-30s", "name": "Cotton Combed 30s", "garment_type": "kaos", "delta_per_pc": -3000, "tier": "mid", "weave": "combed", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "light-blue", "cream"], "description": "Combed 30s — lebih ringan, jatuh rapi, populer untuk angkatan & merch.", "swatch_image": "/images/customizer/fabric/combed.svg" },
+    { "id": "combed-24s", "name": "Cotton Combed 24s", "garment_type": "kaos", "delta_per_pc": 0, "tier": "standard", "weave": "combed", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "light-blue", "cream"], "description": "Combed 24s — soft & nyaman, all-rounder klasik.", "swatch_image": "/images/customizer/fabric/combed.svg" },
+    { "id": "combed-20s", "name": "Cotton Combed 20s", "garment_type": "kaos", "delta_per_pc": 8000, "tier": "premium", "weave": "combed", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "cream"], "description": "Combed 20s — lebih tebal, kesan premium.", "swatch_image": "/images/customizer/fabric/combed.svg" },
+    { "id": "soft-pe", "name": "Soft PE", "garment_type": "kaos", "delta_per_pc": -10000, "tier": "budget", "weave": "combed", "colors": ["white", "black", "navy", "grey"], "description": "Soft PE — budget-friendly untuk produksi besar.", "swatch_image": "/images/customizer/fabric/combed.svg" },
+
+    { "id": "despo", "name": "Despo", "garment_type": "jaket", "delta_per_pc": -8000, "tier": "budget", "weave": "smooth", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon"], "description": "Despo — ringan & ekonomis untuk windbreaker.", "swatch_image": "/images/customizer/fabric/smooth.svg" },
+    { "id": "mikro-ns", "name": "Mikro NS", "garment_type": "jaket", "delta_per_pc": 0, "tier": "standard", "weave": "smooth", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon"], "description": "Mikro NS — synthetic ringan dengan drape rapi.", "swatch_image": "/images/customizer/fabric/smooth.svg" },
+    { "id": "taslan", "name": "Taslan", "garment_type": "jaket", "delta_per_pc": 5000, "tier": "mid", "weave": "smooth", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "light-blue"], "description": "Taslan — water-resistant, ringan, premium feel.", "swatch_image": "/images/customizer/fabric/smooth.svg" },
+    { "id": "drill-jaket", "name": "Drill (Jaket)", "garment_type": "jaket", "delta_per_pc": 10000, "tier": "premium", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "cream"], "description": "Drill jaket — kuat & structured untuk varsity/corporate.", "swatch_image": "/images/customizer/fabric/american-drill.svg" },
+    { "id": "fleece-jaket", "name": "Fleece (Jaket)", "garment_type": "jaket", "delta_per_pc": 15000, "tier": "top", "weave": "fleece", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon", "cream"], "description": "Fleece — anget & empuk untuk varsity & coach.", "swatch_image": "/images/customizer/fabric/fleece.svg" },
+
+    { "id": "drill-rompi", "name": "Drill (Rompi)", "garment_type": "rompi", "delta_per_pc": -3000, "tier": "standard", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "maroon"], "description": "Drill rompi — kuat untuk rompi formal & utility.", "swatch_image": "/images/customizer/fabric/american-drill.svg" },
+    { "id": "peles", "name": "Peles", "garment_type": "rompi", "delta_per_pc": 0, "tier": "standard", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey"], "description": "Peles — canvas-like, structured untuk rompi utility.", "swatch_image": "/images/customizer/fabric/american-drill.svg" },
+    { "id": "fleece-rompi", "name": "Fleece (Rompi)", "garment_type": "rompi", "delta_per_pc": 5000, "tier": "mid", "weave": "fleece", "colors": ["white", "black", "navy", "grey", "cream"], "description": "Fleece — anget & smart-casual untuk rompi indoor.", "swatch_image": "/images/customizer/fabric/fleece.svg" },
+
+    { "id": "drill-wearpack", "name": "Drill (Wearpack)", "garment_type": "wearpack", "delta_per_pc": 0, "tier": "standard", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "orange-safety"], "description": "Drill wearpack — kuat untuk coverall industri.", "swatch_image": "/images/customizer/fabric/american-drill.svg" },
+    { "id": "tropical", "name": "Tropical", "garment_type": "wearpack", "delta_per_pc": 12000, "tier": "premium", "weave": "twill", "colors": ["white", "black", "navy", "khaki", "olive", "grey", "orange-safety"], "description": "Tropical — heat-resistant untuk lingkungan panas.", "swatch_image": "/images/customizer/fabric/nagata.svg" }
   ],
 
   "colors": [
@@ -224,7 +281,7 @@
     { "slug": "office-polo", "name": "Office Polo", "garment_type": "polo", "segment": "business", "badge": null,
       "positioning": "Polo kantor harian — pique adem, potongan slim modern, bordir logo rapi.",
       "rating": 4.7, "reviews": 95, "price_min": 75000, "price_max": 100000, "base_price_per_pc": 87500, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "lacoste-24s", "color_default": "white", "locked_spec": { "Collar": "Standard polo collar (ribbed)", "Placket": "2-3 button placket", "Sleeve": "Short", "Hem": "Side-slit", "Cuff": "Ribbed" }, "default_decoration": [ { "type": "Bordir small", "placement": "Left chest", "size": "small" } ],
       "description": "Polo kantor yang adem dan rapi untuk dipakai harian — pique cotton, kerah ribbed, bordir logo di dada. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p3.jpg", "/images/placeholder/forproducts/weared3.jpg", "/images/categories/business.webp" ] },
@@ -232,7 +289,7 @@
     { "slug": "heavyweight-field-polo", "name": "Heavyweight Field Polo", "garment_type": "polo", "segment": "community", "badge": null,
       "positioning": "Polo tebal untuk crew & komunitas — kuat dipakai aktivitas lapangan.",
       "rating": 4.6, "reviews": 38, "price_min": 80000, "price_max": 105000, "base_price_per_pc": 92500, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "lacoste-24s", "color_default": "navy", "locked_spec": { "Collar": "Standard polo collar (ribbed)", "Placket": "2-3 button placket", "Sleeve": "Short", "Hem": "Side-slit", "Cuff": "Ribbed" }, "default_decoration": [ { "type": "Bordir medium", "placement": "Back upper", "size": "medium" }, { "type": "Bordir small", "placement": "Left chest", "size": "small" } ],
       "description": "Polo dengan bahan lebih tebal — pas buat crew event dan komunitas yang banyak gerak. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p3.jpg", "/images/placeholder/forproducts/weared3.jpg", "/images/categories/community.webp" ] },
@@ -240,7 +297,7 @@
     { "slug": "pique-student-polo", "name": "Pique Student Polo", "garment_type": "polo", "segment": "campus", "badge": null,
       "positioning": "Polo pique untuk angkatan & organisasi kampus — casual, warna bebas.",
       "rating": 4.7, "reviews": 52, "price_min": 72000, "price_max": 95000, "base_price_per_pc": 82500, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "lacoste-24s", "color_default": "navy", "locked_spec": { "Collar": "Standard polo collar (ribbed)", "Placket": "2-3 button placket", "Sleeve": "Short", "Hem": "Side-slit", "Cuff": "Ribbed" }, "default_decoration": [ { "type": "Bordir small", "placement": "Left chest", "size": "small" }, { "type": "Nama individu (bordir)", "placement": "Sleeve Left", "size": "small" } ],
       "description": "Polo pique buat angkatan dan organisasi kampus — casual, nyaman, gampang dibranding. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p3.jpg", "/images/placeholder/forproducts/weared3.jpg", "/images/categories/campus.webp" ] },
@@ -248,7 +305,7 @@
     { "slug": "brand-merch-tee", "name": "Brand Merch Tee", "garment_type": "kaos", "segment": "business", "badge": null,
       "positioning": "Kaos merch brand — cotton combed premium, sablon/DTF tajam.",
       "rating": 4.7, "reviews": 110, "price_min": 58000, "price_max": 78000, "base_price_per_pc": 67500, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "combed-30s", "color_default": "black", "locked_spec": { "Neckline": "Crew neck", "Sleeve": "Short", "Cut": "Standard fit", "Hem": "Straight" }, "default_decoration": [ { "type": "Sablon 1-3 warna small", "placement": "Left chest", "size": "small" }, { "type": "Sablon 1-3 warna small", "placement": "Back center", "size": "small" } ],
       "description": "Kaos merchandise brand — cotton combed premium dengan sablon atau DTF tajam. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p4.jpg", "/images/placeholder/forproducts/weared4.jpg", "/images/categories/business.webp" ] },
@@ -256,7 +313,7 @@
     { "slug": "the-event-tee", "name": "The Event Tee", "garment_type": "kaos", "segment": "community", "badge": null,
       "positioning": "Kaos event komunitas — ekonomis untuk produksi rame-rame.",
       "rating": 4.6, "reviews": 64, "price_min": 49000, "price_max": 66000, "base_price_per_pc": 57500, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "combed-24s", "color_default": "white", "locked_spec": { "Neckline": "Crew neck", "Sleeve": "Short", "Cut": "Standard fit", "Hem": "Straight" }, "default_decoration": [ { "type": "Sablon 1-3 warna large", "placement": "Back center", "size": "large" }, { "type": "Sablon 1-3 warna large", "placement": "Front center", "size": "large" } ],
       "description": "Kaos event yang ekonomis tapi tetap rapi — cocok diproduksi rame-rame untuk panitia dan komunitas. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p4.jpg", "/images/placeholder/forproducts/weared4.jpg", "/images/categories/community.webp" ] },
@@ -264,7 +321,7 @@
     { "slug": "combed-class-tee", "name": "Combed Class Tee", "garment_type": "kaos", "segment": "campus", "badge": null,
       "positioning": "Kaos kelas/angkatan — cotton combed, nyaman dipakai harian.",
       "rating": 4.7, "reviews": 71, "price_min": 49000, "price_max": 66000, "base_price_per_pc": 57500, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "combed-30s", "color_default": "white", "locked_spec": { "Neckline": "Crew neck", "Sleeve": "Short", "Cut": "Standard fit", "Hem": "Straight" }, "default_decoration": [ { "type": "Sablon 1-3 warna large", "placement": "Back center", "size": "large" }, { "type": "Sablon 1-3 warna small", "placement": "Front center", "size": "small" } ],
       "description": "Kaos angkatan/kelas dari cotton combed yang nyaman dipakai harian — gampang dibranding nama angkatan. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p4.jpg", "/images/placeholder/forproducts/weared4.jpg", "/images/categories/campus.webp" ] },
@@ -272,7 +329,7 @@
     { "slug": "office-bomber", "name": "Office Bomber", "garment_type": "jaket", "segment": "business", "badge": null,
       "positioning": "Bomber kantor — rapi, ringan, cocok jadi seragam outer perusahaan.",
       "rating": 4.8, "reviews": 47, "price_min": 148000, "price_max": 192000, "base_price_per_pc": 170000, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "mikro-ns", "color_default": "navy", "locked_spec": { "Closure": "Zipper front", "Cuff": "Ribbed cuff & hem", "Hood": "None", "Lining": "Standard inner lining" }, "default_decoration": [ { "type": "Bordir small", "placement": "Left chest", "size": "small" }, { "type": "Bordir medium", "placement": "Back center", "size": "medium" } ],
       "description": "Jaket bomber yang rapi dan ringan — pas jadi outer seragam perusahaan. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p2.jpg", "/images/placeholder/forproducts/weared2.jpg", "/images/categories/business.webp" ] },
@@ -280,7 +337,7 @@
     { "slug": "corporate-drill-jacket", "name": "Corporate Drill Jacket", "garment_type": "jaket", "segment": "business", "badge": null,
       "positioning": "Jaket drill korporat — tebal, tahan lama, kesan formal.",
       "rating": 4.7, "reviews": 33, "price_min": 165000, "price_max": 215000, "base_price_per_pc": 190000, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "drill-jaket", "color_default": "navy", "locked_spec": { "Closure": "Button front", "Cuff": "Standard cuff", "Hood": "None", "Pocket": "2 chest + 2 side pockets" }, "default_decoration": [ { "type": "Bordir small", "placement": "Left chest", "size": "small" }, { "type": "Bordir large", "placement": "Back center", "size": "large" } ],
       "description": "Jaket drill yang tebal dan formal untuk seragam korporat — tahan lama, gampang dibordir logo. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p2.jpg", "/images/placeholder/forproducts/weared2.jpg", "/images/categories/business.webp" ] },
@@ -288,7 +345,7 @@
     { "slug": "event-windbreaker", "name": "Event Windbreaker", "garment_type": "jaket", "segment": "business", "badge": null,
       "positioning": "Windbreaker event — ringan, anti angin, cepat diproduksi.",
       "rating": 4.6, "reviews": 29, "price_min": 130000, "price_max": 170000, "base_price_per_pc": 150000, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "taslan", "color_default": "navy", "locked_spec": { "Closure": "Half-zip / full-zip pullover", "Hood": "With drawstring", "Cuff": "Elastic cuff & hem", "Weight": "Lightweight, packable" }, "default_decoration": [ { "type": "Sablon 1-3 warna small", "placement": "Left chest", "size": "small" }, { "type": "Sablon 1-3 warna large", "placement": "Back center", "size": "large" } ],
       "description": "Windbreaker ringan anti angin — pas untuk event perusahaan dan kegiatan outdoor. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p2.jpg", "/images/placeholder/forproducts/weared2.jpg", "/images/categories/business.webp" ] },
@@ -296,7 +353,7 @@
     { "slug": "varsity-classic", "name": "Varsity Classic", "garment_type": "jaket", "segment": "business", "badge": "Best Seller",
       "positioning": "Varsity klasik — bahan tebal, lengan kontras, jahitan rapi.",
       "rating": 4.9, "reviews": 81, "price_min": 205000, "price_max": 265000, "base_price_per_pc": 235000, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "drill-jaket", "color_default": "navy", "locked_spec": { "Closure": "Button front", "Cuff": "Ribbed cuff, collar, hem", "Lining": "Standard inner lining", "Sleeves": "Contrast (Mikro NS)" }, "default_decoration": [ { "type": "Patch", "placement": "Left chest", "size": "small" }, { "type": "Patch", "placement": "Back center", "size": "large" } ],
       "description": "Jaket varsity klasik — bahan tebal, lengan kontras, dan patch dada. Favorit untuk angkatan dan komunitas. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p2.jpg", "/images/placeholder/forproducts/weared2.jpg", "/images/categories/business.webp" ] },
@@ -304,7 +361,7 @@
     { "slug": "trail-windbreaker", "name": "Trail Windbreaker", "garment_type": "jaket", "segment": "community", "badge": null,
       "positioning": "Windbreaker outdoor komunitas — ringan, anti angin, buat kegiatan alam.",
       "rating": 4.6, "reviews": 36, "price_min": 120000, "price_max": 155000, "base_price_per_pc": 137500, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "despo", "color_default": "navy", "locked_spec": { "Closure": "Half-zip pullover", "Hood": "With drawstring", "Cuff": "Elastic cuff & hem", "Weight": "Packable" }, "default_decoration": [ { "type": "Sablon 1-3 warna large", "placement": "Back center", "size": "large" }, { "type": "Sablon 1-3 warna small", "placement": "Left chest", "size": "small" } ],
       "description": "Windbreaker untuk komunitas outdoor — ringan, anti angin, gampang dibawa. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p2.jpg", "/images/placeholder/forproducts/weared2.jpg", "/images/categories/community.webp" ] },
@@ -312,7 +369,7 @@
     { "slug": "fleece-varsity", "name": "Fleece Varsity", "garment_type": "jaket", "segment": "campus", "badge": null,
       "positioning": "Varsity fleece kampus — anget, empuk, ikonik buat jaket angkatan.",
       "rating": 4.8, "reviews": 69, "price_min": 178000, "price_max": 232000, "base_price_per_pc": 205000, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "fleece-jaket", "color_default": "navy", "locked_spec": { "Closure": "Button front", "Cuff": "Ribbed cuff, collar, hem", "Sleeves": "Contrast (American Drill)", "Hood": "None" }, "default_decoration": [ { "type": "Patch", "placement": "Back center", "size": "large" }, { "type": "Bordir small", "placement": "Left chest", "size": "small" } ],
       "description": "Jaket varsity berbahan fleece — anget dan empuk, ikonik untuk jaket angkatan kampus. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p2.jpg", "/images/placeholder/forproducts/weared2.jpg", "/images/categories/campus.webp" ] },
@@ -320,7 +377,7 @@
     { "slug": "field-utility-vest", "name": "Field Utility Vest", "garment_type": "rompi", "segment": "business", "badge": null,
       "positioning": "Rompi lapangan multi-kantong — praktis untuk tim operasional.",
       "rating": 4.6, "reviews": 24, "price_min": 128000, "price_max": 167000, "base_price_per_pc": 147500, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "peles", "color_default": "navy", "locked_spec": { "Closure": "Button or zipper front", "Pocket": "Multi-pocket (4-6 utility)", "Collar": "Standard collar" }, "default_decoration": [ { "type": "Bordir small", "placement": "Left chest", "size": "small" }, { "type": "Bordir medium", "placement": "Back center", "size": "medium" } ],
       "description": "Rompi lapangan dengan banyak kantong — praktis untuk tim teknik dan operasional. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p7.jpg", "/images/placeholder/forproducts/weared7.jpg", "/images/categories/business.webp" ] },
@@ -328,7 +385,7 @@
     { "slug": "fleece-vest", "name": "Fleece Vest", "garment_type": "rompi", "segment": "business", "badge": null,
       "positioning": "Rompi fleece kantor — anget, rapi, cocok jadi outer ringan.",
       "rating": 4.7, "reviews": 31, "price_min": 135000, "price_max": 175000, "base_price_per_pc": 155000, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "fleece-rompi", "color_default": "navy", "locked_spec": { "Closure": "Zipper front", "Pocket": "2 side pockets", "Hood": "None" }, "default_decoration": [ { "type": "Bordir small", "placement": "Left chest", "size": "small" } ],
       "description": "Rompi fleece yang anget dan rapi — outer ringan untuk tim kantor. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p7.jpg", "/images/placeholder/forproducts/weared7.jpg", "/images/categories/business.webp" ] },
@@ -336,7 +393,7 @@
     { "slug": "standard-issue-vest", "name": "Standard Issue Vest", "garment_type": "rompi", "segment": "campus", "badge": null,
       "positioning": "Rompi organisasi kampus — rapi dan seragam untuk kepanitiaan.",
       "rating": 4.6, "reviews": 22, "price_min": 117000, "price_max": 153000, "base_price_per_pc": 135000, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "drill-rompi", "color_default": "navy", "locked_spec": { "Closure": "Button front", "Pocket": "2 chest + 2 side pockets", "Collar": "Standard collar" }, "default_decoration": [ { "type": "Bordir small", "placement": "Left chest", "size": "small" }, { "type": "Nama individu (bordir)", "placement": "Name tag right chest", "size": "small" } ],
       "description": "Rompi seragam untuk organisasi dan kepanitiaan kampus — rapi dan gampang dibranding. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p7.jpg", "/images/placeholder/forproducts/weared7.jpg", "/images/categories/campus.webp" ] },
@@ -344,7 +401,7 @@
     { "slug": "industrial-wearpack", "name": "Industrial Wearpack", "garment_type": "wearpack", "segment": "business", "badge": null,
       "positioning": "Wearpack industri — drill kuat, opsi reflektif, aman & tahan lama.",
       "rating": 4.7, "reviews": 40, "price_min": 178000, "price_max": 232000, "base_price_per_pc": 205000, "price_note": "per pc · est.",
-      "default_fabric": "", "color_default": "", "locked_spec": {}, "default_decoration": [],
+      "default_fabric": "drill-wearpack", "color_default": "navy", "locked_spec": { "Construction": "One-piece coverall", "Closure": "Zipper front", "Sleeve": "Long", "Pocket": "Multi-pocket", "Collar": "Standard collar" }, "default_decoration": [ { "type": "Bordir small", "placement": "Left chest", "size": "small" }, { "type": "Bordir large", "placement": "Back center", "size": "large" } ],
       "description": "Wearpack/coverall industri — bahan drill kuat dengan opsi strip reflektif. Aman dan tahan lama untuk kerja berat. Made-by-order, tanpa minimum.",
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [ "/images/placeholder/forproducts/p6.jpg", "/images/placeholder/forproducts/weared6.jpg", "/images/categories/business.webp" ] }
