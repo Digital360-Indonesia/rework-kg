@@ -53,28 +53,38 @@
     "rightCta": "Shop Community",
     "products": [
       {
-        "image": "/images/placeholder/sample-section3a1%201.png",
+        "image": "/images/uploads/AIESEC.webp",
         "title": "T-Shirt",
         "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
       },
       {
-        "image": "/images/placeholder/sample-section3a2%201.png",
+        "image": "/images/uploads/DOMUS.webp",
         "title": "Kemeja",
         "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
       },
       {
-        "image": "/images/placeholder/sample-section3a3%201.png",
+        "image": "/images/uploads/SEMESTA (UNIV CIPUTRA).webp",
         "title": "Jaket",
         "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
       },
       {
-        "image": "/images/placeholder/sample-section3a4%201.png",
+        "image": "/images/uploads/SOCO.webp",
         "title": "Poloshirt",
         "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
       },
       {
-        "image": "/images/placeholder/sample-section3a5%201.png",
+        "image": "/images/uploads/KAWASAKI.webp",
         "title": "Wearpack",
+        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+      },
+      {
+        "image": "/images/uploads/NIRVANA.webp",
+        "title": "Nirvana",
+        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+      },
+      {
+        "image": "/images/uploads/Apple Dev.webp",
+        "title": "Apple dev",
         "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
       }
     ]
