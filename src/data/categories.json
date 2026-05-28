@@ -8,28 +8,38 @@
     "rightCta": "Shop Business",
     "products": [
       {
-        "image": "/images/placeholder/sample-section3a1%201.png",
+        "image": "/images/uploads/CAKRATEK.webp",
         "title": "T-Shirt",
         "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
       },
       {
-        "image": "/images/placeholder/sample-section3a2%201.png",
+        "image": "/images/uploads/HYUNDAI GOWA.webp",
         "title": "Kemeja",
         "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
       },
       {
-        "image": "/images/placeholder/sample-section3a3%201.png",
+        "image": "/images/uploads/KEMEJA SHELL (FERRARI).webp",
         "title": "Jaket",
         "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
       },
       {
-        "image": "/images/placeholder/sample-section3a4%201.png",
+        "image": "/images/uploads/Porsche.webp",
         "title": "Poloshirt",
         "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
       },
       {
-        "image": "/images/placeholder/sample-section3a5%201.png",
+        "image": "/images/uploads/THAI UNION.webp",
         "title": "Wearpack",
+        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+      },
+      {
+        "image": "/images/uploads/BARATA.webp",
+        "title": "Barata Jaya",
+        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+      },
+      {
+        "image": "/images/uploads/ADDA MITRA GLOBAL.webp",
+        "title": "PT Adda Mitra Jaya",
         "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
       }
     ]
