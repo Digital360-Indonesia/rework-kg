@@ -352,6 +352,7 @@ collections:
               - { name: sub, label: "Subjudul", widget: text }
               - { name: image, label: "Gambar hero", widget: image }
               - { name: imageAlt, label: "Alt text gambar", widget: string }
+          - { name: clients, label: "Logo klien/komunitas (nama file di /images/clients/)", widget: list }
       - name: campus
         label: "Campus"
         file: "src/data/campus.json"
@@ -372,6 +373,7 @@ collections:
               - { name: sub, label: "Subjudul", widget: text }
               - { name: image, label: "Gambar hero", widget: image }
               - { name: imageAlt, label: "Alt text gambar", widget: string }
+          - { name: clients, label: "Logo klien/kampus (nama file di /images/clients/)", widget: list }
       - name: personal
         label: "Personal"
         file: "src/data/personal.json"

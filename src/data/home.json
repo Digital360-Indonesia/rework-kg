@@ -40,32 +40,32 @@
       {
         "label": "BUSINESS",
         "href": "/business/",
-        "image": "/images/uploads/1.webp",
-        "hoverImage": "/images/uploads/1.1.webp"
+        "image": "/images/uploads/hs2-1.webp",
+        "hoverImage": "/images/uploads/hs2-1-hover.webp"
       },
       {
         "label": "COMMUNITY",
         "href": "/community/",
-        "image": "/images/uploads/2.webp",
-        "hoverImage": "/images/uploads/2.1.webp"
+        "image": "/images/uploads/hs2-2.webp",
+        "hoverImage": "/images/uploads/hs2-2-hover.webp"
       },
       {
         "label": "CAMPUS",
         "href": "/campus/",
-        "image": "/images/uploads/3.webp",
-        "hoverImage": "/images/uploads/3.1.webp"
+        "image": "/images/uploads/hs2-3.webp",
+        "hoverImage": "/images/uploads/hs2-3-hover.webp"
       },
       {
         "label": "PERSONAL",
         "href": "/personal/",
-        "image": "/images/uploads/4.webp",
-        "hoverImage": "/images/uploads/4.1.webp"
+        "image": "/images/uploads/hs2-4.webp",
+        "hoverImage": "/images/uploads/hs2-4-hover.webp"
       },
       {
         "label": "ACTIVEWEAR",
         "href": "/produk/",
-        "image": "/images/uploads/5.webp",
-        "hoverImage": "/images/uploads/5.1.webp"
+        "image": "/images/uploads/hs2-5.webp",
+        "hoverImage": "/images/uploads/hs2-5-hover.webp"
       }
     ]
   },
@@ -82,7 +82,7 @@
     ],
     "items": [
       {
-        "img": "/images/uploads/1.webp",
+        "img": "/images/uploads/hs4-1.webp",
         "title": "Streetwear & Jualan Online",
         "desc": "Produk best-seller berikutnya, dari kaos custom premium dan bahan siap-fashion.",
         "ratio": "4 / 5",
@@ -90,7 +90,7 @@
         "waText": "Halo, saya mau bikin koleksi streetwear / produk jualan custom."
       },
       {
-        "img": "/images/uploads/4.webp",
+        "img": "/images/uploads/hs4-2.webp",
         "title": "Order Jumlah Besar",
         "desc": "Order banyak, harga grosir, tepat waktu. Invoice & faktur pajak beres.",
         "ratio": "4 / 3",
@@ -98,7 +98,7 @@
         "waText": "Halo, saya mau order jumlah besar. Minta info harga grosir ya."
       },
       {
-        "img": "/images/uploads/2.webp",
+        "img": "/images/uploads/hs4-3.webp",
         "title": "Komunitas & Tim",
         "desc": "Satukan squad dengan kaos tim custom dan identitas komunitas yang solid.",
         "ratio": "4 / 3",
@@ -106,7 +106,7 @@
         "waText": "Halo, saya mau bikin baju komunitas / tim custom."
       },
       {
-        "img": "/images/uploads/5.webp",
+        "img": "/images/uploads/hs4-4.webp",
         "title": "Merch & Event",
         "desc": "Abadikan momen lewat kaos event custom, hoodie hype, dan merch koleksi.",
         "ratio": "4 / 5",
@@ -114,7 +114,7 @@
         "waText": "Halo, saya mau bikin merch / kaos event custom."
       },
       {
-        "img": "/images/uploads/3.webp",
+        "img": "/images/uploads/hs4-5.webp",
         "title": "OOTD Personal",
         "desc": "Outfit harianmu, dibikin sesukamu. Satu pun jadi, tanpa minimum order.",
         "ratio": "4 / 5",
@@ -122,7 +122,7 @@
         "waText": "Halo, saya mau kustom OOTD / baju personal."
       },
       {
-        "img": "/images/uploads/6.webp",
+        "img": "/images/uploads/hs4-6.webp",
         "title": "Seragam Korporat Modern",
         "desc": "Tampil rapi di kantor dengan kemeja perusahaan dan basics yang on-brand.",
         "ratio": "4 / 3",

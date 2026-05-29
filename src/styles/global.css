@@ -60,7 +60,10 @@
   }
 
   /* Page-by-page snap through the category showcases (desktop only).
-     proximity = never traps; only the showcases opt in via scroll-snap-align. */
+     proximity (not mandatory) so the snap zone, which sits mid-page, never traps:
+     you can always scroll out to the sections above/below. Each showcase is a full
+     screen tall, so a normal scroll gesture rests near a boundary and snaps cleanly
+     on every input device — the firm feel without the edge trap. */
   @media (min-width: 1024px) {
     html {
       scroll-snap-type: y proximity;

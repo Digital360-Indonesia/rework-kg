@@ -11,5 +11,14 @@
     "image": "/images/uploads/Campuss.webp",
     "imageAlt": "Merch kampus custom Kustom Garment"
   },
-  "_note": "CMS-editable content for the /campus category page. Product grid is driven by src/data/products/catalog.json (managed separately) and is NOT here."
+  "clients": [
+    "klien-1.png",
+    "klien-2.png",
+    "klien-3.png",
+    "klien-4.png",
+    "klien-5.png",
+    "klien-6.png",
+    "klien-7.png"
+  ],
+  "_note": "CMS-editable content for the /campus category page. 'clients' = logo filenames in /images/clients/ (placeholders for now; swap in real campus/kampus/himpunan logos via /admin). Product grid is driven by src/data/products/catalog.json (managed separately) and is NOT here."
 }

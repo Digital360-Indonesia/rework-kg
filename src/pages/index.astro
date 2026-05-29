@@ -30,10 +30,10 @@ const metaImage = '/images/hero/banner-kustomgarment.png';
     <CategoryCards />
 
     <!-- Category showcases (alternating layout) -->
-    <CategoryShowcase category={categories.business}  reverse={false} />
-    <CategoryShowcase category={categories.community} reverse={true} />
-    <CategoryShowcase category={categories.campus}    reverse={false} />
-    <CategoryShowcase category={categories.personal}  reverse={true} />
+    <CategoryShowcase category={categories.business}  reverse={false} overlayPos="bl" />
+    <CategoryShowcase category={categories.community} reverse={true}  overlayPos="br" />
+    <CategoryShowcase category={categories.campus}    reverse={false} overlayPos="bl" />
+    <CategoryShowcase category={categories.personal}  reverse={true}  overlayPos="br" />
 
     <!-- Scene gallery (use-cases) -->
     <SceneGallery />
@@ -45,3 +45,40 @@ const metaImage = '/images/hero/banner-kustomgarment.png';
     <EndCta />
   </main>
 </BaseLayout>
+
+<script>
+  // Section-3 hybrid snap: firm (mandatory) through the inner panel transitions
+  // (1→2, 2→3, 3→4), soft (proximity) at the first & last panels so you can scroll
+  // out to the sections above/below instead of being trapped. CSS keeps proximity
+  // as the desktop default; this only upgrades to mandatory while you're mid-zone.
+  const html = document.documentElement;
+  const mq = window.matchMedia('(min-width: 1024px)');
+  const HEADER = 88; // matches scroll-padding-top
+
+  const docTop = (el: HTMLElement) => el.getBoundingClientRect().top + window.scrollY;
+
+  const update = () => {
+    const panels = Array.from(document.querySelectorAll<HTMLElement>('.showcase'));
+    if (!mq.matches || panels.length < 2) { html.style.scrollSnapType = ''; return; }
+    const first = panels[0];
+    const last = panels[panels.length - 1];
+    const yFirst = docTop(first) - HEADER;     // scrollY when panel 1 is snapped
+    const yLast = docTop(last) - HEADER;        // scrollY when panel 4 is snapped
+    const y = window.scrollY;
+    // Strictly between the first and last snap positions → firm. At/outside → soft.
+    const inner = y > yFirst + 4 && y < yLast - 4;
+    html.style.scrollSnapType = inner ? 'y mandatory' : 'y proximity';
+  };
+
+  let ticking = false;
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { update(); ticking = false; });
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', update);
+  mq.addEventListener('change', update);
+  update();
+</script>

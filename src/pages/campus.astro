@@ -1,13 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
+import ClientLogos from '../components/sections/ClientLogos.astro';
 import catalog from '../data/products/catalog.json';
 import camp from '../data/campus.json';
 
 const metaTitle = camp.meta.title;
 const metaDescription = camp.meta.description;
-// --- CMS-managed (src/data/campus.json — hero) ---
+// --- CMS-managed (src/data/campus.json — hero + clients) ---
 const hero = camp.hero;
+const clients = camp.clients ?? [];
 
 // Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
 const SEG = 'campus';
@@ -68,6 +70,9 @@ const compare = {
         </div>
       </div>
     </section>
+
+    <!-- CLIENT LOGOS (static row, near hero) -->
+    <ClientLogos clients={clients} />
 
     <!-- PRODUCT FILTER (lineup) -->
     <section class="cat-lineup">
@@ -163,9 +168,7 @@ const compare = {
 
   /* HERO (orange split) */
   .cat-hero.is-orange { background: #ff4c00; color: #ffffff; padding: 5rem 0 5.5rem; overflow: hidden; }
-  @media (min-width: 1024px) { .cat-hero.is-orange { padding: 7.5rem 0 8rem; } }
   .cat-hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
-  @media (min-width: 1024px) { .cat-hero-grid { grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; } }
   .cat-eyebrow {
     display: inline-block; font-family: var(--font-sans); font-weight: 700;
     font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase;
@@ -182,8 +185,37 @@ const compare = {
     font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.55;
     color: rgba(255,255,255,0.92); max-width: 34rem; margin: 0;
   }
-  .cat-hero-media { border-radius: 1.5rem; overflow: hidden; aspect-ratio: 4 / 5; background: rgba(255,255,255,0.12); }
+  /* Mobile: panoramic image (matches the 1600x400-style source), rounded */
+  .cat-hero-media { border-radius: 1.25rem; overflow: hidden; aspect-ratio: 5 / 2; background: rgba(255,255,255,0.12); }
   .cat-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Desktop: full-bleed split — image hugs the right edge of the viewport, full height of the section */
+  @media (min-width: 1024px) {
+    .cat-hero.is-orange { padding: 0; }
+    /* Break the inner wrap out of its centered/clamped padding */
+    .cat-hero .cat-wrap.cat-hero-grid {
+      max-width: none;
+      padding: 0;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 0;
+      align-items: stretch;
+      /* Fill the first screen — leaves room for the sticky header above */
+      min-height: calc(100svh - 4rem);
+    }
+    .cat-hero-copy {
+      /* Keep copy aligned to where the normal wrap's left edge sits (centered 72rem + 2.5rem padding) */
+      padding: 5.5rem 3rem 5.5rem max(2.5rem, calc((100vw - 72rem) / 2 + 2.5rem));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cat-hero-media {
+      border-radius: 0;
+      aspect-ratio: auto;
+      background: none;
+      height: 100%;
+    }
+  }
 
   /* PRODUCT FILTER (lineup) */
   .cat-lineup { padding: 4.5rem 0 0.5rem; }

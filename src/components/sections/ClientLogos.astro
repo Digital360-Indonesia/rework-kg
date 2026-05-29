@@ -1,0 +1,56 @@
+---
+/**
+ * Static client-logo row (no slider). Sits under the hero on the category pages.
+ * Logos are CMS-managed per page (filenames in /images/clients/). Used on
+ * Community + Campus. Business keeps its own auto-scroll marquee.
+ */
+interface Props {
+  /** Filenames in /images/clients/ (e.g. "klien-1.png"). */
+  clients: string[];
+  /** Optional small label above the row. */
+  label?: string;
+}
+const { clients = [], label } = Astro.props;
+---
+
+{clients.length > 0 && (
+  <section class="cl" aria-label="Klien & partner Kustom Garment">
+    <div class="cat-wrap">
+      {label && <p class="cl-label reveal">{label}</p>}
+      <div class="cl-row reveal">
+        {clients.map((l) => (
+          <div class="cl-card"><img src={`/images/clients/${l}`} alt="Klien Kustom Garment" loading="lazy" /></div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .cl { padding: 1.75rem 0 1rem; }
+  @media (min-width: 1024px) { .cl { padding: 2.25rem 0 1.5rem; } }
+
+  .cl-label {
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.75rem;
+    letter-spacing: 0.16em; text-transform: uppercase; color: #9ca3af;
+    text-align: center; margin: 0 0 1.25rem;
+  }
+
+  /* Static centered row that wraps — no animation */
+  .cl-row {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 0.85rem;
+  }
+  @media (min-width: 1024px) { .cl-row { gap: 1rem; } }
+
+  .cl-card {
+    flex: 0 0 auto; height: 5rem; width: 9.5rem; display: grid; place-items: center;
+    background: #ffffff; border: 1px solid #ececec; border-radius: 1rem; padding: 1rem;
+  }
+  .cl-card img { max-height: 2.5rem; max-width: 100%; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.6; }
+
+  /* Reveal (matches the category pages' .reveal observer) */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms cubic-bezier(0.19,1,0.22,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+</style>

@@ -1,13 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
+import ClientLogos from '../components/sections/ClientLogos.astro';
 import catalog from '../data/products/catalog.json';
 import comm from '../data/community.json';
 
 const metaTitle = comm.meta.title;
 const metaDescription = comm.meta.description;
-// --- CMS-managed (src/data/community.json — hero) ---
+// --- CMS-managed (src/data/community.json — hero + clients) ---
 const hero = comm.hero;
+const clients = comm.clients ?? [];
 
 // Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
 const SEG = 'community';
@@ -65,6 +67,9 @@ const compare = {
         </div>
       </div>
     </section>
+
+    <!-- CLIENT LOGOS (static row, near hero) -->
+    <ClientLogos clients={clients} />
 
     <!-- PRODUCT FILTER (lineup) -->
     <section class="cat-lineup">
