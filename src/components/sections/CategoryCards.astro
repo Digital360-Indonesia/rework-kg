@@ -86,11 +86,14 @@ const hoverImage = home.categoryCards.hoverImage;
   }
   .cat-img {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    /* Bleed 1px past the frame so the light #f4f4f4 edge can't peek through
+       during the cross-fade (kills the faint hairline on hover). */
+    inset: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
     object-fit: cover;
     display: block;
+    transform: translateZ(0); /* crisp GPU compositing, no sub-pixel seam */
   }
   .cat-img-base {
     z-index: 1;
@@ -100,6 +103,9 @@ const hoverImage = home.categoryCards.hoverImage;
     opacity: 0;
     transition: opacity 450ms ease;
     will-change: opacity;
+    /* Hover images are product flat-lays on white; nudge up so the product fills
+       the frame like the base photo and the white margin crops out of view. */
+    transform: scale(1.12) translateZ(0);
   }
 
   .cat-label {

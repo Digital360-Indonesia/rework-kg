@@ -10,6 +10,15 @@ interface Props {
 
 const { category, reverse = false, overlayPos = 'tl' } = Astro.props;
 
+// Gray subhead = "<Garment category> by <Client>" — garment kept as a real tag for filtering.
+const subFor = (p: any) => {
+  const g = (p?.garment ?? '').trim();
+  const c = (p?.client ?? '').trim();
+  if (g && c) return `${g} by ${c}`;
+  if (g) return g;
+  return c ? `by ${c}` : '';
+};
+
 const realCount = category.products.length;
 const slidesForRender = [
   { ...category.products[realCount - 2], _clone: 'prev', _realIndex: realCount - 2 },
@@ -33,6 +42,7 @@ const slidesForRender = [
                 data-slot={slot}
                 data-index={p._realIndex}
                 data-title={p.title}
+                data-by={subFor(p)}
                 data-desc={p.description}
               >
                 <img src={p.image} alt={p.title} loading={slot <= 1 ? 'eager' : 'lazy'} />
@@ -54,6 +64,7 @@ const slidesForRender = [
 
         <div class="copy">
           <h3 class="copy-title" data-title>{category.products[0].title}</h3>
+          <p class="copy-by" data-by>{subFor(category.products[0])}</p>
           <p class="copy-desc" data-desc>{category.products[0].description}</p>
         </div>
       </div>
@@ -201,11 +212,13 @@ const slidesForRender = [
   /* Copy — sits inside the gray panel, below the carousel + dashes */
   .copy {
     text-align: center;
-    padding: 1.25rem 1.5rem 0.25rem;
+    /* top padding trimmed to absorb the new "by ..." subhead line so the panel
+       height stays at the locked value (left card drives the row height) */
+    padding: 0.5rem 1.5rem 0.25rem;
   }
   @media (min-width: 1024px) {
     .copy {
-      padding: 2.25rem 2.5rem 0.5rem;
+      padding: 0.9rem 2.5rem 0.5rem;
     }
   }
   .copy-title {
@@ -213,8 +226,18 @@ const slidesForRender = [
     font-size: clamp(1.5rem, 2.4vw, 2rem);
     font-weight: 700;
     color: #1a1a1a;
-    margin: 0 0 0.875rem;
+    margin: 0 0 0.4rem;
     letter-spacing: -0.01em;
+  }
+  /* Small grayed "by PT ..." subhead — regular weight (system stack; SF Pro Display has no Regular loaded) */
+  .copy-by {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: #9ca3af;
+    margin: 0 0 0.85rem;
+    min-height: 1.18em;   /* reserve the line so desc doesn't jump between slides w/ & w/o a credit */
   }
   .copy-desc {
     font-family: var(--font-sans);
@@ -252,10 +275,6 @@ const slidesForRender = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 800ms cubic-bezier(0.19, 1, 0.22, 1);
-  }
-  @media (hover: hover) {
-    .showcase-right:hover .right-img { transform: scale(1.04); }
   }
 
   .right-overlay {
@@ -328,6 +347,7 @@ const slidesForRender = [
     const dots = Array.from(root.querySelectorAll<HTMLButtonElement>('.dot'));
     const fills = dots.map((d) => d.querySelector<HTMLElement>('.dot-fill')!);
     const titleEl = root.querySelector<HTMLElement>('.copy-title');
+    const byEl = root.querySelector<HTMLElement>('.copy-by');
     const descEl = root.querySelector<HTMLElement>('.copy-desc');
 
     const CLONE_PADDING = 2;
@@ -383,7 +403,8 @@ const slidesForRender = [
       const slide = slides[slotForRealIndex(realIdx)];
       if (slide) {
         setText(titleEl, slide.dataset.title || '');
-        setTimeout(() => setText(descEl, slide.dataset.desc || ''), 70);
+        setTimeout(() => setText(byEl, slide.dataset.by || ''), 50);
+        setTimeout(() => setText(descEl, slide.dataset.desc || ''), 90);
       }
       startProgress(realIdx);
     };

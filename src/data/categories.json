@@ -9,38 +9,52 @@
     "products": [
       {
         "image": "/images/uploads/CAKRATEK 1.png",
-        "title": "T-Shirt",
-        "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
+        "title": "Corporate Multi-Patch Varsity",
+        "garment": "Jaket",
+        "client": "PT Cakratek Buana Amerta",
+        "description": "Jaket varsity klasik — bahan tebal, lengan kontras, patch bordir rapi."
       },
       {
         "image": "/images/uploads/HYUNDAI GOWA 1.png",
-        "title": "Kemeja",
-        "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
+        "title": "Service Crew Shirt",
+        "garment": "Kemeja",
+        "client": "Hyundai Gowa",
+        "description": "Kemeja kerja lengan pendek — adem, ringan, bordir logo rapi buat frontliner."
       },
       {
         "image": "/images/uploads/KEMEJA SHELL (FERRARI) 1.png",
-        "title": "Jaket",
-        "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
+        "title": "Motorsport Patch Shirt",
+        "garment": "Kemeja",
+        "client": "",
+        "description": "Kemeja oxford putih dengan patch bordir tim. Potongan formal slim buat kru & event."
       },
       {
         "image": "/images/uploads/Porsche 1.png",
-        "title": "Poloshirt",
-        "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
+        "title": "Brand Capsule Tee",
+        "garment": "Kaos",
+        "client": "Porsche",
+        "description": "Kaos cotton combed 24s, sablon halus. Adem dipakai harian, jahitan rapi."
       },
       {
         "image": "/images/uploads/THAI UNION 1.png",
-        "title": "Wearpack",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Field Operation Safari",
+        "garment": "Kemeja",
+        "client": "PT Thai Union",
+        "description": "Kemeja lapangan bahan twill, dua saku flap. Kuat & adem buat tim operasional."
       },
       {
         "image": "/images/uploads/BARATA 1.png",
-        "title": "Barata Jaya",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Heavyweight Team Hoodie",
+        "garment": "Jaket",
+        "client": "PT Barata Indonesia",
+        "description": "Hoodie fleece tebal, jahitan rapi. Anget & nyaman jadi outer tim."
       },
       {
         "image": "/images/uploads/ADDA MITRA GLOBAL 1.png",
-        "title": "PT Adda Mitra Jaya",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Corporate Field Shirt",
+        "garment": "Kemeja",
+        "client": "PT Adda Mitra Global",
+        "description": "Kemeja kerja navy lengan panjang, saku flap. Rapi & tahan lama buat tim lapangan."
       }
     ]
   },

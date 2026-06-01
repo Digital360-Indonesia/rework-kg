@@ -1,36 +1,65 @@
-# Handoff → Manager-Lord
+# Handoff → Lord-Page-Builder
 
-**From:** Claudy (summoned session, 2026-05-21 afternoon)
-**Re:** VPS deploy done; CMS admin go-live is decision-blocked on Araya.
+**From:** Manager-Lord (Claudy)
+**Date:** 2026-05-30
+**Topic:** Section-3 (homepage) product-slider copywriting — all 4 categories
+
+> (Supersedes the 2026-05-21 VPS-deploy handoff — that work is all done: dev.kustomgarment.com is live, GitHub Route B auto-deploy is wired, CMS `/admin` is functional.)
 
 ---
 
-## TL;DR
-`https://dev.kustomgarment.com` is **live** with the real Astro build (was a placeholder). Deploy is now a one-command pipeline. Next requested work — making the `/admin` CMS functional for the team — is **paused awaiting Araya's call** on two forks (GitHub + publish route). Nothing committed to git; repo is still local + uncommitted on `main`.
+## The task
 
-## Done this session
-1. **SSH access established.** Araya can `ssh kg-vps` passwordless (alias in `~/.ssh/config`). Hostinger VPS, `72.61.214.241` / `srv1187723.hstgr.cloud`, HestiaCP at `:8083`, Cloudflare in front. Working key is `~/.ssh/id_ed25519_new` (not `id_ed25519` — that one's denied).
-2. **Mapped the pre-provisioned hosting.** Devs had set up the folder, `dist/` subfolder, nginx vhost, Cloudflare — but only placeholder files ("Aku araya"). nginx doc-root = `/home/fabrikgroup/web/dev.kustomgarment.com/public_html/dist` (HestiaCP user `fabrikgroup`).
-3. **Deployed the real site.** Built locally (26 pages, 82 MB) and rsynced into `dist/`. Verified: HTTP 200, correct title, real HTML on server.
-4. **Deploy pipeline.** `rework-kg/deploy.sh` → `astro build` then `rsync -avz --delete dist/ kg-vps:.../dist/`. Redeploy = `bash deploy.sh`. (This is **model A** — build-on-Mac + rsync.)
-5. **Memory + notes.** Saved `project_kg_vps_deploy.md` to Claudy memory; wrote `checkpoint-2026-05-21-vps-deploy.md` (full infra map + decision log).
+Homepage **Section 3** (`CategoryShowcase`) has, per category, a left-side **product slider**. Each slide reads as a real garment category credited to a real client:
 
-## In flight / blocked — needs Araya
-Making `/admin` (Sveltia CMS) work for the team. The CMS commits edits to GitHub, so it needs three things; I put the decision to Araya and am waiting:
-- **(1) GitHub repo** — code is local-only; must be pushed. Gating question: does Araya have a GitHub account, or do the devs own git? (Unanswered.)
-- **(2) Login/OAuth** — Sveltia auth helper (Cloudflare Worker). One-time.
-- **(3) Auto-publish route** — the open fork:
-  - **Route A — Cloudflare Pages** (Claudy's rec): host auto-builds on commit; repoint `dev.kustomgarment.com` DNS off the VPS to Pages. Least to maintain. *Trade-off: site stops using the VPS.*
-  - **Route B — keep VPS + GitHub Actions:** Actions builds on commit and rsyncs to the VPS (reuses the key + `deploy.sh`). Keeps the devs' setup. *Trade-off: more moving parts.*
+```
+<Garment category>      ← header (.copy-title) — MUST be a real category, NOT an invented name
+by PT <Client>          ← small grayed subhead (.copy-by)
+<product description>   ← desc (.copy-desc)
+```
 
-`config.yml` is already well-formed (collections: settings/homepage/categories/blog); only `backend.repo: OWNER/REPO` is a placeholder blocking go-live.
+**Important (Araya's correction):** do NOT invent product names. The title = the real garment category that the category page filters by — for business: **Kemeja / Polo / Kaos / Jaket / Rompi / Wearpack**. Use each segment's own catalog garment_types. The client/company is the variable gray subhead (`by PT …`); leave it blank if there's no creditable client. Drop the client *logos* — credit in text only.
 
-## Important context for Manager-Lord
-- **No lord-charter.md exists** in this project — Claudy ran free-form, not under a charter scope. If the lord system is meant to be active here, the charter still needs creating.
-- **Two-agent boundary from the morning still holds** (per `checkpoint-2026-05-21.md`): page agent owns `src/pages/*`; Claudy owns `src/data/*`, components, layout, `global.css`, `public/admin/*`, media. This session only touched deploy tooling (`deploy.sh`, `~/.ssh/config`) + notes — no collision.
-- **Nothing is committed.** Repo is uncommitted on `main`. Whoever does the GitHub push (step 1 above) should review the working tree first.
+STRUCTURE IS ALREADY IMPLEMENTED by Manager-Lord: `categories.json` products now use `{ image, title, client, description }`; the component renders the gray `by <client>` subhead; CMS exposes **Jenis produk** + **Klien** fields. You only supply copy values.
 
-## Recommended next action
-Get Araya's answer on GitHub (account vs devs) and publish route, then execute step 1→3 in order. Step 1 (GitHub repo) is shared by both routes, so it's safe to start regardless of the route choice.
+## Split of work (lane-aware)
 
-— Claudy, on behalf of Araya
+- **Page-Builder (you):** draft + refine the COPY only — for each slide: header (product name + garment word), the `by PT …` subhead, and the description. Deliver as a markdown table per category in `notes/section3-copy-proposal.md` (create it). Do NOT edit `src/data/*` or components — that's Manager-Lord's lane.
+- **Manager-Lord:** implements the structure — adds the subhead line to `CategoryShowcase.astro` (small, grayed, between title and desc), adds the `client`/`by` field to `categories.json` + the CMS schema, and pastes your approved copy into the data.
+
+## Business — DONE (live template to copy)
+
+Manager-Lord already wired business as the pattern. Final shape:
+
+| Photo (client)     | Title (garment) | Subhead (gray)              | Desc |
+|--------------------|-----------------|-----------------------------|------|
+| CAKRATEK           | Kaos            | by PT Cakratek Buana Amerta | Cotton combed 24s, sablon plastisol tajam. Dipakai harian tim, adem dan nggak gampang pudar. |
+| HYUNDAI GOWA       | Kemeja          | by Hyundai Gowa             | Kemeja kerja ringan buat frontliner bengkel. Bordir logo rapi, adem dipakai seharian. |
+| FERRARI / Shell    | Kemeja          | (blank — confirm client)    | American oxford, potongan formal slim. Rapi buat seragam kantor & event. |
+| PORSCHE            | Polo            | by Porsche                  | Pique adem, potongan slim modern. Bordir logo dada — berkelas tapi tetap santai. |
+| THAI UNION         | Wearpack        | by PT Thai Union            | Drill kuat, opsi reflektif. Tahan banting buat tim lapangan & produksi. |
+| BARATA             | Rompi           | by PT Barata Indonesia      | Rompi multi-kantong, drill tebal. Praktis buat tim operasional di lapangan. |
+| ADDA MITRA GLOBAL  | Jaket           | by PT Adda Mitra Global     | Jaket drill korporat, tebal & rapi. Kesan formal buat outer perusahaan. |
+
+**Your job:** produce the same shape for **community / campus / personal** — title = that segment's garment categories (check the category page / catalog `archetypes` per segment), client = real creditable company or blank. Open flag Araya must still close on business: slide 3 (Ferrari/Shell) client.
+
+## Source material
+
+- Current slider data: `src/data/categories.json` → `<category>.products[]` (each has `image`, `title`, `description`). Business has 7 items; image filenames = client names.
+- Real catalog to draw product names/specs from: `src/data/products/catalog.json` → `archetypes[]` filtered by `segment`. Each has `name`, `garment_type`, `positioning`, `price_min` — good seed for headers + descriptions. (13 business archetypes available.)
+
+## Copy rules (Araya's standing prefs — enforce)
+
+- **Idiomatic Indonesian**, everyday speech — not Google-Translate. EN bits feel like marketing, not feature lists.
+- **Defendable claims only** — no invented stats/percentages. Only credit clients KG actually served.
+- **Never the word "operator"** — use partner / mitra / tim / klinik / fasilitas.
+- Keep descriptions tight (≈1–2 lines) — the slot is small.
+- Localize: Indonesian company names (PT X), IDR, local context.
+
+## Next
+
+1. Wait for Araya to lock the Business table.
+2. Produce community / campus / personal tables in `notes/section3-copy-proposal.md`, same shape (use catalog products per segment).
+3. Hand back to Manager-Lord to implement structure + data.
+
+— Manager-Lord, acting on behalf of Araya

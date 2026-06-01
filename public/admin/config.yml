@@ -179,8 +179,10 @@ collections:
                 widget: list
                 fields:
                   - { name: image, label: "Gambar produk", widget: image }
-                  - { name: title, label: "Nama produk", widget: string }
-                  - { name: description, label: "Deskripsi", widget: text }
+                  - { name: title, label: "Nama produk (unik, mis. 'Corporate Multi-Patch Varsity')", widget: string }
+                  - { name: garment, label: "Kategori (Kemeja/Polo/Kaos/Jaket/Rompi/Wearpack) — tampil di subhead + tag filter", widget: string, required: false, default: "" }
+                  - { name: client, label: "Klien — subhead jadi '<kategori> by <klien>' (kosongkan kalau tak ada)", widget: string, required: false, default: "" }
+                  - { name: description, label: "Deskripsi singkat", widget: text }
           - name: community
             label: "Community"
             widget: object
@@ -196,8 +198,10 @@ collections:
                 widget: list
                 fields:
                   - { name: image, label: "Gambar produk", widget: image }
-                  - { name: title, label: "Nama produk", widget: string }
-                  - { name: description, label: "Deskripsi", widget: text }
+                  - { name: title, label: "Nama produk (unik, mis. 'Corporate Multi-Patch Varsity')", widget: string }
+                  - { name: garment, label: "Kategori (Kemeja/Polo/Kaos/Jaket/Rompi/Wearpack) — tampil di subhead + tag filter", widget: string, required: false, default: "" }
+                  - { name: client, label: "Klien — subhead jadi '<kategori> by <klien>' (kosongkan kalau tak ada)", widget: string, required: false, default: "" }
+                  - { name: description, label: "Deskripsi singkat", widget: text }
           - name: campus
             label: "Campus"
             widget: object
@@ -213,8 +217,10 @@ collections:
                 widget: list
                 fields:
                   - { name: image, label: "Gambar produk", widget: image }
-                  - { name: title, label: "Nama produk", widget: string }
-                  - { name: description, label: "Deskripsi", widget: text }
+                  - { name: title, label: "Nama produk (unik, mis. 'Corporate Multi-Patch Varsity')", widget: string }
+                  - { name: garment, label: "Kategori (Kemeja/Polo/Kaos/Jaket/Rompi/Wearpack) — tampil di subhead + tag filter", widget: string, required: false, default: "" }
+                  - { name: client, label: "Klien — subhead jadi '<kategori> by <klien>' (kosongkan kalau tak ada)", widget: string, required: false, default: "" }
+                  - { name: description, label: "Deskripsi singkat", widget: text }
           - name: personal
             label: "Personal"
             widget: object
@@ -230,8 +236,10 @@ collections:
                 widget: list
                 fields:
                   - { name: image, label: "Gambar produk", widget: image }
-                  - { name: title, label: "Nama produk", widget: string }
-                  - { name: description, label: "Deskripsi", widget: text }
+                  - { name: title, label: "Nama produk (unik, mis. 'Corporate Multi-Patch Varsity')", widget: string }
+                  - { name: garment, label: "Kategori (Kemeja/Polo/Kaos/Jaket/Rompi/Wearpack) — tampil di subhead + tag filter", widget: string, required: false, default: "" }
+                  - { name: client, label: "Klien — subhead jadi '<kategori> by <klien>' (kosongkan kalau tak ada)", widget: string, required: false, default: "" }
+                  - { name: description, label: "Deskripsi singkat", widget: text }
 
   # ---------------- STATIC PAGES (about / partnership / faq) ----------------
   - name: pages
