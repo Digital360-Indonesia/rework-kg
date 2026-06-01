@@ -161,7 +161,9 @@ const slidesForRender = [
     margin: 0;
     display: grid;
     place-items: center;
-    aspect-ratio: 16 / 9;
+    /* portrait slot — product photos are ~3:4/4:5 portrait, so they fill it
+       (16/9 left them tiny with big side margins) */
+    aspect-ratio: 4 / 5;
     cursor: pointer;
   }
   .slide img {
