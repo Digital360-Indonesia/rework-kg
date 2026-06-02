@@ -11,7 +11,7 @@
         "image": "/images/uploads/CAKRATEK 1.png",
         "title": "Corporate Multi-Patch Varsity",
         "garment": "Jaket",
-        "client": "PT Cakratek Buana Amerta",
+        "client": "Cakratek Buana Amerta",
         "description": "Jaket varsity klasik — bahan tebal, lengan kontras, patch bordir rapi."
       },
       {
@@ -19,42 +19,42 @@
         "title": "Service Crew Shirt",
         "garment": "Kemeja",
         "client": "Hyundai Gowa",
-        "description": "Kemeja kerja lengan pendek — adem, ringan, bordir logo rapi buat frontliner."
+        "description": "Kemeja kerja lengan pendek — adem, ringan, bordir logo rapi untuk frontliner."
       },
       {
         "image": "/images/uploads/KEMEJA SHELL (FERRARI) 1.png",
-        "title": "Motorsport Patch Shirt",
+        "title": "Standard Long-Sleeve Shirt",
         "garment": "Kemeja",
-        "client": "",
-        "description": "Kemeja oxford putih dengan patch bordir tim. Potongan formal slim buat kru & event."
+        "client": "Shell Scuderia Ferrari",
+        "description": "Kemeja putih basic lengan panjang, bordir logo simpel. Potongan formal slim untuk kru & event."
       },
       {
         "image": "/images/uploads/Porsche 1.png",
-        "title": "Brand Capsule Tee",
+        "title": "Brand Essential Tee",
         "garment": "Kaos",
         "client": "Porsche",
         "description": "Kaos cotton combed 24s, sablon halus. Adem dipakai harian, jahitan rapi."
       },
       {
         "image": "/images/uploads/THAI UNION 1.png",
-        "title": "Field Operation Safari",
+        "title": "Utility Work Shirt",
         "garment": "Kemeja",
-        "client": "PT Thai Union",
-        "description": "Kemeja lapangan bahan twill, dua saku flap. Kuat & adem buat tim operasional."
+        "client": "Thai Union Kharisma Lestari",
+        "description": "Kemeja kerja dua saku flap, bahan adem & kuat. Pas untuk tim operasional."
       },
       {
         "image": "/images/uploads/BARATA 1.png",
         "title": "Heavyweight Team Hoodie",
         "garment": "Jaket",
-        "client": "PT Barata Indonesia",
-        "description": "Hoodie fleece tebal, jahitan rapi. Anget & nyaman jadi outer tim."
+        "client": "Barata Indonesia",
+        "description": "Hoodie fleece tebal, banyak pilihan warna & opsi bordir/sablon branding. Hangat & rapi jadi outer tim kantor."
       },
       {
         "image": "/images/uploads/ADDA MITRA GLOBAL 1.png",
         "title": "Corporate Field Shirt",
         "garment": "Kemeja",
-        "client": "PT Adda Mitra Global",
-        "description": "Kemeja kerja navy lengan panjang, saku flap. Rapi & tahan lama buat tim lapangan."
+        "client": "Adda Mitra Global",
+        "description": "Kemeja kerja navy lengan panjang, saku flap. Rapi & tahan lama untuk seragam tim."
       }
     ]
   },
@@ -68,38 +68,52 @@
     "products": [
       {
         "image": "/images/uploads/AIESEC 1.png",
-        "title": "T-Shirt",
-        "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
+        "title": "Original Half-Zip Jacket",
+        "garment": "Jaket",
+        "client": "AIESEC Surabaya",
+        "description": "Half-zip fleece tebal versi original, collar berdiri. Seragam semiformal dengan rasa kasual."
       },
       {
         "image": "/images/uploads/DOMUS 1.png",
-        "title": "Kemeja",
-        "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
+        "title": "Terry Half-Zip Jacket",
+        "garment": "Jaket",
+        "client": "Domus",
+        "description": "Half-zip bahan terry yang lebih ringan dari fleece tebal. Adem & nyaman dipakai harian."
       },
       {
         "image": "/images/uploads/SEMESTA (UNIV CIPUTRA) 1.png",
-        "title": "Jaket",
-        "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
+        "title": "Baseball Varsity Fleece",
+        "garment": "Jaket",
+        "client": "UC Apple Developer Academy",
+        "description": "Jaket varsity fleece gaya baseball, lengan kontras & patch bordir. Tebal dan gagah."
       },
       {
         "image": "/images/uploads/SOCO 1.png",
-        "title": "Poloshirt",
-        "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
+        "title": "Event Long-Sleeve Tee",
+        "garment": "Kaos",
+        "client": "Soco",
+        "description": "Kaos lengan panjang cotton combed, sablon clean. Cocok untuk merchandise acara."
       },
       {
         "image": "/images/uploads/KAWASAKI 1.png",
-        "title": "Wearpack",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Classic Team Workshirt",
+        "garment": "Kemeja",
+        "client": "Kawasaki",
+        "description": "Kemeja kerja lengan pendek, bordir logo. Rapi untuk seragam tim."
       },
       {
         "image": "/images/uploads/NIRVANA 1.png",
-        "title": "Nirvana",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Graphic Merchandise Tee",
+        "garment": "Kaos",
+        "client": "AIESEC Surabaya",
+        "description": "Kaos cotton combed, sablon tema solid. Cocok untuk merchandise event."
       },
       {
         "image": "/images/uploads/Apple Dev 1.png",
-        "title": "Apple dev",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Lightweight Bomber",
+        "garment": "Jaket",
+        "client": "UC Apple Developer Academy",
+        "description": "Bomber dengan bordir minimalis, potongan rapi. Cocok jadi outer tim sehari-hari."
       }
     ]
   },
@@ -113,38 +127,52 @@
     "products": [
       {
         "image": "/images/uploads/PMM UNAIR 1.png",
-        "title": "T-Shirt",
-        "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
+        "title": "Classic Varsity Fleece",
+        "garment": "Jaket",
+        "client": "PMM Unair",
+        "description": "Jaket varsity fleece klasik dengan manset rib bergaris. Tebal dan gagah untuk angkatan."
       },
       {
         "image": "/images/uploads/DESPOREV 1.png",
-        "title": "Kemeja",
-        "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
+        "title": "Statement Graphic Tee",
+        "garment": "Kaos",
+        "client": "Desporev",
+        "description": "Kaos cotton combed, sablon grafis tajam. Cocok untuk merchandise acara organisasi."
       },
       {
         "image": "/images/uploads/KSM UBAYA 1.png",
-        "title": "Jaket",
-        "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
+        "title": "Standard Batik Shirt",
+        "garment": "Kemeja",
+        "client": "KSM Ubaya",
+        "description": "Kemeja standar putih dengan aksen batik & patch bordir. Rapi untuk acara himpunan."
       },
       {
         "image": "/images/uploads/INFEST ITS 1.png",
-        "title": "Poloshirt",
-        "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
+        "title": "Standard Workshirt",
+        "garment": "Kemeja",
+        "client": "Infest ITS",
+        "description": "Kemeja kerja lengan panjang, saku flap. Standar dan rapi untuk organisasi kampus."
       },
       {
         "image": "/images/uploads/HPA UNAIR 1.png",
-        "title": "Wearpack",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Varsity Long-Sleeve Tee",
+        "garment": "Kaos",
+        "client": "HPA Unair",
+        "description": "Kaos lengan panjang dengan aksen garis, banyak pilihan warna. Adem dan santai."
       },
       {
         "image": "/images/uploads/DIGIKNOW TELKOM 1.png",
-        "title": "Digiknow telkom",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Lined Bomber Jacket",
+        "garment": "Jaket",
+        "client": "DigiKnow Telkom",
+        "description": "Bomber dua lapis dengan lapisan kain di dalam, bordir logo. Rapi jadi outer tim & event."
       },
       {
         "image": "/images/uploads/FINCON 1.png",
-        "title": "Fincon",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Full-Print Pattern Shirt",
+        "garment": "Kemeja",
+        "client": "Fincon",
+        "description": "Kemeja motif full-print, lengan pendek. Unik untuk panitia acara."
       }
     ]
   },
@@ -158,28 +186,38 @@
     "products": [
       {
         "image": "/images/uploads/AIDA 1.png",
-        "title": "T-Shirt",
-        "description": "Cotton combed premium 24s/30s. DTG, sablon plastisol, atau bordir — bebas pilih finishing."
+        "title": "Statement Pullover Hoodie",
+        "garment": "Jaket",
+        "client": "",
+        "description": "Hoodie fleece tebal dengan sablon clean. Hangat dan nyaman untuk harian."
       },
       {
         "image": "/images/uploads/ORen 1.png",
-        "title": "Kemeja",
-        "description": "American drill, oxford, atau premium poplin. Cocok untuk seragam dan event formal."
+        "title": "Classic Harrington Jacket",
+        "garment": "Jaket",
+        "client": "",
+        "description": "Harrington full-zip dengan kerah klasik. Mudah dipadu apa saja."
       },
       {
         "image": "/images/uploads/TRUCKER FLEECE 1.png",
-        "title": "Jaket",
-        "description": "Bomber, hoodie, atau coach jacket. Bahan tahan cuaca dengan finishing rapi."
+        "title": "Two-Pocket Overshirt",
+        "garment": "Kemeja",
+        "client": "",
+        "description": "Overshirt dua saku kontras, bahan adem. Bisa jadi outer tipis sehari-hari."
       },
       {
         "image": "/images/uploads/KEMEJA MAROON 1.png",
-        "title": "Poloshirt",
-        "description": "Pique cotton, lacoste, atau cooldry. Bordir logo dan nama sesuai kebutuhan."
+        "title": "Maroon Slim Shirt",
+        "garment": "Kemeja",
+        "client": "",
+        "description": "Kemeja maroon katun lembut, potongan slim. Rapi tapi tetap santai."
       },
       {
         "image": "/images/uploads/POLO WHITE 1.png",
-        "title": "Wearpack",
-        "description": "Drill, ripstop, atau canvas. Reflective tape opsional untuk safety standar."
+        "title": "Tipped Collar Polo",
+        "garment": "Polo",
+        "client": "",
+        "description": "Polo pique putih dengan aksen garis di kerah. Adem dan rapi untuk harian."
       }
     ]
   }
