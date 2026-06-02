@@ -249,6 +249,9 @@ const slidesForRender = [
     color: #525252;
     margin: 0 auto;
     max-width: 26rem;
+    /* Always reserve 2 lines so the card height stays fixed whether a slide's
+       desc is 1 or 2 lines (no height jump as the carousel advances). */
+    min-height: 3.1em;
   }
 
   /* ===== RIGHT ===== */
