@@ -14,7 +14,7 @@ const clients = comm.clients ?? [];
 // Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
 const SEG = 'community';
 const rpFmt = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(n);
-const shopItems = (catalog.archetypes as any[]).filter((a) => a.segment === SEG);
+const shopItems = (catalog.archetypes as any[]).filter((a) => a.segment === SEG && !a.hidden);
 const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kaos', jaket: 'Jaket', rompi: 'Rompi', wearpack: 'Wearpack' };
 const LU = (name: string) => `/images/placeholder/forproducts/20250428-Business_Line-Up_${name}-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp`;
 const presentTypes = [...new Set(shopItems.map((a) => a.garment_type))] as string[];
@@ -105,7 +105,7 @@ const compare = {
               </div>
               <h3 class="cat-shop-name">{p.name}</h3>
               <p class="cat-shop-color">{p.positioning}</p>
-              <p class="cat-shop-price"><span class="cat-shop-price-pre">from</span> <span class="cat-shop-price-amt">{rpFmt(p.price_min)}</span></p>
+              {!p.hide_price && (<p class="cat-shop-price"><span class="cat-shop-price-pre">from</span> <span class="cat-shop-price-amt">{rpFmt(p.price_min)}</span></p>)}
             </a>
           ))}
         </div>

@@ -4,7 +4,7 @@ import catalog from '../../data/products/catalog.json';
 import siteConfig from '../../data/site-config.json';
 
 export function getStaticPaths() {
-  return catalog.archetypes.map((a) => ({ params: { slug: a.slug }, props: { product: a } }));
+  return catalog.archetypes.filter((a) => !a.hidden).map((a) => ({ params: { slug: a.slug }, props: { product: a } }));
 }
 
 const { product } = Astro.props;
@@ -36,7 +36,7 @@ const styleModeVal = STYLE_MODE[product.slug] ?? 50;
 
 // related products from the same segment (cap at 4)
 const related = (catalog.archetypes as any[])
-  .filter((a) => a.segment === product.segment && a.slug !== product.slug)
+  .filter((a) => a.segment === product.segment && a.slug !== product.slug && !a.hidden)
   .slice(0, 4);
 ---
 
@@ -67,10 +67,12 @@ const related = (catalog.archetypes as any[])
           <span class="pdp-reviews">({product.reviews})</span>
         </div>
 
-        <div class="pdp-price">
-          {priceRange}
-          <span class="pdp-price-note">{product.price_note}</span>
-        </div>
+        {!product.hide_price && (
+          <div class="pdp-price">
+            {priceRange}
+            <span class="pdp-price-note">{product.price_note}</span>
+          </div>
+        )}
 
         <div class="pdp-actions">
           <a class="pdp-btn pdp-btn-wa" href={waHref} target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a>
@@ -135,7 +137,7 @@ const related = (catalog.archetypes as any[])
                 <img src={r.gallery[0]} alt={r.name} loading="lazy" />
               </div>
               <h3 class="pdp-rec-name">{r.name}</h3>
-              <p class="pdp-rec-price"><span class="pdp-rec-price-pre">from</span> <span class="pdp-rec-price-amt">{rp(r.price_min)}</span></p>
+              {!r.hide_price && (<p class="pdp-rec-price"><span class="pdp-rec-price-pre">from</span> <span class="pdp-rec-price-amt">{rp(r.price_min)}</span></p>)}
             </a>
           ))}
         </div>

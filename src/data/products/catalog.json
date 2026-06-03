@@ -846,7 +846,8 @@
       "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
       "gallery": [
         "/images/placeholder/products/kemeja.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "launching-shirt",
@@ -889,7 +890,8 @@
       "care": "Default bahan Unione Drill — halus & rapi. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Bahan lain tersedia di langkah kustomisasi.",
       "gallery": [
         "/images/placeholder/products/kemeja.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "field-operation-shirt",
@@ -933,7 +935,8 @@
       "care": "Default bahan American Drill — kuat untuk kerja lapangan. Cuci mesin, setrika suhu sedang. Bahan lain tersedia di langkah kustomisasi.",
       "gallery": [
         "/images/placeholder/products/kemeja.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "service-shirt",
@@ -974,7 +977,8 @@
       "care": "Default bahan Ribstop — ringan & adem. Cuci mesin suhu normal, jemur angin-anginkan. Bahan lain tersedia di langkah kustomisasi.",
       "gallery": [
         "/images/placeholder/products/kemeja.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "crew-field-shirt",
@@ -1018,7 +1022,8 @@
       "care": "Default bahan American Drill — kuat & awet. Cuci mesin, setrika suhu sedang. Bahan lain tersedia di langkah kustomisasi.",
       "gallery": [
         "/images/placeholder/products/kemeja.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "campus-drill-workshirt",
@@ -1062,7 +1067,8 @@
       "care": "Default bahan American Drill — kuat & awet. Cuci mesin, setrika suhu sedang. Bahan lain tersedia di langkah kustomisasi.",
       "gallery": [
         "/images/placeholder/products/kemeja.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "standard-issue-workshirt",
@@ -1105,7 +1111,8 @@
       "care": "Default bahan Unione Drill — halus & rapi. Cuci mesin suhu normal, setrika suhu sedang. Bahan lain tersedia di langkah kustomisasi.",
       "gallery": [
         "/images/placeholder/products/kemeja.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "office-polo",
@@ -1140,7 +1147,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/polo.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "heavyweight-field-polo",
@@ -1180,7 +1188,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/polo.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "pique-student-polo",
@@ -1220,7 +1229,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/polo.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "brand-merch-tee",
@@ -1259,7 +1269,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/kaos.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "the-event-tee",
@@ -1298,7 +1309,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/kaos.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "combed-class-tee",
@@ -1337,7 +1349,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/kaos.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "office-bomber",
@@ -1376,7 +1389,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/jaket.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "corporate-drill-jacket",
@@ -1415,7 +1429,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/jaket.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "event-windbreaker",
@@ -1454,7 +1469,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/jaket.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "varsity-classic",
@@ -1493,7 +1509,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/jaket.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "trail-windbreaker",
@@ -1532,7 +1549,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/jaket.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "fleece-varsity",
@@ -1571,7 +1589,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/jaket.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "field-utility-vest",
@@ -1609,7 +1628,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/rompi.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "fleece-vest",
@@ -1642,7 +1662,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/rompi.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "standard-issue-vest",
@@ -1680,7 +1701,8 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/rompi.svg"
-      ]
+      ],
+      "hidden": true
     },
     {
       "slug": "industrial-wearpack",
@@ -1720,7 +1742,1120 @@
       "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
       "gallery": [
         "/images/placeholder/products/wearpack.svg"
-      ]
+      ],
+      "hidden": true
+    },
+    {
+      "slug": "corporate-multi-patch-varsity",
+      "name": "Corporate Multi-Patch Varsity",
+      "garment_type": "jaket",
+      "segment": "business",
+      "badge": null,
+      "positioning": "Jaket varsity klasik — bahan tebal, lengan kontras, patch bordir rapi.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Jaket varsity klasik — bahan tebal, lengan kontras, patch bordir rapi.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/CAKRATEK 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "service-crew-shirt",
+      "name": "Service Crew Shirt",
+      "garment_type": "kemeja",
+      "segment": "business",
+      "badge": null,
+      "positioning": "Kemeja kerja lengan pendek — adem, ringan, bordir logo rapi untuk frontliner.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Kemeja kerja lengan pendek — adem, ringan, bordir logo rapi untuk frontliner.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/HYUNDAI GOWA 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "standard-long-sleeve-shirt",
+      "name": "Standard Long-Sleeve Shirt",
+      "garment_type": "kemeja",
+      "segment": "business",
+      "badge": null,
+      "positioning": "Kemeja putih basic lengan panjang, bordir logo simpel. Potongan formal slim untuk kru & event.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Kemeja putih basic lengan panjang, bordir logo simpel. Potongan formal slim untuk kru & event.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/KEMEJA SHELL (FERRARI) 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "brand-essential-tee",
+      "name": "Brand Essential Tee",
+      "garment_type": "kaos",
+      "segment": "business",
+      "badge": null,
+      "positioning": "Kaos cotton combed 24s, sablon halus. Adem dipakai harian, jahitan rapi.",
+      "rating": 4.7,
+      "reviews": 110,
+      "price_min": 58000,
+      "price_max": 78000,
+      "base_price_per_pc": 67500,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "combed-30s",
+      "color_default": "black",
+      "locked_spec": {
+        "Neckline": "Crew neck",
+        "Sleeve": "Short",
+        "Cut": "Standard fit",
+        "Hem": "Straight"
+      },
+      "default_decoration": [
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Back center",
+          "size": "small"
+        }
+      ],
+      "description": "Kaos cotton combed 24s, sablon halus. Adem dipakai harian, jahitan rapi.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/Porsche 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "utility-work-shirt",
+      "name": "Utility Work Shirt",
+      "garment_type": "kemeja",
+      "segment": "business",
+      "badge": null,
+      "positioning": "Kemeja kerja dua saku flap, bahan adem & kuat. Pas untuk tim operasional.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Kemeja kerja dua saku flap, bahan adem & kuat. Pas untuk tim operasional.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/THAI UNION 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "heavyweight-team-hoodie",
+      "name": "Heavyweight Team Hoodie",
+      "garment_type": "jaket",
+      "segment": "business",
+      "badge": null,
+      "positioning": "Hoodie fleece tebal, banyak pilihan warna & opsi bordir/sablon branding. Hangat & rapi jadi outer tim kantor.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Hoodie fleece tebal, banyak pilihan warna & opsi bordir/sablon branding. Hangat & rapi jadi outer tim kantor.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/BARATA 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "corporate-field-shirt",
+      "name": "Corporate Field Shirt",
+      "garment_type": "kemeja",
+      "segment": "business",
+      "badge": null,
+      "positioning": "Kemeja kerja navy lengan panjang, saku flap. Rapi & tahan lama untuk seragam tim.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Kemeja kerja navy lengan panjang, saku flap. Rapi & tahan lama untuk seragam tim.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/ADDA MITRA GLOBAL 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "original-half-zip-jacket",
+      "name": "Original Half-Zip Jacket",
+      "garment_type": "jaket",
+      "segment": "community",
+      "badge": null,
+      "positioning": "Half-zip fleece tebal versi original, collar berdiri. Seragam semiformal dengan rasa kasual.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Half-zip fleece tebal versi original, collar berdiri. Seragam semiformal dengan rasa kasual.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/AIESEC 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "terry-half-zip-jacket",
+      "name": "Terry Half-Zip Jacket",
+      "garment_type": "jaket",
+      "segment": "community",
+      "badge": null,
+      "positioning": "Half-zip bahan terry yang lebih ringan dari fleece tebal. Adem & nyaman dipakai harian.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Half-zip bahan terry yang lebih ringan dari fleece tebal. Adem & nyaman dipakai harian.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/DOMUS 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "baseball-varsity-fleece",
+      "name": "Baseball Varsity Fleece",
+      "garment_type": "jaket",
+      "segment": "community",
+      "badge": null,
+      "positioning": "Jaket varsity fleece gaya baseball, lengan kontras & patch bordir. Tebal dan gagah.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Jaket varsity fleece gaya baseball, lengan kontras & patch bordir. Tebal dan gagah.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/SEMESTA (UNIV CIPUTRA) 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "event-long-sleeve-tee",
+      "name": "Event Long-Sleeve Tee",
+      "garment_type": "kaos",
+      "segment": "community",
+      "badge": null,
+      "positioning": "Kaos lengan panjang cotton combed, sablon clean. Cocok untuk merchandise acara.",
+      "rating": 4.7,
+      "reviews": 110,
+      "price_min": 58000,
+      "price_max": 78000,
+      "base_price_per_pc": 67500,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "combed-30s",
+      "color_default": "black",
+      "locked_spec": {
+        "Neckline": "Crew neck",
+        "Sleeve": "Short",
+        "Cut": "Standard fit",
+        "Hem": "Straight"
+      },
+      "default_decoration": [
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Back center",
+          "size": "small"
+        }
+      ],
+      "description": "Kaos lengan panjang cotton combed, sablon clean. Cocok untuk merchandise acara.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/SOCO 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "classic-team-workshirt",
+      "name": "Classic Team Workshirt",
+      "garment_type": "kemeja",
+      "segment": "community",
+      "badge": null,
+      "positioning": "Kemeja kerja lengan pendek, bordir logo. Rapi untuk seragam tim.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Kemeja kerja lengan pendek, bordir logo. Rapi untuk seragam tim.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/KAWASAKI 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "graphic-merchandise-tee",
+      "name": "Graphic Merchandise Tee",
+      "garment_type": "kaos",
+      "segment": "community",
+      "badge": null,
+      "positioning": "Kaos cotton combed, sablon tema solid. Cocok untuk merchandise event.",
+      "rating": 4.7,
+      "reviews": 110,
+      "price_min": 58000,
+      "price_max": 78000,
+      "base_price_per_pc": 67500,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "combed-30s",
+      "color_default": "black",
+      "locked_spec": {
+        "Neckline": "Crew neck",
+        "Sleeve": "Short",
+        "Cut": "Standard fit",
+        "Hem": "Straight"
+      },
+      "default_decoration": [
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Back center",
+          "size": "small"
+        }
+      ],
+      "description": "Kaos cotton combed, sablon tema solid. Cocok untuk merchandise event.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/NIRVANA 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "lightweight-bomber",
+      "name": "Lightweight Bomber",
+      "garment_type": "jaket",
+      "segment": "community",
+      "badge": null,
+      "positioning": "Bomber dengan bordir minimalis, potongan rapi. Cocok jadi outer tim sehari-hari.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Bomber dengan bordir minimalis, potongan rapi. Cocok jadi outer tim sehari-hari.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/Apple Dev 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "classic-varsity-fleece",
+      "name": "Classic Varsity Fleece",
+      "garment_type": "jaket",
+      "segment": "campus",
+      "badge": null,
+      "positioning": "Jaket varsity fleece klasik dengan manset rib bergaris. Tebal dan gagah untuk angkatan.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Jaket varsity fleece klasik dengan manset rib bergaris. Tebal dan gagah untuk angkatan.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/PMM UNAIR 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "statement-graphic-tee",
+      "name": "Statement Graphic Tee",
+      "garment_type": "kaos",
+      "segment": "campus",
+      "badge": null,
+      "positioning": "Kaos cotton combed, sablon grafis tajam. Cocok untuk merchandise acara organisasi.",
+      "rating": 4.7,
+      "reviews": 110,
+      "price_min": 58000,
+      "price_max": 78000,
+      "base_price_per_pc": 67500,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "combed-30s",
+      "color_default": "black",
+      "locked_spec": {
+        "Neckline": "Crew neck",
+        "Sleeve": "Short",
+        "Cut": "Standard fit",
+        "Hem": "Straight"
+      },
+      "default_decoration": [
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Back center",
+          "size": "small"
+        }
+      ],
+      "description": "Kaos cotton combed, sablon grafis tajam. Cocok untuk merchandise acara organisasi.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/DESPOREV 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "standard-batik-shirt",
+      "name": "Standard Batik Shirt",
+      "garment_type": "kemeja",
+      "segment": "campus",
+      "badge": null,
+      "positioning": "Kemeja standar putih dengan aksen batik & patch bordir. Rapi untuk acara himpunan.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Kemeja standar putih dengan aksen batik & patch bordir. Rapi untuk acara himpunan.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/KSM UBAYA 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "standard-workshirt",
+      "name": "Standard Workshirt",
+      "garment_type": "kemeja",
+      "segment": "campus",
+      "badge": null,
+      "positioning": "Kemeja kerja lengan panjang, saku flap. Standar dan rapi untuk organisasi kampus.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Kemeja kerja lengan panjang, saku flap. Standar dan rapi untuk organisasi kampus.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/INFEST ITS 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "varsity-long-sleeve-tee",
+      "name": "Varsity Long-Sleeve Tee",
+      "garment_type": "kaos",
+      "segment": "campus",
+      "badge": null,
+      "positioning": "Kaos lengan panjang dengan aksen garis, banyak pilihan warna. Adem dan santai.",
+      "rating": 4.7,
+      "reviews": 110,
+      "price_min": 58000,
+      "price_max": 78000,
+      "base_price_per_pc": 67500,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "combed-30s",
+      "color_default": "black",
+      "locked_spec": {
+        "Neckline": "Crew neck",
+        "Sleeve": "Short",
+        "Cut": "Standard fit",
+        "Hem": "Straight"
+      },
+      "default_decoration": [
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Sablon 1-3 warna small",
+          "placement": "Back center",
+          "size": "small"
+        }
+      ],
+      "description": "Kaos lengan panjang dengan aksen garis, banyak pilihan warna. Adem dan santai.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/HPA UNAIR 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "lined-bomber-jacket",
+      "name": "Lined Bomber Jacket",
+      "garment_type": "jaket",
+      "segment": "campus",
+      "badge": null,
+      "positioning": "Bomber dua lapis dengan lapisan kain di dalam, bordir logo. Rapi jadi outer tim & event.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Bomber dua lapis dengan lapisan kain di dalam, bordir logo. Rapi jadi outer tim & event.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/DIGIKNOW TELKOM 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "full-print-pattern-shirt",
+      "name": "Full-Print Pattern Shirt",
+      "garment_type": "kemeja",
+      "segment": "campus",
+      "badge": null,
+      "positioning": "Kemeja motif full-print, lengan pendek. Unik untuk panitia acara.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Kemeja motif full-print, lengan pendek. Unik untuk panitia acara.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/FINCON 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "statement-pullover-hoodie",
+      "name": "Statement Pullover Hoodie",
+      "garment_type": "jaket",
+      "segment": "personal",
+      "badge": null,
+      "positioning": "Hoodie fleece tebal dengan sablon clean. Hangat dan nyaman untuk harian.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Hoodie fleece tebal dengan sablon clean. Hangat dan nyaman untuk harian.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/AIDA 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "classic-harrington-jacket",
+      "name": "Classic Harrington Jacket",
+      "garment_type": "jaket",
+      "segment": "personal",
+      "badge": null,
+      "positioning": "Harrington full-zip dengan kerah klasik. Mudah dipadu apa saja.",
+      "rating": 4.8,
+      "reviews": 47,
+      "price_min": 148000,
+      "price_max": 192000,
+      "base_price_per_pc": 170000,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "mikro-ns",
+      "color_default": "navy",
+      "locked_spec": {
+        "Closure": "Zipper front",
+        "Cuff": "Ribbed cuff & hem",
+        "Hood": "None",
+        "Lining": "Standard inner lining"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        },
+        {
+          "type": "Bordir medium",
+          "placement": "Back center",
+          "size": "medium"
+        }
+      ],
+      "description": "Harrington full-zip dengan kerah klasik. Mudah dipadu apa saja.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/ORen 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "two-pocket-overshirt",
+      "name": "Two-Pocket Overshirt",
+      "garment_type": "kemeja",
+      "segment": "personal",
+      "badge": null,
+      "positioning": "Overshirt dua saku kontras, bahan adem. Bisa jadi outer tipis sehari-hari.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Overshirt dua saku kontras, bahan adem. Bisa jadi outer tipis sehari-hari.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/TRUCKER FLEECE 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "maroon-slim-shirt",
+      "name": "Maroon Slim Shirt",
+      "garment_type": "kemeja",
+      "segment": "personal",
+      "badge": null,
+      "positioning": "Kemeja maroon katun lembut, potongan slim. Rapi tapi tetap santai.",
+      "rating": 4.8,
+      "reviews": 126,
+      "price_min": 95000,
+      "price_max": 130000,
+      "base_price_per_pc": 112500,
+      "price_note": "per pc · est. di 50 pcs",
+      "hide_price": true,
+      "default_fabric": "nagata",
+      "upgrade_fabrics": [
+        "unione-drill",
+        "texmoda"
+      ],
+      "downgrade_fabrics": [
+        "american-drill"
+      ],
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Regular Spread",
+        "Cuff": "Standard Single Button",
+        "Front": "Standard Placket",
+        "Pocket": "None",
+        "Yoke": "Standard",
+        "Bottom Hem": "Straight (tucked)",
+        "Sleeve": "Long"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Kemeja maroon katun lembut, potongan slim. Rapi tapi tetap santai.",
+      "care": "Default bahan Nagata — drill premium, jatuh rapi dan tahan kusut. Cuci mesin suhu normal, hindari pemutih, setrika suhu sedang. Pilihan bahan lain (Texmoda, Unione Drill, American Drill, Ribstop) tersedia di langkah kustomisasi.",
+      "gallery": [
+        "/images/uploads/KEMEJA MAROON 1.png"
+      ],
+      "hidden": false
+    },
+    {
+      "slug": "tipped-collar-polo",
+      "name": "Tipped Collar Polo",
+      "garment_type": "polo",
+      "segment": "personal",
+      "badge": null,
+      "positioning": "Polo pique putih dengan aksen garis di kerah. Adem dan rapi untuk harian.",
+      "rating": 4.7,
+      "reviews": 95,
+      "price_min": 75000,
+      "price_max": 100000,
+      "base_price_per_pc": 87500,
+      "price_note": "per pc · est.",
+      "hide_price": true,
+      "default_fabric": "lacoste-24s",
+      "color_default": "white",
+      "locked_spec": {
+        "Collar": "Standard polo collar (ribbed)",
+        "Placket": "2-3 button placket",
+        "Sleeve": "Short",
+        "Hem": "Side-slit",
+        "Cuff": "Ribbed"
+      },
+      "default_decoration": [
+        {
+          "type": "Bordir small",
+          "placement": "Left chest",
+          "size": "small"
+        }
+      ],
+      "description": "Polo pique putih dengan aksen garis di kerah. Adem dan rapi untuk harian.",
+      "care": "Bahan & finishing dikonfirmasi via WhatsApp.",
+      "gallery": [
+        "/images/uploads/POLO WHITE 1.png"
+      ],
+      "hidden": false
     }
   ]
 }
