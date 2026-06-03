@@ -32,7 +32,10 @@ const columns = [
           {col.map((s) => (
             <a class="scene" href={hrefFor(s)} target="_blank" rel="noopener noreferrer" data-cta={`${s.cta} →`}>
               <div class="scene-frame" style={`aspect-ratio: ${s.ratio}`}>
-                <img src={s.img} alt={s.title} loading="lazy" class="scene-img" />
+                <picture>
+                  {(s as any).imgMobile && <source srcset={(s as any).imgMobile} media="(max-width: 1023px)" />}
+                  <img src={s.img} alt={s.title} loading="lazy" class="scene-img" />
+                </picture>
               </div>
               <h3 class="scene-title">{s.title}</h3>
               <p class="scene-desc">{s.desc}</p>

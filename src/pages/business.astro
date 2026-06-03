@@ -62,7 +62,10 @@ const compare = {
     <section class="cat-hero2">
       <div class="cat-banner-wrap reveal">
         <div class="cat-banner">
-          <img src={hero.banner} alt={hero.bannerAlt} loading="eager" />
+          <picture>
+            {(hero as any).bannerMobile && <source srcset={(hero as any).bannerMobile} media="(max-width: 1023px)" />}
+            <img src={hero.banner} alt={hero.bannerAlt} loading="eager" />
+          </picture>
         </div>
       </div>
       <div class="cat-hero2-inner">

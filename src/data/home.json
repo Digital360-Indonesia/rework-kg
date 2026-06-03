@@ -15,22 +15,26 @@
       {
         "image": "/images/uploads/Banner 2.webp",
         "href": "https://wa.me/6285161202499?text=Saya%20mau%20bikin%20baju%20custom.",
-        "alt": "Bikin baju custom satuan"
+        "alt": "Bikin baju custom satuan",
+        "imageMobile": "/images/uploads/hsmv-1.webp"
       },
       {
         "image": "/images/uploads/Group 432.png",
         "href": "https://portfolio.kustomgarment.com",
-        "alt": "Portfolio Kustom Garment"
+        "alt": "Portfolio Kustom Garment",
+        "imageMobile": "/images/uploads/hsmv-2.webp"
       },
       {
         "image": "/images/uploads/Banner 3.webp",
         "href": "/business/",
-        "alt": "Seragam custom untuk bisnis"
+        "alt": "Seragam custom untuk bisnis",
+        "imageMobile": "/images/uploads/hsmv-3.webp"
       },
       {
         "image": "/images/uploads/Group 431.png",
         "href": "/community/",
-        "alt": "Komunitas custom"
+        "alt": "Komunitas custom",
+        "imageMobile": "/images/uploads/hsmv-4.webp"
       }
     ]
   },

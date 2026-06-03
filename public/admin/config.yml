@@ -94,6 +94,7 @@ collections:
                 widget: list
                 fields:
                   - { name: image, label: "Gambar", widget: image }
+                  - { name: imageMobile, label: "Gambar mobile (opsional — kalau kosong, mobile pakai gambar desktop)", widget: image, required: false }
                   - { name: href, label: "Link", widget: string }
                   - { name: alt, label: "Alt text", widget: string }
           - name: categoryCards
@@ -123,6 +124,7 @@ collections:
                 widget: list
                 fields:
                   - { name: img, label: "Gambar", widget: image }
+                  - { name: imgMobile, label: "Gambar mobile (opsional — kalau kosong, mobile pakai gambar desktop)", widget: image, required: false }
                   - { name: title, label: "Judul", widget: string }
                   - { name: desc, label: "Deskripsi", widget: text }
                   - { name: ratio, label: "Rasio (mis. 4 / 5)", widget: string }
@@ -171,6 +173,7 @@ collections:
               - { name: name, label: "Nama", widget: string }
               - { name: href, label: "Link", widget: string }
               - { name: rightImage, label: "Gambar lifestyle (kanan)", widget: image }
+              - { name: rightImageMobile, label: "Gambar lifestyle mobile (opsional)", widget: image, required: false }
               - { name: rightEyebrow, label: "Eyebrow", widget: string }
               - { name: rightTitle, label: "Judul", widget: string }
               - { name: rightCta, label: "Teks CTA", widget: string }
@@ -190,6 +193,7 @@ collections:
               - { name: name, label: "Nama", widget: string }
               - { name: href, label: "Link", widget: string }
               - { name: rightImage, label: "Gambar lifestyle (kanan)", widget: image }
+              - { name: rightImageMobile, label: "Gambar lifestyle mobile (opsional)", widget: image, required: false }
               - { name: rightEyebrow, label: "Eyebrow", widget: string }
               - { name: rightTitle, label: "Judul", widget: string }
               - { name: rightCta, label: "Teks CTA", widget: string }
@@ -209,6 +213,7 @@ collections:
               - { name: name, label: "Nama", widget: string }
               - { name: href, label: "Link", widget: string }
               - { name: rightImage, label: "Gambar lifestyle (kanan)", widget: image }
+              - { name: rightImageMobile, label: "Gambar lifestyle mobile (opsional)", widget: image, required: false }
               - { name: rightEyebrow, label: "Eyebrow", widget: string }
               - { name: rightTitle, label: "Judul", widget: string }
               - { name: rightCta, label: "Teks CTA", widget: string }
@@ -228,6 +233,7 @@ collections:
               - { name: name, label: "Nama", widget: string }
               - { name: href, label: "Link", widget: string }
               - { name: rightImage, label: "Gambar lifestyle (kanan)", widget: image }
+              - { name: rightImageMobile, label: "Gambar lifestyle mobile (opsional)", widget: image, required: false }
               - { name: rightEyebrow, label: "Eyebrow", widget: string }
               - { name: rightTitle, label: "Judul", widget: string }
               - { name: rightCta, label: "Teks CTA", widget: string }
@@ -337,6 +343,7 @@ collections:
             widget: object
             fields:
               - { name: banner, label: "Banner image", widget: image }
+              - { name: bannerMobile, label: "Banner mobile (opsional — kalau kosong, mobile pakai banner desktop)", widget: image, required: false }
               - { name: bannerAlt, label: "Banner alt text", widget: string }
               - { name: title, label: "Judul", widget: string }
               - { name: sub, label: "Subjudul", widget: text }
@@ -359,6 +366,7 @@ collections:
               - { name: titleAccent, label: "Judul (bagian aksen)", widget: string }
               - { name: sub, label: "Subjudul", widget: text }
               - { name: image, label: "Gambar hero", widget: image }
+              - { name: imageMobile, label: "Gambar hero mobile (opsional — kalau kosong, mobile pakai gambar desktop)", widget: image, required: false }
               - { name: imageAlt, label: "Alt text gambar", widget: string }
           - { name: clients, label: "Logo klien/komunitas (nama file di /images/clients/)", widget: list }
       - name: campus
@@ -380,6 +388,7 @@ collections:
               - { name: titleAccent, label: "Judul (bagian aksen)", widget: string }
               - { name: sub, label: "Subjudul", widget: text }
               - { name: image, label: "Gambar hero", widget: image }
+              - { name: imageMobile, label: "Gambar hero mobile (opsional — kalau kosong, mobile pakai gambar desktop)", widget: image, required: false }
               - { name: imageAlt, label: "Alt text gambar", widget: string }
           - { name: clients, label: "Logo klien/kampus (nama file di /images/clients/)", widget: list }
       - name: personal
@@ -397,6 +406,7 @@ collections:
             widget: object
             fields:
               - { name: image, label: "Gambar hero (full image)", widget: image }
+              - { name: imageMobile, label: "Gambar hero mobile (opsional — kalau kosong, mobile pakai gambar desktop)", widget: image, required: false }
               - { name: imageAlt, label: "Alt text gambar", widget: string }
               - { name: tagline, label: "Tagline kecil di atas", widget: string }
               - { name: line1, label: "Judul baris 1", widget: string }

@@ -48,7 +48,10 @@ const lookbook = pers.lookbook;
     <!-- HERO (full-image lookbook) -->
     <section class="cat-hero is-image">
       <div class="cat-hero-frame">
-        <img class="cat-hero-bg" src={hero.image} alt={hero.imageAlt} loading="eager" />
+        <picture>
+          {(hero as any).imageMobile && <source srcset={(hero as any).imageMobile} media="(max-width: 1023px)" />}
+          <img class="cat-hero-bg" src={hero.image} alt={hero.imageAlt} loading="eager" />
+        </picture>
         <div class="cat-hero-center">
           <div class="cat-hero-lockup reveal">
             <img class="cat-hero-logo" src="/images/logos/kg-logo.png" alt="Kustom Garment" />

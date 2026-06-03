@@ -72,7 +72,10 @@ const slidesForRender = [
 
     <!-- RIGHT — category lifestyle image -->
     <a href={category.href} class="showcase-right" aria-label={category.rightCta}>
-      <img src={category.rightImage} alt={category.rightTitle} loading="lazy" class="right-img" />
+      <picture>
+        {(category as any).rightImageMobile && <source srcset={(category as any).rightImageMobile} media="(max-width: 1023px)" />}
+        <img src={category.rightImage} alt={category.rightTitle} loading="lazy" class="right-img" />
+      </picture>
       <div class:list={['right-overlay', `pos-${overlayPos}`]}>
         <span class="right-eyebrow">{category.rightEyebrow}</span>
         <h2 class="right-title">{category.rightTitle}</h2>

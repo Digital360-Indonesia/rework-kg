@@ -63,7 +63,10 @@ const compare = {
         <h1 class="cat-hero-title reveal">{hero.titleLead} <span class="cat-hero-accent-fill">{hero.titleAccent}</span></h1>
         <p class="cat-hero-sub reveal">{hero.sub}</p>
         <div class="cat-hero-banner reveal">
-          <img src={hero.image} alt={hero.imageAlt} loading="eager" />
+          <picture>
+            {(hero as any).imageMobile && <source srcset={(hero as any).imageMobile} media="(max-width: 1023px)" />}
+            <img src={hero.image} alt={hero.imageAlt} loading="eager" />
+          </picture>
         </div>
       </div>
     </section>

@@ -198,6 +198,17 @@ const currentPath = Astro.url.pathname;
         anim.onfinish = () => { window.location.href = url.href; };
       });
     }
+
+    // bfcache fix: when this page is restored from the back/forward cache, the
+    // curtain may have been left covering the screen (orange) from when we
+    // navigated away — scripts don't re-run on bfcache restore, so it sticks.
+    // On restore, cancel any leftover curtain animation and hide it.
+    window.addEventListener('pageshow', (e) => {
+      if (!e.persisted || !curtain) return;
+      curtain.getAnimations().forEach((a) => a.cancel());
+      curtain.style.animation = 'none';
+      curtain.style.transform = 'translateY(-100%)';
+    });
   </script>
 </body>
 </html>

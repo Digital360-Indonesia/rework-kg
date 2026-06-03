@@ -39,7 +39,10 @@ const DURATION_MS = 5000;
             class:list={['slide', i === 0 && 'is-active']}
             data-index={i}
           >
-            <img src={s.image} alt={s.alt} class="slide-img" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
+            <picture>
+              {(s as any).imageMobile && <source srcset={(s as any).imageMobile} media="(max-width: 1023px)" />}
+              <img src={s.image} alt={s.alt} class="slide-img" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} />
+            </picture>
           </a>
         ))}
       </div>

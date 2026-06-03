@@ -66,7 +66,10 @@ const compare = {
           <p class="cat-hero-sub reveal">{hero.sub}</p>
         </div>
         <div class="cat-hero-media reveal">
-          <img src={hero.image} alt={hero.imageAlt} loading="eager" />
+          <picture>
+            {(hero as any).imageMobile && <source srcset={(hero as any).imageMobile} media="(max-width: 1023px)" />}
+            <img src={hero.image} alt={hero.imageAlt} loading="eager" />
+          </picture>
         </div>
       </div>
     </section>

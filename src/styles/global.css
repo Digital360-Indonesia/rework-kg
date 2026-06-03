@@ -77,6 +77,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  /* Optional per-area mobile images use <picture>; display:contents keeps the
+     wrapped <img> laid out exactly as if it were a direct child (no layout change). */
+  picture { display: contents; }
+
   /* Headings */
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
