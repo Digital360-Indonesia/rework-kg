@@ -1,11 +1,11 @@
 ---
 /**
  * ProductLineup — catalog-driven "customize online" grid.
- * Pulls archetypes from products/catalog.json (optionally filtered by segment),
+ * Pulls archetypes from products/catalog-source.mjs (optionally filtered by segment),
  * each card links to /produk/[slug] → single product page → customizer.
  * Renders nothing if no matching products (safe to drop on any page).
  */
-import catalog from '../../data/products/catalog.json';
+import catalog from '../../data/products/catalog-source.mjs';
 
 interface Props {
   segment?: string;
