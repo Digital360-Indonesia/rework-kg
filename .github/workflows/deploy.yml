@@ -11,6 +11,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # KG PMS "Publish" — the PocketBase pb_hooks route (/pb/pms-publish) fires a
+  # GitHub repository_dispatch with this event_type, which rebuilds + redeploys
+  # so a PB admin can publish catalog edits without a git push.
+  repository_dispatch:
+    types: [pms-publish]
 
 concurrency:
   group: deploy-vps
@@ -37,7 +42,13 @@ jobs:
           find public/images/uploads -type f \( -iname '*.jpg' -o -iname '*.jpeg' \) -print0 \
             | xargs -0 -r mogrify -resize '1600x1600>' -strip -quality 70 || true
 
-      - run: npm run build
+      # PMS_SOURCE=pb tells catalog-source.mjs to build from PocketBase (via the
+      # adapter) instead of catalog.json. It auto-falls-back to catalog.json if
+      # PB is unreachable or returns no products, so this is safe to leave on.
+      - name: Build site (PMS source = PocketBase)
+        env:
+          PMS_SOURCE: pb
+        run: npm run build
 
       - name: Set up restricted deploy key
         run: |

@@ -57,3 +57,26 @@ Goal: a manual "Publish" in PB admin → triggers the existing GitHub Action to 
   - Alternative (no PB hook): a Cloudflare Worker or a tiny protected URL that calls the same dispatch API. The pb_hooks route is preferred because it reuses the existing PB auth (the admin is already logged in) and keeps the PAT on the box, not at the edge.
 
 - 2026-06-03 (Manager-Lord) — **Phase 2 build adapter DONE.** `src/data/products/pms-adapter.mjs` (PB → catalog shape) + `catalog-source.mjs` (flag `PMS_SOURCE=pb`, else JSON; always JSON-fallback on empty/error). 6 import sites switched (ProductLineup, business/community/campus, PDP, customizer). Verified: flag-off build = JSON (26 pages); flag-on with empty PB = graceful fallback (26 pages). Live build (no flag) unaffected. **GATE: the PB path can't be verified with real data until the seed runs** (`scripts/seed-pms.mjs`, needs Araya's PB superuser login). Next: seed → build with PMS_SOURCE=pb → verify → Phase 3 (publish button) + Phase 4 (cutover: set the flag in deploy.yml, retire catalog.json).
+
+- 2026-06-03 (Lord-Shipwright) — **Temp SEED superuser created (Task 1).** So Manager-Lord can run the one-time data seed from his Mac without Araya's personal admin creds.
+  - Email `pms-seed@kustomgarment.local`, random 28-char password (handed to Manager-Lord in the task report, **not** stored in the repo). Created via `pocketbase superuser upsert` — **additive**: `_superusers` went 1 → 2 (Araya's `arayassuryanto@gmail.com` untouched). Auth confirmed live: `POST /pb/api/collections/_superusers/auth-with-password` returns a 223-char token.
+  - **MUST be deleted right after the seed.** On the box: `cd /home/fabrikgroup/pocketbase && sudo -u fabrikgroup ./pocketbase superuser delete pms-seed@kustomgarment.local` (brings `_superusers` back to 1). Manager-Lord owns triggering this cleanup once the PB path is verified.
+
+- 2026-06-03 (Lord-Shipwright) — **Phase 3 Publish hook BUILT & LIVE (inert until PAT).** + Phase 4 cutover flag staged in deploy.yml.
+  - **PB hook:** `/home/fabrikgroup/pocketbase/pb_hooks/publish.pb.js` (owned `fabrikgroup:fabrikgroup`, 644). Superuser-protected `POST /pms-publish` → `$http.send` GitHub `repository_dispatch` (`event_type: "pms-publish"`) at `Digital360-Indonesia/rework-kg`, PAT from `$os.getenv("GH_DISPATCH_PAT")`. Reads on GitHub 204 → returns `{ok:true}`; missing env → **503 "publish not configured"** (graceful). PocketBase restarted clean (no JS load errors). **Verified live:** unauth POST → **401**; superuser-authed POST with no PAT yet → **503**; `/pb/api/health` still 200. Hooks dir is under `/home/fabrikgroup/pocketbase/` (NOT HestiaCP-templated) so a panel regen won't touch it; survives restart.
+  - **Repo edits (UNSTAGED working-tree — Manager-Lord commits/pushes):** `.github/workflows/deploy.yml`:
+    - added `repository_dispatch: { types: [pms-publish] }` to the `on:` block (so the hook's dispatch triggers the existing build+deploy).
+    - added `env: { PMS_SOURCE: pb }` to the `npm run build` step (Phase 4 cutover flag — deployed build reads PocketBase via `catalog-source.mjs`, auto-falls-back to catalog.json if PB is unreachable/empty). **Manager-Lord: commit/push this ONLY after seeding + verifying the PB build path locally.** YAML lint-verified (js-yaml parses; `on` keys = push/workflow_dispatch/repository_dispatch).
+  - **⚠ ARAYA'S ONE MANUAL STEP — create + install the GitHub PAT so Publish works:**
+    1. **Create a fine-grained PAT** at github.com → Settings → Developer settings → **Fine-grained tokens** → Generate new token. Resource owner = **Digital360-Indonesia**. Repository access = **Only select repositories → `rework-kg`**. Permissions: **Contents: Read-only** + **Actions: Read and write** (Actions:write is what lets it dispatch). Set an expiry (e.g. 90 days) and note a renewal reminder. Copy the `github_pat_…` token.
+    2. **Install it on the box as a root-only env** (never in the repo). Recommended durable form = a 600-perm EnvironmentFile + a systemd drop-in:
+       - As root on `ssh kg-vps`:
+         - `install -m 600 /dev/null /etc/pocketbase.env`
+         - `printf 'GH_DISPATCH_PAT=PASTE_TOKEN_HERE\n' > /etc/pocketbase.env` (paste the real token)
+         - `mkdir -p /etc/systemd/system/pocketbase.service.d`
+         - create `/etc/systemd/system/pocketbase.service.d/10-pms-pat.conf` containing:
+           `[Service]` / `EnvironmentFile=/etc/pocketbase.env`
+         - `systemctl daemon-reload && systemctl restart pocketbase`
+       - (Shipwright can do steps 2's mechanics; only the token VALUE must come from Araya. The token must NOT be pasted into any repo file, commit, or the charter.)
+    3. **Verify:** a superuser-authed `POST /pb/pms-publish` should then return `{ok:true,dispatched:"pms-publish"}` and a `pms-publish` run should appear in GitHub Actions.
+  - **Publish button (still pending, v1 = small companion page/bookmarklet):** unchanged from the design above — a tiny page that POSTs to `/pb/pms-publish` with the logged-in admin's token. Can be built after the PAT is in and the seed is verified.

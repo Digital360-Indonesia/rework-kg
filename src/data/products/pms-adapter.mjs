@@ -15,7 +15,8 @@ const fileUrl = (base, col, rec, field) =>
 // group normalized style records back into garment_types[].style_options
 function styleOptionsFor(styles, gtId) {
   const out = {};
-  for (const s of styles.filter((x) => x.garment_type === gtId).sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0))) {
+  const sgt = (x) => (Array.isArray(x.garment_type) ? x.garment_type[0] : x.garment_type);
+  for (const s of styles.filter((x) => sgt(x) === gtId).sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0))) {
     (out[s.attribute] = out[s.attribute] || []).push({
       name: s.name, illustration: s.illustration || '', desc: s.desc || '', suggested: s.suggested || '',
     });
@@ -40,7 +41,10 @@ export async function loadCatalogFromPB(base = process.env.PB_URL || DEFAULT_PB)
   const gtSlug = Object.fromEntries(gts.map((g) => [g.id, g.slug]));
   const fabSlug = Object.fromEntries(fabrics.map((f) => [f.id, f.slug]));
   const colSlug = Object.fromEntries(colors.map((c) => [c.id, c.slug]));
-  const map = (ids, lut) => (ids || []).map((id) => lut[id]).filter(Boolean);
+  // PocketBase relations: multi → array, single → string. Normalize both.
+  const asArr = (v) => (Array.isArray(v) ? v : v ? [v] : []);
+  const one = (v) => (Array.isArray(v) ? v[0] : v) || null;
+  const map = (ids, lut) => asArr(ids).map((id) => lut[id]).filter(Boolean);
 
   return {
     garment_types: gts.map((g) => ({
@@ -63,11 +67,11 @@ export async function loadCatalogFromPB(base = process.env.PB_URL || DEFAULT_PB)
     })),
     pricing_rules: settings[0]?.pricing_rules || [],
     archetypes: products.map((p) => ({
-      slug: p.slug, name: p.name, garment_type: gtSlug[p.garment_type] || null, segment: p.segment,
+      slug: p.slug, name: p.name, garment_type: gtSlug[one(p.garment_type)] || null, segment: p.segment,
       badge: p.badge || null, positioning: p.positioning || '', rating: p.rating || 0, reviews: p.reviews || 0,
       price_min: p.price_min || 0, price_max: p.price_max || 0, base_price_per_pc: p.base_price_per_pc || 0,
       price_note: p.price_note || '', hide_price: !!p.hide_price,
-      default_fabric: fabSlug[p.default_fabric] || null, color_default: colSlug[p.default_color] || null,
+      default_fabric: fabSlug[one(p.default_fabric)] || null, color_default: colSlug[one(p.default_color)] || null,
       upgrade_fabrics: map(p.upgrade_fabrics, fabSlug), downgrade_fabrics: map(p.downgrade_fabrics, fabSlug),
       locked_spec: p.locked_spec || {}, default_decoration: p.default_decoration || [],
       description: p.description || '', care: p.care || '',
