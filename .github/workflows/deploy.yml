@@ -81,9 +81,16 @@ jobs:
           # ever rotates this records the new one instead of hard-failing, and a
           # 20s timeout avoids hanging on a transient blip. Auth is unchanged:
           # the restricted id_deploy key -> rrsync-confined dist dir.
-          rsync -avz --delete \
+          # Retry up to 4x with backoff — the GitHub-runner↔Hostinger link
+          # occasionally drops the SYN ("connect timed out"); a retry recovers it
+          # so a Publish never needs a manual re-run.
+          n=0
+          until rsync -avz --delete \
             -e "ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes -o HostKeyAlias=kg-vps -o StrictHostKeyChecking=accept-new -o ConnectTimeout=20" \
-            dist/ root@"${{ secrets.VPS_HOST }}":
+            dist/ root@"${{ secrets.VPS_HOST }}":; do
+            n=$((n+1)); [ "$n" -ge 4 ] && { echo "rsync failed after $n attempts"; exit 1; }
+            echo "rsync attempt $n failed (transient) — retrying in $((n*10))s…"; sleep $((n*10))
+          done
 
       # Cloudflare sits in front of the VPS and caches static assets (e.g.
       # /images/uploads/*.webp) with a 10-year max-age + long edge TTL. When an
