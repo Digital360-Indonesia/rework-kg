@@ -20,7 +20,7 @@ const DURATION_MS = 5000;
         {slides.map((_, i) => (
           <button
             type="button"
-            class="bar"
+            class:list={['bar', i === 0 && 'is-current']}
             data-jump={i}
             aria-label={`Slide ${i + 1}`}
           >
@@ -47,13 +47,17 @@ const DURATION_MS = 5000;
         ))}
       </div>
 
-      <!-- Edge buttons -->
-      <button type="button" class="edge edge-prev" aria-label="Slide sebelumnya">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
-      </button>
-      <button type="button" class="edge edge-next" aria-label="Slide berikutnya">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-      </button>
+      <!-- Edge zones — reveal arrow only on left/right edge hover -->
+      <div class="edge-zone edge-zone-prev">
+        <button type="button" class="edge edge-prev" aria-label="Slide sebelumnya">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+      </div>
+      <div class="edge-zone edge-zone-next">
+        <button type="button" class="edge edge-next" aria-label="Slide berikutnya">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -90,30 +94,37 @@ const DURATION_MS = 5000;
   }
 
   /* Progress bars */
+  /* Story indicator — dots + expanding fill-pill (active), bottom-centered */
   .bars {
     position: absolute;
-    top: 0.875rem;
-    left: 0.875rem;
-    right: 0.875rem;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 30;
     display: flex;
-    gap: 4px;
+    align-items: center;
+    gap: 0.5rem;
   }
   .bar {
-    flex: 1;
-    height: 3px;
-    background: rgba(255, 255, 255, 0.32);
+    flex: 0 0 auto;
+    position: relative;
+    width: 7px;
+    height: 7px;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 999px;
     overflow: hidden;
     cursor: pointer;
     border: none;
     padding: 0;
+    transition: width 0.45s cubic-bezier(0.19, 1, 0.22, 1), background 0.3s ease;
   }
+  .bar.is-current { width: 2.4rem; background: rgba(255, 255, 255, 0.35); }
   .bar-fill {
     display: block;
     width: 0%;
     height: 100%;
     background: #ffffff;
+    border-radius: 999px;
     transition: none;
   }
   .bar.is-done .bar-fill { width: 100%; }
@@ -144,11 +155,21 @@ const DURATION_MS = 5000;
     display: block;
   }
 
-  /* Edge nav — glass */
-  .edge {
+  /* Edge nav — glass arrow, revealed only on left/right edge-zone hover */
+  .edge-zone {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 0;
+    bottom: 0;
+    width: 18%;
+    min-width: 3.5rem;
+    z-index: 20;
+    display: grid;
+    align-items: center;
+  }
+  .edge-zone-prev { left: 0; justify-items: start; padding-left: 1rem; }
+  .edge-zone-next { right: 0; justify-items: end; padding-right: 1rem; }
+  .edge {
+    position: static;
     width: 2rem;
     height: 2rem;
     border-radius: 999px;
@@ -160,21 +181,18 @@ const DURATION_MS = 5000;
     display: grid;
     place-items: center;
     cursor: pointer;
-    z-index: 20;
     opacity: 0;
     transition: opacity 200ms ease, background 200ms ease, transform 200ms ease;
   }
   .edge svg { width: 0.9rem; height: 0.9rem; }
-  .edge-prev { left: 1rem; }
-  .edge-next { right: 1rem; }
-  .hero-slider:hover .edge,
+  @media (hover: hover) { .edge-zone:hover .edge { opacity: 1; } }
   .edge:focus-visible { opacity: 1; }
   .edge:hover {
     background: rgba(255, 255, 255, 0.28);
-    transform: translateY(-50%) scale(1.06);
+    transform: scale(1.06);
   }
   @media (max-width: 640px) {
-    .edge { display: none; }
+    .edge-zone { display: none; }
   }
 </style>
 
@@ -200,6 +218,7 @@ const DURATION_MS = 5000;
       slides.forEach((s, idx) => s.classList.toggle('is-active', idx === i));
       bars.forEach((b, idx) => {
         b.classList.toggle('is-done', idx < i);
+        b.classList.toggle('is-current', idx === i);
         const f = fills[idx];
         if (idx < i) f.style.width = '100%';
         else if (idx > i) f.style.width = '0%';
