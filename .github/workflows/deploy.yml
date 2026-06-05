@@ -53,14 +53,36 @@ jobs:
       - name: Set up restricted deploy key
         run: |
           mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
           printf '%s\n' "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
-          ssh-keyscan -H "${{ secrets.VPS_HOST }}" >> ~/.ssh/known_hosts 2>/dev/null
+          # Pre-pin the VPS host key instead of a live `ssh-keyscan` at runtime.
+          # The old keyscan ran under `bash -e` and exits non-zero whenever it
+          # returns no key inside its short timeout — which happens
+          # intermittently from GitHub-hosted runners (transient outbound
+          # rate-limiting / scan flakiness), killing this step and skipping the
+          # deploy even though the VPS is up and reachable. The host IP is fixed,
+          # so we commit its real public host keys here: zero network dependency,
+          # and it's still a genuine StrictHostKeyChecking match (MITM-safe),
+          # unlike StrictHostKeyChecking=no. Keyed to the alias "kg-vps" so it
+          # matches regardless of what VPS_HOST contains (IP or hostname).
+          cat >> ~/.ssh/known_hosts <<'EOF'
+          kg-vps ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILq2IHZTXuRa+NBFQpO3gYl8gQy9Wt1WDyH3Rbpl5Xpx
+          kg-vps ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCsAkLgerVNVxkhcs+Xc6CoLnJeAo5DF5ElKRcbZTnIbIP4yfJjT9ia+fr1W7dwFAyXGVr2uryWV3xGnTPTdHA7bCo5GenolNDSZDvGdnRaMh0OX7/6S+IAAKdf7mAU4Z+6UhP5sZW6Q9/9CZoGxP3KKLdmqkCGVb6E9VQTlJyGiqvK+wRRCp3BjLHQWgAGGcAXIUYSo1zr7oir9OkGRtnchf5mgTFi4b9x3lf7wdHrsXa/U353LjT6VdlY/gxHFFv3XzMRc0BfwjbvJNLs7h3/vMeraxYH7NjEG9LULA4xr0mYIUU0t94ElvGNURf2BL6uetZJ9zxAnh70W4bxsl4Yh9UkUUNLE4onPh5srf4+Tt/Aq8yqdUUdShoTc9ccW0kVzLAxyWwj2zaXfotn48Bi2t8Y8LAogvmMmHXaBl2mDSmzjp/tfLfcP41O6zF9ulGyUds88wWdcvPYnKKAorWZQ0HOEsMB2Sh9a3K67giy/k9VXoLoPMdstOB8YT1Pk0k=
+          EOF
+          chmod 600 ~/.ssh/known_hosts
 
       - name: Deploy (rsync dist -> VPS; rrsync confines target to the dist dir)
         run: |
+          # HostKeyAlias=kg-vps makes ssh check the connection against the pinned
+          # "kg-vps" known_hosts entry above (so the pin matches whether VPS_HOST
+          # is the IP or a hostname). accept-new + ConnectTimeout are a
+          # belt-and-suspenders fallback: the key is already pinned, but if it
+          # ever rotates this records the new one instead of hard-failing, and a
+          # 20s timeout avoids hanging on a transient blip. Auth is unchanged:
+          # the restricted id_deploy key -> rrsync-confined dist dir.
           rsync -avz --delete \
-            -e "ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes" \
+            -e "ssh -i ~/.ssh/id_deploy -o IdentitiesOnly=yes -o HostKeyAlias=kg-vps -o StrictHostKeyChecking=accept-new -o ConnectTimeout=20" \
             dist/ root@"${{ secrets.VPS_HOST }}":
 
       # Cloudflare sits in front of the VPS and caches static assets (e.g.
