@@ -1,0 +1,114 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Halaman Tidak Ditemukan — Kustom Garment" description="Halaman yang Anda cari tidak ditemukan." noIndex={true}>
+  <main class="nf">
+    <section class="nf-hero">
+      <div class="nf-wrap">
+        <img class="nf-img" src="/images/404-illustration.webp" alt="Halaman tidak ditemukan" width="600" height="400" />
+        <h1 class="nf-title">Halaman yang kamu cari nggak ada.</h1>
+        <p class="nf-sub">Mungkin sudah dipindah, dihapus, atau memang nggak pernah ada. Coba cari dari halaman utama atau blog.</p>
+        <div class="nf-actions">
+          <a class="nf-btn-primary" href="/">Kembali ke Beranda</a>
+          <a class="nf-btn-secondary" href="/blog/">Baca Blog</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .nf { background: #ffffff; }
+
+  .nf-wrap {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .nf-hero {
+    padding: 6rem 0 8rem;
+  }
+  @media (min-width: 1024px) {
+    .nf-hero { padding: 10rem 0 12rem; }
+  }
+
+  .nf-img {
+    max-width: 8rem;
+    width: 100%;
+    height: auto;
+    margin: 0 auto 2rem;
+    display: block;
+  }
+  @media (min-width: 768px) {
+    .nf-img { max-width: 10rem; }
+  }
+
+  .nf-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #1a1a1a;
+    margin: 0 auto 1rem;
+    max-width: 20ch;
+  }
+
+  .nf-sub {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: #6b7280;
+    margin: 0 auto 2.5rem;
+    max-width: 32ch;
+  }
+
+  .nf-actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .nf-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    color: #ffffff;
+    background: #ff4c00;
+    border-radius: 999px;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: background 200ms ease, transform 150ms ease;
+  }
+  .nf-btn-primary:hover { background: #e04400; }
+  .nf-btn-primary:active { transform: scale(0.97); }
+
+  .nf-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    color: #1a1a1a;
+    background: #f5f5f5;
+    border: 2px solid #e8e8e8;
+    border-radius: 999px;
+    padding: 0.85rem 2rem;
+    text-decoration: none;
+    transition: color 200ms ease, border-color 200ms ease, transform 150ms ease;
+  }
+  .nf-btn-secondary:hover {
+    color: #ff4c00;
+    border-color: #ff4c00;
+  }
+  .nf-btn-secondary:active { transform: scale(0.97); }
+</style>
