@@ -1,5 +1,5 @@
 ---
-title: "Bahan Kain Terbaik untuk Pakaian yang Nyaman dan Sejuk di Cuaca Panas"
+title: "Bahan Kain Terbaik untuk Pakaian yang Nyaman dan Sejuk di..."
 description: "Memilih bahan pakaian yang tepat bukan hanya soal kenyamanan, tapi juga kesehatan kulit Kustomers. Bahan yang tidak breathable akan membuat"
 pubDate: 2026-04-07
 author: "Kustom Garment"

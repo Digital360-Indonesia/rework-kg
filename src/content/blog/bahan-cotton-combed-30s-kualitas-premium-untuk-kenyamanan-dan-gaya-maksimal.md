@@ -1,5 +1,5 @@
 ---
-title: "Bahan Cotton Combed 30s: Kualitas Premium untuk Kenyamanan dan Gaya Maksimal"
+title: "Bahan Cotton Combed 30s: Kualitas Premium untuk Kenyamana..."
 description: "Bahan cotton combed 30s adalah salah satu varian terbaik dari kain katun. Angka '30s' menunjukkan tingkat kehalusan benang yang digunakan."
 pubDate: 2026-03-17
 author: "Kustom Garment"

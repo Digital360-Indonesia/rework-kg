@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Palembang"
-description: "Konveksi Palembang yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Palembang | Kustom Garment"
+description: "Konveksi Palembang dan sekitarnya — kaos dan seragam custom dengan pengiriman ke Prabumulih, Banyuasin, Ogan Ilir. Kustom Garment melayani satuan dari Sura"
 pubDate: 2026-03-31
 author: "Kustom Garment"
 image: "/images/blog/konveksi-palembang/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi palembang", "kaos custom palembang", "seragam palembang"]
 featured: false
 ---
 

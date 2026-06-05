@@ -1,5 +1,5 @@
 ---
-title: "Mengenal PDL: Fungsi, Karakteristik, dan Perbedaannya dengan PDH"
+title: "Mengenal PDL: Fungsi, Karakteristik,"
 description: "PDL adalah singkatan dari Pakaian Dinas Lapangan, sebuah jenis seragam kerja yang dirancang khusus untuk personel yang bertugas di lapangan."
 pubDate: 2026-01-16
 author: "Kustom Garment"

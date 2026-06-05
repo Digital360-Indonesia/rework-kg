@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Surabaya"
-description: "Konveksi Surabaya yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Surabaya | Kustom Garment"
+description: "Konveksi Surabaya dan sekitarnya — kaos, kemeja, jaket, dan jersey custom dengan pengiriman ke Sidoarjo, Gresik, Mojokerto, Malang. Kustom Garment melayani"
 pubDate: 2026-05-05
 author: "Kustom Garment"
 image: "/images/blog/konveksi-surabaya/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi surabaya", "kaos custom surabaya", "seragam surabaya"]
 featured: false
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Tomohon"
-description: "Konveksi Tomohon yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Tomohon | Kustom Garment"
+description: "Konveksi Tomohon dan sekitarnya — seragam dan kaos event dengan pengiriman ke Manado, Bitung, Tondano. Kustom Garment melayani satuan dari Surabaya ke Sula"
 pubDate: 2026-02-06
 author: "Kustom Garment"
 image: "/images/blog/konveksi-tomohon/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi tomohon", "kaos custom tomohon", "seragam tomohon"]
 featured: false
 ---
 

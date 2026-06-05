@@ -5,7 +5,7 @@ pubDate: 2026-02-26
 author: "Kustom Garment"
 image: "/images/blog/tips-memilih-konveksi-satuan/featured-20250818_T-MjAyNTA4.jpg"
 category: "Education"
-tags: ["#ApparelCusto", "#ApparelCustom", "#FashionCustom", "#GarmentTerbaik", "#KonveksiBerkualitas", "#KonveksiProfessional", "#KustomGarment", "#TipsKonveksiSatuan"]
+tags: ["ApparelCusto", "ApparelCustom", "FashionCustom", "GarmentTerbaik", "KonveksiBerkualitas", "KonveksiProfessional", "KustomGarment", "TipsKonveksiSatuan"]
 featured: false
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Palu"
-description: "Konveksi Palu yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Palu | Kustom Garment"
+description: "Konveksi Palu dan sekitarnya — seragam dan kaos event dengan pengiriman ke Donggala, Sigi, Poso. Kustom Garment melayani satuan dari Surabaya ke Sulawesi T"
 pubDate: 2026-03-22
 author: "Kustom Garment"
 image: "/images/blog/konveksi-palu/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi palu", "kaos custom palu", "seragam palu"]
 featured: false
 ---
 

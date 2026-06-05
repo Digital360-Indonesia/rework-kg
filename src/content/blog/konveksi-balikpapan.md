@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Balikpapan"
-description: "Konveksi Balikpapan yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Balikpapan | Kustom Garment"
+description: "Konveksi Balikpapan dan sekitarnya — seragam perusahaan dan workwear dengan pengiriman ke Samarinda, Tenggarong, Bontang. Kustom Garment melayani satuan da"
 pubDate: 2026-03-31
 author: "Kustom Garment"
 image: "/images/blog/konveksi-balikpapan/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi balikpapan", "kaos custom balikpapan", "seragam balikpapan"]
 featured: false
 ---
 

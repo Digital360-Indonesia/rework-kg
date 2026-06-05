@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Bogor"
-description: "Konveksi Bogor yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Bogor | Kustom Garment"
+description: "Konveksi Bogor dan sekitarnya — jaket hoodie dan kaos oversize dengan pengiriman ke Jakarta, Depok, Sukabumi, Cianjur. Kustom Garment melayani satuan dari "
 pubDate: 2026-05-08
 author: "Kustom Garment"
 image: "/images/blog/konveksi-bogor/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi bogor", "kaos custom bogor", "seragam bogor"]
 featured: false
 ---
 

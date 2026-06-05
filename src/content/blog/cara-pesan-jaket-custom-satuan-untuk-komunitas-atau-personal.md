@@ -5,7 +5,7 @@ pubDate: 2026-02-15
 author: "Kustom Garment"
 image: "/images/blog/cara-pesan-jaket-custom-satuan/featured-Untitled-4.jpg"
 category: "Education"
-tags: ["#DesainJaketSendiri", "#JaketCustomSatuan", "#JaketUnik", "#KomunitasBerkelas", "#KustomGarment"]
+tags: ["DesainJaketSendiri", "JaketCustomSatuan", "JaketUnik", "KomunitasBerkelas", "KustomGarment"]
 featured: false
 ---
 

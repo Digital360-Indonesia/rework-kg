@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Jambi"
-description: "Konveksi Jambi yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Jambi | Kustom Garment"
+description: "Konveksi Jambi dan sekitarnya — seragam instansi dan kaos event dengan pengiriman ke Muaro Bungo, Bangko, Kuala Tungkal. Kustom Garment melayani satuan dar"
 pubDate: 2026-04-30
 author: "Kustom Garment"
 image: "/images/blog/konveksi-jambi/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi jambi", "kaos custom jambi", "seragam jambi"]
 featured: false
 ---
 

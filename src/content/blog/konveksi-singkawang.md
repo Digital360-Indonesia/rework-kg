@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Singkawang"
-description: "Konveksi Singkawang yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Singkawang | Kustom Garment"
+description: "Konveksi Singkawang dan sekitarnya — seragam dan kaos komunitas dengan pengiriman ke Pontianak, Sambas, Bengkayang. Kustom Garment melayani satuan dari Sur"
 pubDate: 2026-03-02
 author: "Kustom Garment"
 image: "/images/blog/konveksi-singkawang/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi singkawang", "kaos custom singkawang", "seragam singkawang"]
 featured: false
 ---
 

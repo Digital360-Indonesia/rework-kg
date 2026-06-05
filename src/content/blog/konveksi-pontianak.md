@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Pontianak"
-description: "Konveksi Pontianak yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Pontianak | Kustom Garment"
+description: "Konveksi Pontianak dan sekitarnya — kaos dan seragam custom dengan pengiriman ke Ketapang, Sambas, Singkawang. Kustom Garment melayani satuan dari Surabaya"
 pubDate: 2026-04-04
 author: "Kustom Garment"
 image: "/images/blog/konveksi-pontianak/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi pontianak", "kaos custom pontianak", "seragam pontianak"]
 featured: false
 ---
 

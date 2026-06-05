@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Padang"
-description: "Konveksi Padang yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Padang | Kustom Garment"
+description: "Konveksi Padang dan sekitarnya — seragam sekolah dan kaos olahraga dengan pengiriman ke Bukittinggi, Payakumbuh, Pariaman. Kustom Garment melayani satuan d"
 pubDate: 2026-04-10
 author: "Kustom Garment"
 image: "/images/blog/konveksi-padang/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi padang", "kaos custom padang", "seragam padang"]
 featured: false
 ---
 

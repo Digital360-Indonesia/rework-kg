@@ -1,5 +1,5 @@
 ---
-title: "Tren Sepatu Ramah Lingkungan: Revolusi Hijau dalam Industri Fashion"
+title: "Tren Sepatu Ramah Lingkungan: Revolusi Hijau"
 description: "Salah satu manfaat utama dari sepatu ramah lingkungan adalah pengurangan limbah. Banyak merek sekarang menggunakan bahan daur ulang."
 pubDate: 2026-05-26
 author: "Kustom Garment"

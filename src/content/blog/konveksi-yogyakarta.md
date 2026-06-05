@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Yogyakarta"
-description: "Konveksi Yogyakarta yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Yogyakarta | Kustom Garment"
+description: "Konveksi Yogyakarta dan sekitarnya — kemeja batik dan kaos komunitas dengan pengiriman ke Sleman, Bantul, Kulon Progo, Gunungkidul. Kustom Garment melayani"
 pubDate: 2026-04-03
 author: "Kustom Garment"
 image: "/images/blog/konveksi-yogyakarta/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi yogyakarta", "kaos custom yogyakarta", "seragam yogyakarta"]
 featured: false
 ---
 

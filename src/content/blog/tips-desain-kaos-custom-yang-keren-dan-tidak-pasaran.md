@@ -1,11 +1,11 @@
 ---
 title: "Tips Desain Kaos Custom yang Keren dan Tidak Pasaran"
-description: "Bingung bikin desain kaos custom? Temukan inspirasi dan panduan lengkap untuk menciptakan desain kaos yang unik, anti-mainstream, dan cocok dengan kepribadianmu!"
+description: "Bingung bikin desain kaos custom? Temukan inspirasi dan panduan lengkap untuk menciptakan desain kaos yang unik, anti-mainstream, dan cocok dengan kepribadia..."
 pubDate: 2026-03-26
 author: "Kustom Garment"
 image: "/images/blog/tips-desain-kaos-custom-yang-k/featured-Untitled-3.jpg"
 category: "Tips Trick"
-tags: ["#DesainAntiMainstream", "#KaosCustomUnik", "#KaosPenuhMakna", "#KreatifBersama", "#KustomGarment"]
+tags: ["DesainAntiMainstream", "KaosCustomUnik", "KaosPenuhMakna", "KreatifBersama", "KustomGarment"]
 featured: false
 ---
 

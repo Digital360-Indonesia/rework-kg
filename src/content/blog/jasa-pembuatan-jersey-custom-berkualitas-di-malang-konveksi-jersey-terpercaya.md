@@ -1,11 +1,11 @@
 ---
-title: "Jasa Pembuatan Jersey Custom Berkualitas di Malang – Konveksi Jersey Terpercaya"
-description: "Kustom Garment menjadi solusi terpercaya untuk jersey custom, kami telah melayani ribuan pelanggan dari berbagai daerah di Indonesia."
+title: "Jersey Custom Malang | Kustom Garment"
+description: "Pembuatan jersey custom di Malang untuk Liga Malang Raya dan komunitas olahraga. Pengiriman ke Batu, Blitar, Kediri. Kustom Garment — konveksi jersey terpe"
 pubDate: 2026-05-18
 author: "Kustom Garment"
 image: "/images/blog/jasa-pembuatan-jersey-custom-b/featured-Firefly-di-RmlyZWZs.jpg"
 category: "Recommendation"
-tags: ["jasa konveksi malang", "jasa pembuatan jersey"]
+tags: ["jersey custom malang", "konveksi jersey malang", "jersey olahraga"]
 featured: false
 ---
 

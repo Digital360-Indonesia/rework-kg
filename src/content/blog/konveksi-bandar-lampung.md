@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Bandar Lampung"
-description: "Konveksi Bandar Lampung yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Bandar Lampung | Kustom Garment"
+description: "Konveksi Bandar Lampung — kaos, kemeja, jaket, dan seragam custom dengan pengiriman dari Surabaya. Pesan satuan tanpa minimum order."
 pubDate: 2026-04-26
 author: "Kustom Garment"
 image: "/images/blog/konveksi-bandar-lampung/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi bandar lampung", "kaos custom bandar lampung", "seragam bandar lampung"]
 featured: false
 ---
 

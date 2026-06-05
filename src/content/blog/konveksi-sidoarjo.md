@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Sidoarjo"
-description: "Konveksi Sidoarjo yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Sidoarjo | Kustom Garment"
+description: "Konveksi Sidoarjo dan sekitarnya — kaos, jaket, dan seragam custom dengan pengiriman ke Surabaya, Gresik, Mojokerto. Kustom Garment melayani satuan dari Su"
 pubDate: 2026-03-25
 author: "Kustom Garment"
 image: "/images/blog/konveksi-sidoarjo/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi sidoarjo", "kaos custom sidoarjo", "seragam sidoarjo"]
 featured: false
 ---
 

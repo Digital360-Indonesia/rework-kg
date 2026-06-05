@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Bekasi"
-description: "Konveksi Bekasi yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Bekasi | Kustom Garment"
+description: "Konveksi Bekasi dan sekitarnya — seragam kantor dan kaos promo dengan pengiriman ke Jakarta, Cikarang, Karawang. Kustom Garment melayani satuan dari Suraba"
 pubDate: 2026-02-05
 author: "Kustom Garment"
 image: "/images/blog/konveksi-bekasi/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi bekasi", "kaos custom bekasi", "seragam bekasi"]
 featured: false
 ---
 

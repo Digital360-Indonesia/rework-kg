@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Bontang"
-description: "Konveksi Bontang yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Bontang | Kustom Garment"
+description: "Konveksi Bontang dan sekitarnya — seragam perusahaan dan safety wear dengan pengiriman ke Samarinda, Balikpapan, Tenggarong. Kustom Garment melayani satuan"
 pubDate: 2026-03-15
 author: "Kustom Garment"
 image: "/images/blog/konveksi-bontang/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi bontang", "kaos custom bontang", "seragam bontang"]
 featured: false
 ---
 

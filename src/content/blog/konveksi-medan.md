@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Medan"
-description: "Konveksi Medan yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Medan | Kustom Garment"
+description: "Konveksi Medan dan sekitarnya — seragam dan kaos custom dengan pengiriman ke Binjai, Deli Serdang, Tebing Tinggi. Kustom Garment melayani satuan dari Surab"
 pubDate: 2026-05-25
 author: "Kustom Garment"
 image: "/images/blog/konveksi-medan/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi medan", "kaos custom medan", "seragam medan"]
 featured: false
 ---
 

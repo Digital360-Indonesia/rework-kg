@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Pekanbaru"
-description: "Konveksi Pekanbaru yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Pekanbaru | Kustom Garment"
+description: "Konveksi Pekanbaru dan sekitarnya — seragam perusahaan dan kaos promo dengan pengiriman ke Dumai, Kampar, Siak, Bengkalis. Kustom Garment melayani satuan d"
 pubDate: 2026-03-13
 author: "Kustom Garment"
 image: "/images/blog/konveksi-pekanbaru/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi pekanbaru", "kaos custom pekanbaru", "seragam pekanbaru"]
 featured: false
 ---
 

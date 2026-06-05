@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Bau Bau"
-description: "Konveksi Bau Bau yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Bau Bau | Kustom Garment"
+description: "Konveksi Bau Bau — kaos, kemeja, jaket, dan seragam custom dengan pengiriman dari Surabaya. Pesan satuan tanpa minimum order."
 pubDate: 2026-02-27
 author: "Kustom Garment"
 image: "/images/blog/konveksi-bau-bau/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi bau bau", "kaos custom bau bau", "seragam bau bau"]
 featured: false
 ---
 

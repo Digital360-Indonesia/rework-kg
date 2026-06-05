@@ -1,5 +1,5 @@
 ---
-title: "Bahan American Drill: Kelebihan dan Kegunaannya untuk Pakaian"
+title: "Bahan American Drill: Kelebihan dan Kegunaannya"
 description: "American Drill awalnya dirancang untuk seragam militer. Namun kini, kain ini populer untuk berbagai jenis pakaian outdoor dan seragam kerja"
 pubDate: 2026-03-20
 author: "Kustom Garment"

@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Tarakan"
-description: "Konveksi Tarakan yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Tarakan | Kustom Garment"
+description: "Konveksi Tarakan dan sekitarnya — seragam dan kaos custom dengan pengiriman ke Nunukan, Tana Lia, Malinau. Kustom Garment melayani satuan dari Surabaya ke "
 pubDate: 2026-05-01
 author: "Kustom Garment"
 image: "/images/blog/konveksi-tarakan/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi tarakan", "kaos custom tarakan", "seragam tarakan"]
 featured: false
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: "Kenapa Pilih Konveksi Satuan di Surabaya?"
-description: "Pilih konveksi satuan Surabaya terpercaya. Minimal order 1 pcs, kualitas premium, proses cepat. Hubungi Kustom Garment sekarang!"
+title: "Konveksi Satuan Surabaya | Kustom Garment"
+description: "Konveksi Satuan Surabaya — kaos, kemeja, jaket, dan seragam custom dengan pengiriman dari Surabaya. Pesan satuan tanpa minimum order."
 pubDate: 2026-01-31
 author: "Kustom Garment"
 image: "/images/blog/konveksi-satuan-surabaya/featured-20250818_K-MjAyNTA4.jpg"
 category: "Education"
-tags: ["#ApparelCustom", "#FashionCustom", "#FashionSurabaya", "#GarmentSurabaya", "#KonveksiSatuanSurabaya", "#KonveksiTerbaik", "#KustomGarment"]
+tags: ["ApparelCustom", "FashionCustom", "FashionSurabaya", "GarmentSurabaya", "KonveksiSatuanSurabaya", "KonveksiTerbaik", "KustomGarment"]
 featured: false
 ---
 

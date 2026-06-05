@@ -1,5 +1,5 @@
 ---
-title: "Crinkle Airflow Fabric: Karakteristik, Kelebihan, dan Kekurangannya"
+title: "Crinkle Airflow Fabric: Karakteristik, Kelebihan, dan Kek..."
 description: "Mari kita selami bersama apa itu crinkle airflow, jenisnya, kelebihan dan kekurangannya, serta menjawab pertanyaan-pertanyaan umum kain ini."
 pubDate: 2026-01-20
 author: "Kustom Garment"

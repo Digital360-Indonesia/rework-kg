@@ -1,11 +1,11 @@
 ---
-title: "Jasa Pembuatan Jersey Custom Berkualitas di Sidoarjo – Konveksi Jersey Terpercaya"
-description: "Kustom Garment menjadi solusi terpercaya untuk jersey custom, kami telah melayani ribuan pelanggan dari berbagai daerah di Indonesia."
+title: "Jersey Custom Sidoarjo | Kustom Garment"
+description: "Pembuatan jersey custom di Sidoarjo untuk Liga Sidoarjo dan komunitas olahraga. Pengiriman ke Surabaya, Gresik, Mojokerto. Kustom Garment — konveksi jersey"
 pubDate: 2026-04-11
 author: "Kustom Garment"
 image: "/images/blog/jasa-pembuatan-jersey-custom-b/featured-Firefly-di-RmlyZWZs.jpg"
 category: "Recommendation"
-tags: ["Jasa konveksi sidoarjo", "jasa pembuatan jersey"]
+tags: ["jersey custom sidoarjo", "konveksi jersey sidoarjo", "jersey olahraga"]
 featured: false
 ---
 

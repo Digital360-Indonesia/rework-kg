@@ -1,11 +1,11 @@
 ---
-title: "Jasa Pembuatan Jersey Custom Berkualitas di Jakarta – Konveksi Jersey Terpercaya"
-description: "Kustom Garment menjadi solusi terpercaya untuk jersey custom, kami telah melayani ribuan pelanggan dari berbagai kota di Indonesia."
+title: "Jersey Custom Jakarta | Kustom Garment"
+description: "Pembuatan jersey custom di Jakarta untuk Liga Jakarta dan komunitas olahraga. Pengiriman ke Bekasi, Tangerang, Depok, Bogor. Kustom Garment — konveksi jers"
 pubDate: 2026-04-13
 author: "Kustom Garment"
 image: "/images/blog/jasa-pembuatan-jersey-custom-b/featured-Firefly-di-RmlyZWZs.jpg"
 category: "Recommendation"
-tags: ["Jasa konveksi Jakarta", "jasa pembuatan jersey"]
+tags: ["jersey custom jakarta", "konveksi jersey jakarta", "jersey olahraga"]
 featured: false
 ---
 

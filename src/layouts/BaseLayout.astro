@@ -69,6 +69,8 @@ const currentPath = Astro.url.pathname;
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:image" content={new URL(image, siteConfig.siteUrl)}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:site_name" content={siteConfig.siteName}>
   <meta property="og:locale" content="id_ID">
 
@@ -91,13 +93,19 @@ const currentPath = Astro.url.pathname;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="Blog Kustom Garment" href="/blog/rss.xml">
+
   <!-- Structured Data -->
   <script set:html={JSON.stringify({
     "@context": "https://schema.org",
-    "@type": type === 'article' ? 'Article' : 'WebPage',
+    "@type": type === 'article' ? 'BlogPosting' : 'WebPage',
     "name": title,
     "description": description,
     "url": fullCanonicalURL,
+    ...(image && {
+      "image": new URL(image, siteConfig.siteUrl).toString()
+    }),
     "publisher": {
       "@type": "Organization",
       "name": siteConfig.siteName,
@@ -116,7 +124,11 @@ const currentPath = Astro.url.pathname;
     ...(type === 'article' && {
       "headline": title,
       "datePublished": publishedTime,
-      "dateModified": modifiedTime
+      "dateModified": modifiedTime || publishedTime,
+      "author": {
+        "@type": "Organization",
+        "name": siteConfig.siteName
+      }
     })
   })} type="application/ld+json"></script>
 </head>

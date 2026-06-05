@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Ketapang"
-description: "Konveksi Ketapang yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Ketapang | Kustom Garment"
+description: "Konveksi Ketapang dan sekitarnya — seragam dan kaos komunitas dengan pengiriman ke Pontianak, Sambas, Singkawang. Kustom Garment melayani satuan dari Surab"
 pubDate: 2026-05-18
 author: "Kustom Garment"
 image: "/images/blog/konveksi-ketapang/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi ketapang", "kaos custom ketapang", "seragam ketapang"]
 featured: false
 ---
 

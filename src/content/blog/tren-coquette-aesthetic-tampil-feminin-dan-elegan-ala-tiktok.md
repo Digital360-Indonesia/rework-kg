@@ -1,5 +1,5 @@
 ---
-title: "Coquette Aesthetic: Tampil Feminin dan Elegan ala Tren TikTok"
+title: "Coquette Aesthetic: Tampil Feminin dan Elegan ala Tren Ti..."
 description: "Coquette Aesthetic adalah gaya fashion yang menonjolkan sisi feminin, manis, dan elegan. Ciri khasnya adalah penggunaan pita dan renda.."
 pubDate: 2026-05-30
 author: "Kustom Garment"

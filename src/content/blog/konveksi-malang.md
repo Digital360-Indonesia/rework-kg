@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Malang"
-description: "Konveksi Malang yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Malang | Kustom Garment"
+description: "Konveksi Malang dan sekitarnya — kaos dan jaket komunitas dengan pengiriman ke Batu, Blitar, Kediri, Tulungagung. Kustom Garment melayani satuan dari Surab"
 pubDate: 2026-03-06
 author: "Kustom Garment"
 image: "/images/blog/konveksi-malang/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi malang", "kaos custom malang", "seragam malang"]
 featured: false
 ---
 

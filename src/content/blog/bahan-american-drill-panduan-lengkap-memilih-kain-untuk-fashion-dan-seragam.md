@@ -1,5 +1,5 @@
 ---
-title: "Bahan American Drill: Panduan Lengkap Memilih Kain untuk Fashion dan Seragam"
+title: "Bahan American Drill: Panduan Lengkap Memilih Kain"
 description: "American Drill adalah jenis kain yang terkenal dengan kekuatan dan ketahanannya. Kain ini merupakan perpaduan antara katun dan polyester,"
 pubDate: 2026-01-09
 author: "Kustom Garment"

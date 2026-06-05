@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Bitung"
-description: "Konveksi Bitung yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Bitung | Kustom Garment"
+description: "Konveksi Bitung dan sekitarnya — seragam dan kaos custom dengan pengiriman ke Manado, Tomohon, Tondano. Kustom Garment melayani satuan dari Surabaya ke Sul"
 pubDate: 2026-05-10
 author: "Kustom Garment"
 image: "/images/blog/konveksi-bitung/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi bitung", "kaos custom bitung", "seragam bitung"]
 featured: false
 ---
 

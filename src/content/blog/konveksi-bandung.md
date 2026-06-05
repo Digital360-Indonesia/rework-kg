@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Bandung"
-description: "Konveksi Bandung yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Bandung | Kustom Garment"
+description: "Konveksi Bandung dan sekitarnya — kemeja dan jaket custom dengan pengiriman ke Cimahi, Sumedang, Garut, Tasikmalaya. Kustom Garment melayani satuan dari Su"
 pubDate: 2026-05-04
 author: "Kustom Garment"
 image: "/images/blog/konveksi-bandung/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi bandung", "kaos custom bandung", "seragam bandung"]
 featured: false
 ---
 

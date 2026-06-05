@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Manado"
-description: "Konveksi Manado yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Manado | Kustom Garment"
+description: "Konveksi Manado dan sekitarnya — seragam kerja dan kaos event dengan pengiriman ke Bitung, Tomohon, Tondano. Kustom Garment melayani satuan dari Surabaya k"
 pubDate: 2026-03-06
 author: "Kustom Garment"
 image: "/images/blog/konveksi-manado/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi manado", "kaos custom manado", "seragam manado"]
 featured: false
 ---
 

@@ -24,20 +24,8 @@ const hero = {
   sub: 'Bahan kain, panduan ukuran, sampai tren apparel — biar kamu makin paham sebelum bikin.',
 };
 
-// Build JSON data for client-side load more
-const postsData = posts.map(post => ({
-  slug: post.slug,
-  title: post.data.title,
-  description: post.data.description,
-  category: post.data.category,
-  image: coverFor(post.slug, post.data.image),
-  date: fmtDate(post.data.pubDate),
-  readingTime: readingTime(post.body),
-  featured: post.data.featured,
-}));
-
-const INITIAL_COUNT = 9;
-const BATCH_SIZE = 9;
+const SHOW = 9;
+const BATCH = 9;
 ---
 
 <BaseLayout title="Blog — Tips & Panduan Custom Apparel | Kustom Garment" description="Artikel dan tips seputar konveksi, bahan kain, dan panduan ukuran dari Kustom Garment.">
@@ -55,8 +43,11 @@ const BATCH_SIZE = 9;
     <section class="bl-list">
       <div class="bl-wrap">
         <div class="bl-grid" id="blog-grid">
-          {posts.slice(0, INITIAL_COUNT).map((post, i) => (
-            <a class="bl-card reveal" style={`transition-delay:${(i % 3) * 80}ms`} href={`/blog/${post.slug}/`}>
+          {posts.map((post, i) => (
+            <a class:list={['bl-card', 'reveal', { 'bl-hidden': i >= SHOW }]}
+               data-i={i}
+               style={`transition-delay:${(i % 3) * 80}ms`}
+               href={`/blog/${post.slug}/`}>
               <div class="bl-card-frame">
                 <img src={coverFor(post.slug, post.data.image)} alt={post.data.title} loading={i < 3 ? 'eager' : 'lazy'} />
                 {post.data.featured && <span class="bl-flag">Featured</span>}
@@ -73,9 +64,9 @@ const BATCH_SIZE = 9;
           ))}
         </div>
 
-        <!-- Skeleton loader (hidden by default) -->
+        <!-- Skeleton loader -->
         <div class="bl-grid bl-skeleton-grid" id="skeleton-grid" aria-hidden="true" style="display:none;">
-          {Array.from({ length: BATCH_SIZE }).map(() => (
+          {Array.from({ length: BATCH }).map(() => (
             <div class="bl-skel-card">
               <div class="bl-skel-frame shimmer"></div>
               <div class="bl-skel-cat shimmer"></div>
@@ -86,13 +77,12 @@ const BATCH_SIZE = 9;
           ))}
         </div>
 
-        <!-- Load More -->
-        {posts.length > INITIAL_COUNT && (
+        {posts.length > SHOW && (
           <div class="bl-loadmore" id="loadmore-wrap">
             <button class="bl-loadmore-btn" id="loadmore-btn">
               Lihat lebih banyak
               <span class="bl-loadmore-count" id="remaining-count">
-                ({posts.length - INITIAL_COUNT} artikel lagi)
+                ({posts.length - SHOW} artikel lagi)
               </span>
             </button>
           </div>
@@ -162,8 +152,8 @@ const BATCH_SIZE = 9;
   .bl-loadmore-btn:active {
     transform: scale(0.97);
   }
-  .bl-loadmore-btn.is-loading {
-    opacity: 0.7;
+  .bl-loadmore-btn:disabled {
+    opacity: 0.6;
     pointer-events: none;
   }
   .bl-loadmore-count {
@@ -178,18 +168,13 @@ const BATCH_SIZE = 9;
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .bl-card-frame img { transition: none; }
-    .bl-skel-card { display: none; }
-    .bl-card-enter { animation: none; opacity: 1; transform: none; }
   }
 </style>
 
-<!-- 
-  Cards, skeleton, grid styles MUST be is:global because
-  dynamically inserted cards (via JS Load More) won't have
-  the Astro scoped data-astro-cid-* attribute.
--->
+<!-- is:global because Astro scoped styles use data-astro-cid-* which doesn't apply
+     to elements whose classes are toggled dynamically -->
 <style is:global>
-  /* GRID — scoped to .bl parent so it doesn't leak */
+  /* GRID */
   .bl .bl-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem 1.75rem; }
   @media (min-width: 640px) { .bl .bl-grid { grid-template-columns: 1fr 1fr; } }
   @media (min-width: 1024px) { .bl .bl-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -236,6 +221,16 @@ const BATCH_SIZE = 9;
     .bl .bl-card:hover .bl-card-title { color: #ff4c00; }
   }
 
+  /* HIDDEN CARDS — SEO crawlable but visually hidden */
+  .bl .bl-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
   /* SKELETON */
   .bl .shimmer {
     background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 37%, #f0f0f0 63%);
@@ -254,18 +249,17 @@ const BATCH_SIZE = 9;
   .bl .bl-skel-desc { height: 2.5rem; width: 100%; margin-bottom: 0.9rem; border-radius: 0.35rem; }
   .bl .bl-skel-meta { height: 0.8125rem; width: 10rem; }
 
-  /* Card fade-in */
+  /* Card reveal animation */
   .bl .bl-card-enter {
-    opacity: 0;
-    transform: translateY(20px);
     animation: bl-card-fade-in 500ms cubic-bezier(0.19,1,0.22,1) forwards;
   }
   @keyframes bl-card-fade-in {
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 </style>
 
-<script define:vars={{ postsData, INITIAL_COUNT, BATCH_SIZE }}>
+<script define:vars={{ SHOW, BATCH, total: posts.length }}>
   // Reveal observer
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -273,75 +267,42 @@ const BATCH_SIZE = 9;
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
   // Load More
-  const grid = document.getElementById('blog-grid');
-  const skeletonGrid = document.getElementById('skeleton-grid');
-  const loadmoreBtn = document.getElementById('loadmore-btn');
+  const btn = document.getElementById('loadmore-btn');
   const remainingEl = document.getElementById('remaining-count');
-  const loadmoreWrap = document.getElementById('loadmore-wrap');
+  const wrap = document.getElementById('loadmore-wrap');
+  const skeleton = document.getElementById('skeleton-grid');
+  if (!btn) return;
 
-  if (!loadmoreBtn) return;
+  let shown = SHOW;
 
-  let shown = INITIAL_COUNT;
-  const total = postsData.length;
-  const SIMULATED_DELAY = 400; // ms — fake loading for skeleton visibility
-
-  function createCard(post, index) {
-    const a = document.createElement('a');
-    a.className = 'bl-card bl-card-enter';
-    a.style.animationDelay = `${(index % 3) * 100}ms`;
-    a.href = `/blog/${post.slug}/`;
-
-    let flagHtml = '';
-    if (post.featured) {
-      flagHtml = '<span class="bl-flag">Featured</span>';
-    }
-
-    a.innerHTML = `
-      <div class="bl-card-frame">
-        <img src="${post.image}" alt="${post.title}" loading="lazy" />
-        ${flagHtml}
-      </div>
-      <span class="bl-cat">${post.category}</span>
-      <h2 class="bl-card-title">${post.title}</h2>
-      <p class="bl-card-desc">${post.description}</p>
-      <div class="bl-meta">
-        <span>${post.date}</span>
-        <span class="bl-dot" aria-hidden="true">·</span>
-        <span>${post.readingTime} menit baca</span>
-      </div>
-    `;
-    return a;
-  }
-
-  function updateRemaining() {
-    const remaining = total - shown;
-    if (remaining <= 0) {
-      loadmoreWrap.style.display = 'none';
-    } else {
-      remainingEl.textContent = `(${remaining} artikel lagi)`;
-    }
-  }
-
-  loadmoreBtn.addEventListener('click', () => {
-    loadmoreBtn.classList.add('is-loading');
-    skeletonGrid.style.display = 'grid';
-
-    // Scroll skeleton into view smoothly
-    skeletonGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  btn.addEventListener('click', () => {
+    btn.disabled = true;
+    skeleton.style.display = 'grid';
+    skeleton.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
     setTimeout(() => {
-      skeletonGrid.style.display = 'none';
-      const end = Math.min(shown + BATCH_SIZE, total);
-      const fragment = document.createDocumentFragment();
+      skeleton.style.display = 'none';
+      const hidden = document.querySelectorAll('.bl-hidden');
+      let count = 0;
 
-      for (let i = shown; i < end; i++) {
-        fragment.appendChild(createCard(postsData[i], i));
+      hidden.forEach((card) => {
+        if (count < BATCH) {
+          card.classList.remove('bl-hidden', 'reveal');
+          card.classList.add('bl-card-enter');
+          card.style.opacity = '1';
+          card.style.transform = 'none';
+          count++;
+        }
+      });
+
+      shown += count;
+      const left = total - shown;
+      if (left <= 0) {
+        wrap.style.display = 'none';
+      } else {
+        remainingEl.textContent = `(${left} artikel lagi)`;
       }
-
-      grid.appendChild(fragment);
-      shown = end;
-      updateRemaining();
-      loadmoreBtn.classList.remove('is-loading');
-    }, SIMULATED_DELAY);
+      btn.disabled = false;
+    }, 400);
   });
 </script>

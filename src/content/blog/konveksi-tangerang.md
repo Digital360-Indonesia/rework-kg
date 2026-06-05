@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Tangerang"
-description: "Konveksi Tangerang yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Tangerang | Kustom Garment"
+description: "Konveksi Tangerang dan sekitarnya — seragam korporat dan kaos merchandise dengan pengiriman ke Jakarta, Serpong, Cikupa, Balaraja. Kustom Garment melayani "
 pubDate: 2026-05-14
 author: "Kustom Garment"
 image: "/images/blog/konveksi-tangerang/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi tangerang", "kaos custom tangerang", "seragam tangerang"]
 featured: false
 ---
 

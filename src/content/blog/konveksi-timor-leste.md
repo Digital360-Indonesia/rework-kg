@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Timor Leste"
-description: "Konveksi Timor Leste yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Timor Leste | Kustom Garment"
+description: "Konveksi Timor Leste — kaos, kemeja, jaket, dan seragam custom dengan pengiriman dari Surabaya. Pesan satuan tanpa minimum order."
 pubDate: 2026-03-09
 author: "Kustom Garment"
 image: "/images/blog/konveksi-timor-leste/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi timor leste", "kaos custom timor leste", "seragam timor leste"]
 featured: false
 ---
 

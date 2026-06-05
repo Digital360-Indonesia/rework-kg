@@ -1,11 +1,11 @@
 ---
-title: "Jasa Pembuatan Jersey Custom Berkualitas di Surabaya – Konveksi Jersey Terpercaya"
-description: "Kustom Garment menjadi solusi terpercaya untuk jersey custom, kami telah melayani ribuan pelanggan dari berbagai daerah di Indonesia."
+title: "Jersey Custom Surabaya | Kustom Garment"
+description: "Pembuatan jersey custom di Surabaya untuk Liga Kota Surabaya dan komunitas olahraga. Pengiriman ke Sidoarjo, Gresik, Mojokerto. Kustom Garment — konveksi j"
 pubDate: 2026-05-29
 author: "Kustom Garment"
 image: "/images/blog/jasa-pembuatan-jersey-custom-b/featured-Firefly-co-RmlyZWZs.jpg"
 category: "Recommendation"
-tags: ["jasa konveksi Surabaya", "jasa pembuatan jersey"]
+tags: ["jersey custom surabaya", "konveksi jersey surabaya", "jersey olahraga"]
 featured: false
 ---
 

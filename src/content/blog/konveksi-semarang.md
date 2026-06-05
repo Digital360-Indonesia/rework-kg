@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Semarang"
-description: "Konveksi Semarang yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Semarang | Kustom Garment"
+description: "Konveksi Semarang dan sekitarnya — seragam kantor dan kaos event dengan pengiriman ke Kendal, Demak, Salatiga, Ungaran. Kustom Garment melayani satuan dari"
 pubDate: 2026-05-21
 author: "Kustom Garment"
 image: "/images/blog/konveksi-semarang/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi semarang", "kaos custom semarang", "seragam semarang"]
 featured: false
 ---
 

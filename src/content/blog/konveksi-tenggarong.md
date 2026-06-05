@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Tenggarong"
-description: "Konveksi Tenggarong yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Tenggarong | Kustom Garment"
+description: "Konveksi Tenggarong dan sekitarnya — seragam instansi dan workwear dengan pengiriman ke Samarinda, Balikpapan, Bontang. Kustom Garment melayani satuan dari"
 pubDate: 2026-04-23
 author: "Kustom Garment"
 image: "/images/blog/konveksi-tenggarong/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi tenggarong", "kaos custom tenggarong", "seragam tenggarong"]
 featured: false
 ---
 

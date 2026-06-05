@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Makassar"
-description: "Konveksi Makassar yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Makassar | Kustom Garment"
+description: "Konveksi Makassar dan sekitarnya — jersey dan seragam olahraga dengan pengiriman ke Gowa, Takalar, Maros, Pangkep. Kustom Garment melayani satuan dari Sura"
 pubDate: 2026-04-22
 author: "Kustom Garment"
 image: "/images/blog/konveksi-makassar/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi makassar", "kaos custom makassar", "seragam makassar"]
 featured: false
 ---
 

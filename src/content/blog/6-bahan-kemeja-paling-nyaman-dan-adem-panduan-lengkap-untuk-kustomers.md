@@ -1,5 +1,5 @@
 ---
-title: "6 Bahan Kemeja Paling Nyaman dan Adem: Panduan Lengkap untuk Kustomers"
+title: "6 Bahan Kemeja Paling Nyaman dan Adem"
 description: "Memilih bahan kemeja yang tepat bukan hanya soal gaya, Bahan yang berkualitas dapat membuat Kustomers tetap segar sepanjang hari."
 pubDate: 2026-05-29
 author: "Kustom Garment"

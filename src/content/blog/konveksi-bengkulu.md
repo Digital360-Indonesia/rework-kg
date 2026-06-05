@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Bengkulu"
-description: "Konveksi Bengkulu yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Bengkulu | Kustom Garment"
+description: "Konveksi Bengkulu dan sekitarnya — kaos komunitas dan jersey tim dengan pengiriman ke Curup, Muko-muko, Kepahiang. Kustom Garment melayani satuan dari Sura"
 pubDate: 2026-04-02
 author: "Kustom Garment"
 image: "/images/blog/konveksi-bengkulu/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi bengkulu", "kaos custom bengkulu", "seragam bengkulu"]
 featured: false
 ---
 

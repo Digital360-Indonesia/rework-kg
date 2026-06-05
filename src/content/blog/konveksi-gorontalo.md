@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Gorontalo"
-description: "Konveksi Gorontalo yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Gorontalo | Kustom Garment"
+description: "Konveksi Gorontalo dan sekitarnya — kaos dan seragam olahraga dengan pengiriman ke Limboto, Kwandang, Marisa. Kustom Garment melayani satuan dari Surabaya "
 pubDate: 2026-05-25
 author: "Kustom Garment"
 image: "/images/blog/konveksi-gorontalo/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi gorontalo", "kaos custom gorontalo", "seragam gorontalo"]
 featured: false
 ---
 

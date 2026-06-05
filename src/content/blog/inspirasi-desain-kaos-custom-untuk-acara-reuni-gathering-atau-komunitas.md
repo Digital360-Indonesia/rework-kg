@@ -1,11 +1,11 @@
 ---
-title: "Inspirasi Desain Kaos Custom untuk Acara Reuni, Gathering, atau Komunitas"
+title: "Inspirasi Desain Kaos Custom untuk Acara Reuni, Gathering..."
 description: "Butuh ide desain kaos custom untuk reuni, gathering, atau acara komunitas? Simak berbagai inspirasi menarik dan tips desain keren yang bisa kamu aplikasikan!"
 pubDate: 2026-03-16
 author: "Kustom Garment"
 image: "/images/blog/inspirasi-desain-kaos-custom-u/featured-123.jpg"
 category: "Tips Trick"
-tags: ["#DesainKaosReuni", "#KaosCustomGathering", "#KaosKomunitas", "#KaosUnik", "#KustomGarment"]
+tags: ["DesainKaosReuni", "KaosCustomGathering", "KaosKomunitas", "KaosUnik", "KustomGarment"]
 featured: false
 ---
 

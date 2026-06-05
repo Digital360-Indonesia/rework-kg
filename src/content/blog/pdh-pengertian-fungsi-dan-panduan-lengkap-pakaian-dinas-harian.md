@@ -1,5 +1,5 @@
 ---
-title: "PDH: Pengertian, Fungsi, dan Panduan Lengkap Pakaian Dinas Harian"
+title: "PDH: Pengertian, Fungsi, dan Panduan Lengkap Pakaian Dina..."
 description: "PDH adalah Pakaian Dinas Harian yang menjadi bagian penting dalam dunia kerja formal di Indonesia, Kustomers pasti penasaran kan lebih detail"
 pubDate: 2026-02-16
 author: "Kustom Garment"

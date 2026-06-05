@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Samarinda"
-description: "Konveksi Samarinda yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Samarinda | Kustom Garment"
+description: "Konveksi Samarinda dan sekitarnya — seragam industri dan safety wear dengan pengiriman ke Balikpapan, Bontang, Tenggarong. Kustom Garment melayani satuan d"
 pubDate: 2026-04-17
 author: "Kustom Garment"
 image: "/images/blog/konveksi-samarinda/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi samarinda", "kaos custom samarinda", "seragam samarinda"]
 featured: false
 ---
 

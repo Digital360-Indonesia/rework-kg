@@ -5,7 +5,7 @@ pubDate: 2026-02-13
 author: "Kustom Garment"
 image: "/images/blog/kelebihan-memesan-baju-custom-/featured-Untitled-1.jpg"
 category: "Education"
-tags: ["#BajuCustomSatuan", "#DesainSendiri", "#KonveksiCustom", "#KustomGarment", "#UMKMLokal"]
+tags: ["BajuCustomSatuan", "DesainSendiri", "KonveksiCustom", "KustomGarment", "UMKMLokal"]
 featured: false
 ---
 

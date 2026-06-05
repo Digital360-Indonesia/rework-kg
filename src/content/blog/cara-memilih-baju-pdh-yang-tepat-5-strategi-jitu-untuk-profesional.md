@@ -1,5 +1,5 @@
 ---
-title: "Cara Memilih Baju PDH yang Tepat: 5 Strategi Jitu untuk Profesional"
+title: "Cara Memilih Baju PDH yang Tepat: 5 Strategi Jitu untuk P..."
 description: "Memilih bahan berkualitas tinggi adalah langkah pertama dan terpenting dalam memilih PDH. Mengapa? Karena bahan yang bagus tidak hanya membuat"
 pubDate: 2026-02-24
 author: "Kustom Garment"

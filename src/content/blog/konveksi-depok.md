@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Depok"
-description: "Konveksi Depok yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Depok | Kustom Garment"
+description: "Konveksi Depok dan sekitarnya — kaos dan kemeja custom dengan pengiriman ke Jakarta, Bogor, Bekasi. Kustom Garment melayani satuan dari Surabaya ke Jawa Ba"
 pubDate: 2026-03-15
 author: "Kustom Garment"
 image: "/images/blog/konveksi-depok/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi depok", "kaos custom depok", "seragam depok"]
 featured: false
 ---
 

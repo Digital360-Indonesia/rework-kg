@@ -5,7 +5,7 @@ pubDate: 2026-03-28
 author: "Kustom Garment"
 image: "/images/blog/bikin-kaos-custom-satuan-tanpa/featured-Untitled-7.jpg"
 category: "Recommendation"
-tags: ["#BikinKaosSendiri", "#KaosCustomSatuan", "#KaosUnik", "#KustomGarment", "#TanpaMinimumOrder"]
+tags: ["BikinKaosSendiri", "KaosCustomSatuan", "KaosUnik", "KustomGarment", "TanpaMinimumOrder"]
 featured: false
 ---
 

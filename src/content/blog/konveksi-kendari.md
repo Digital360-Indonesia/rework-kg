@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Kendari"
-description: "Konveksi Kendari yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Kendari | Kustom Garment"
+description: "Konveksi Kendari dan sekitarnya — kaos custom dan seragam kerja dengan pengiriman ke Bau Bau, Kolaka, Unaaha. Kustom Garment melayani satuan dari Surabaya "
 pubDate: 2026-04-01
 author: "Kustom Garment"
 image: "/images/blog/konveksi-kendari/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi kendari", "kaos custom kendari", "seragam kendari"]
 featured: false
 ---
 

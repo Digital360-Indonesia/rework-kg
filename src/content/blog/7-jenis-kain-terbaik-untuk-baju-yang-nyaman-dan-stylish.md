@@ -1,6 +1,6 @@
 ---
 title: "7 Jenis Kain Terbaik untuk Baju yang Nyaman dan Stylish"
-description: "Memilih bahan kemeja yang tepat bukan hanya soal gaya, Bahan yang berkualitas dapat membuat Kustomers tetap segar sepanjang hari."
+description: "Panduan 7 jenis kain terbaik untuk baju — dari katun hingga linen. Temukan bahan yang paling nyaman, adem, dan stylish untuk kebutuhan custom apparel."
 pubDate: 2026-04-15
 author: "Kustom Garment"
 image: "/images/blog/7-jenis-kain-terbaik-untuk-baj/featured-Firefly-Ha-RmlyZWZs.jpg"

@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Palangkaraya"
-description: "Konveksi Palangkaraya yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Palangkaraya | Kustom Garment"
+description: "Konveksi Palangkaraya dan sekitarnya — seragam instansi dan workwear dengan pengiriman ke Kapuas, Katingan, Pulang Pisau. Kustom Garment melayani satuan da"
 pubDate: 2026-05-09
 author: "Kustom Garment"
 image: "/images/blog/konveksi-palangkaraya/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi palangkaraya", "kaos custom palangkaraya", "seragam palangkaraya"]
 featured: false
 ---
 

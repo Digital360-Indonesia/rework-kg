@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Palopo"
-description: "Konveksi Palopo yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Palopo | Kustom Garment"
+description: "Konveksi Palopo dan sekitarnya — seragam dan kaos komunitas dengan pengiriman ke Makassar, Luwu, Tana Toraja. Kustom Garment melayani satuan dari Surabaya "
 pubDate: 2026-05-08
 author: "Kustom Garment"
 image: "/images/blog/konveksi-palopo/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi palopo", "kaos custom palopo", "seragam palopo"]
 featured: false
 ---
 

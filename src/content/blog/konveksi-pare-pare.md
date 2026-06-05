@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Pare pare"
-description: "Konveksi Pare Pare yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Pare Pare | Kustom Garment"
+description: "Konveksi Pare Pare — kaos, kemeja, jaket, dan seragam custom dengan pengiriman dari Surabaya. Pesan satuan tanpa minimum order."
 pubDate: 2026-04-06
 author: "Kustom Garment"
 image: "/images/blog/konveksi-pare-pare/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi pare pare", "kaos custom pare pare", "seragam pare pare"]
 featured: false
 ---
 

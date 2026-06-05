@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Banjarmasin"
-description: "Konveksi Banjarmasin yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Banjarmasin | Kustom Garment"
+description: "Konveksi Banjarmasin dan sekitarnya — kaos sablon dan wearpack dengan pengiriman ke Banjarbaru, Martapura, Kandangan. Kustom Garment melayani satuan dari S"
 pubDate: 2026-03-10
 author: "Kustom Garment"
 image: "/images/blog/konveksi-banjarmasin/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi banjarmasin", "kaos custom banjarmasin", "seragam banjarmasin"]
 featured: false
 ---
 

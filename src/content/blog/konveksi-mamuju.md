@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Mamuju"
-description: "Konveksi Mamuju yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Mamuju | Kustom Garment"
+description: "Konveksi Mamuju dan sekitarnya — seragam dan kaos custom dengan pengiriman ke Majene, Polewali, Mamasa. Kustom Garment melayani satuan dari Surabaya ke Sul"
 pubDate: 2026-05-04
 author: "Kustom Garment"
 image: "/images/blog/konveksi-mamuju/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi mamuju", "kaos custom mamuju", "seragam mamuju"]
 featured: false
 ---
 

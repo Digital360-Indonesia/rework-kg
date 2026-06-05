@@ -1,5 +1,5 @@
 ---
-title: "Warna Netral: Panduan Lengkap, Contoh, dan Tren Fashion Terkini"
+title: "Warna Netral: Panduan Lengkap, Contoh,"
 description: "Warna netral adalah warna-warna yang tenang, tidak mencolok, dan mudah dipadukan dengan warna lain. Warna dengan kesan natural dan timeless."
 pubDate: 2026-04-15
 author: "Kustom Garment"

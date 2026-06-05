@@ -1,5 +1,5 @@
 ---
-title: "Cara Memaksimalkan Penggunaan Kain Oxford untuk Bisnis Fashion Anda"
+title: "Cara Memaksimalkan Penggunaan Kain Oxford untuk Bisnis Fa..."
 description: "Kain Oxford itu bukan cuma sekedar kain biasa. Ini adalah bahan serbaguna yang dapat menjadi andalan di industri fashion"
 pubDate: 2026-04-22
 author: "Kustom Garment"

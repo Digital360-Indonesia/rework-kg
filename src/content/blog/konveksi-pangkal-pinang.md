@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Pangkal Pinang"
-description: "Konveksi Pangkal Pinang yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Pangkal Pinang | Kustom Garment"
+description: "Konveksi Pangkal Pinang — kaos, kemeja, jaket, dan seragam custom dengan pengiriman dari Surabaya. Pesan satuan tanpa minimum order."
 pubDate: 2026-03-18
 author: "Kustom Garment"
 image: "/images/blog/konveksi-pangkal-pinang/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi pangkal pinang", "kaos custom pangkal pinang", "seragam pangkal pinang"]
 featured: false
 ---
 

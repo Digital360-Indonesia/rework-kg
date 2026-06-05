@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Jakarta"
-description: "Konveksi Jakarta yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Jakarta | Kustom Garment"
+description: "Konveksi Jakarta dan sekitarnya — seragam korporat dan kaos merchandise dengan pengiriman ke Bekasi, Tangerang, Depok, Bogor. Kustom Garment melayani satua"
 pubDate: 2026-05-03
 author: "Kustom Garment"
 image: "/images/blog/konveksi-jakarta/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi jakarta", "kaos custom jakarta", "seragam jakarta"]
 featured: false
 ---
 

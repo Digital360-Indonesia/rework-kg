@@ -5,7 +5,7 @@ pubDate: 2026-02-14
 author: "Kustom Garment"
 image: "/images/blog/size-chart-kaos/featured-20250818_M-MjAyNTA4.jpg"
 category: "Uncategorized"
-tags: ["#BrandLokal", "#FashionLokal", "#FashionTips", "#KaosCustom", "#KonveksiIndonesia", "#SizeChartKaos", "#SizingGuide"]
+tags: ["BrandLokal", "FashionLokal", "FashionTips", "KaosCustom", "KonveksiIndonesia", "SizeChartKaos", "SizingGuide"]
 featured: false
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Dumai"
-description: "Konveksi Dumai yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Dumai | Kustom Garment"
+description: "Konveksi Dumai dan sekitarnya — seragam dan kaos komunitas dengan pengiriman ke Pekanbaru, Bengkalis, Selat Panjang. Kustom Garment melayani satuan dari Su"
 pubDate: 2026-05-17
 author: "Kustom Garment"
 image: "/images/blog/konveksi-dumai/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi dumai", "kaos custom dumai", "seragam dumai"]
 featured: false
 ---
 

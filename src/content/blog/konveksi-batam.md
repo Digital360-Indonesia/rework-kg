@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Batam"
-description: "Konveksi Batam yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Batam | Kustom Garment"
+description: "Konveksi Batam dan sekitarnya — seragam industri dan jaket safety dengan pengiriman ke Tanjung Pinang, Bintan, Karimun. Kustom Garment melayani satuan dari"
 pubDate: 2026-05-28
 author: "Kustom Garment"
 image: "/images/blog/konveksi-batam/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi batam", "kaos custom batam", "seragam batam"]
 featured: false
 ---
 

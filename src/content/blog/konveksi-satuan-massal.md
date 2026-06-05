@@ -1,11 +1,11 @@
 ---
-title: "Apa Bedanya Konveksi Satuan dan Konveksi Massal?"
-description: "etahui perbedaan konveksi satuan vs massal. Pilih yang tepat untuk bisnis fashion Anda dengan panduan komprehensif dari ahlinya."
+title: "Konveksi Satuan Massal | Kustom Garment"
+description: "Konveksi Satuan Massal — kaos, kemeja, jaket, dan seragam custom dengan pengiriman dari Surabaya. Pesan satuan tanpa minimum order."
 pubDate: 2026-01-14
 author: "Kustom Garment"
 image: "/images/blog/konveksi-satuan-massal/featured-20250818_A-MjAyNTA4.jpg"
 category: "Education"
-tags: ["#ApparelCustom", "#FashionBisnis", "#FashionCustom", "#GarmentIndonesia", "#KonveksiMassal", "#KonveksiSatuan", "#KonveksiSurabaya"]
+tags: ["ApparelCustom", "FashionBisnis", "FashionCustom", "GarmentIndonesia", "KonveksiMassal", "KonveksiSatuan", "KonveksiSurabaya"]
 featured: false
 ---
 

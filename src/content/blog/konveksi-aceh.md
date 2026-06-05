@@ -1,11 +1,11 @@
 ---
-title: "Rekomendasi Konveksi Berkualitas dengan Layanan Terbaik di Aceh"
-description: "Konveksi Aceh yang melayani jasa konveksi mulai dari kaos, kemeja, jaket, polo dan banyak produk konveksi lainnya"
+title: "Konveksi Aceh | Kustom Garment"
+description: "Konveksi Aceh dan sekitarnya — seragam komunitas dan kaos custom dengan pengiriman ke Banda Aceh, Sabang, Lhokseumawe, Langsa. Kustom Garment melayani satu"
 pubDate: 2026-02-23
 author: "Kustom Garment"
 image: "/images/blog/konveksi-aceh/featured-konveksi_kota.jpg"
 category: "Recommendation"
-tags: ["Recommendation"]
+tags: ["konveksi aceh", "kaos custom aceh", "seragam aceh"]
 featured: false
 ---
 

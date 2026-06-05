@@ -1,6 +1,6 @@
 ---
-title: "Perbedaan Sablon Rubber, Plastisol, dan DTF: Mana yang Terbaik untuk Custom?"
-description: "Kenali perbedaan sablon rubber, plastisol, dan DTF untuk pakaian custom. Temukan pilihan terbaik di Kustom Garment, Surabaya. Konsultasi gratis tanpa minimal order."
+title: "Perbedaan Sablon Rubber, Plastisol, dan DTF: Mana yang Te..."
+description: "Kenali perbedaan sablon rubber, plastisol, dan DTF untuk pakaian custom. Temukan pilihan terbaik di Kustom Garment, Surabaya. Konsultasi gratis tanpa minimal..."
 pubDate: 2026-02-11
 author: "Kustom Garment"
 image: "/images/blog/perbedaan-sablon-rubber-plasti/featured-garment04.png"
