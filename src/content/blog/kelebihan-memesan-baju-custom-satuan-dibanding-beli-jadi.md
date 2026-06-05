@@ -101,7 +101,7 @@ Jadi, bagi Anda yang ingin tampil beda dan lebih percaya diri dengan busana yang
 
 Ingin pesan baju custom satuan dengan kualitas terbaik dan layanan profesional? Kustom Garment siap membantu Anda!
 
-📱 Hubungi kami via WhatsApp: [Klik di sini](https://wa.me/6285161202499/)
+📱 Hubungi kami via WhatsApp: [Klik di sini](https://wa.me/6285117049918/)
 
 📍 Kunjungi lokasi kami melalui Google Maps: [Klik di sini](https://g.co/kgs/PMPpm8j)
 

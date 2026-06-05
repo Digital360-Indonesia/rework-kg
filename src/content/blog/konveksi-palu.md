@@ -45,7 +45,7 @@ Kami juga menyiapkan proses transaksi via online yang akan mempermudah Anda dan 
 
 Kantor dan workshop kami mudah untuk dijangkau, untuk Anda yang ingin bertemu kami secara langsung silahkan mengunjungi kami di Jl. Sidosermo Indah Gg. III No. 37, Surabaya. Kami juga menerima order konveksi baju dari luar surabaya dan untuk Anda yang berada di luar surabaya, kami pun menyediakan jalur-jalur komunikasi antara lain:
 
-Call / SMS / WA : 0851 6120 2499
+Call / SMS / WA : 0851 1704 9918
 Email : marketing@kustomgarment.com
 
 Tentu saja Anda bisa memesan via online. Anda bisa juga melihat beberapa daftar harga, nama bahan, nama sablon, foto produk dan masih banyak lainnya di website resmi kami yaitu [https://kustomgarment.com](https://kustomgarment.com)

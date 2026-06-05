@@ -119,7 +119,7 @@ Dengan mengikuti panduan ini, Anda tidak hanya mendapatkan jaket berkualitas, ta
 
 Jangan ragu untuk mewujudkan jaket impian Anda bersama kami. Kustom Garment melayani pemesanan jaket custom satuan dengan proses mudah dan hasil maksimal.
 
-📱 Hubungi kami via WhatsApp: [Klik di sini](https://wa.me/6285161202499/)
+📱 Hubungi kami via WhatsApp: [Klik di sini](https://wa.me/6285117049918/)
 
 📍 Kunjungi lokasi kami: [Klik di sini](https://g.co/kgs/PMPpm8j)
 

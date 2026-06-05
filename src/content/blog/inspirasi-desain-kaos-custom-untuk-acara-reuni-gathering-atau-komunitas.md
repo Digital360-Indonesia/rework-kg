@@ -93,7 +93,7 @@ Ya, tersedia ukuran mulai dari XS hingga 5XL.
 
 Wujudkan kaos keren untuk acara reuni atau komunitas kamu dengan bantuan tim profesional Kustom Garment!
 
-📱 WhatsApp: [Klik di sini](https://wa.me/6285161202499/)
+📱 WhatsApp: [Klik di sini](https://wa.me/6285117049918/)
 
 📍 Lokasi Google Maps: [Klik di sini](https://g.co/kgs/PMPpm8j)
 

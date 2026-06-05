@@ -14,7 +14,7 @@ const defaultFabric = catalog.fabrics.find((f) => f.id === product.default_fabri
 // only garment types with a defined garment_types entry have the online customizer (v1: kemeja)
 const hasCustomizer = catalog.garment_types.some((g) => g.id === product.garment_type);
 
-const waBase = (siteConfig as any)?.contact?.whatsappUrl || 'https://wa.me/6285161202499';
+const waBase = (siteConfig as any)?.contact?.whatsappUrl || 'https://wa.me/6285117049918';
 const waHref = `${waBase}?text=${encodeURIComponent(`Halo Kustom Garment, saya tertarik dengan ${product.name}. Boleh info lebih lanjut?`)}`;
 
 const metaTitle = `${product.name} | Kustom Garment`;

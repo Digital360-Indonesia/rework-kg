@@ -160,7 +160,7 @@ Melalui layanan yang lengkap dan profesional dari **Kustom Garment**, Anda tidak
 Siap membuat kaos custom dengan teknik sablon terbaik?
 Konsultasikan desain dan kebutuhan Anda bersama tim kami:
 
-- **WhatsApp**: [Klik untuk Chat](https://wa.me/6285161202499)
+- **WhatsApp**: [Klik untuk Chat](https://wa.me/6285117049918)
 
 - **Kunjungi Workshop**: [Lihat Lokasi Kami](https://g.co/kgs/PMPpm8j)
 

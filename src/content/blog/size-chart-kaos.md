@@ -167,7 +167,7 @@ Tim ahli kami memahami perbedaan sizing requirements untuk berbagai segment mark
 
 Hubungi **Kustom Garment** sekarang:
 
-- **WhatsApp:** [https://wa.me/6285161202499](https://wa.me/6285161202499)
+- **WhatsApp:** [https://wa.me/6285117049918](https://wa.me/6285117049918)
 
 - **Lokasi:** [https://share.google/yuMPq1up72mFD9e1F](https://share.google/yuMPq1up72mFD9e1F)
 

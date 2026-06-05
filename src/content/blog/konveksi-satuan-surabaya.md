@@ -179,7 +179,7 @@ Keunggulan yang kami tawarkan:
 
 Konsultasikan kebutuhan fashion Anda dengan tim ahli kami:
 
-**WhatsApp:** 0851 6120 2499
+**WhatsApp:** 0851 1704 9918
 **Alamat:** Jl. Sidosermo IV Gg. III No. 37 (Raya Prapen), Sidosermo, Surabaya
 **Google Maps:** [https://share.google/0N9BpcqAPOA9cOQ1a](https://share.google/0N9BpcqAPOA9cOQ1a)
 

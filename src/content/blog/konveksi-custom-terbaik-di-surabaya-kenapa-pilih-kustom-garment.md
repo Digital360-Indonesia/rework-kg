@@ -99,7 +99,7 @@ Apapun kebutuhan custom Anda—baik itu jaket komunitas, seragam kerja, kaos eve
 
 Ingin mulai pesan atau sekadar konsultasi? Hubungi kami langsung:
 
-📱 WhatsApp: [Klik di sini](https://wa.me/6285161202499/)
+📱 WhatsApp: [Klik di sini](https://wa.me/6285117049918/)
 
 📍 Lokasi Google Maps: [Klik di sini](https://g.co/kgs/PMPpm8j)
 

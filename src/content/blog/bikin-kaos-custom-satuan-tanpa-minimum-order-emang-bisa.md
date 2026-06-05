@@ -109,7 +109,7 @@ Jadi, tunggu apa lagi? Kaos unik Anda tinggal satu langkah lagi untuk diwujudkan
 
 ## Hubungi Kustom Garment Sekarang!
 
-📱 WhatsApp: [Klik di sini](https://wa.me/6285161202499/)
+📱 WhatsApp: [Klik di sini](https://wa.me/6285117049918/)
 
 📍 Lokasi Google Maps: [Klik di sini](https://g.co/kgs/PMPpm8j)
 

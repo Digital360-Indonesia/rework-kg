@@ -154,6 +154,6 @@ Ingin mulai mewujudkan desain kaos Anda? Tim kami siap membantu mulai dari konsu
 
 Hubungi kami melalui:
 
-- WhatsApp: [Klik untuk Chat](https://wa.me/6285161202499)
+- WhatsApp: [Klik untuk Chat](https://wa.me/6285117049918)
 
 - Google Maps: [Lihat Lokasi Kami](https://g.co/kgs/PMPpm8j)

@@ -110,7 +110,7 @@ Perawatan yang tepat akan memperpanjang usia pakai pakaian custom Anda. Kaos sab
 
 Jika Anda ingin membuat kaos atau jaket custom, atau butuh saran spesifik soal cara merawat pakaian sesuai teknik sablon atau jenis kain, tim kami siap membantu:
 
-- **WhatsApp**: [Klik untuk Chat](https://wa.me/6285161202499)
+- **WhatsApp**: [Klik untuk Chat](https://wa.me/6285117049918)
 
 - **Google Maps (Workshop Surabaya)**: [Lihat Lokasi Kami](https://g.co/kgs/PMPpm8j)
 

@@ -66,7 +66,7 @@ Anda tidak perlu repot datang ke workshop kami. Pemesanan bisa dilakukan secara 
 
 Kantor dan workshop kami mudah dijangkau, berlokasi di Jl. Sidosermo Indah Gg. III No. 37, Surabaya. Untuk konsultasi dan pemesanan, Anda dapat menghubungi kami melalui:
 
- 	- Call / SMS / WA : 0851 6120 2499
+ 	- Call / SMS / WA : 0851 1704 9918
  	- Email : [marketing@kustomgarment.com](mailto:marketing@kustomgarment.com)
  	- Website : [https://kustomgarment.com](https://kustomgarment.com/)
 
@@ -133,7 +133,7 @@ Anda tidak perlu repot datang ke workshop kami. Pemesanan bisa dilakukan secara 
 
 Kantor dan workshop kami mudah dijangkau, berlokasi di Jl. Sidosermo Indah Gg. III No. 37, Surabaya. Untuk konsultasi dan pemesanan, Anda dapat menghubungi kami melalui:
 
- 	- Call / SMS / WA : 0851 6120 2499
+ 	- Call / SMS / WA : 0851 1704 9918
  	- Email : [marketing@kustomgarment.com](mailto:marketing@kustomgarment.com)
  	- Website : [https://kustomgarment.com](https://kustomgarment.com/)
 

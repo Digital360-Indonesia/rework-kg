@@ -89,7 +89,7 @@ Eksplorasi gaya, bercerita lewat visual, dan jangan ragu bereksperimen. Karena d
 
 Punya ide desain kaos anti-mainstream? Kustom Garment siap bantu mewujudkannya.
 
-📱 Konsultasi via WhatsApp: [Klik di sini](https://wa.me/6285161202499/)
+📱 Konsultasi via WhatsApp: [Klik di sini](https://wa.me/6285117049918/)
 
 📍 Datang langsung ke lokasi kami: [Klik di sini](https://g.co/kgs/PMPpm8j)
 

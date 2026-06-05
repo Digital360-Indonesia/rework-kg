@@ -37,7 +37,7 @@ Sebagai [konveksi jersey di Malang](http://kustomgarment.com), kami memberikan h
 #### Alamat Workshop & Konveksi Jersey Malang
 
 Workshop konveksi jersey kami berlokasi strategis di Jl. Sidosermo Indah Gg. III No. 37, Surabaya. Untuk konsultasi dan pemesanan jersey custom, hubungi:
-- Call / SMS / WA : 0851 6120 2499- Email : [marketing@kustomgarment.com](mailto:marketing@kustomgarment.com)- Website : [https://kustomgarment.com](https://kustomgarment.com/)
+- Call / SMS / WA : 0851 1704 9918- Email : [marketing@kustomgarment.com](mailto:marketing@kustomgarment.com)- Website : [https://kustomgarment.com](https://kustomgarment.com/)
 #### Melayani Pembuatan Jersey di Seluruh Area:
 - Kota Malang dan sekitarnya- Pengiriman ke seluruh Indonesia- Layanan konsultasi online
 

@@ -147,7 +147,7 @@ Dengan memahami karakteristik masing-masing bahan, Anda dapat memastikan hasil c
 
 Ingin berdiskusi lebih lanjut mengenai pilihan bahan terbaik dan desain kaos custom Anda? Tim kami siap membantu:
 
-📱 WhatsApp: [Klik untuk Chat](https://wa.me/6285161202499)
+📱 WhatsApp: [Klik untuk Chat](https://wa.me/6285117049918)
 📍 Lokasi Workshop Surabaya: [Lihat Lokasi Kami](https://g.co/kgs/PMPpm8j)
 
 Mulai dari pemilihan bahan, desain, hingga produksi custom yang profesional.

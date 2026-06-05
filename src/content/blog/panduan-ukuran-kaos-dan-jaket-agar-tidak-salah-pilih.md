@@ -131,7 +131,7 @@ Masih bingung memilih ukuran? Atau ingin diskusi langsung sebelum produksi?
 
 Silakan hubungi tim Kustom Garment untuk konsultasi gratis melalui:
 
-- **WhatsApp**: [Klin untuk Chat](https://wa.me/6285161202499)
+- **WhatsApp**: [Klin untuk Chat](https://wa.me/6285117049918)
 
 - **Alamat Workshop (Google Maps)**: [Lihat Lokasi Kami](https://g.co/kgs/PMPpm8j)
 
