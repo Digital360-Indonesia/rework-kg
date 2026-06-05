@@ -3,30 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog');
-const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
-const featuredPosts = sortedPosts.filter(post => post.data.featured);
-const regularPosts = sortedPosts.filter(post => !post.data.featured);
-const posts = [...featuredPosts, ...regularPosts];
+const byDate = (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf();
+const featured = allPosts.filter(p => p.data.featured).sort(byDate);
+const editorial = allPosts.filter(p => !p.data.featured && p.data.category !== 'Recommendation').sort(byDate);
+const recommendation = allPosts.filter(p => !p.data.featured && p.data.category === 'Recommendation').sort(byDate);
+const posts = [...featured, ...editorial, ...recommendation];
 
-// Blog featured images aren't migrated yet (/images/blog/* is missing). Map each post to a
-// real existing image so cards never render broken. Swap back to post.data.image once real
-// featured images land under /images/blog/.
-const fallbackPool = [
-  '/images/placeholder/theme-image-1777040341996.png',
-  '/images/placeholder/theme-image-1777126525887.png',
-  '/images/placeholder/theme-image-1777126637504.png',
-  '/images/placeholder/theme-image-1777385298306.png',
-  '/images/placeholder/sample-section3a.webp',
-  '/images/placeholder/sample-section3b.webp',
-  '/images/placeholder/sample-section3c.webp',
-  '/images/placeholder/sample-section3d.webp',
-  '/images/categories/business.webp',
-  '/images/categories/community.webp',
-  '/images/categories/campus.webp',
-  '/images/categories/personal.webp',
-];
-const coverFor = (slug: string) =>
-  fallbackPool[[...slug].reduce((a, c) => a + c.charCodeAt(0), 0) % fallbackPool.length];
+const coverFor = (slug: string, image?: string) =>
+  image || '/images/placeholder/sample-section3a.webp';
 
 const readingTime = (body?: string) =>
   Math.max(1, Math.round((body?.split(/\s+/).filter(Boolean).length || 0) / 200));
@@ -39,11 +23,26 @@ const hero = {
   titleAccent: '& cerita custom.',
   sub: 'Bahan kain, panduan ukuran, sampai tren apparel — biar kamu makin paham sebelum bikin.',
 };
+
+// Build JSON data for client-side load more
+const postsData = posts.map(post => ({
+  slug: post.slug,
+  title: post.data.title,
+  description: post.data.description,
+  category: post.data.category,
+  image: coverFor(post.slug, post.data.image),
+  date: fmtDate(post.data.pubDate),
+  readingTime: readingTime(post.body),
+  featured: post.data.featured,
+}));
+
+const INITIAL_COUNT = 9;
+const BATCH_SIZE = 9;
 ---
 
 <BaseLayout title="Blog — Tips & Panduan Custom Apparel | Kustom Garment" description="Artikel dan tips seputar konveksi, bahan kain, dan panduan ukuran dari Kustom Garment.">
   <main class="bl">
-    <!-- HERO (orange, centered) -->
+    <!-- HERO -->
     <section class="bl-hero">
       <div class="bl-wrap">
         <span class="bl-eyebrow reveal">{hero.eyebrow}</span>
@@ -55,11 +54,11 @@ const hero = {
     <!-- POSTS GRID -->
     <section class="bl-list">
       <div class="bl-wrap">
-        <div class="bl-grid">
-          {posts.map((post, i) => (
+        <div class="bl-grid" id="blog-grid">
+          {posts.slice(0, INITIAL_COUNT).map((post, i) => (
             <a class="bl-card reveal" style={`transition-delay:${(i % 3) * 80}ms`} href={`/blog/${post.slug}/`}>
               <div class="bl-card-frame">
-                <img src={coverFor(post.slug)} alt={post.data.title} loading="lazy" />
+                <img src={coverFor(post.slug, post.data.image)} alt={post.data.title} loading={i < 3 ? 'eager' : 'lazy'} />
                 {post.data.featured && <span class="bl-flag">Featured</span>}
               </div>
               <span class="bl-cat">{post.data.category}</span>
@@ -73,6 +72,31 @@ const hero = {
             </a>
           ))}
         </div>
+
+        <!-- Skeleton loader (hidden by default) -->
+        <div class="bl-grid bl-skeleton-grid" id="skeleton-grid" aria-hidden="true" style="display:none;">
+          {Array.from({ length: BATCH_SIZE }).map(() => (
+            <div class="bl-skel-card">
+              <div class="bl-skel-frame shimmer"></div>
+              <div class="bl-skel-cat shimmer"></div>
+              <div class="bl-skel-title shimmer"></div>
+              <div class="bl-skel-desc shimmer"></div>
+              <div class="bl-skel-meta shimmer"></div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Load More -->
+        {posts.length > INITIAL_COUNT && (
+          <div class="bl-loadmore" id="loadmore-wrap">
+            <button class="bl-loadmore-btn" id="loadmore-btn">
+              Lihat lebih banyak
+              <span class="bl-loadmore-count" id="remaining-count">
+                ({posts.length - INITIAL_COUNT} artikel lagi)
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   </main>
@@ -103,38 +127,49 @@ const hero = {
     color: rgba(255,255,255,0.92); max-width: 40rem; margin: 0 auto;
   }
 
-  /* LIST */
+  /* LIST section */
   .bl-list { padding: 4rem 0 6rem; }
   @media (min-width: 1024px) { .bl-list { padding: 6rem 0 8rem; } }
-  .bl-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem 1.75rem; }
-  @media (min-width: 640px) { .bl-grid { grid-template-columns: 1fr 1fr; } }
-  @media (min-width: 1024px) { .bl-grid { grid-template-columns: repeat(3, 1fr); } }
 
-  .bl-card { display: block; text-decoration: none; }
-  .bl-card-frame {
-    position: relative; border-radius: 1.25rem; overflow: hidden;
-    aspect-ratio: 4 / 3; background: #f4f4f4; margin-bottom: 1.1rem;
+  /* LOAD MORE */
+  .bl-loadmore {
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
   }
-  .bl-card-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 800ms cubic-bezier(0.19,1,0.22,1); }
-  .bl-flag {
-    position: absolute; top: 0.85rem; left: 0.85rem;
-    font-family: var(--font-sans); font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase;
-    color: #ffffff; background: #ff4c00; border-radius: 999px; padding: 0.3rem 0.7rem;
+  .bl-loadmore-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    color: #1a1a1a;
+    background: #f5f5f5;
+    border: 2px solid #e8e8e8;
+    border-radius: 999px;
+    padding: 1rem 2.5rem;
+    cursor: pointer;
+    transition: all 250ms ease;
   }
-  .bl-cat { font-family: var(--font-sans); font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.12em; text-transform: uppercase; color: #ff4c00; }
-  .bl-card-title {
-    font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem; line-height: 1.25; letter-spacing: -0.01em;
-    color: #1a1a1a; margin: 0.55rem 0 0.5rem; transition: color 220ms ease;
+  .bl-loadmore-btn:hover {
+    color: #ff4c00;
+    border-color: #ff4c00;
+    background: #fff8f5;
   }
-  .bl-card-desc {
-    font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.55; color: #6b7280; margin: 0;
-    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
+  .bl-loadmore-btn:active {
+    transform: scale(0.97);
   }
-  .bl-meta { font-family: var(--font-sans); font-weight: 600; font-size: 0.8125rem; color: #9ca3af; margin-top: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
-  .bl-dot { color: #d1d5db; }
-  @media (hover: hover) {
-    .bl-card:hover .bl-card-frame img { transform: scale(1.06); }
-    .bl-card:hover .bl-card-title { color: #ff4c00; }
+  .bl-loadmore-btn.is-loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .bl-loadmore-count {
+    font-weight: 600;
+    font-size: 0.8125rem;
+    color: #9ca3af;
   }
 
   /* Reveal */
@@ -143,12 +178,170 @@ const hero = {
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; transition: none; }
     .bl-card-frame img { transition: none; }
+    .bl-skel-card { display: none; }
+    .bl-card-enter { animation: none; opacity: 1; transform: none; }
   }
 </style>
 
-<script>
+<!-- 
+  Cards, skeleton, grid styles MUST be is:global because
+  dynamically inserted cards (via JS Load More) won't have
+  the Astro scoped data-astro-cid-* attribute.
+-->
+<style is:global>
+  /* GRID — scoped to .bl parent so it doesn't leak */
+  .bl .bl-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem 1.75rem; }
+  @media (min-width: 640px) { .bl .bl-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1024px) { .bl .bl-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  /* CARD */
+  .bl .bl-card { display: block; text-decoration: none; }
+  .bl .bl-card-frame {
+    position: relative; border-radius: 1.25rem; overflow: hidden;
+    aspect-ratio: 4 / 3; background: #f4f4f4; margin-bottom: 1.1rem;
+  }
+  .bl .bl-card-frame img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 800ms cubic-bezier(0.19,1,0.22,1);
+  }
+  .bl .bl-flag {
+    position: absolute; top: 0.85rem; left: 0.85rem;
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.6875rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #ffffff; background: #ff4c00; border-radius: 999px; padding: 0.3rem 0.7rem;
+  }
+  .bl .bl-cat {
+    font-family: var(--font-sans); font-weight: 700; font-size: 0.6875rem;
+    letter-spacing: 0.12em; text-transform: uppercase; color: #ff4c00;
+  }
+  .bl .bl-card-title {
+    font-family: var(--font-sans); font-weight: 700; font-size: 1.25rem;
+    line-height: 1.25; letter-spacing: -0.01em;
+    color: #1a1a1a; margin: 0.55rem 0 0.5rem; transition: color 220ms ease;
+  }
+  .bl .bl-card-desc {
+    font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem;
+    line-height: 1.55; color: #6b7280; margin: 0;
+    display: -webkit-box; -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
+  }
+  .bl .bl-meta {
+    font-family: var(--font-sans); font-weight: 600; font-size: 0.8125rem;
+    color: #9ca3af; margin-top: 0.9rem; display: flex;
+    align-items: center; gap: 0.5rem;
+  }
+  .bl .bl-dot { color: #d1d5db; }
+  @media (hover: hover) {
+    .bl .bl-card:hover .bl-card-frame img { transform: scale(1.06); }
+    .bl .bl-card:hover .bl-card-title { color: #ff4c00; }
+  }
+
+  /* SKELETON */
+  .bl .shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 37%, #f0f0f0 63%);
+    background-size: 200% 100%;
+    animation: bl-shimmer 1.4s ease-in-out infinite;
+    border-radius: 0.5rem;
+  }
+  @keyframes bl-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  .bl .bl-skel-card { display: block; }
+  .bl .bl-skel-frame { aspect-ratio: 4 / 3; border-radius: 1.25rem; margin-bottom: 1.1rem; }
+  .bl .bl-skel-cat { height: 0.75rem; width: 5rem; margin-bottom: 0.55rem; }
+  .bl .bl-skel-title { height: 1.5rem; width: 85%; margin-bottom: 0.5rem; border-radius: 0.35rem; }
+  .bl .bl-skel-desc { height: 2.5rem; width: 100%; margin-bottom: 0.9rem; border-radius: 0.35rem; }
+  .bl .bl-skel-meta { height: 0.8125rem; width: 10rem; }
+
+  /* Card fade-in */
+  .bl .bl-card-enter {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: bl-card-fade-in 500ms cubic-bezier(0.19,1,0.22,1) forwards;
+  }
+  @keyframes bl-card-fade-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script define:vars={{ postsData, INITIAL_COUNT, BATCH_SIZE }}>
+  // Reveal observer
   const io = new IntersectionObserver((entries) => {
     entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Load More
+  const grid = document.getElementById('blog-grid');
+  const skeletonGrid = document.getElementById('skeleton-grid');
+  const loadmoreBtn = document.getElementById('loadmore-btn');
+  const remainingEl = document.getElementById('remaining-count');
+  const loadmoreWrap = document.getElementById('loadmore-wrap');
+
+  if (!loadmoreBtn) return;
+
+  let shown = INITIAL_COUNT;
+  const total = postsData.length;
+  const SIMULATED_DELAY = 400; // ms — fake loading for skeleton visibility
+
+  function createCard(post, index) {
+    const a = document.createElement('a');
+    a.className = 'bl-card bl-card-enter';
+    a.style.animationDelay = `${(index % 3) * 100}ms`;
+    a.href = `/blog/${post.slug}/`;
+
+    let flagHtml = '';
+    if (post.featured) {
+      flagHtml = '<span class="bl-flag">Featured</span>';
+    }
+
+    a.innerHTML = `
+      <div class="bl-card-frame">
+        <img src="${post.image}" alt="${post.title}" loading="lazy" />
+        ${flagHtml}
+      </div>
+      <span class="bl-cat">${post.category}</span>
+      <h2 class="bl-card-title">${post.title}</h2>
+      <p class="bl-card-desc">${post.description}</p>
+      <div class="bl-meta">
+        <span>${post.date}</span>
+        <span class="bl-dot" aria-hidden="true">·</span>
+        <span>${post.readingTime} menit baca</span>
+      </div>
+    `;
+    return a;
+  }
+
+  function updateRemaining() {
+    const remaining = total - shown;
+    if (remaining <= 0) {
+      loadmoreWrap.style.display = 'none';
+    } else {
+      remainingEl.textContent = `(${remaining} artikel lagi)`;
+    }
+  }
+
+  loadmoreBtn.addEventListener('click', () => {
+    loadmoreBtn.classList.add('is-loading');
+    skeletonGrid.style.display = 'grid';
+
+    // Scroll skeleton into view smoothly
+    skeletonGrid.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    setTimeout(() => {
+      skeletonGrid.style.display = 'none';
+      const end = Math.min(shown + BATCH_SIZE, total);
+      const fragment = document.createDocumentFragment();
+
+      for (let i = shown; i < end; i++) {
+        fragment.appendChild(createCard(postsData[i], i));
+      }
+
+      grid.appendChild(fragment);
+      shown = end;
+      updateRemaining();
+      loadmoreBtn.classList.remove('is-loading');
+    }, SIMULATED_DELAY);
+  });
 </script>

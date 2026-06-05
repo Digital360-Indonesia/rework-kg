@@ -19,30 +19,15 @@ const relatedPosts = allPosts
   .filter(p => p.slug !== post.slug && p.data.category === post.data.category)
   .slice(0, 3);
 
-// Blog featured images aren't migrated yet — map to a real existing image (see blog/index.astro).
-const fallbackPool = [
-  '/images/placeholder/theme-image-1777040341996.png',
-  '/images/placeholder/theme-image-1777126525887.png',
-  '/images/placeholder/theme-image-1777126637504.png',
-  '/images/placeholder/theme-image-1777385298306.png',
-  '/images/placeholder/sample-section3a.webp',
-  '/images/placeholder/sample-section3b.webp',
-  '/images/placeholder/sample-section3c.webp',
-  '/images/placeholder/sample-section3d.webp',
-  '/images/categories/business.webp',
-  '/images/categories/community.webp',
-  '/images/categories/campus.webp',
-  '/images/categories/personal.webp',
-];
-const coverFor = (slug: string) =>
-  fallbackPool[[...slug].reduce((a, c) => a + c.charCodeAt(0), 0) % fallbackPool.length];
+const coverFor = (slug: string, image?: string) =>
+  image || '/images/placeholder/sample-section3a.webp';
 
 const readingTime = (body?: string) =>
   Math.max(1, Math.round((body?.split(/\s+/).filter(Boolean).length || 0) / 200));
 
 const fmtDate = (d: Date) => d.toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
 
-const cover = coverFor(post.slug);
+const cover = coverFor(post.slug, post.data.image);
 const rt = readingTime(post.body);
 const wa = 'https://wa.me/6285161202499?text=' + encodeURIComponent('Halo Kustom Garment, saya mau bikin custom apparel.');
 ---
@@ -99,7 +84,7 @@ const wa = 'https://wa.me/6285161202499?text=' + encodeURIComponent('Halo Kustom
             {relatedPosts.map((rp, i) => (
               <a class="bl-card reveal" style={`transition-delay:${i * 80}ms`} href={`/blog/${rp.slug}/`}>
                 <div class="bl-card-frame">
-                  <img src={coverFor(rp.slug)} alt={rp.data.title} loading="lazy" />
+                  <img src={coverFor(rp.slug, rp.data.image)} alt={rp.data.title} loading="lazy" />
                 </div>
                 <span class="bl-cat">{rp.data.category}</span>
                 <h3 class="bl-card-title">{rp.data.title}</h3>
