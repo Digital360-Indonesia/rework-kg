@@ -75,7 +75,9 @@ export async function loadCatalogFromPB(base = process.env.PB_URL || DEFAULT_PB)
       upgrade_fabrics: map(p.upgrade_fabrics, fabSlug), downgrade_fabrics: map(p.downgrade_fabrics, fabSlug),
       locked_spec: p.locked_spec || {}, default_decoration: p.default_decoration || [],
       description: p.description || '', care: p.care || '',
-      gallery: (p.photos || []).map((fn) => `${base}/api/files/products/${p.id}/${fn}`),
+      gallery: (Array.isArray(p.gallery) && p.gallery.length)
+        ? p.gallery
+        : (p.photos || []).map((fn) => `${base}/api/files/products/${p.id}/${fn}`),
       hidden: !!p.hidden,
     })),
   };
