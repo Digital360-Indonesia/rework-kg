@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
-import catalog from '../data/products/catalog-source.mjs';
 import biz from '../data/business.json';
+import portfolio from '../data/portfolio.json';
 
 const metaTitle = biz.meta.title;
 const metaDescription = biz.meta.description;
@@ -11,14 +11,11 @@ const metaDescription = biz.meta.description;
 const hero = biz.hero;
 const clients = biz.clients;
 
-// Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
-const SEG = 'business';
-const rpFmt = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(n);
-const shopItems = (catalog.archetypes as any[]).filter((a) => a.segment === SEG && !a.hidden);
-const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kaos', jaket: 'Jaket', rompi: 'Rompi', wearpack: 'Wearpack' };
-const LU = (name: string) => `/images/placeholder/forproducts/20250428-Business_Line-Up_${name}-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp`;
-const presentTypes = [...new Set(shopItems.map((a) => a.garment_type))] as string[];
-const lineupFilters = [{ id: 'all', label: 'Semua', image: '' }, ...presentTypes.map((t) => ({ id: t, label: GTL[t] || t, image: LU(GTL[t] || t) }))];
+// Portfolio grid — 156 real client items, each links to its base template PDP.
+const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kaos', jaket: 'Jaket', rompi: 'Rompi', wearpack: 'Wearpack', topi: 'Topi' };
+const presentTypes = [...new Set((portfolio.items as any[]).map((p) => p.garment_type))] as string[];
+const lineupFilters = [{ id: 'all', label: 'Semua' }, ...presentTypes.map((t) => ({ id: t, label: GTL[t] || t }))];
+const portfolioItems = portfolio.items as any[];
 
 // Comparison — Kustom Garment vs the alternatives. KG is always ✓; the alternative is
 // 'no' (✗), 'partial' (– = terbatas/tergantung), or 'yes' (✓) per row.
@@ -85,38 +82,31 @@ const compare = {
       </div>
     </section>
 
-    <!-- PRODUCT FILTER (lineup) -->
+    <!-- PORTFOLIO FILTER -->
     <section class="cat-lineup">
       <div class="cat-wrap">
         <div class="cat-lineup-row reveal">
           {lineupFilters.map((f, i) => (
             <button class:list={["cat-lineup-item", { 'is-active': i === 0 }]} data-filter={f.id} type="button">
-              <span class="cat-lineup-thumb">
-                {f.image
-                  ? <img src={f.image} alt={f.label} loading="lazy" />
-                  : <span class="cat-lineup-all" aria-hidden="true"><i></i><i></i><i></i><i></i></span>}
-              </span>
               <span class="cat-lineup-label">{f.label}</span>
+              <span class="cat-lineup-count">{f.id === 'all' ? portfolioItems.length : portfolioItems.filter((p) => p.garment_type === f.id).length}</span>
             </button>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- PRODUCT GRID -->
+    <!-- PORTFOLIO GRID — client cards -->
     <section class="cat-shop">
       <div class="cat-wrap">
         <div class="cat-shop-grid">
-          {shopItems.map((p, i) => (
-            <a class="cat-shop-card reveal" style={`transition-delay:${(i % 4) * 60}ms`} data-category={p.garment_type} href={`/produk/${p.slug}`}>
+          {portfolioItems.map((p, i) => (
+            <a class="cat-shop-card reveal" style={`transition-delay:${(i % 6) * 50}ms`} data-category={p.garment_type} href={`/produk/${p.pdpSlug}`}>
               <div class="cat-shop-frame">
-                {p.badge && <span class="cat-shop-badge">{p.badge}</span>}
-                <img class="cat-shop-base" src={p.gallery[0]} alt={p.name} loading="lazy" />
-                {p.gallery[1] && <img class="cat-shop-weared" src={p.gallery[1]} alt="" loading="lazy" />}
+                <img class="cat-shop-base" src={p.heroImageLocal || p.heroImage} alt={p.title} loading="lazy" />
               </div>
-              <h3 class="cat-shop-name">{p.name}</h3>
-              <p class="cat-shop-color">{p.positioning}</p>
-              {!p.hide_price && (<p class="cat-shop-price"><span class="cat-shop-price-pre">from</span> <span class="cat-shop-price-amt">{rpFmt(p.price_min)}</span></p>)}
+              <h3 class="cat-shop-name">{p.title}</h3>
+              <p class="cat-shop-color">{GTL[p.garment_type] || p.garment_type}</p>
             </a>
           ))}
         </div>
@@ -208,67 +198,46 @@ const compare = {
   .cat-client-card img { max-height: 2.5rem; max-width: 100%; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.6; }
 
 
-  /* PRODUCT FILTER (lineup) */
+  /* PORTFOLIO FILTER (lineup) — pill buttons */
   .cat-lineup { padding: 4.5rem 0 0.5rem; }
   @media (min-width: 1024px) { .cat-lineup { padding: 6rem 0 0.5rem; } }
   .cat-lineup-row {
-    display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x proximity;
-    scrollbar-width: none; padding-top: 0.5rem; padding-bottom: 0.5rem;
-    margin: 0 -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem;
+    display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;
   }
-  .cat-lineup-row::-webkit-scrollbar { display: none; }
-  @media (min-width: 1024px) { .cat-lineup-row { margin: 0 -2.5rem; padding-left: 2.5rem; padding-right: 2.5rem; justify-content: flex-start; } }
   .cat-lineup-item {
-    flex: 0 0 auto; width: 6rem; background: none; border: none; padding: 0; cursor: pointer;
-    display: flex; flex-direction: column; align-items: center; gap: 0.55rem; scroll-snap-align: start;
+    background: none; border: 1px solid #ececec; border-radius: 999px; padding: 0.55rem 1.2rem;
+    cursor: pointer; display: flex; align-items: center; gap: 0.4rem;
+    transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
   }
-  .cat-lineup-thumb { width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; background: #f4f4f4; display: grid; place-items: center; padding: 16%; box-shadow: 0 0 0 2px transparent, 0 0 0 4px transparent; transition: box-shadow 200ms ease; }
-  .cat-lineup-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 600ms cubic-bezier(0.19,1,0.22,1); }
-  .cat-lineup-all { display: grid; grid-template-columns: 1fr 1fr; gap: 22%; width: 64%; height: 64%; }
-  .cat-lineup-all i { background: #c4c4c4; border-radius: 0.2rem; transition: background 200ms ease; }
-  .cat-lineup-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.8125rem; color: #6b7280; transition: color 200ms ease; }
-  .cat-lineup-item.is-active .cat-lineup-thumb { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ff4c00; }
-  .cat-lineup-item.is-active .cat-lineup-all i { background: #ff4c00; }
-  .cat-lineup-item.is-active .cat-lineup-label { color: #1a1a1a; }
+  .cat-lineup-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; color: #6b7280; }
+  .cat-lineup-count { font-family: var(--font-sans); font-weight: 600; font-size: 0.75rem; color: #9ca3af; }
+  .cat-lineup-item.is-active { background: #ff4c00; border-color: #ff4c00; }
+  .cat-lineup-item.is-active .cat-lineup-label,
+  .cat-lineup-item.is-active .cat-lineup-count { color: #ffffff; }
   @media (hover: hover) {
-    .cat-lineup-item:hover .cat-lineup-thumb img { transform: scale(1.06); }
+    .cat-lineup-item:hover { border-color: #ff4c00; }
     .cat-lineup-item:hover .cat-lineup-label { color: #ff4c00; }
   }
 
-  /* PRODUCT GRID */
-  /* Widen the product module (filter + grid) beyond the page's 72rem so cards get bigger */
+  /* PORTFOLIO GRID — client cards */
   @media (min-width: 1024px) { .cat-lineup .cat-wrap, .cat-shop .cat-wrap { max-width: 90rem; } }
   .cat-shop { padding: 2.5rem 0 5rem; }
   @media (min-width: 1024px) { .cat-shop { padding: 3rem 0 7rem; } }
   .cat-shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 1.25rem; }
   @media (min-width: 768px) { .cat-shop-grid { grid-template-columns: repeat(3, 1fr); gap: 2.75rem 1.5rem; } }
-  @media (min-width: 1024px) { .cat-shop-grid { grid-template-columns: repeat(5, 1fr); } }
+  @media (min-width: 1024px) { .cat-shop-grid { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 1280px) { .cat-shop-grid { grid-template-columns: repeat(5, 1fr); } }
   .cat-shop-card { display: block; text-decoration: none; color: inherit; }
   .cat-shop-card.is-hidden { display: none; }
-  .cat-shop-badge { position: absolute; top: 0.7rem; left: 0.7rem; z-index: 2; font-family: var(--font-sans); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1a1a1a; background: rgba(255,255,255,0.94); padding: 0.25rem 0.5rem; border-radius: 0.3rem; }
   .cat-shop-card.cat-shop-anim { animation: cat-shop-pop 460ms cubic-bezier(0.19,1,0.22,1) both; }
   @keyframes cat-shop-pop { from { opacity: 0; transform: translateY(12px) scale(0.985); } to { opacity: 1; transform: none; } }
   .cat-shop-frame { position: relative; border-radius: 1rem; overflow: hidden; aspect-ratio: 3 / 4; background: #f4f4f4; }
-  .cat-shop-base, .cat-shop-weared { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 450ms ease; }
-  .cat-shop-weared { opacity: 0; }
+  .cat-shop-base { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 450ms cubic-bezier(0.19,1,0.22,1); }
   @media (hover: hover) {
-    .cat-shop-card:hover .cat-shop-base { opacity: 0; }
-    .cat-shop-card:hover .cat-shop-weared { opacity: 1; }
+    .cat-shop-card:hover .cat-shop-base { transform: scale(1.04); }
   }
-  .cat-shop-name { font-family: var(--font-sans); font-weight: 400; font-size: 1.0625rem; line-height: 1.2; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.9rem 0 0; }
-  /* tagline uses system fallback (SF Pro Display has no Regular loaded → falls back to Semibold) */
-  .cat-shop-color { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 400; font-size: 0.875rem; line-height: 1.4; color: #9ca3af; margin: 0.3rem 0 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.45em; }
-  .cat-shop-swatches { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.7rem; }
-  .cat-shop-swatch {
-    width: 1.5rem; height: 1.2rem; border-radius: 0.3rem; background: var(--sw);
-    border: 1px solid rgba(0,0,0,0.12); padding: 0; cursor: default; pointer-events: none;
-    box-shadow: 0 0 0 2px #fff, 0 0 0 2px transparent; transition: box-shadow 180ms ease;
-  }
-  .cat-shop-swatch.is-active { box-shadow: 0 0 0 2px #fff, 0 0 0 3px #9ca3af; }
-  .cat-shop-more { font-family: var(--font-sans); font-weight: 600; font-size: 0.8125rem; color: #6b7280; margin-left: 0.2rem; }
-  .cat-shop-price { font-family: var(--font-sans); font-size: 0.8125rem; margin: 0.75rem 0 0; }
-  .cat-shop-price-pre { font-weight: 400; font-size: 0.8125rem; color: #6b7280; }
-  .cat-shop-price-amt { font-weight: 600; color: #ff4c00; }
+  .cat-shop-name { font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.25; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.75rem 0 0; }
+  .cat-shop-color { font-family: var(--font-sans); font-weight: 500; font-size: 0.8125rem; color: #9ca3af; margin: 0.2rem 0 0; }
 
   /* COMPARISON */
   .cat-cmp { padding: 2.5rem 0 1rem; }
@@ -318,7 +287,7 @@ const compare = {
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
-  // Lineup filter — sets active state and filters the product grid
+  // Portfolio filter — filter client cards by garment type
   const filters = Array.from(document.querySelectorAll<HTMLButtonElement>('.cat-lineup-item'));
   const shopCards = Array.from(document.querySelectorAll<HTMLElement>('.cat-shop-card'));
   filters.forEach((btn) => {
@@ -332,45 +301,12 @@ const compare = {
         c.classList.toggle('is-hidden', !show);
         if (show) {
           c.classList.add('in');
-          // replay the entrance animation, staggered by visible position
           c.classList.remove('cat-shop-anim');
           void c.offsetWidth;
-          c.style.animationDelay = `${vis * 45}ms`;
+          c.style.animationDelay = `${vis * 35}ms`;
           c.classList.add('cat-shop-anim');
           vis++;
         }
-      });
-    });
-  });
-
-  // Comparison tabs — switch which alternative is compared against Kustom Garment
-  const cmpTabs = Array.from(document.querySelectorAll<HTMLButtonElement>('.cat-cmp-tab'));
-  const cmpPanels = Array.from(document.querySelectorAll<HTMLElement>('.cat-cmp-panel'));
-  cmpTabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const id = tab.dataset.cmp;
-      cmpTabs.forEach((t) => {
-        const active = t === tab;
-        t.classList.toggle('is-active', active);
-        t.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-      cmpPanels.forEach((p) => {
-        const active = p.dataset.cmpPanel === id;
-        p.classList.toggle('is-active', active);
-        p.hidden = !active;
-      });
-    });
-  });
-
-  // Color swatches — active state + update the shown color name, per card
-  document.querySelectorAll<HTMLElement>('.cat-shop-card').forEach((card) => {
-    const nameEl = card.querySelector<HTMLElement>('.cat-shop-color');
-    const swatches = Array.from(card.querySelectorAll<HTMLButtonElement>('.cat-shop-swatch'));
-    swatches.forEach((sw) => {
-      sw.addEventListener('click', () => {
-        swatches.forEach((s) => s.classList.remove('is-active'));
-        sw.classList.add('is-active');
-        if (nameEl && sw.dataset.color) nameEl.textContent = sw.dataset.color;
       });
     });
   });
