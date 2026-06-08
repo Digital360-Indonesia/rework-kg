@@ -1,0 +1,134 @@
+{
+  "American Drill": {
+    "care": "Cuci balik dengan air dingin dan pisahkan dari warna terang karena seratnya pekat. Setrika suhu sedang-tinggi, jemur di tempat teduh biar warna nggak cepat pudar.",
+    "feel": "Twill kuat dan agak tebal dengan tekstur garis diagonal yang khas, terasa kokoh tapi tetap luwes dipakai seharian. Ideal buat seragam kerja yang harus tahan banting."
+  },
+  "BSY": {
+    "care": "Cukup cuci dengan air biasa, cepat kering dan nggak gampang kusut jadi setrika suhu rendah saja sudah cukup. Hindari setrika terlalu panas karena bahan sintetisnya bisa meleleh.",
+    "feel": "Bahan poliester yang halus, ringan, dan jatuh mengikuti badan dengan rapi. Permukaannya licin dan nggak gerah meski seratnya rapat."
+  },
+  "Baby Terry": {
+    "care": "Cuci balik dengan air dingin biar loop di bagian dalam tetap empuk dan nggak kasar. Jemur dengan dibalik, setrika suhu sedang dan hindari menyetrika sisi handuknya.",
+    "feel": "Permukaan luar mulus, bagian dalam berbulu lembut kayak handuk tipis yang nyaman di kulit. Cukup tebal buat menghangatkan tapi nggak bikin sumpek, pas buat jaket santai."
+  },
+  "Canvas Marsoto": {
+    "care": "Cuci balik, hindari rendam lama supaya seratnya nggak melar dan warnanya awet. Jemur di tempat teduh, setrika suhu sedang-tinggi karena bahannya tebal.",
+    "feel": "Kanvas dengan tekstur titik-titik (marsoto) yang kokoh dan bertekstur jelas. Kaku dan tegas saat baru, makin sering dipakai makin luwes—berkarakter buat jaket yang gagah."
+  },
+  "Canvas Sueding": {
+    "care": "Cuci balik dengan air dingin biar lapisan sueding-nya tetap halus dan nggak cepat botak. Jangan disikat keras, jemur dibalik dan setrika suhu sedang.",
+    "feel": "Kanvas yang permukaannya digosok halus jadi berasa lembut seperti suede, tapi tetap padat dan berbobot. Tampilannya kalem dan premium dengan pegangan yang adem di tangan."
+  },
+  "Chambray": {
+    "care": "Cuci balik dengan air dingin di awal karena tampilan denim-nya bisa sedikit luntur di cucian pertama. Jemur di tempat teduh, setrika suhu sedang selagi agak lembap biar rapi.",
+    "feel": "Katun tipis dengan tampilan mirip denim ringan tapi jauh lebih adem dan lentur. Ringan, breathable, dan jatuhnya santai—nyaman buat kemeja harian di cuaca panas."
+  },
+  "Chronos": {
+    "care": "Cuci dengan air biasa, cepat kering dan minim kusut jadi setrika suhu rendah-sedang sudah cukup. Hindari panas berlebih karena kandungan sintetisnya.",
+    "feel": "Bahan halus dan rapi dengan permukaan yang sedikit berkilau lembut, jatuh mengikuti badan dengan elegan. Ringan dan nyaman, cocok buat kemeja formal yang tetap adem."
+  },
+  "Cotton Combed 18s": {
+    "care": "Cuci balik dengan air dingin dan jangan rendam pakai pemutih biar warna tetap pekat. Jemur dibalik di tempat teduh, setrika suhu sedang.",
+    "feel": "Katun combed paling tebal di kelasnya, terasa berbobot dan kokoh tapi tetap lembut di kulit. Hangat dan awet, cocok buat kaos yang berasa solid waktu dipakai."
+  },
+  "Cotton Combed 20s": {
+    "care": "Cuci balik dengan air dingin, hindari pemutih dan jemur dibalik biar sablon dan warna awet. Setrika suhu sedang langsung di bahan.",
+    "feel": "Katun combed tebal sedang yang lembut dan jatuhnya pas—nggak terlalu tipis, nggak terlalu berat. Adem, nyerap keringat, dan nyaman buat dipakai harian."
+  },
+  "Cotton Combed 24s": {
+    "care": "Cuci balik dengan air dingin tanpa pemutih, jemur dibalik di tempat teduh biar warnanya nggak pudar. Setrika suhu sedang.",
+    "feel": "Katun combed dengan ketebalan menengah yang ringan, lembut, dan adem di kulit. Breathable dan luwes, enak dipakai seharian di iklim tropis."
+  },
+  "Cotton Combed 30s": {
+    "care": "Cuci balik dengan air dingin, hindari pemutih dan sikat keras karena seratnya lebih tipis. Jemur dibalik, setrika suhu rendah-sedang.",
+    "feel": "Katun combed yang paling tipis dan ringan, jatuhnya halus dan adem banget di badan. Lembut dan breathable, pas buat kaos yang ringan dan nyaman waktu panas."
+  },
+  "Diadora": {
+    "care": "Cuci dengan air biasa, cepat kering dan nggak gampang kusut. Setrika suhu rendah saja atau bahkan nggak perlu, hindari panas tinggi karena bahan sintetis.",
+    "feel": "Bahan poliester berkarakter parasut yang ringan, halus, dan sedikit licin. Ringan dan nggak menyerap air, pas buat jaket training yang gampang dibawa ke mana-mana."
+  },
+  "Drifit": {
+    "care": "Cuci dengan air dingin, hindari pelembut kain biar daya serap keringatnya tetap optimal. Cepat kering, cukup diangin-anginkan dan setrika suhu rendah kalau perlu.",
+    "feel": "Bahan sintetis yang ringan, elastis, dan cepat kering dengan permukaan yang adem dan kering di kulit. Breathable dan lincah, pas banget buat jersey atau polo olahraga."
+  },
+  "Fleece CVC": {
+    "care": "Cuci balik dengan air dingin biar bagian dalam tetap empuk dan nggak menggumpal. Jemur dibalik, setrika suhu sedang dan hindari sisi bulunya.",
+    "feel": "Campuran katun-poliester yang tebal dengan bagian dalam berbulu lembut dan hangat. Berbobot dan nyaman, warnanya lebih tahan lama berkat kandungan katunnya—pas buat hoodie."
+  },
+  "Fleece PE": {
+    "care": "Cuci dengan air dingin, cepat kering dan minim kusut. Setrika suhu rendah saja dan hindari panas tinggi karena seratnya full poliester.",
+    "feel": "Fleece poliester yang tebal, ringan untuk ketebalannya, dan hangat dengan bagian dalam berbulu. Lebih ekonomis dan tahan bentuk, cocok buat jaket sweater yang anget."
+  },
+  "Japan Drill": {
+    "care": "Cuci balik dengan air dingin dan pisahkan dari warna terang. Jemur di tempat teduh, setrika suhu sedang-tinggi karena seratnya rapat dan tebal.",
+    "feel": "Twill rapat yang lebih halus dan sedikit lentur dibanding drill biasa, tetap kuat tapi nyaman dipakai. Kokoh dan rapi jatuhnya, pas buat rompi atau seragam yang ingin tampil tegas."
+  },
+  "Lacoste 24s": {
+    "care": "Cuci balik dengan air dingin biar pori-pori rajutannya nggak melar. Jemur dibalik, setrika suhu sedang dan hindari menarik bahan saat masih basah.",
+    "feel": "Rajutan pique dengan tekstur berpori rapi yang khas polo, terasa adem dan agak bertekstur di kulit. Breathable dan jatuhnya rapi—klasik buat polo shirt yang sopan tapi santai."
+  },
+  "Lacoste CVC 20s": {
+    "care": "Cuci balik biar pori-porinya gak ketarik, pakai air dingin dan jangan direndam pemutih. Setrika suhu sedang, dan jemur balik di tempat teduh supaya warnanya gak cepat pudar.",
+    "feel": "Permukaannya berpori rapi khas lacoste, adem dan gak gerah dipakai seharian. Campuran katun-poliesternya bikin bahan terasa kokoh tapi tetap lentur saat dipakai bergerak."
+  },
+  "Lacoste CVC 24s": {
+    "care": "Cuci balik dengan air dingin, hindari sikat keras di area berpori dan jauhkan dari pemutih. Setrika suhu sedang dari sisi dalam, jemur balik di tempat teduh.",
+    "feel": "Lebih tipis dan ringan dari yang 20s, jadi terasa lebih adem dan ringan di badan. Pori-porinya tetap rapi, lembut disentuh, dan enak buat polo harian."
+  },
+  "Lacoste Katun 20s": {
+    "care": "Cuci balik pakai air dingin, jangan diperas terlalu kuat biar serat katunnya awet. Setrika suhu sedang sampai agak panas, jemur balik di tempat teduh supaya warna gak luntur.",
+    "feel": "Katun murni yang berpori rapi, adem dan menyerap keringat dengan baik. Teksturnya empuk dan bernapas, nyaman buat polo maupun kemeja di cuaca panas."
+  },
+  "Lacoste Katun 24s": {
+    "care": "Cuci balik dengan air dingin tanpa pemutih, kucek lembut di bagian kerah. Setrika suhu sedang dari dalam, dan jemur balik di tempat teduh.",
+    "feel": "Versi katun yang lebih halus dan ringan, pori-porinya rapi dan adem dipakai. Lembut di kulit dan menyerap keringat, pas buat polo yang ringan dan sejuk."
+  },
+  "Lacoste TC": {
+    "care": "Cuci balik pakai air dingin, gampang kering dan gak gampang kusut jadi gak perlu sering disetrika. Kalau disetrika cukup suhu rendah-sedang karena ada campuran poliesternya.",
+    "feel": "Campuran Tetoron-Cotton yang ringan, gak gampang melar dan kuat dipakai lama. Pori-porinya rapi khas lacoste, sedikit kurang adem dari katun murni tapi lebih awet bentuknya."
+  },
+  "Micro": {
+    "care": "Cuci pakai air dingin, cepat kering jadi cukup diangin-anginkan tanpa dijemur lama. Setrika suhu rendah saja karena bahan sintetisnya sensitif panas, hindari pemutih.",
+    "feel": "Serat sintetis yang halus, ringan, dan licin di tangan. Ringan banget dipakai dan gak panas menahan, cocok buat kemeja maupun lapisan jaket yang fleksibel."
+  },
+  "Nagata Drill": {
+    "care": "Cuci balik dengan air dingin, pisahkan dari pakaian terang di cucian pertama. Setrika suhu sedang-tinggi dalam keadaan agak lembap biar rapi, jemur balik supaya warna gak pudar.",
+    "feel": "Drill premium dengan tenun twill yang rapat, kuat tapi jatuhnya rapi dan gak kaku. Tebalnya pas, terasa kokoh dan berkelas, nyaman dipakai dari kemeja sampai wearpack."
+  },
+  "Parasut": {
+    "care": "Cukup dicuci dengan air dingin dan lap atau angin-anginkan, cepat kering banget. Jangan disetrika panas karena gampang meleleh, suhu rendah saja atau gak usah sama sekali.",
+    "feel": "Tipis, ringan, dan licin dengan permukaan yang menahan angin. Gak menyerap keringat tapi enteng dan anti angin, pas buat jaket luar atau kemeja ringan."
+  },
+  "Proff": {
+    "care": "Cuci balik dengan air dingin, gak gampang kusut jadi hemat setrika. Kalau disetrika cukup suhu sedang dari sisi dalam, jemur balik di tempat teduh.",
+    "feel": "Bahan kemeja formal yang halus dan rapat, jatuhnya rapi dan gak gampang kisut. Ringan dan adem dipakai, terasa licin dan bersih cocok buat kemeja kerja."
+  },
+  "Rafel Wash": {
+    "care": "Cuci pakai air dingin dan kucek lembut, jangan disikat keras biar permukaannya gak rusak. Cukup setrika suhu rendah-sedang dan jemur di tempat teduh.",
+    "feel": "Bahan ringan yang biasa dipakai buat topi dan aksen, teksturnya rapat tapi tetap lentur. Enteng dan adem, nyaman dipakai dan gampang dibentuk."
+  },
+  "Ribstop Drill": {
+    "care": "Cuci balik dengan air dingin, motif kotak ripstop-nya bikin bahan gak gampang sobek jadi awet. Setrika suhu sedang-tinggi sambil agak lembap, jemur balik supaya warna terjaga.",
+    "feel": "Drill dengan motif kotak ripstop yang ekstra kuat dan tahan robek. Tebal dan kokoh tapi tetap nyaman, jatuhnya gagah pas buat kemeja lapangan yang tahan banting."
+  },
+  "Soft Combed 30s": {
+    "care": "Cuci balik dengan air dingin, jangan direndam lama dan jauhkan dari pemutih biar warna awet. Setrika suhu sedang dari sisi dalam, jemur balik di tempat teduh.",
+    "feel": "Katun combed yang ekstra lembut dan halus di kulit, lebih lembut dari combed biasa. Adem, ringan, dan menyerap keringat, enak banget buat kaos harian."
+  },
+  "Superfeel": {
+    "care": "Cuci balik pakai air dingin, gak gampang kusut jadi gampang dirawat. Setrika suhu sedang dari dalam, jemur balik di tempat teduh supaya warnanya tetap segar.",
+    "feel": "Bahan kemeja yang lembut dan ringan dengan permukaan halus, jatuhnya rapi. Adem dan nyaman dipakai seharian, terasa lembut menyentuh kulit tanpa gerah."
+  },
+  "TC": {
+    "care": "Cuci balik dengan air dingin, cepat kering dan gak gampang melar jadi gampang dirawat. Setrika suhu rendah-sedang karena ada campuran poliesternya, hindari pemutih.",
+    "feel": "Campuran Tetoron-Cotton yang ringan dan kuat, gak gampang susut atau melar. Sedikit kurang adem dari katun murni tapi awet bentuknya dan enak buat kaos sablon."
+  },
+  "Taipan Tropical": {
+    "care": "Cuci balik dengan air dingin, gak gampang kusut jadi hemat setrika. Setrika suhu sedang dari sisi dalam, jemur balik di tempat teduh supaya warnanya gak pudar.",
+    "feel": "Bahan tropical yang ringan dengan tenun rapat, adem dan bernapas cocok buat cuaca panas. Jatuhnya rapi dan gak gampang kisut, pas buat kemeja seragam sampai rompi."
+  },
+  "Taslan": {
+    "care": "Cukup dilap atau dicuci dengan air dingin, cepat kering dan tahan air ringan. Jangan disetrika panas karena lapisan anti airnya bisa rusak, suhu rendah saja kalau perlu.",
+    "feel": "Ringan dan sedikit licin dengan permukaan yang menahan air dan angin. Enteng dipakai dan gak gerah berlebihan, pas banget buat jaket luar tahan gerimis."
+  }
+}

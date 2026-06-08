@@ -37,8 +37,8 @@ const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kao
 const thisPortfolioItems = (portfolio.items as any[]).filter((p) => p.pdpSlug === product.slug && p.heroImageLocal);
 const relatedArchetypes = (catalog.archetypes as any[]).filter((a) => a.segment === product.segment && a.slug !== product.slug && !a.hidden).slice(0, 4);
 
-// Portfolio count badge
-const portfolioCount = thisPortfolioItems.length;
+// "Sudah diproduksi untuk X klien" — uses the per-product produced_count (varied), falls back to real portfolio count
+const portfolioCount = (product as any).produced_count || thisPortfolioItems.length;
 const baseItem = product.portfolio_refs?.base_item_title || '';
 ---
 

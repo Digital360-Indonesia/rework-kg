@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import catalog from '../../data/products/catalog-source.mjs';
+import siteConfig from '../../data/site-config.json';
+import portfolio from '../../data/portfolio.json';
+import fabricContent from '../../data/fabric-content.json';
+import fs from 'node:fs';
+import path from 'node:path';
+
+export function getStaticPaths() {
+  return (portfolio.items as any[]).map((it) => {
+    // gallery from the client's real image folder (hero first)
+    let gallery: string[] = [];
+    try {
+      const dir = path.join(process.cwd(), 'public/images/portfolio', it.slug);
+      gallery = fs.readdirSync(dir).filter((f) => /\.(webp|jpe?g|png)$/i.test(f)).map((f) => `/images/portfolio/${it.slug}/${f}`);
+    } catch (e) {}
+    const hero = it.heroImageLocal;
+    if (hero) gallery = [hero, ...gallery.filter((g) => g !== hero)];
+    if (!gallery.length && it.heroImage) gallery = [it.heroImage];
+    const gt = (catalog.garment_types as any[]).find((g) => g.id === it.garment_type) || null;
+    return { params: { segment: it.segment, slug: it.slug }, props: { item: it, gt, gallery } };
+  });
+}
+
+const { item, gt, gallery } = Astro.props;
+const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kaos', jaket: 'Jaket', rompi: 'Rompi', wearpack: 'Wearpack', topi: 'Topi' };
+const segLabel: Record<string, string> = { business: 'Bisnis', campus: 'Kampus', community: 'Komunitas', personal: 'Personal' };
+
+const spec = (item.spec || {}) as Record<string, string | string[]>;
+const bahan = (spec.Bahan as string) || '';
+const fab = (fabricContent as any)[bahan] || null;
+const styleOpts = gt?.style_options || {};
+const styleSel = gt?.style_select || {};
+
+// Design summary = the axes this product actually uses, rendered as dropdowns (its real config as the default)
+const ORDER = ['Bahan','Kerah','Lengan','Saku','Manset','Resleting','Furing','Placket / Kancing','Placket & Kancing','Rib / Strip','Kombinasi Warna','Scotlite','Kerudung / Hoodie','Model','Ujung Badan','Kancing','Emblem','Belahan','Belahan & Pecah Pola','Anci Pundak','Pecah Pola','Jahitan','Airflow / Ventilasi','Karet Pinggang','Velcro / Ampil','Pengait','Variasi'];
+const designAxes = Object.keys(spec)
+  .sort((a, b) => { const ia = ORDER.indexOf(a), ib = ORDER.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); })
+  .map((ax) => {
+    const multi = styleSel[ax] === 'multi';
+    const value = spec[ax];
+    let options = (styleOpts[ax] || []).map((o: any) => o.name);
+    const vals = Array.isArray(value) ? value : (value ? [value] : []);
+    vals.forEach((v) => { if (v && !options.includes(v)) options = [v, ...options]; });
+    return { axis: ax, value, multi, options };
+  });
+
+const waBase = (siteConfig as any)?.contact?.whatsappUrl || 'https://wa.me/6285117049918';
+const waText = `Halo Kustom Garment, saya tertarik dengan produk ${GTL[item.garment_type] || ''} seperti ${item.title}. Boleh info lebih lanjut?`;
+const waHref = `${waBase}?text=${encodeURIComponent(waText)}`;
+const related = (portfolio.items as any[]).filter((p) => p.segment === item.segment && p.slug !== item.slug && p.heroImageLocal).slice(0, 4);
+
+const metaTitle = `${item.title} | Kustom Garment`;
+const metaDescription = item.desc || '';
+---
+
+<BaseLayout title={metaTitle} description={metaDescription}>
+  <section class="pdp">
+    <nav class="pdp-crumb"><a href={`/${item.segment}`}>{segLabel[item.segment] || item.segment}</a> <span>/</span> {item.title}</nav>
+    <div class="pdp-grid">
+      <!-- Gallery -->
+      <div class="pdp-gallery">
+        <div class="pdp-thumbs" role="list">
+          {gallery.slice(0, 7).map((src: string, i: number) => (
+            <button class:list={['pdp-thumb', { active: i === 0 }]} data-src={src} aria-label={`Lihat gambar ${i + 1}`}>
+              <img src={src} alt="" loading="lazy" />
+            </button>
+          ))}
+        </div>
+        <div class="pdp-main">
+          <img id="pdp-main-img" src={gallery[0]} alt={item.title} />
+        </div>
+      </div>
+
+      <!-- Right rail -->
+      <div class="pdp-rail" id="pdp-config-root" data-wabase={waBase} data-watext={waText}>
+        <p class="pdp-kicker">{GTL[item.garment_type] || ''} · {segLabel[item.segment] || item.segment}</p>
+        <h1 class="pdp-title">{item.title}</h1>
+
+        {item.produced_count > 0 && (
+          <p class="pdp-portfolio-count">Sudah diproduksi untuk <strong>{item.produced_count} klien</strong></p>
+        )}
+        <div class="pdp-rating" aria-label={`Rating ${item.rating} dari 5`}>
+          <span class="pdp-stars" aria-hidden="true">★★★★★</span>
+          <span class="pdp-reviews">{item.rating} ({item.reviews})</span>
+        </div>
+
+        <p class="pdp-desc">{item.desc}</p>
+
+        <div class="pdp-actions">
+          <a class="pdp-btn pdp-btn-wa" data-wa href={waHref} target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a>
+          <a class="pdp-btn pdp-btn-custom" data-wa href={waHref} target="_blank" rel="noopener noreferrer">Custom Sekarang</a>
+        </div>
+        <p class="pdp-reassure">Tanpa minimum order · Desain dibantu gratis · Made-by-order</p>
+
+        <div class="pdp-acc">
+          <details open>
+            <summary>Desain & Variasi<span class="chev" aria-hidden="true"></span></summary>
+            <div class="pdp-acc-body">
+              {designAxes.length > 0 ? (
+                <div class="pdp-config">
+                  {designAxes.map((d) => (
+                    <div class="pdp-config-row">
+                      <span class="pdp-config-k">{d.axis}</span>
+                      {d.multi ? (
+                        <div class="pdp-config-multi" data-axis={d.axis}>
+                          {d.options.map((o: string) => {
+                            const checked = Array.isArray(d.value) ? d.value.includes(o) : d.value === o;
+                            return (
+                              <label class:list={['pdp-chip', { on: checked }]}>
+                                <input type="checkbox" value={o} checked={checked} /> {o}
+                              </label>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <select class="pdp-config-sel" data-axis={d.axis}>
+                          {d.options.map((o: string) => (
+                            <option value={o} selected={o === d.value}>{o}</option>
+                          ))}
+                        </select>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p class="pdp-acc-hint">Desain custom penuh — bahas detail langsung via WhatsApp.</p>
+              )}
+              <p class="pdp-acc-hint">Konfigurasi di atas adalah spesifikasi asli produk ini. Ubah sesuai kebutuhan, lalu lanjutkan via WhatsApp.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Bahan & Perawatan<span class="chev" aria-hidden="true"></span></summary>
+            <div class="pdp-acc-body">
+              {bahan && <p><strong>{bahan}</strong></p>}
+              {fab?.care && <p>{fab.care}</p>}
+            </div>
+          </details>
+        </div>
+
+        {fab?.feel && (
+          <div class="pdp-card pdp-feel">
+            <h3 class="pdp-card-h">How It Feels</h3>
+            <p class="pdp-feel-text">{fab.feel}</p>
+          </div>
+        )}
+        {bahan && (
+          <div class="pdp-card pdp-fabric">
+            <h3 class="pdp-card-h">Fabric / Material</h3>
+            <div class="pdp-fabric-name">{bahan}</div>
+            {fab?.care && <p class="pdp-fabric-desc">{fab.care}</p>}
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+
+  {related.length > 0 && (
+    <section class="pdp-rec">
+      <div class="pdp-rec-wrap">
+        <h2 class="pdp-rec-h">Lihat juga</h2>
+        <div class="pdp-rec-grid">
+          {related.map((r) => (
+            <a class="pdp-rec-card" href={`/${r.segment}/${r.slug}`}>
+              <div class="pdp-rec-frame">
+                <img src={r.heroImageLocal || r.heroImage} alt={r.title} loading="lazy" />
+              </div>
+              <h3 class="pdp-rec-name">{r.title}</h3>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .pdp { background: #fff; padding: 1.25rem 0 5rem; }
+  .pdp-crumb { max-width: 84rem; margin: 0 auto 1rem; padding: 0 1.25rem; font-family: var(--font-sans); font-size: 0.8rem; color: #9ca3af; }
+  .pdp-crumb a { color: #6b7280; text-decoration: none; } .pdp-crumb a:hover { color: #ff4c00; }
+  .pdp-crumb span { margin: 0 0.4rem; }
+  .pdp-grid { max-width: 84rem; margin: 0 auto; padding: 0 1.25rem; display: grid; grid-template-columns: 1fr; gap: 2rem; }
+  @media (min-width: 960px) {
+    .pdp { padding: 0.75rem 0 6rem; }
+    .pdp-crumb { padding: 0 2.5rem; }
+    .pdp-grid { grid-template-columns: minmax(0, 1.35fr) minmax(22rem, 1fr); gap: 3.5rem; padding: 0 2.5rem; align-items: start; }
+    .pdp-gallery { position: sticky; top: 100px; align-self: start; }
+  }
+  .pdp-gallery { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; }
+  @media (max-width: 540px) { .pdp-gallery { grid-template-columns: 3.5rem 1fr; gap: 0.6rem; } }
+  .pdp-thumbs { display: flex; flex-direction: column; gap: 0.6rem; }
+  .pdp-thumb { padding: 0; border: 1px solid #ececec; border-radius: 0.6rem; overflow: hidden; background: #f6f6f6; cursor: pointer; aspect-ratio: 4 / 5; transition: border-color 160ms ease; }
+  .pdp-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pdp-thumb:hover { border-color: #c9c9c9; } .pdp-thumb.active { border-color: #1a1a1a; }
+  .pdp-main { position: relative; border-radius: 1rem; overflow: hidden; background: #f4f4f4; aspect-ratio: 4 / 5; }
+  .pdp-main img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .pdp-rail { font-family: var(--font-sans); }
+  .pdp-kicker { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #ff4c00; margin: 0 0 0.4rem; }
+  .pdp-title { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; color: #1a1a1a; margin: 0 0 0.3rem; }
+  .pdp-portfolio-count { font-size: 0.875rem; font-weight: 500; color: #6b7280; margin: 0 0 0.6rem; }
+  .pdp-portfolio-count strong { color: #ff4c00; }
+  .pdp-rating { display: flex; align-items: center; gap: 0.4rem; margin-bottom: 1rem; }
+  .pdp-stars { color: #ff4c00; letter-spacing: 0.1em; font-size: 0.95rem; }
+  .pdp-reviews { color: #6b7280; font-size: 0.85rem; font-weight: 600; }
+  .pdp-desc { font-size: 0.95rem; line-height: 1.6; color: #374151; margin: 0 0 1.5rem; }
+
+  .pdp-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  @media (max-width: 380px) { .pdp-actions { grid-template-columns: 1fr; } }
+  .pdp-btn { display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.02em; text-decoration: none; padding: 1rem; border-radius: 0.7rem; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
+  .pdp-btn-wa { background: #1a1a1a; color: #fff; border: 1.5px solid #1a1a1a; } .pdp-btn-wa:hover { background: #000; }
+  .pdp-btn-custom { background: #fff; color: #ff4c00; border: 1.5px solid #ff4c00; } .pdp-btn-custom:hover { background: #ff4c00; color: #fff; }
+  .pdp-reassure { text-align: center; font-size: 0.78rem; font-weight: 600; color: #9ca3af; margin: 0.85rem 0 1.75rem; }
+
+  .pdp-acc { border-top: 1px solid #ececec; }
+  .pdp-acc details { border-bottom: 1px solid #ececec; }
+  .pdp-acc summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 0; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #1a1a1a; }
+  .pdp-acc summary::-webkit-details-marker { display: none; }
+  .chev { width: 0.62rem; height: 0.62rem; border-right: 2px solid #1a1a1a; border-bottom: 2px solid #1a1a1a; transform: rotate(45deg); transition: transform 220ms ease; margin-bottom: 3px; }
+  .pdp-acc details[open] .chev { transform: rotate(-135deg); margin-top: 3px; margin-bottom: 0; }
+  .pdp-acc-body { padding: 0 0 1.3rem; font-size: 0.92rem; line-height: 1.6; color: #374151; }
+  .pdp-acc-body p { margin: 0 0 0.7rem; }
+  .pdp-acc-hint { color: #6b7280; font-size: 0.82rem; font-style: italic; }
+
+  /* Design dropdowns (the customizer) */
+  .pdp-config { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 0.9rem; }
+  .pdp-config-row { display: grid; grid-template-columns: 7.5rem 1fr; align-items: start; gap: 0.75rem; }
+  @media (max-width: 480px) { .pdp-config-row { grid-template-columns: 1fr; gap: 0.35rem; } }
+  .pdp-config-k { font-size: 0.85rem; font-weight: 700; color: #1a1a1a; padding-top: 0.5rem; }
+  .pdp-config-sel { width: 100%; font-family: var(--font-sans); font-size: 0.88rem; color: #1a1a1a; padding: 0.6rem 0.7rem; border: 1px solid #e2e2e2; border-radius: 0.55rem; background: #fff; cursor: pointer; }
+  .pdp-config-sel:focus { outline: none; border-color: #ff4c00; }
+  .pdp-config-multi { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .pdp-chip { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.8rem; font-weight: 600; color: #6b7280; background: #f6f6f6; border: 1px solid #ececec; border-radius: 999px; padding: 0.4rem 0.7rem; cursor: pointer; transition: all 160ms ease; }
+  .pdp-chip.on { color: #ff4c00; border-color: #ff4c00; background: #fff5f0; }
+  .pdp-chip input { accent-color: #ff4c00; }
+
+  .pdp-card { background: #f7f7f7; border-radius: 0.85rem; padding: 1.1rem 1.15rem; margin-top: 0.9rem; }
+  .pdp-card-h { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #1a1a1a; margin: 0 0 0.7rem; }
+  .pdp-feel-text { font-size: 0.9rem; line-height: 1.55; color: #374151; margin: 0; }
+  .pdp-fabric-name { font-size: 1rem; font-weight: 700; color: #1a1a1a; margin-bottom: 0.3rem; }
+  .pdp-fabric-desc { font-size: 0.88rem; line-height: 1.55; color: #6b7280; margin: 0; }
+
+  .pdp-rec { background: #fff; padding: 3rem 0 5rem; border-top: 1px solid #f0f0f0; }
+  @media (min-width: 960px) { .pdp-rec { padding: 4rem 0 6rem; } }
+  .pdp-rec-wrap { max-width: 84rem; margin: 0 auto; padding: 0 1.25rem; }
+  @media (min-width: 960px) { .pdp-rec-wrap { padding: 0 2.5rem; } }
+  .pdp-rec-h { font-size: clamp(1.4rem, 2.6vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; color: #1a1a1a; margin: 0 0 1.5rem; }
+  .pdp-rec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+  @media (min-width: 720px) { .pdp-rec-grid { grid-template-columns: repeat(4, 1fr); gap: 2rem 1.5rem; } }
+  .pdp-rec-card { display: block; min-width: 0; text-decoration: none; color: inherit; }
+  .pdp-rec-frame { position: relative; border-radius: 0.85rem; overflow: hidden; aspect-ratio: 3 / 4; background: #f5f5f5; }
+  .pdp-rec-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms cubic-bezier(0.19,1,0.22,1); }
+  .pdp-rec-name { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.7rem 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color 180ms ease; }
+  @media (hover: hover) { .pdp-rec-card:hover .pdp-rec-frame img { transform: scale(1.05); } .pdp-rec-card:hover .pdp-rec-name { color: #ff4c00; } }
+</style>
+
+<script>
+  const main = document.getElementById('pdp-main-img') as HTMLImageElement | null;
+  const thumbs = Array.from(document.querySelectorAll<HTMLButtonElement>('.pdp-thumb'));
+  if (main && thumbs.length) thumbs.forEach((t) => t.addEventListener('click', () => {
+    const s = t.dataset.src; if (!s) return; main.src = s; thumbs.forEach((x) => x.classList.toggle('active', x === t));
+  }));
+
+  // build the WhatsApp message from the current design selection
+  const root = document.getElementById('pdp-config-root') as HTMLElement | null;
+  const waLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-wa]'));
+  if (root) {
+    const base = root.dataset.wabase || '', baseText = root.dataset.watext || '';
+    const build = () => {
+      const parts: string[] = [];
+      document.querySelectorAll<HTMLSelectElement>('.pdp-config-sel').forEach((s) => parts.push(`${s.dataset.axis}: ${s.value}`));
+      document.querySelectorAll<HTMLElement>('.pdp-config-multi').forEach((m) => {
+        const vals = Array.from(m.querySelectorAll<HTMLInputElement>('input:checked')).map((i) => i.value);
+        if (vals.length) parts.push(`${m.dataset.axis}: ${vals.join(', ')}`);
+      });
+      return parts.join('\n');
+    };
+    const update = () => {
+      const cfg = build();
+      const text = baseText + (cfg ? '\n\nKonfigurasi:\n' + cfg : '');
+      const href = base + '?text=' + encodeURIComponent(text);
+      waLinks.forEach((a) => a.setAttribute('href', href));
+    };
+    document.querySelectorAll('.pdp-config-sel').forEach((el) => el.addEventListener('change', update));
+    document.querySelectorAll('.pdp-config-multi input').forEach((el) => el.addEventListener('change', (e) => {
+      const lbl = (e.target as HTMLElement).closest('.pdp-chip'); if (lbl) lbl.classList.toggle('on', (e.target as HTMLInputElement).checked);
+      update();
+    }));
+    update();
+  }
+</script>

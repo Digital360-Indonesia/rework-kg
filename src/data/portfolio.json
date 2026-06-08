@@ -16,1716 +16,3393 @@
       "slug": "linkqu-linkita",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Full-view-3.jpg",
-      "desc": "Kemeja Regular untuk LINKQU & LINKITA",
+      "desc": "Taipan Tropical adem, kerah sapit + emblem velcro dan saku segi-6 tertutup — rapi buat seragam kantor.",
       "pdpSlug": "kemeja-corporate-formal",
       "sectionCount": 9,
       "imageCount": 8,
-      "heroImageLocal": "/images/portfolio/linkqu-linkita/Full-view-3.webp"
+      "heroImageLocal": "/images/portfolio/linkqu-linkita/Full-view-3.webp",
+      "rating": 4.9,
+      "reviews": 72,
+      "produced_count": 10,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/linkqu-linkita/Ampil-kancing.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Kerah": "Kerah Sapit",
+        "Saku": "Saku Floi Segi 6 Tertutup",
+        "Lengan": "Lengan Pendek",
+        "Emblem": "Emblem Velcro",
+        "Placket / Kancing": [
+          "Ampil Kancing"
+        ],
+        "Kombinasi Warna": [
+          "Anci Pundak"
+        ]
+      }
     },
     {
       "title": "PT Samudera Trans Logistics",
       "slug": "pt-samudera-trans-logistics",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Full-view-8.jpg",
-      "desc": "Kemeja untuk PT Samudera Trans Logistics",
+      "desc": "American Drill kokoh, kerah sapit + saku floi, anci pundak — seragam lapangan yang rapi.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 11,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/pt-samudera-trans-logistics/Full-view-8.webp"
+      "heroImageLocal": "/images/portfolio/pt-samudera-trans-logistics/Full-view-8.webp",
+      "rating": 4.7,
+      "reviews": 88,
+      "produced_count": 20,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-samudera-trans-logistics/American-drill-1.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Kerah": "Kerah Sapit",
+        "Saku": "Saku Floi",
+        "Lengan": "Lengan Pendek",
+        "Kombinasi Warna": [
+          "Anci Pundak",
+          "Kombinasi Warna",
+          "Lis Cepit"
+        ],
+        "Placket / Kancing": [
+          "Ampil Kancing"
+        ],
+        "Scotlite": "Scotlite"
+      }
     },
     {
       "title": "Universitas Airlangga",
       "slug": "universitas-airlangga-4",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Full-view-7.jpg",
-      "desc": "Kemeja Regular untuk Universitas Airlangga",
+      "desc": "Micro halus, kerah manset rapi, furing katun adem—saku racis bibir buat seragam kampus formal.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 10,
       "imageCount": 8,
-      "heroImageLocal": "/images/portfolio/universitas-airlangga-4/Full-view-7.webp"
+      "heroImageLocal": "/images/portfolio/universitas-airlangga-4/Full-view-7.webp",
+      "rating": 4.9,
+      "reviews": 34,
+      "produced_count": 15,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/universitas-airlangga-4/Ampil-dan-kancing-1.webp",
+      "spec": {
+        "Bahan": "Micro",
+        "Kerah": "Kerah Manset",
+        "Saku": "Saku Racis Bibir",
+        "Placket / Kancing": [
+          "Kancing Cetekan Plastik"
+        ]
+      }
     },
     {
       "title": "Kedokteran Gigi Universitas Hang Tuah",
       "slug": "kedokteran-gigi-universitas-hang-tuah",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Full-view-2.jpg",
-      "desc": "Kemeja untuk Kedokteran Gigi Universitas Hang Tuah",
+      "desc": "Nagata drill kokoh, anci pundak + lis cepit, ampil kancing rapi — seragam yang necis.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 6,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/kedokteran-gigi-universitas-hang-tuah/Full-view-2.webp"
+      "heroImageLocal": "/images/portfolio/kedokteran-gigi-universitas-hang-tuah/Full-view-2.webp",
+      "rating": 4.7,
+      "reviews": 92,
+      "produced_count": 20,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/kedokteran-gigi-universitas-hang-tuah/Anci-pundak-600x600.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Kombinasi Warna": [
+          "Anci Pundak",
+          "Lis Cepit"
+        ],
+        "Placket / Kancing": [
+          "Ampil Kancing"
+        ]
+      }
     },
     {
       "title": "RSI Garam Kalianget",
       "slug": "rsi-garam-kalianget",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Banner-5.jpg",
-      "desc": "Kemeja Premium untuk RSI Garam Kalianget",
+      "desc": "Taipan Tropical adem, krah sapit + saku racis, belahan samping — seragam kantor yang rapi.",
       "pdpSlug": "kemeja-corporate-formal",
       "sectionCount": 8,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/rsi-garam-kalianget/Banner-5.webp"
+      "heroImageLocal": "/images/portfolio/rsi-garam-kalianget/Banner-5.webp",
+      "rating": 4.6,
+      "reviews": 152,
+      "produced_count": 26,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/rsi-garam-kalianget/Ampil-dan-kancing.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Kerah": "Kerah Sapit",
+        "Saku": "Saku Racis",
+        "Lengan": "Lengan Panjang",
+        "Belahan": "Belahan Samping",
+        "Placket / Kancing": [
+          "Ampil Kancing"
+        ]
+      }
     },
     {
       "title": "UBAYA CHOIR",
       "slug": "ubaya-choir",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Banner-4.jpg",
-      "desc": "Kemeja Reguler dengan Bahan Nagata Drill untuk UBAYA CHOIR",
+      "desc": "Nagata Drill dikombinasi panel batik, kerah sapit + saku racis batik — rapi berkarakter.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/ubaya-choir/Banner-4.webp"
+      "heroImageLocal": "/images/portfolio/ubaya-choir/Banner-4.webp",
+      "rating": 4.9,
+      "reviews": 160,
+      "produced_count": 24,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/ubaya-choir/1-5.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Kerah": "Kerah Sapit",
+        "Saku": "Saku Racis Kombinasi Batik",
+        "Kombinasi Warna": [
+          "Kombinasi Kain Batik"
+        ]
+      }
     },
     {
       "title": "Universitas Airlangga",
       "slug": "universitas-airlangga-2",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Banner-2.jpg",
-      "desc": "Kemeja Regular untuk Universitas Airlangga",
+      "desc": "Micro halus berfuring katun, kerah manset rapi plus saku racis bibir — kemeja kampus yang adem.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/universitas-airlangga-2/Banner-2.webp"
+      "heroImageLocal": "/images/portfolio/universitas-airlangga-2/Banner-2.webp",
+      "rating": 4.7,
+      "reviews": 136,
+      "produced_count": 14,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/universitas-airlangga-2/American-drill-1.webp",
+      "spec": {
+        "Bahan": "Micro",
+        "Kerah": "Kerah Manset",
+        "Saku": "Saku Racis Bibir",
+        "Placket / Kancing": [
+          "Kancing Cetekan Plastik"
+        ]
+      }
     },
     {
       "title": "DISHUB SURABAYA",
       "slug": "dishub-surabaya",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Banner-bawah-2.jpg",
-      "desc": "Kemeja untuk DISHUB SURABAYA",
+      "desc": "Cotton Combed 30s adem, sablon plastisol doff yang pekat tanpa kilap — nyaman dipakai harian.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 8,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/dishub-surabaya/Banner-bawah-2.webp"
+      "heroImageLocal": "/images/portfolio/dishub-surabaya/Banner-bawah-2.webp",
+      "rating": 4.7,
+      "reviews": 24,
+      "produced_count": 5,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/dishub-surabaya/American-drill.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s"
+      }
     },
     {
       "title": "Kantor Pertanahan Kabupaten Sidoarjo",
       "slug": "kantor-pertanahan-kabupaten-sidoarjo",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Banner-bawah-1.jpg",
-      "desc": "Kemeja Regular untuk Kantor Pertanahan Kabupaten Sidoarjo",
+      "desc": "Nagata Drill tebal, kerah sapit, saku floi segi 6 tertutup plus jahitan double—kuat buat dinas.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 8,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/kantor-pertanahan-kabupaten-sidoarjo/Banner-bawah-1.webp"
+      "heroImageLocal": "/images/portfolio/kantor-pertanahan-kabupaten-sidoarjo/Banner-bawah-1.webp",
+      "rating": 4.7,
+      "reviews": 36,
+      "produced_count": 4,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/kantor-pertanahan-kabupaten-sidoarjo/Bordir_1-1-600x600.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Kerah": "Kerah Sapit",
+        "Saku": "Saku Floi Segi 6 Tertutup",
+        "Lengan": "Lengan Panjang",
+        "Jahitan": "Jahitan Double"
+      }
     },
     {
       "title": "Institut Teknologi Sepuluh Nopember",
       "slug": "institut-teknologi-sepuluh-nopember",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-29-at-11.03.31-4.jpeg",
-      "desc": "Kemeja Regular untuk Teater Tiyang Alit Institut Teknologi Sepuluh Nopember",
+      "desc": "Nagata drill lengan panjang, kerah sapit, resleting tertutup + saku tempel — clean dan tegas.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 7,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/institut-teknologi-sepuluh-nopember/WhatsApp-Image-2023-12-29-at-11.03.26.webp"
+      "heroImageLocal": "/images/portfolio/institut-teknologi-sepuluh-nopember/WhatsApp-Image-2023-12-29-at-11.03.26.webp",
+      "rating": 4.8,
+      "reviews": 112,
+      "produced_count": 16,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/institut-teknologi-sepuluh-nopember/WhatsApp-Image-2023-12-29-at-11.03.27-600x600.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Kerah": "Kerah Sapit",
+        "Saku": "Saku Tempel 1 Posisi",
+        "Lengan": "Lengan Panjang",
+        "Placket / Kancing": [
+          "Resleting Tertutup"
+        ]
+      }
     },
     {
       "title": "PT Properindo Enviro Tech",
       "slug": "pt-properindo-enviro-tech",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner-5.jpg",
-      "desc": "Kemeja Premium dengan bahan Chronos untuk PT Properindo Enviro Tech",
+      "desc": "Bahan Chronos lengan panjang, kerah sapit + bordir komputer — formal yang tahan banting.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/pt-properindo-enviro-tech/Banner-5.webp"
+      "heroImageLocal": "/images/portfolio/pt-properindo-enviro-tech/Banner-5.webp",
+      "rating": 4.9,
+      "reviews": 122,
+      "produced_count": 24,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-properindo-enviro-tech/Bordir-600x600.webp",
+      "spec": {
+        "Kerah": "Kerah Sapit",
+        "Lengan": "Lengan Panjang",
+        "Bahan": "Chronos",
+        "Placket / Kancing": [
+          "Kancing Plastik Standar"
+        ]
+      }
     },
     {
       "title": "BPS Provinsi Jawa Timur",
       "slug": "bps-provinsi-jawa-timur",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner-min-2.jpg",
-      "desc": "Kemeja Premium dengan bahan Superfeel untuk BPS Provinsi Jawa Timur",
+      "desc": "Superfeel halus, kerah daun bahan + saku floi, bordir komputer — formal kantor yang adem.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/bps-provinsi-jawa-timur/Banner-min-2.webp"
+      "heroImageLocal": "/images/portfolio/bps-provinsi-jawa-timur/Banner-min-2.webp",
+      "rating": 4.9,
+      "reviews": 120,
+      "produced_count": 16,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bps-provinsi-jawa-timur/Bordir-min-1-600x600.webp",
+      "spec": {
+        "Kerah": "Kerah Daun Bahan",
+        "Saku": "Saku Floi",
+        "Bahan": "Superfeel"
+      }
     },
     {
       "title": "NUI Fresh Market",
       "slug": "nui-fresh-market",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner-min-1.jpg",
-      "desc": "Kemeja Reguler dengan Bahan American Drill untuk NUI Fresh Market",
+      "desc": "American Drill kuat dipadu kombinasi batik di manset — kemeja kerja dengan sentuhan lokal.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 7,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/nui-fresh-market/Banner-min-1.webp"
+      "heroImageLocal": "/images/portfolio/nui-fresh-market/Banner-min-1.webp",
+      "rating": 4.9,
+      "reviews": 36,
+      "produced_count": 16,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/nui-fresh-market/American-Drill-Batik-min.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Kerah": "Kerah Sapit",
+        "Saku": "Saku Racis",
+        "Lengan": "Manset Batik",
+        "Kombinasi Warna": [
+          "Kombinasi Kain Batik"
+        ]
+      }
     },
     {
       "title": "PT Adi Surya Sempurna",
       "slug": "pt-adi-surya-sempurna",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Full-view.jpg",
-      "desc": "Kemeja Reguler dengan Bahan American Drill untuk PT Adi Surya Sempurna",
+      "desc": "Parasut ringan anti angin, kerah Shanghai + lis resleting, furing peles — kesan modern.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 8,
       "imageCount": 7,
-      "heroImageLocal": "/images/portfolio/pt-adi-surya-sempurna/Full-view.webp"
+      "heroImageLocal": "/images/portfolio/pt-adi-surya-sempurna/Full-view.webp",
+      "rating": 4.8,
+      "reviews": 59,
+      "produced_count": 19,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-adi-surya-sempurna/American-Drill.webp",
+      "spec": {
+        "Kerah": "Kerah Shanghai",
+        "Bahan": "Parasut",
+        "Variasi": "Furing Peles",
+        "Placket / Kancing": [
+          "Lis Resleting"
+        ]
+      }
     },
     {
       "title": "UBAYA",
       "slug": "ubaya",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Banner.jpg",
-      "desc": "Kemeja Reguler dengan Bahan American Drill untuk UBAYA",
+      "desc": "American Drill dipadu motif batik di manset dan belah samping—formal tapi punya karakter lokal.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/ubaya/Banner.webp"
+      "heroImageLocal": "/images/portfolio/ubaya/Banner.webp",
+      "rating": 4.8,
+      "reviews": 64,
+      "produced_count": 26,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/ubaya/1.-American-Drill.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Saku": "Saku Racis",
+        "Lengan": "Manset Batik",
+        "Kombinasi Warna": [
+          "Kombinasi Kain Batik"
+        ],
+        "Belahan": "Belahan Samping"
+      }
     },
     {
       "title": "Perpajakan Unair",
       "slug": "perpajakan-unair",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/Baner-2.jpg",
-      "desc": "Kemeja Reguler dengan Bahan American Drill untuk Universitas Airlangga",
+      "desc": "American drill tebal, jahitan double rapi, lengan panjang berpengait — awet buat harian kantor.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 5,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/perpajakan-unair/Americal-Drill.webp"
+      "heroImageLocal": "/images/portfolio/perpajakan-unair/Americal-Drill.webp",
+      "rating": 4.9,
+      "reviews": 126,
+      "produced_count": 31,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/perpajakan-unair/Baner-2.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Lengan": "Lengan Pengait",
+        "Jahitan": "Jahitan Double"
+      }
     },
     {
       "title": "BNI Remedial Recovery",
       "slug": "bni-remedial-recovery",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/KEMEJA-BRI-RR.jpg",
-      "desc": "Kemeja Reguler dengan Bahan American Drill untuk BNI Remedial Recovery",
+      "desc": "American Drill tebal, lis putih di punggung + bordir — kemeja kerja yang gagah.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 4,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/bni-remedial-recovery/American-Drill.webp"
+      "heroImageLocal": "/images/portfolio/bni-remedial-recovery/American-Drill.webp",
+      "rating": 4.8,
+      "reviews": 114,
+      "produced_count": 12,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bni-remedial-recovery/Bordir-2-600x600.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Kombinasi Warna": [
+          "Lis Putih di Belakang"
+        ]
+      }
     },
     {
       "title": "Seribu Senyum",
       "slug": "seribu-senyum-kemeja",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner-3.jpg",
-      "desc": "Kemeja Premium untuk Seribu Senyum",
+      "desc": "Bordir komputer bersih, saku floi dua posisi — simpel rapi siap pakai harian.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/seribu-senyum-kemeja/Banner-3.webp"
+      "heroImageLocal": "/images/portfolio/seribu-senyum-kemeja/Banner-3.webp",
+      "rating": 4.7,
+      "reviews": 142,
+      "produced_count": 7,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/seribu-senyum-kemeja/Bordir1-1-600x600.webp",
+      "spec": {
+        "Saku": "Saku Floi 2 Posisi"
+      }
     },
     {
       "title": "Planet Printing Dili",
       "slug": "planet-printing-dili",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner-2.jpg",
-      "desc": "Kemeja Premium untuk Planet Printing Dili",
+      "desc": "Taipan Tropical, lis kerah-pundak + lengan pendek berpengait dan belahan samping — tampil bersih.",
       "pdpSlug": "kemeja-corporate-formal",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/planet-printing-dili/Banner-2.webp"
+      "heroImageLocal": "/images/portfolio/planet-printing-dili/Banner-2.webp",
+      "rating": 4.9,
+      "reviews": 96,
+      "produced_count": 17,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/planet-printing-dili/Bagian-krah-dengan-list-600x600.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Kombinasi Warna": [
+          "Anci Pundak",
+          "Melet"
+        ],
+        "Lengan": "Lengan Pengait",
+        "Belahan": "Belahan Samping"
+      }
     },
     {
       "title": "PT Pelindo Properti Indonesia",
       "slug": "pt-pelindo-properti-indonesia-kemeja-putih",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner_2_11zon-5.jpg",
-      "desc": "Kemeja Premium untuk PT Pelindo Properti Indonesia",
+      "desc": "Lacoste katun 20s halus, kerah lidi 3 kancing, manset pita berlis — formal yang adem.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/pt-pelindo-properti-indonesia-kemeja-putih/Banner_2_11zon-5.webp"
+      "heroImageLocal": "/images/portfolio/pt-pelindo-properti-indonesia-kemeja-putih/Banner_2_11zon-5.webp",
+      "rating": 4.7,
+      "reviews": 72,
+      "produced_count": 24,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-pelindo-properti-indonesia-kemeja-putih/Bordir1_3_11zon-2-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Kerah": "Kerah Lidi",
+        "Lengan": "Manset Pita Variasi Lidi",
+        "Placket / Kancing": [
+          "Kancing 3 Biji"
+        ]
+      }
     },
     {
       "title": "PT Pelindo Properti Indonesia",
       "slug": "pt-pelindo-properti-indonesia-kemeja-biru",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner_2_11zon-4.jpg",
-      "desc": "Kemeja Premium untuk PT Pelindo Properti Indonesia",
+      "desc": "Lacoste katun 20s adem, kerah lidi, manset pita lengan pendek—rapi premium buat kantor.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/pt-pelindo-properti-indonesia-kemeja-biru/Banner_2_11zon-4.webp"
+      "heroImageLocal": "/images/portfolio/pt-pelindo-properti-indonesia-kemeja-biru/Banner_2_11zon-4.webp",
+      "rating": 4.9,
+      "reviews": 152,
+      "produced_count": 32,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-pelindo-properti-indonesia-kemeja-biru/Bordir1_3_11zon-1-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Kerah": "Kerah Lidi",
+        "Lengan": "Manset Pita Variasi Lidi",
+        "Placket / Kancing": [
+          "Kancing 3 Biji"
+        ]
+      }
     },
     {
       "title": "PT Ace Hardware Indonesia",
       "slug": "pt-ace-hardware-indonesia-kemeja",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner-6-1.jpg",
-      "desc": "Kemeja Premium dengan Bahan Toyobo untuk PT Ace Hardware Indonesia",
+      "desc": "Lacoste katun 20s adem, kancing 3 senada, ujung lengan variasi lidi — polo yang luwes.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 3,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/pt-ace-hardware-indonesia-kemeja/Banner-6-1.webp"
+      "heroImageLocal": "/images/portfolio/pt-ace-hardware-indonesia-kemeja/Banner-6-1.webp",
+      "rating": 4.8,
+      "reviews": 178,
+      "produced_count": 15,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-ace-hardware-indonesia-kemeja/Banner-6.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Lengan": "Ujung Lengan Lidi",
+        "Placket / Kancing": [
+          "Kancing 3 Biji Senada"
+        ]
+      }
     },
     {
       "title": "PT Bina Bahana Gemilang",
       "slug": "pt-bina-bahana-gemilang",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner-4-1.jpg",
-      "desc": "Kemeja Reguler dengan Bahan Taipan Tropical untuk PT Bina Bahana Gemilang",
+      "desc": "Taipan Tropical halus, jatuh adem dengan bordir komputer — rapi buat harian kantor.",
       "pdpSlug": "kemeja-corporate-formal",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pt-bina-bahana-gemilang/Banner-4-1.webp"
+      "heroImageLocal": "/images/portfolio/pt-bina-bahana-gemilang/Banner-4-1.webp",
+      "rating": 4.9,
+      "reviews": 80,
+      "produced_count": 6,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-bina-bahana-gemilang/Bordir_1-1-600x600.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical"
+      }
     },
     {
       "title": "Himawari Untag",
       "slug": "kemeja-himawari-untag",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner-5-1.jpg",
-      "desc": "Kemeja Reguler dengan Bahan American Drill untuk Himawari Universitas 17 Agustus 1945 Surabaya",
+      "desc": "American Drill kokoh, kerah hitam ala kimono + saku racis bibir beda warna — tegas anti-mainstream.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/kemeja-himawari-untag/Banner-5-1.webp"
+      "heroImageLocal": "/images/portfolio/kemeja-himawari-untag/Banner-5-1.webp",
+      "rating": 4.7,
+      "reviews": 102,
+      "produced_count": 6,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/kemeja-himawari-untag/Banner-5.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Kerah": "Kerah Kimono",
+        "Saku": "Saku Racis Beda Warna"
+      }
     },
     {
       "title": "PT. Weltes Energi Nusantara",
       "slug": "pt-weltes-energi-nusantara",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/08/Banner_7_11zon.jpg",
-      "desc": "Kemeja Premium untuk PT. Weltes Energi Nusantara",
+      "desc": "Ribstop Drill jahitan dobel, saku velcro kanan, saku racis resleting kiri, jala punggung — tahan kerja berat.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 8,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/pt-weltes-energi-nusantara/Banner_7_11zon.webp"
+      "heroImageLocal": "/images/portfolio/pt-weltes-energi-nusantara/Banner_7_11zon.webp",
+      "rating": 4.9,
+      "reviews": 88,
+      "produced_count": 30,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-weltes-energi-nusantara/Bordir_2_9_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Ribstop Drill",
+        "Saku": "Saku Penutup Velcro",
+        "Lengan": "Lengan Panjang",
+        "Jahitan": "Jahitan Dobel Semua Sisi",
+        "Variasi": "Jala di Belakang"
+      }
     },
     {
       "title": "PT. Nusantara Medika Utama",
       "slug": "pt-nusantara-medika-utama-kemeja",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/08/Banner_8_11zon.jpg",
-      "desc": "Kemeja Regular untuk PT. Nusantara Medika Utama",
+      "desc": "Cotton Combed 24s lembut, sablon plastisol tebal menempel rapat — simpel dan tahan lama.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 8,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/pt-nusantara-medika-utama-kemeja/Banner_8_11zon.webp"
+      "heroImageLocal": "/images/portfolio/pt-nusantara-medika-utama-kemeja/Banner_8_11zon.webp",
+      "rating": 4.7,
+      "reviews": 138,
+      "produced_count": 15,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-nusantara-medika-utama-kemeja/Bodir_1_9_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s"
+      }
     },
     {
       "title": "Universitas Narotama",
       "slug": "universitas-narotama",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/08/Banner_4_11zon.jpg",
-      "desc": "Kemeja Premium untuk Universitas Narotama",
+      "desc": "Taipan Tropical adem lengan panjang, saku dua posisi, bordir komputer—kemeja kampus yang kalem rapi.",
       "pdpSlug": "kemeja-corporate-formal",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/universitas-narotama/Banner_4_11zon.webp"
+      "heroImageLocal": "/images/portfolio/universitas-narotama/Banner_4_11zon.webp",
+      "rating": 4.8,
+      "reviews": 146,
+      "produced_count": 13,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/universitas-narotama/Bordir_3_7_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Saku": "Saku 2 Posisi",
+        "Lengan": "Lengan Panjang"
+      }
     },
     {
       "title": "PT Surya Pertiwi Nusantara",
       "slug": "surya-pertiwi-nusantara",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/saku_1_posisi_dan_beda_warna.webp",
-      "desc": "Kemeja dengan bahan taipan tropical premium untuk Surya Pertiwi Nusantara",
+      "desc": "Taipan tropical sejuk, kerah & saku beda warna, saku lengan + lis cepit — detailnya kaya.",
       "pdpSlug": "kemeja-corporate-formal",
       "sectionCount": 9,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/surya-pertiwi-nusantara/Banner_3_.webp"
+      "heroImageLocal": "/images/portfolio/surya-pertiwi-nusantara/Banner_3_.webp",
+      "rating": 4.7,
+      "reviews": 32,
+      "produced_count": 22,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/surya-pertiwi-nusantara/Portofolio_Toto_Bawah_Oval_1_-600x600.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Kerah": "Kerah Dalam Beda Warna",
+        "Saku": "Saku Beda Warna 1 Posisi",
+        "Kombinasi Warna": [
+          "Lis Cepit"
+        ],
+        "Placket / Kancing": [
+          "Kancing Tertutup"
+        ],
+        "Variasi": "Ujung Badan Oval"
+      }
     },
     {
       "title": "Pemerintah Kota Surabaya",
       "slug": "pemkot-surabaya",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_2_.webp",
-      "desc": "Kemeja berbahan dasar nagata drill premium untuk DPBT Surabaya",
+      "desc": "Nagata Drill premium, bordir komputer presisi — PDH dinas yang tegas dan kokoh.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pemkot-surabaya/Banner_2_.webp"
+      "heroImageLocal": "/images/portfolio/pemkot-surabaya/Banner_2_.webp",
+      "rating": 4.7,
+      "reviews": 88,
+      "produced_count": 31,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pemkot-surabaya/bordir3-1-600x600.webp",
+      "spec": {
+        "Bahan": "Nagata Drill"
+      }
     },
     {
       "title": "PT Pertamina Patra Niaga",
       "slug": "pertamina",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/bordir-4.webp",
-      "desc": "Kemeja premium pesanan dari Pertamina",
+      "desc": "Nagata Drill, pecah pola tiga warna + scotlite lengan — gagah aman buat operasional lapangan.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 5,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pertamina/Banner_1_-5.webp"
+      "heroImageLocal": "/images/portfolio/pertamina/Banner_1_-5.webp",
+      "rating": 4.7,
+      "reviews": 88,
+      "produced_count": 26,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pertamina/Nagata_Drill-2.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Scotlite": "Scotlite",
+        "Kombinasi Warna": [
+          "Pecah Pola 3 Warna"
+        ]
+      }
     },
     {
       "title": "PT Pegadaian",
       "slug": "pegadaian",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_1_-4.webp",
-      "desc": "Kemeja dengan kain chambray premium pesanan dari Pegadaian",
+      "desc": "Chambray premium polos berlogo bordir komputer — kasual rapi yang gampang dipadupadan.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pegadaian/Banner_1_-4.webp"
+      "heroImageLocal": "/images/portfolio/pegadaian/Banner_1_-4.webp",
+      "rating": 4.7,
+      "reviews": 74,
+      "produced_count": 29,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pegadaian/bordir2-7-600x600.webp",
+      "spec": {
+        "Bahan": "Chambray"
+      }
     },
     {
       "title": "Nurul Hayat",
       "slug": "nurul-hayat",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_1_-3.webp",
-      "desc": "Kemeja dengan bahan nagata drill premium untuk Nurul Hayat",
+      "desc": "Nagata Drill premium, bordir komputer tajam plus anci pundak — gagah buat seragam organisasi.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 4,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/nurul-hayat/Banner_1_-3.webp"
+      "heroImageLocal": "/images/portfolio/nurul-hayat/Banner_1_-3.webp",
+      "rating": 4.7,
+      "reviews": 94,
+      "produced_count": 30,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/nurul-hayat/bordir-3-600x600.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Kombinasi Warna": [
+          "Anci Pundak"
+        ]
+      }
     },
     {
       "title": "Direktorat Jenderal Bea dan Cukai Indonesia",
       "slug": "bea-cukai-kemeja",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bordir2-6.webp",
-      "desc": "Seragam dengan bahan ribstop drill premium pesanan dari Bea Cukai",
+      "desc": "Ribstop Drill tahan banting, emblem velcro, ujung lengan berpengait—dinas lapangan yang siap kerja.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 5,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/bea-cukai-kemeja/Banner_1_-2.webp"
+      "heroImageLocal": "/images/portfolio/bea-cukai-kemeja/Banner_1_-2.webp",
+      "rating": 4.9,
+      "reviews": 84,
+      "produced_count": 16,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bea-cukai-kemeja/Bordir2-6-600x600.webp",
+      "spec": {
+        "Bahan": "Ribstop Drill",
+        "Lengan": "Lengan Pengait",
+        "Emblem": "Emblem Velcro"
+      }
     },
     {
       "title": "Junior Chef Community",
       "slug": "junior-chef-community-kemeja",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_1_-1.webp",
-      "desc": "Kemeja untuk JCC",
+      "desc": "Nagata drill, kerah standar chef, kancing tertutup + saku lengan — siap dapur, tetap rapi.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 8,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/junior-chef-community-kemeja/Banner_1_-1.webp"
+      "heroImageLocal": "/images/portfolio/junior-chef-community-kemeja/Banner_1_-1.webp",
+      "rating": 4.8,
+      "reviews": 24,
+      "produced_count": 28,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/junior-chef-community-kemeja/asi_lengan_ketika_di_tekuk_dan_tidak-600x600.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Kerah": "Kerah Standar Chef",
+        "Saku": "Saku di Lengan",
+        "Lengan": "Ujung Lengan Lipat",
+        "Placket / Kancing": [
+          "Kancing Tertutup",
+          "Kancing Biasa"
+        ]
+      }
     },
     {
       "title": "Rumah Literasi Gorontalo",
       "slug": "rumah-literasi-gorontalo-kemeja",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bordir-1_6_11zon.jpg",
-      "desc": "Kemeja dengan double stitching untuk Rumah Literasi Gorontalo",
+      "desc": "Bahan Proff, dua saku + pecah pola rapi, double stitching — kemeja yang awet dipakai.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 5,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/rumah-literasi-gorontalo-kemeja/Banner_5_11zon-1.webp"
+      "heroImageLocal": "/images/portfolio/rumah-literasi-gorontalo-kemeja/Banner_5_11zon-1.webp",
+      "rating": 4.9,
+      "reviews": 64,
+      "produced_count": 30,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/rumah-literasi-gorontalo-kemeja/Bordir-1_6_11zon.webp",
+      "spec": {
+        "Saku": "Saku 2 Posisi",
+        "Bahan": "Proff",
+        "Kombinasi Warna": [
+          "Pecah Pola"
+        ]
+      }
     },
     {
       "title": "PT Kimia Farma Tbk",
       "slug": "kimia-farma-kemeja",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_2_11zon.jpg",
-      "desc": "Kemeja premium berbahan taipan tropical untuk Kimia Farma",
+      "desc": "Saku racis variasi biru-putih, bordir komputer — segar profesional buat seragam korporat.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/kimia-farma-kemeja/Banner_2_11zon.webp"
+      "heroImageLocal": "/images/portfolio/kimia-farma-kemeja/Banner_2_11zon.webp",
+      "rating": 4.7,
+      "reviews": 126,
+      "produced_count": 17,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/kimia-farma-kemeja/Saku-racis-1-posisi-dengan-variasi-biru-dan-putih_6_11zon-600x600.webp",
+      "spec": {
+        "Saku": "Saku Racis Beda Warna"
+      }
     },
     {
       "title": "PT Baba Rafi Enterprise",
       "slug": "babarafi",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bagian-Atas-Tanpa-Kancing.webp",
-      "desc": "Kemeja printing premium untuk Babarafi",
+      "desc": "BSY full-print sublimasi tanpa kancing atas plus saku racis — seragam outlet yang berani warna.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 5,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/babarafi/Banner-1.webp"
+      "heroImageLocal": "/images/portfolio/babarafi/Banner-1.webp",
+      "rating": 4.8,
+      "reviews": 40,
+      "produced_count": 8,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/babarafi/BSY.webp",
+      "spec": {
+        "Saku": "Saku Racis",
+        "Bahan": "BSY",
+        "Placket / Kancing": [
+          "Bagian Atas Tanpa Kancing"
+        ]
+      }
     },
     {
       "title": "ITTS Entrepreneur",
       "slug": "entrepreneur-itts-kemeja",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bannner.webp",
-      "desc": "Kemeja premium dengan bordir untuk Entrepeneur ITTS",
+      "desc": "Nagata Drill tebal, saku dua posisi + bordir komputer — fungsional buat agenda padat.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 4,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/entrepreneur-itts-kemeja/Bannner.webp"
+      "heroImageLocal": "/images/portfolio/entrepreneur-itts-kemeja/Bannner.webp",
+      "rating": 4.7,
+      "reviews": 94,
+      "produced_count": 24,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/entrepreneur-itts-kemeja/Bordir_3-1-600x600.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Saku": "Saku 2 Posisi"
+      }
     },
     {
       "title": "Kementrian PUPR",
       "slug": "bbws-pupr-kemeja",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/02/variasi-lis-cepit-pundak.webp",
-      "desc": "Kemeja untuk BBWS PUPR",
+      "desc": "American Drill dengan lis cepit, anci pundak, pengait lengan dan kancing tertutup—rapi penuh detail.",
       "pdpSlug": "kemeja-lapangan",
       "sectionCount": 10,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/bbws-pupr-kemeja/anci-pundak-600x600.webp"
+      "heroImageLocal": "/images/portfolio/bbws-pupr-kemeja/anci-pundak-600x600.webp",
+      "rating": 4.6,
+      "reviews": 169,
+      "produced_count": 11,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bbws-pupr-kemeja/bordir-3-600x600.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Saku": "Saku Floi 2 Posisi",
+        "Lengan": "Lengan Pengait",
+        "Kombinasi Warna": [
+          "Lis Cepit",
+          "Pecah Pola",
+          "Anci Pundak"
+        ],
+        "Placket / Kancing": [
+          "Kancing Tertutup Variasi Melet"
+        ],
+        "Variasi": "Ujung Badan Oval"
+      }
     },
     {
       "title": "PT. Wika Industri Manufaktur",
       "slug": "gesits-its",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/gambar-7.jpg",
-      "desc": "Kemeja PDH untuk Gesits ITS",
+      "desc": "Taipan tropical adem dengan variasi PDH bersih — seragam kerja yang ringkas dan formal.",
       "pdpSlug": "kemeja-corporate-formal",
       "sectionCount": 4,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/gesits-its/Bordir-3-1024x1024.webp"
+      "heroImageLocal": "/images/portfolio/gesits-its/Bordir-3-1024x1024.webp",
+      "rating": 4.7,
+      "reviews": 54,
+      "produced_count": 17,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/gesits-its/gambar-7.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Variasi": "Variasi"
+      }
     },
     {
       "title": "Unair English Diploma",
       "slug": "english-diploma-unair",
       "garment_type": "kemeja",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/Bordir-belakang-1.jpg",
-      "desc": "Kemeja PDH untuk English Diploma Unair",
+      "desc": "Nagata Drill kaku, bordir komputer bersih — PDH kampus yang seragam dan tegas.",
       "pdpSlug": "kemeja-reguler",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/english-diploma-unair/Bordir-600x600.webp"
+      "heroImageLocal": "/images/portfolio/english-diploma-unair/Bordir-600x600.webp",
+      "rating": 4.9,
+      "reviews": 120,
+      "produced_count": 16,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/english-diploma-unair/Bordir-belakang-1.webp",
+      "spec": {
+        "Bahan": "Nagata Drill"
+      }
     },
     {
       "title": "RS Premiere Surabaya",
       "slug": "rs-premiere-surabaya",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Full-view-6.jpg",
-      "desc": "Polo Regular dengan Bahan Lacoste 24s untuk RS Premiere Surabaya",
+      "desc": "Lacoste 24s, manset kerah + ujung lengan manset pita, stole berkancing — elegan resmi.",
       "pdpSlug": "polo-office",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/rs-premiere-surabaya/Full-view-6.webp"
+      "heroImageLocal": "/images/portfolio/rs-premiere-surabaya/Full-view-6.webp",
+      "rating": 4.8,
+      "reviews": 160,
+      "produced_count": 28,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/rs-premiere-surabaya/Bordir_1-7-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste 24s",
+        "Kerah": "Manset Kerah",
+        "Lengan": "Ujung Lengan dengan Manset Pita",
+        "Placket & Kancing": [
+          "Stol & Kancing"
+        ]
+      }
     },
     {
       "title": "PT PLN UIP JBTB II",
       "slug": "pt-pln-uip-jbtb-ii",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Full-view-5.jpg",
-      "desc": "Polo Drifit untuk PT PLN UIP JBTB II",
+      "desc": "Drifit ringan menyerap keringat, kerah-kancing variasi, lengan finishing deck — polo lapangan yang gesit.",
       "pdpSlug": "polo-office",
       "sectionCount": 5,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pt-pln-uip-jbtb-ii/Full-view-5.webp"
+      "heroImageLocal": "/images/portfolio/pt-pln-uip-jbtb-ii/Full-view-5.webp",
+      "rating": 4.6,
+      "reviews": 174,
+      "produced_count": 10,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-pln-uip-jbtb-ii/Drifit.webp",
+      "spec": {
+        "Bahan": "Drifit",
+        "Kerah": "Kerah dan Kancing",
+        "Lengan": "Lengan Finishing Deck"
+      }
     },
     {
       "title": "Brawijaya Group",
       "slug": "brawijaya-group",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Full-view-2-1.jpg",
-      "desc": "Polo Regular dengan Bahan Lacoste 24s untuk Brawijaya Group",
+      "desc": "Lacoste 24s adem, manset krah, ujung lengan pita, stole berkancing — polo kantor yang necis.",
       "pdpSlug": "polo-office",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/brawijaya-group/Full-view-2-1.webp"
+      "heroImageLocal": "/images/portfolio/brawijaya-group/Full-view-2-1.webp",
+      "rating": 4.7,
+      "reviews": 66,
+      "produced_count": 22,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/brawijaya-group/Bordir_1-4-1-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste 24s",
+        "Kerah": "Manset Kerah",
+        "Lengan": "Ujung Lengan dengan Manset Pita",
+        "Placket & Kancing": [
+          "Stol & Kancing"
+        ]
+      }
     },
     {
       "title": "PT Candra Buana Mandiri",
       "slug": "pt-candra-buana-mandiri",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Full-view.jpg",
-      "desc": "Polo Premium dengan Bahan Lacoste 20s untuk PT Candra Buana Mandiri",
+      "desc": "Lacoste katun 20s halus, kerah senada, stole plus kancing—polo kantoran yang bersih dan adem.",
       "pdpSlug": "polo-office",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/pt-candra-buana-mandiri/Full-view.webp"
+      "heroImageLocal": "/images/portfolio/pt-candra-buana-mandiri/Full-view.webp",
+      "rating": 4.9,
+      "reviews": 26,
+      "produced_count": 9,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-candra-buana-mandiri/Bordir_1-4-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Kerah": "Kerah Warna Sama",
+        "Placket & Kancing": [
+          "Stol & Kancing"
+        ]
+      }
     },
     {
       "title": "Garuda Maintenance",
       "slug": "garuda-mintenance",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/04/Banner.jpg",
-      "desc": "Polo Regular dengan Bahan Lacoste 24s untuk Garuda Maintenance",
+      "desc": "Lacoste katun 24s halus, manset pita, stole + kancing senada — polo korporat yang gagah.",
       "pdpSlug": "polo-office",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/garuda-mintenance/Banner.webp"
+      "heroImageLocal": "/images/portfolio/garuda-mintenance/Banner.webp",
+      "rating": 4.8,
+      "reviews": 88,
+      "produced_count": 30,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/garuda-mintenance/1-1.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 24s",
+        "Kerah": "Kerah Warna Sama",
+        "Lengan": "Ujung Lengan dengan Manset Pita",
+        "Placket & Kancing": [
+          "Stol & Kancing"
+        ]
+      }
     },
     {
       "title": "PT Thermopak Karya Indonesia",
       "slug": "pt-thermopak-karya-indonesia",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Banner-3.jpg",
-      "desc": "Polo Regular dengan Bahan Lacoste Katun 24s untuk PT Thermopak Karya Indonesia",
+      "desc": "Lacoste 24s adem, manset pita + kerah strip dengan bordir — polo kantor yang sporty rapi.",
       "pdpSlug": "polo-office",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/pt-thermopak-karya-indonesia/Banner-3.webp"
+      "heroImageLocal": "/images/portfolio/pt-thermopak-karya-indonesia/Banner-3.webp",
+      "rating": 4.8,
+      "reviews": 154,
+      "produced_count": 18,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-thermopak-karya-indonesia/Bordir_3-3-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste 24s",
+        "Kerah": "Kerah Strip",
+        "Lengan": "Ujung Lengan dengan Manset Pita"
+      }
     },
     {
       "title": "Samudera Indonesia",
       "slug": "samudera-indonesia",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Banner-bawah-3.jpg",
-      "desc": "Polo Regular dengan Bahan Lacoste Katun 24s untuk Samudera Indonesia",
+      "desc": "Lacoste 24s, kerah strip kontras + manset pita di lengan — sporty rapi penuh identitas.",
       "pdpSlug": "polo-office",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/samudera-indonesia/Banner-bawah-3.webp"
+      "heroImageLocal": "/images/portfolio/samudera-indonesia/Banner-bawah-3.webp",
+      "rating": 4.9,
+      "reviews": 72,
+      "produced_count": 10,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/samudera-indonesia/Bordir_2-3-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste 24s",
+        "Kerah": "Kerah Strip",
+        "Lengan": "Ujung Lengan dengan Manset Pita"
+      }
     },
     {
       "title": "FIT BSA",
       "slug": "fit-bsa",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner-2.jpg",
-      "desc": "Polo Premium dengan Bahan Lacoste Katun 20s untuk Fit BSA",
+      "desc": "Lacoste Katun 20s, strip kontras kerah-lengan plus sablon plastisol dan bordir — polo komunitas yang tegas.",
       "pdpSlug": "polo-office",
       "sectionCount": 5,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/fit-bsa/Banner-2.webp"
+      "heroImageLocal": "/images/portfolio/fit-bsa/Banner-2.webp",
+      "rating": 4.7,
+      "reviews": 56,
+      "produced_count": 28,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/fit-bsa/Bordir-1-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Kerah": "Strip Kerah dan Lengan"
+      }
     },
     {
       "title": "APRC Surabaya",
       "slug": "aprc-surabaya",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Full-view-2.jpg",
-      "desc": "Polo Regular dengan Bahan Lacoste Katun 24s untuk APRC Surabaya",
+      "desc": "Lacoste katun 24s nyaman, manset pita di lengan + belahan samping — gerak makin leluasa.",
       "pdpSlug": "polo-office",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/aprc-surabaya/Full-view-2.webp"
+      "heroImageLocal": "/images/portfolio/aprc-surabaya/Full-view-2.webp",
+      "rating": 4.9,
+      "reviews": 128,
+      "produced_count": 6,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/aprc-surabaya/Belahan-Samping-1.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 24s",
+        "Lengan": "Ujung Lengan dengan Manset Pita",
+        "Belahan & Pecah Pola": "Belahan Samping"
+      }
     },
     {
       "title": "PT Pelindo Properti Indonesia",
       "slug": "pt-pelindo-properti-indonesia-polo",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner_2_11zon-3.jpg",
-      "desc": "Polo Premium dengan Bahan Lacoste Katun 20s untuk PT Pelindo Properti Indonesia",
+      "desc": "Lacoste katun 20s, kerah lidi, manset pita kancing tiga—polo premium yang nyaman dipakai harian.",
       "pdpSlug": "polo-office",
       "sectionCount": 6,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/pt-pelindo-properti-indonesia-polo/Banner_2_11zon-3.webp"
+      "heroImageLocal": "/images/portfolio/pt-pelindo-properti-indonesia-polo/Banner_2_11zon-3.webp",
+      "rating": 4.7,
+      "reviews": 104,
+      "produced_count": 23,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-pelindo-properti-indonesia-polo/Bordir_3_11zon.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Kerah": "Kerah Lidi",
+        "Lengan": "Lengan Pendek dengan Manset Pita dan Variasi Lidi",
+        "Placket & Kancing": [
+          "Kancing 3 Biji"
+        ]
+      }
     },
     {
       "title": "PT Surabaya Marine",
       "slug": "pt-surabaya-marine",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner_2_11zon-2.jpg",
-      "desc": "Polo Premium dengan Bahan Lacoste Katun 20s untuk PT Surabaya Marine",
+      "desc": "Lacoste 20s lengan panjang overdeck, kerah strip, saku tempel + belahan samping — solid.",
       "pdpSlug": "polo-office",
       "sectionCount": 8,
       "imageCount": 8,
-      "heroImageLocal": "/images/portfolio/pt-surabaya-marine/Banner_2_11zon-2.webp"
+      "heroImageLocal": "/images/portfolio/pt-surabaya-marine/Banner_2_11zon-2.webp",
+      "rating": 4.8,
+      "reviews": 24,
+      "produced_count": 32,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-surabaya-marine/Bagian-krah-custom_1_11zon.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Kerah": "Kerah Strip",
+        "Saku": "Saku Tempel 1 Posisi",
+        "Lengan": "Lengan Panjang Overdeck",
+        "Placket & Kancing": [
+          "Kancing 3 Biji"
+        ],
+        "Belahan & Pecah Pola": "Belahan Samping"
+      }
     },
     {
       "title": "Misericordia",
       "slug": "misericordia",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner_2_11zon-1.jpg",
-      "desc": "Polo Regular dengan Bahan Lacoste Katun 24s untuk Misericordia",
+      "desc": "Lacoste katun 24s lembut, manset pita + bordir komputer — polo bersih buat keseharian.",
       "pdpSlug": "polo-office",
       "sectionCount": 4,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/misericordia/Banner_2_11zon-1.webp"
+      "heroImageLocal": "/images/portfolio/misericordia/Banner_2_11zon-1.webp",
+      "rating": 4.6,
+      "reviews": 56,
+      "produced_count": 19,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/misericordia/Banner_2_11zon.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 24s",
+        "Lengan": "Ujung Lengan dengan Manset Pita"
+      }
     },
     {
       "title": "PT Ace Hardware Indonesia",
       "slug": "pt-ace-hardware-indonesia-polo",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner-4.jpg",
-      "desc": "Polo Premium dengan Bahan Lacoste Cotton 20s untuk PT Ace Hardware Indonesia",
+      "desc": "Lacoste katun 20s, tiga kancing senada + variasi lidi di lengan — adem detail premium.",
       "pdpSlug": "polo-office",
       "sectionCount": 5,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/pt-ace-hardware-indonesia-polo/Banner-4.webp"
+      "heroImageLocal": "/images/portfolio/pt-ace-hardware-indonesia-polo/Banner-4.webp",
+      "rating": 4.7,
+      "reviews": 24,
+      "produced_count": 24,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-ace-hardware-indonesia-polo/Bordir.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Lengan": "Ujung Lengan dengan Variasi Lidi",
+        "Placket & Kancing": [
+          "Kancing 3 Biji Warna Senada"
+        ]
+      }
     },
     {
       "title": "PT Pelindo",
       "slug": "pt-pelindo",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner-3.jpg",
-      "desc": "Polo Premium dengan Bahan Lacoste Cotton 20s untuk PT PELINDO",
+      "desc": "Lacoste Katun 20s adem berlogo bordir komputer — polo korporat klasik, bersih dan rapi.",
       "pdpSlug": "polo-office",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pt-pelindo/Banner-3.webp"
+      "heroImageLocal": "/images/portfolio/pt-pelindo/Banner-3.webp",
+      "rating": 4.9,
+      "reviews": 176,
+      "produced_count": 6,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-pelindo/Bordir1-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s"
+      }
     },
     {
       "title": "PT. Pratamindo Mitra Rizky",
       "slug": "pt-pratamindo-mitra-rizky",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner-2-1.jpg",
-      "desc": "Polo Premium dengan Bahan Lacoste Katun 20s untuk PT. Pratamindo Mitra Rizky",
+      "desc": "Lacoste katun 20s, kerah-stol-lengan beda warna, sablon DTF — polo dua nada yang segar.",
       "pdpSlug": "polo-office",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/pt-pratamindo-mitra-rizky/Banner-2-1.webp"
+      "heroImageLocal": "/images/portfolio/pt-pratamindo-mitra-rizky/Banner-2-1.webp",
+      "rating": 4.8,
+      "reviews": 42,
+      "produced_count": 30,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-pratamindo-mitra-rizky/Banner-2.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Kerah": "Kerah Beda Warna",
+        "Lengan": "Ujung Lengan dengan Variasi Beda Warna",
+        "Placket & Kancing": [
+          "Stol Kancing Beda Warna"
+        ]
+      }
     },
     {
       "title": "PT. Armetalindo",
       "slug": "pt-armetalindo",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/08/Banner_5_11zon-1.jpg",
-      "desc": "Polo Premium dengan Bahan Lacoste CVC 20s untuk PT. Armetalindo",
+      "desc": "Lacoste CVC 20s, saku racis beda warna plus pecah pola samping—polo kontras yang segar.",
       "pdpSlug": "polo-office",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/pt-armetalindo/Banner_5_11zon-1.webp"
+      "heroImageLocal": "/images/portfolio/pt-armetalindo/Banner_5_11zon-1.webp",
+      "rating": 4.7,
+      "reviews": 114,
+      "produced_count": 33,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-armetalindo/Bordir_2_7_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste CVC 20s",
+        "Saku": "Saku Racis Beda Warna",
+        "Placket & Kancing": [
+          "Stol Kancing Beda Warna"
+        ],
+        "Belahan & Pecah Pola": "Pecah Pola Samping"
+      }
     },
     {
       "title": "Ayam Bakar Pak D",
       "slug": "ayam-bakar-pak-d",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/08/Banner_5_11zon.jpg",
-      "desc": "Polo Premium dengan Bahan Lacoste CVC 20s untuk Ayam Bakar Pak \"D\"",
+      "desc": "Lacoste CVC 20s, kerah hitam, stol kancing & ujung lengan kontras — polo seragam yang berani.",
       "pdpSlug": "polo-office",
       "sectionCount": 6,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/ayam-bakar-pak-d/Banner_5_11zon.webp"
+      "heroImageLocal": "/images/portfolio/ayam-bakar-pak-d/Banner_5_11zon.webp",
+      "rating": 4.8,
+      "reviews": 113,
+      "produced_count": 30,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/ayam-bakar-pak-d/Bagian-ujung-lengan-dengan-variasi-bahan-beda-warna_4_11zon.webp",
+      "spec": {
+        "Bahan": "Lacoste CVC 20s",
+        "Kerah": "Kerah Warna Hitam",
+        "Placket & Kancing": [
+          "Stol Kancing Beda Warna"
+        ]
+      }
     },
     {
       "title": "Yasaka Fried Chicken",
       "slug": "yasaka-fried-chicken",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/08/Banner_2_11zon.jpg",
-      "desc": "Polo Reguler dengan Bahan Lacoste CVC 24s untuk Yasaka Fried Chicken",
+      "desc": "Lacoste CVC 24s nyaman, bordir komputer — polo kru yang adem dipakai seharian.",
       "pdpSlug": "polo-office",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/yasaka-fried-chicken/Banner_2_11zon.webp"
+      "heroImageLocal": "/images/portfolio/yasaka-fried-chicken/Banner_2_11zon.webp",
+      "rating": 4.7,
+      "reviews": 56,
+      "produced_count": 18,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/yasaka-fried-chicken/Bordir_1_3_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste CVC 24s"
+      }
     },
     {
       "title": "PT Zahonero Indonesia",
       "slug": "zahonero",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_1_.webp",
-      "desc": "Polo dengan bahan lacoste TC premium untuk Zahonero",
+      "desc": "Lacoste TC tahan lama, bordir komputer bersih — polo brand yang awet tiap hari.",
       "pdpSlug": "polo-office",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/zahonero/Banner_1_.webp"
+      "heroImageLocal": "/images/portfolio/zahonero/Banner_1_.webp",
+      "rating": 4.8,
+      "reviews": 32,
+      "produced_count": 16,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/zahonero/Bordir-1-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste TC"
+      }
     },
     {
       "title": "PT Naku Logistics",
       "slug": "pt-naku-logistics",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/anner.webp",
-      "desc": "Polo dengan tambahan variasi scotlite pada bagian depan dan belakang pesanan dari PT Naku Logistics",
+      "desc": "Lacoste TC plus scotlite reflektif depan-belakang — polo logistik yang aman dilihat malam hari.",
       "pdpSlug": "polo-office",
       "sectionCount": 4,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pt-naku-logistics/Bordir2-2-600x600.webp"
+      "heroImageLocal": "/images/portfolio/pt-naku-logistics/Bordir2-2-600x600.webp",
+      "rating": 4.6,
+      "reviews": 40,
+      "produced_count": 8,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-naku-logistics/Lacoste-1.webp",
+      "spec": {
+        "Bahan": "Lacoste TC",
+        "Scotlite": "Scotlite"
+      }
     },
     {
       "title": "PT Sarana Karya Solusindo",
       "slug": "bandell-lighting-polo",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-9.webp",
-      "desc": "Polo pesanan dari Bandell Lighting dengan bahan lacoste CVC 30s dengan variasi dua strip pada bagian kerah.",
+      "desc": "American Drill kuat dengan pengait rel plastik — praktis dipasang-lepas di lapangan.",
       "pdpSlug": "polo-office",
       "sectionCount": 4,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/bandell-lighting-polo/Banner-9.webp"
+      "heroImageLocal": "/images/portfolio/bandell-lighting-polo/Banner-9.webp",
+      "rating": 4.7,
+      "reviews": 24,
+      "produced_count": 26,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bandell-lighting-polo/Bordir1-1-600x600.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Variasi": "Pengait Rel Plastik"
+      }
     },
     {
       "title": "PT Pertamina Terminal BBM Sampit",
       "slug": "pertamina-polo",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_1_11zon.jpg",
-      "desc": "Polo premium untuk Pertamina",
+      "desc": "Lacoste CVC 20s adem, stol kancing dan bis leher beda warna—polo simpel yang tetap nendang.",
       "pdpSlug": "polo-office",
       "sectionCount": 5,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pertamina-polo/Banner_1_11zon.webp"
+      "heroImageLocal": "/images/portfolio/pertamina-polo/Banner_1_11zon.webp",
+      "rating": 4.8,
+      "reviews": 34,
+      "produced_count": 6,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pertamina-polo/Bis-leher-sesuai-warna-strip_2_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste CVC 20s",
+        "Placket & Kancing": [
+          "Stol Kancing Beda Warna"
+        ],
+        "Kombinasi Warna": "Bis Leher Beda Warna"
+      }
     },
     {
       "title": "PT Woodone Integra Indonesia",
       "slug": "woodone-integra-polo",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/02/kancing-2.webp",
-      "desc": "Polo Drifit untuk Woodone Integra",
+      "desc": "Drifit gesit, manset pita & kerah kontras, saku racis beda warna — polo kerja yang sporty.",
       "pdpSlug": "polo-office",
       "sectionCount": 6,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/woodone-integra-polo/bahan.webp"
+      "heroImageLocal": "/images/portfolio/woodone-integra-polo/bahan.webp",
+      "rating": 4.8,
+      "reviews": 88,
+      "produced_count": 32,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/woodone-integra-polo/bordir1-600x600.webp",
+      "spec": {
+        "Bahan": "Drifit",
+        "Kerah": "Manset Pita & Kerah Beda Warna",
+        "Saku": "Saku Racis Beda Warna + Kancing",
+        "Placket & Kancing": [
+          "Kancing 2 Biji"
+        ]
+      }
     },
     {
       "title": "PT Pupuk Kalimantan Timur",
       "slug": "pupuk-kaltim-polo",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/02/kancing-3-biji.webp",
-      "desc": "Polo untuk Pupuk Kaltim",
+      "desc": "Lacoste 20s tebal, kancing 3 biji beda warna + manset pita oranye, sablon plastisol — polo yang berani.",
       "pdpSlug": "polo-office",
       "sectionCount": 6,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pupuk-kaltim-polo/kancing-3-biji-600x600.webp"
+      "heroImageLocal": "/images/portfolio/pupuk-kaltim-polo/kancing-3-biji-600x600.webp",
+      "rating": 4.7,
+      "reviews": 161,
+      "produced_count": 10,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pupuk-kaltim-polo/manset-pita-orange-600x600.webp",
+      "spec": {
+        "Bahan": "Lacoste Katun 20s",
+        "Lengan": "Manset Pita Orange",
+        "Placket & Kancing": [
+          "Kancing 3 Biji",
+          "Stol Kancing Beda Warna"
+        ]
+      }
     },
     {
       "title": "PT Berkah Sekawan Abadi",
       "slug": "berkah-sekawan-abadi",
       "garment_type": "polo",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/Gambar-3.jpg",
-      "desc": "Polo kasual premium dengan bahan lacoste katun 20s",
+      "desc": "Lacoste CVC 20s nyaman, kerah custom — kasual premium yang pas buat tim.",
       "pdpSlug": "polo-office",
       "sectionCount": 4,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/berkah-sekawan-abadi/Bordir-2-600x600.webp"
+      "heroImageLocal": "/images/portfolio/berkah-sekawan-abadi/Bordir-2-600x600.webp",
+      "rating": 4.8,
+      "reviews": 54,
+      "produced_count": 16,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/berkah-sekawan-abadi/Gambar-3.webp",
+      "spec": {
+        "Bahan": "Lacoste CVC 20s",
+        "Kerah": "Kerah Custom"
+      }
     },
     {
       "title": "QUERENCIA",
       "slug": "querencia",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Banner.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari QUERENCIA",
+      "desc": "Cotton Combed 30s lembut dengan sablon plastisol tebal — kaos brand yang nyaman dipakai harian.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/querencia/Banner.webp"
+      "heroImageLocal": "/images/portfolio/querencia/Banner.webp",
+      "rating": 4.8,
+      "reviews": 162,
+      "produced_count": 17,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/querencia/Katun-Combed-30s-1-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s"
+      }
     },
     {
       "title": "Institut Teknologi Sepuluh Nopember",
       "slug": "institut-teknologi-sepuluh-nopember-2",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Banner-bawah-4.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari Institut Teknologi Sepuluh Nopember",
+      "desc": "Nagata Drill, kerah sapit, lengan panjang, saku tempel + resleting tertutup — bordir rapi tertutup zip.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/institut-teknologi-sepuluh-nopember-2/Banner-bawah-4.webp"
+      "heroImageLocal": "/images/portfolio/institut-teknologi-sepuluh-nopember-2/Banner-bawah-4.webp",
+      "rating": 4.7,
+      "reviews": 162,
+      "produced_count": 13,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/institut-teknologi-sepuluh-nopember-2/Katun-Combed-30s-1024x1024.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Kerah": "Kerah Sapit",
+        "Saku": "Saku Tempel 1 Posisi",
+        "Lengan": "Lengan Panjang",
+        "Variasi": "Resleting Tertutup"
+      }
     },
     {
       "title": "DISHUB Surabaya",
       "slug": "dishub",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner-1.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari DISHUB Surabaya",
+      "desc": "Cotton combed 30s lembut, sablon plastisol doff yang pekat rata—kaos solid buat aksi lapangan.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/dishub/Banner-1.webp"
+      "heroImageLocal": "/images/portfolio/dishub/Banner-1.webp",
+      "rating": 4.9,
+      "reviews": 139,
+      "produced_count": 21,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/dishub/Katun-Combed-30s-1-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s"
+      }
     },
     {
       "title": "TECH EXPLORER ITS",
       "slug": "tech-explorer-its",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari ITS",
+      "desc": "Cotton combed 30s adem, sablon DTF tajam warnanya — kaos komunitas yang nyaman dipakai.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/tech-explorer-its/Banner.webp"
+      "heroImageLocal": "/images/portfolio/tech-explorer-its/Banner.webp",
+      "rating": 4.9,
+      "reviews": 133,
+      "produced_count": 11,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/tech-explorer-its/Katun-Combed-30s-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s"
+      }
     },
     {
       "title": "IHC",
       "slug": "ihc",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Baner.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari IHC",
+      "desc": "Cotton Combed 30s adem, sablon plastisol doff matte — kaos santai yang clean.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/ihc/Baner.webp"
+      "heroImageLocal": "/images/portfolio/ihc/Baner.webp",
+      "rating": 4.9,
+      "reviews": 35,
+      "produced_count": 27,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/ihc/Katun-Combed-30s-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s"
+      }
     },
     {
       "title": "SCETCH",
       "slug": "scetch",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Full-view-1.jpg",
-      "desc": "Kaos dengan bahan cotton combed 24s yang premium pesanan dari SCETCH",
+      "desc": "Cotton Combed 24s, sablon DTF finishing glossy — kaos brand yang tajam mengilap.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/scetch/Full-view-1.webp"
+      "heroImageLocal": "/images/portfolio/scetch/Full-view-1.webp",
+      "rating": 4.9,
+      "reviews": 76,
+      "produced_count": 28,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/scetch/Katun-Combed-24s-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s"
+      }
     },
     {
       "title": "Fabulous",
       "slug": "fabulous",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/BANER-1.jpg",
-      "desc": "Kaos dengan bahan cotton combed 24s yang premium pesanan dari Fabulous",
+      "desc": "Cotton Combed 24s lebih bertekstur, lengan pendek, sablon plastisol nendang — kaos santai berkarakter.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 4,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/fabulous/BANER-1.webp"
+      "heroImageLocal": "/images/portfolio/fabulous/BANER-1.webp",
+      "rating": 4.7,
+      "reviews": 168,
+      "produced_count": 22,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/fabulous/IMG_0542-600x600.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s",
+        "Lengan": "Lengan Pendek"
+      }
     },
     {
       "title": "Porsche",
       "slug": "porsche",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/Baner.jpg",
-      "desc": "Kaos dengan bahan cotton combed 24s yang premium pesanan dari Porsche",
+      "desc": "Cotton Combed 24s lengan pendek, sablon plastisol tebal menonjol — santai tapi berkarakter.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 4,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/porsche/Baner.webp"
+      "heroImageLocal": "/images/portfolio/porsche/Baner.webp",
+      "rating": 4.6,
+      "reviews": 66,
+      "produced_count": 26,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/porsche/Katun-Combed-24s-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s",
+        "Lengan": "Lengan Pendek"
+      }
     },
     {
       "title": "Frank Amachi",
       "slug": "frank-amachi",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/04/Baner-Frank-Amachi.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari Frank Amachi",
+      "desc": "Cotton combed 30s, sablon plastisol, rib rapi plus melet di lengan—kaos santai berkarakter.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 6,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/frank-amachi/Baner-Frank-Amachi.webp"
+      "heroImageLocal": "/images/portfolio/frank-amachi/Baner-Frank-Amachi.webp",
+      "rating": 4.8,
+      "reviews": 182,
+      "produced_count": 14,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/frank-amachi/Katun-Combed-30s-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s",
+        "Lengan": "Manset (Melet) pada Lengan",
+        "Kerah": "Rib"
+      }
     },
     {
       "title": "PT. Karyaterang Sedati",
       "slug": "pt-karyaterang-sedati-2",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner-1.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari PT. Karyaterang Sedati",
+      "desc": "TC BTM tahan kucek, kerah kontras, saku bolpoin + sablon rubber — kaos kerja praktis.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pt-karyaterang-sedati-2/Banner-1.webp"
+      "heroImageLocal": "/images/portfolio/pt-karyaterang-sedati-2/Banner-1.webp",
+      "rating": 4.7,
+      "reviews": 122,
+      "produced_count": 20,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-karyaterang-sedati-2/Katun-Combed-30s-1-1024x1024.webp",
+      "spec": {
+        "Kerah": "Kerah Beda Warna",
+        "Saku": "Saku Bolpoin",
+        "Bahan": "TC"
+      }
     },
     {
       "title": "Barunastra ITS",
       "slug": "barunastra-its",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari Roboboat Team Barunastra ITS",
+      "desc": "Cotton Combed 30s lengan pendek, sablon plastisol pekat — kaos tim yang nyaman dipakai lomba.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 4,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/barunastra-its/Banner.webp"
+      "heroImageLocal": "/images/portfolio/barunastra-its/Banner.webp",
+      "rating": 4.9,
+      "reviews": 50,
+      "produced_count": 16,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/barunastra-its/Katun-Combed-30s-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s",
+        "Lengan": "Lengan Pendek"
+      }
     },
     {
       "title": "Suporter PPNS",
       "slug": "suporter-ppns",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner-1-2.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari Suporter PPNS",
+      "desc": "Combed 30s, jahitan rantai + overdeck lengan, sablon plastisol — kuat buat dukung tribun.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 5,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/suporter-ppns/Banner-1-1.webp"
+      "heroImageLocal": "/images/portfolio/suporter-ppns/Banner-1-1.webp",
+      "rating": 4.9,
+      "reviews": 114,
+      "produced_count": 26,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/suporter-ppns/Banner-1-2.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s",
+        "Lengan": "Ujung Lengan Overdeck",
+        "Variasi": "Jahitan Rantai"
+      }
     },
     {
       "title": "Komunitas Guru Penggerak Kota Banjarbaru",
       "slug": "komunitas-guru-penggerak-kota-banjarbaru",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner-1.jpg",
-      "desc": "Kaos dengan bahan cotton combed 30s yang premium pesanan dari Komunitas Guru Penggerak kota Banjarbaru",
+      "desc": "Cotton Combed 30s adem dengan plastisol doff matte — kaos komunitas yang kalem dan elegan.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/komunitas-guru-penggerak-kota-banjarbaru/Banner-1.webp"
+      "heroImageLocal": "/images/portfolio/komunitas-guru-penggerak-kota-banjarbaru/Banner-1.webp",
+      "rating": 4.6,
+      "reviews": 178,
+      "produced_count": 22,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/komunitas-guru-penggerak-kota-banjarbaru/Banner.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s"
+      }
     },
     {
       "title": "Politeknik Kesehatan",
       "slug": "politeknik-kesehatan-kaos",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-18.webp",
-      "desc": "Kaos dengan bahan cotton combed 24s yang premium pesanan dari Politeknik Kesehatan.",
+      "desc": "Cotton Combed 24s adem, sablon plastisol pekat menempel kuat — kaos kegiatan yang awet.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/politeknik-kesehatan-kaos/Banner-18.webp"
+      "heroImageLocal": "/images/portfolio/politeknik-kesehatan-kaos/Banner-18.webp",
+      "rating": 4.6,
+      "reviews": 102,
+      "produced_count": 18,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/politeknik-kesehatan-kaos/Combed-1-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s"
+      }
     },
     {
       "title": "PT Karyaterang Sedati",
       "slug": "pt-karyaterang-sedati",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-17.webp",
-      "desc": "Seragam polo satu set dengan bahan TC BTM untuk PT Karyaterang Sedati",
+      "desc": "TC BTM tahan kusut, logo rubber, kerah beda warna plus saku bolpoin—polo kerja yang fungsional.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 5,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pt-karyaterang-sedati/Banner-17.webp"
+      "heroImageLocal": "/images/portfolio/pt-karyaterang-sedati/Banner-17.webp",
+      "rating": 4.7,
+      "reviews": 42,
+      "produced_count": 30,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-karyaterang-sedati/4-600x600.webp",
+      "spec": {
+        "Kerah": "Kerah Beda Warna",
+        "Saku": "Saku Bolpoin",
+        "Bahan": "TC"
+      }
     },
     {
       "title": "UPN Arsitektur",
       "slug": "upn-arsitektur",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-16.webp",
-      "desc": "Kaos dengan bahan cotton combed 30s premium pesanan dari UPN Arsitektur.",
+      "desc": "Cotton combed 30s lembut, sablon plastisol tebal menonjol — kaos angkatan yang pekat.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/upn-arsitektur/Banner-16.webp"
+      "heroImageLocal": "/images/portfolio/upn-arsitektur/Banner-16.webp",
+      "rating": 4.7,
+      "reviews": 152,
+      "produced_count": 32,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/upn-arsitektur/Combed-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s"
+      }
     },
     {
       "title": "ITS Robotics",
       "slug": "robotics-its",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-2-2.webp",
-      "desc": "Kaos premium untuk Robotics ITS",
+      "desc": "Soft Combed 30s lembut, plastisol gold mengkilap — kaos tim yang mencolok dan adem.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/robotics-its/Banner-2-2.webp"
+      "heroImageLocal": "/images/portfolio/robotics-its/Banner-2-2.webp",
+      "rating": 4.8,
+      "reviews": 72,
+      "produced_count": 8,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/robotics-its/Combed-2-1024x1024.webp",
+      "spec": {
+        "Bahan": "Soft Combed 30s"
+      }
     },
     {
       "title": "PT HM Sampoerna Tbk",
       "slug": "hm-sampoerna-kaos",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Plastisol2-2.webp",
-      "desc": "Kaos dengan cotton combed 18s premium dan sablon plascharge pesanan dari HM Sampoerna",
+      "desc": "Cotton Combed 18s tebal, sablon plascharge — kaos solid berkesan corporate.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/hm-sampoerna-kaos/Banner-15.webp"
+      "heroImageLocal": "/images/portfolio/hm-sampoerna-kaos/Banner-15.webp",
+      "rating": 4.7,
+      "reviews": 106,
+      "produced_count": 14,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/hm-sampoerna-kaos/Plastisol2-2-600x600.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 18s",
+        "Variasi": "Plastisol Discharge"
+      }
     },
     {
       "title": "PT A. Schulman Plastics Indonesia",
       "slug": "lyondellbasell-kaos",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-14.webp",
-      "desc": "Kaos dengan bahan cotton combed 24s yang premium pesanan dari Lyondellbasell",
+      "desc": "Cotton Combed 24s tebal dengan sablon plastisol solid — kaos event yang awet dipakai.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/lyondellbasell-kaos/Banner-14.webp"
+      "heroImageLocal": "/images/portfolio/lyondellbasell-kaos/Banner-14.webp",
+      "rating": 4.9,
+      "reviews": 120,
+      "produced_count": 32,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/lyondellbasell-kaos/Combed_24s-2-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s"
+      }
     },
     {
       "title": "Forum Lingkar Pena Jawa Timur",
       "slug": "forum-lingkar-pena-jawa-timur",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Variasi_Hoodie.webp",
-      "desc": "Hoodie premium dengan bahan cotton combed 24s pesanan dari Forum Lingkar Pena Jawa Timur",
+      "desc": "Hoodie Cotton Combed 24s hangat, sablon plastisol tebal di dada — nyaman buat komunitas.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 4,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/forum-lingkar-pena-jawa-timur/Banner-13.webp"
+      "heroImageLocal": "/images/portfolio/forum-lingkar-pena-jawa-timur/Banner-13.webp",
+      "rating": 4.6,
+      "reviews": 148,
+      "produced_count": 6,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/forum-lingkar-pena-jawa-timur/Combed_24s-1-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s",
+        "Variasi": "Model Hoodie"
+      }
     },
     {
       "title": "PT Angkasa Pura",
       "slug": "angkasa-pura",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-12.webp",
-      "desc": "Kaos premium dengan bahan cotton combed 24s pesanan dari Angkasa Pura",
+      "desc": "Cotton combed 24s tebal adem, sablon plastisol pekat—kaos basic yang awet dipakai sehari-hari.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/angkasa-pura/Banner-12.webp"
+      "heroImageLocal": "/images/portfolio/angkasa-pura/Banner-12.webp",
+      "rating": 4.7,
+      "reviews": 72,
+      "produced_count": 14,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/angkasa-pura/Kain_Combed_24s-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s"
+      }
     },
     {
       "title": "AR Rohmah Islamic Boarding School",
       "slug": "boarschar",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-10.webp",
-      "desc": "Jersey tanpa lengan dengan bahan drifit pesanan dari Boarschar",
+      "desc": "Drifit ringan tanpa lengan, sublim printing full-print — jersey latihan yang adem dan lega.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 4,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/boarschar/Banner-10.webp"
+      "heroImageLocal": "/images/portfolio/boarschar/Banner-10.webp",
+      "rating": 4.8,
+      "reviews": 138,
+      "produced_count": 22,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/boarschar/Fullprint2-600x600.webp",
+      "spec": {
+        "Bahan": "Drifit",
+        "Lengan": "Tanpa Lengan"
+      }
     },
     {
       "title": "PT Supa Surya Niaga",
       "slug": "supa-surya-niaga",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Plasrisol2.webp",
-      "desc": "Kaos perusahaan pesanan Supa Surya Niaga dengan tambahan sablon plastisol untuk logo perusahaan diposisi dada kiri dan punggung tengah.",
+      "desc": "Cotton Combed 24s tebal, plastisol logo di dada kiri & punggung — kaos perusahaan yang solid.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/supa-surya-niaga/Banner-8.webp"
+      "heroImageLocal": "/images/portfolio/supa-surya-niaga/Banner-8.webp",
+      "rating": 4.9,
+      "reviews": 139,
+      "produced_count": 5,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/supa-surya-niaga/Combed_24s-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s"
+      }
     },
     {
       "title": "ITTS Digiknow",
       "slug": "digiknow-institut-teknologi-telkom-surabaya",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_5_11zon.jpg",
-      "desc": "Kaos dengan variasi dua sablon untuk Digitknow ITTS",
+      "desc": "Combed 24s, dua teknik sablon DTF + plastisol — kaos kampus penuh dimensi.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 4,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/digiknow-institut-teknologi-telkom-surabaya/Banner_5_11zon.webp"
+      "heroImageLocal": "/images/portfolio/digiknow-institut-teknologi-telkom-surabaya/Banner_5_11zon.webp",
+      "rating": 4.8,
+      "reviews": 98,
+      "produced_count": 13,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/digiknow-institut-teknologi-telkom-surabaya/combed-24s_6_11zon-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s"
+      }
     },
     {
       "title": "PT Nusantara Medika Utama",
       "slug": "pt-nusantara-medika-utama-kaos",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_4_11zon.jpg",
-      "desc": "Kaos dengan bahan premium untuk PT Nusantara Medika Utama",
+      "desc": "Cotton Combed 24s nyaman dengan plastisol pekat — kaos seragam yang rapi dan tahan cuci.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pt-nusantara-medika-utama-kaos/Banner_4_11zon.webp"
+      "heroImageLocal": "/images/portfolio/pt-nusantara-medika-utama-kaos/Banner_4_11zon.webp",
+      "rating": 4.8,
+      "reviews": 24,
+      "produced_count": 28,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-nusantara-medika-utama-kaos/Combed-24s_5_11zon-1024x1024.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s"
+      }
     },
     {
       "title": "Univ Petra Desporev",
       "slug": "desporev-univ-petra",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/DTF202.webp",
-      "desc": "Kaos premium untuk Desporev Universitas Petra",
+      "desc": "Cotton Combed 30s ringan, sablon DTF full-color tajam — pas buat semarak event kampus.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/desporev-univ-petra/Banner-7.webp"
+      "heroImageLocal": "/images/portfolio/desporev-univ-petra/Banner-7.webp",
+      "rating": 4.7,
+      "reviews": 144,
+      "produced_count": 14,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/desporev-univ-petra/DTF202-600x600.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 30s"
+      }
     },
     {
       "title": "Yayasan Dana Sosial Al-Falah",
       "slug": "yayasan-dana-sosial-al-falah",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-6.webp",
-      "desc": "Jersey premium untuk Yayasan Dana Sosial Al-Falah",
+      "desc": "Drifit ringan cepat kering, full print rata seluruh badan—jersey yang ngangkat semangat tim.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/yayasan-dana-sosial-al-falah/Banner-6.webp"
+      "heroImageLocal": "/images/portfolio/yayasan-dana-sosial-al-falah/Banner-6.webp",
+      "rating": 4.9,
+      "reviews": 136,
+      "produced_count": 24,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/yayasan-dana-sosial-al-falah/IMG_4368.JPG-600x600.webp",
+      "spec": {
+        "Bahan": "Drifit"
+      }
     },
     {
       "title": "PT Gloster Furniture",
       "slug": "gloster-kaos-kerah",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/Gambar-8.jpg",
-      "desc": "Kaos Kerah Batik untuk Gloster",
+      "desc": "Canvas sueding bertekstur lembut, bordir komputer rapi — kaos berkerah yang berkelas.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 4,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/gloster-kaos-kerah/Bordir-belakang-2-600x600.webp"
+      "heroImageLocal": "/images/portfolio/gloster-kaos-kerah/Bordir-belakang-2-600x600.webp",
+      "rating": 4.7,
+      "reviews": 149,
+      "produced_count": 17,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/gloster-kaos-kerah/Gambar-8.webp",
+      "spec": {
+        "Bahan": "Canvas Sueding"
+      }
     },
     {
       "title": "Madrasah Bertaraf Internasional (MBI) Amanatul Ummah",
       "slug": "amanatul-ummah",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/Gambar-5.jpg",
-      "desc": "Jersey khusus yang di desain untuk MBI Amanatul Ummah",
+      "desc": "Drifit ringan anti gerah, full print desain bebas — jersey yang lincah buat olahraga.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/amanatul-ummah/Gambar-5.webp"
+      "heroImageLocal": "/images/portfolio/amanatul-ummah/Gambar-5.webp",
+      "rating": 4.9,
+      "reviews": 131,
+      "produced_count": 33,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/amanatul-ummah/Printing-belakang-600x600.webp",
+      "spec": {
+        "Bahan": "Drifit"
+      }
     },
     {
       "title": "PT Bühler Indonesia",
       "slug": "buhler",
       "garment_type": "kaos",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/Baju.jpg",
-      "desc": "Kaos yang didesain khusus untuk mendefinisikan brand Buhler",
+      "desc": "Combed 20s, sablon plastisol + variasi pecah pola — kaos brand bertekstur beda.",
       "pdpSlug": "kaos-brand-tee",
       "sectionCount": 4,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/buhler/Baju-1024x1024.webp"
+      "heroImageLocal": "/images/portfolio/buhler/Baju-1024x1024.webp",
+      "rating": 4.8,
+      "reviews": 106,
+      "produced_count": 22,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/buhler/Gambar-4.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 20s",
+        "Variasi": "Pecah Pola"
+      }
     },
     {
       "title": "BMF ASO Telkom",
       "slug": "bmf-aso-telkom",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Full-view-1-1.jpg",
-      "desc": "Jaket varsity yang di desain khusus untuk BMF ASO Telkom",
+      "desc": "Fleece PE hangat, manset strip variasi plus saku racis dan bordir — varsity yang nendang.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 5,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/bmf-aso-telkom/Full-view-1-1.webp"
+      "heroImageLocal": "/images/portfolio/bmf-aso-telkom/Full-view-1-1.webp",
+      "rating": 4.8,
+      "reviews": 144,
+      "produced_count": 32,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bmf-aso-telkom/Bordir-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece PE",
+        "Saku": "Saku Racis",
+        "Manset": "Manset Variasi Strip"
+      }
     },
     {
       "title": "MANDIRI",
       "slug": "mandiri",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Full-view-1.jpg",
-      "desc": "Jaket bomber yang di desain khusus untuk MANDIRI",
+      "desc": "Bomber Scottpuma furing katun, rib lengan, saku racis tertutup, zip YEE — bordir tegas dan gaya.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 8,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/mandiri/Full-view-1.webp"
+      "heroImageLocal": "/images/portfolio/mandiri/Full-view-1.webp",
+      "rating": 4.9,
+      "reviews": 96,
+      "produced_count": 30,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/mandiri/Bordir_1-5-600x600.webp",
+      "spec": {
+        "Furing": "Furing Katun",
+        "Kerah": "Kerah Berdiri",
+        "Saku": "Saku Racis Tertutup",
+        "Rib / Strip": "Rib pada Lengan",
+        "Scotlite": [
+          "Scott Puma"
+        ],
+        "Resleting": "Resleting Plastik YEE"
+      }
     },
     {
       "title": "PT UNICHARM",
       "slug": "pt-unicharm",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Banner-2.jpg",
-      "desc": "Jaket bomber yang di desain khusus untuk PT UNICHARM",
+      "desc": "Scottpuma anti angin, rib kerah dan badan, resleting besi YKK—bomber rapi yang gagah.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 5,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/pt-unicharm/Banner-2.webp"
+      "heroImageLocal": "/images/portfolio/pt-unicharm/Banner-2.webp",
+      "rating": 4.7,
+      "reviews": 112,
+      "produced_count": 10,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-unicharm/1-3-1024x1024.webp",
+      "spec": {
+        "Rib / Strip": "Rib pada Kerah dan Badan",
+        "Scotlite": [
+          "Scott Puma"
+        ],
+        "Resleting": "Resleting Besi YKK"
+      }
     },
     {
       "title": "CRAZY RISK",
       "slug": "crazy-risk",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Banner-1.jpg",
-      "desc": "Jaket varsity yang di desain khusus untuk CRAZY RISK",
+      "desc": "Fleece PE tebal, furing katun, manset strip + saku racis — varsity yang hangat dan nendang.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/crazy-risk/Banner-1.webp"
+      "heroImageLocal": "/images/portfolio/crazy-risk/Banner-1.webp",
+      "rating": 4.7,
+      "reviews": 160,
+      "produced_count": 8,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/crazy-risk/Bordir_1-4-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece PE",
+        "Saku": "Saku Racis",
+        "Manset": "Manset Variasi Strip",
+        "Kancing": "Kancing Cetekan Plastik"
+      }
     },
     {
       "title": "PT Cakratek Buana Amerta",
       "slug": "pt-cakratek-buana-amerta",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Banner-bawah.jpg",
-      "desc": "Jaket varsity yang di desain khusus untuk PT Cakratek Buana Amerta",
+      "desc": "Fleece CVC tebal furing padding, strip manset + saku racis, bordir — varsity hangat yang nendang.",
       "pdpSlug": "jaket-varsity",
       "sectionCount": 8,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/pt-cakratek-buana-amerta/Banner-bawah.webp"
+      "heroImageLocal": "/images/portfolio/pt-cakratek-buana-amerta/Banner-bawah.webp",
+      "rating": 4.9,
+      "reviews": 130,
+      "produced_count": 33,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-cakratek-buana-amerta/Bordir_1-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece CVC",
+        "Saku": "Saku Racis",
+        "Manset": "Manset Variasi Strip",
+        "Furing": "Furing Padding",
+        "Kancing": "Kancing Cetekan Plastik",
+        "Variasi": "Pecah Pola"
+      }
     },
     {
       "title": "PMM 3 UNAIR",
       "slug": "pmm-3-unair",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-29-at-10.51.36.jpeg",
-      "desc": "Jaket varsity yang di desain khusus untuk PMM 3 Universitas Airlangga",
+      "desc": "Fleece PE, kerah-manset strip + model tahu, saku racis kancing cetekan — varsity klasik.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/pmm-3-unair/IMG_1484-1024x1024.webp"
+      "heroImageLocal": "/images/portfolio/pmm-3-unair/IMG_1484-1024x1024.webp",
+      "rating": 4.8,
+      "reviews": 40,
+      "produced_count": 20,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/pmm-3-unair/Snapinsta.app_412521529_7368895133170027_1399416671183964145_n_1080-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece PE",
+        "Manset": "Kerah dan Lengan Manset Strip",
+        "Saku": "Saku Racis",
+        "Model": "Model Tahu",
+        "Kancing": "Kancing Cetekan Plastik"
+      }
     },
     {
       "title": "PU BBWS Brantas",
       "slug": "pu-bbws-brantas",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner-1-1.jpg",
-      "desc": "Jaket hoodie yang di desain khusus untuk PU BBWS Brantas",
+      "desc": "Fleece katun CVC tebal, hoodie paten resleting YKK, saku resleting, manset badan-lengan — hoodie kerja yang kokoh.",
       "pdpSlug": "jaket-varsity",
       "sectionCount": 7,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/pu-bbws-brantas/Banner-1-1.webp"
+      "heroImageLocal": "/images/portfolio/pu-bbws-brantas/Banner-1-1.webp",
+      "rating": 4.6,
+      "reviews": 172,
+      "produced_count": 6,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pu-bbws-brantas/Bordir-1-2-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece CVC",
+        "Saku": "Saku Resleting",
+        "Manset": "Manset Badan & Lengan",
+        "Kerudung / Hoodie": "Hoodie Paten & Tali Hoodie",
+        "Resleting": "Resleting Besi YKK"
+      }
     },
     {
       "title": "Shell Dupak Surabaya",
       "slug": "shell-dupak-surabaya",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner-4.jpg",
-      "desc": "Jaket Premium dengan bahan Taslan untuk Shell Dupak Surabaya",
+      "desc": "Taslan tahan air furing Drifit, saku racis, kancing cetekan, sablon DTF — ringan buat outdoor.",
       "pdpSlug": "jaket-outdoor",
       "sectionCount": 7,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/shell-dupak-surabaya/Banner-4.webp"
+      "heroImageLocal": "/images/portfolio/shell-dupak-surabaya/Banner-4.webp",
+      "rating": 4.8,
+      "reviews": 128,
+      "produced_count": 12,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/shell-dupak-surabaya/Furing-Drifit-1.webp",
+      "spec": {
+        "Bahan": "Taslan",
+        "Kerah": "Kerah Bahan",
+        "Saku": "Saku Racis",
+        "Kancing": "Kancing Cetekan Plastik"
+      }
     },
     {
       "title": "Domus",
       "slug": "domus",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner-min.jpg",
-      "desc": "Jaket Sweatshirt yang di desain khusus untuk Domus",
+      "desc": "Baby terry lembut, kerah daun, manset badan dan lengan—sweatshirt adem yang santai dan empuk.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 6,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/domus/Banner-min.webp"
+      "heroImageLocal": "/images/portfolio/domus/Banner-min.webp",
+      "rating": 4.7,
+      "reviews": 30,
+      "produced_count": 32,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/domus/Baby-Tery-min-1024x1024.webp",
+      "spec": {
+        "Bahan": "Baby Terry",
+        "Kerah": "Kerah Daun",
+        "Manset": "Manset Badan & Lengan",
+        "Resleting": "Resleting Plastik YEE"
+      }
     },
     {
       "title": "Machinery Departement",
       "slug": "machinery-departement",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Full-view-5.jpg",
-      "desc": "Jaket keren yang di desain khusus untuk Machinery Departement",
+      "desc": "Taslan anti angin, furing jersey, kerah hoodie + saku resleting — jaket lapangan yang tangguh.",
       "pdpSlug": "jaket-outdoor",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/machinery-departement/Full-view-5.webp"
+      "heroImageLocal": "/images/portfolio/machinery-departement/Full-view-5.webp",
+      "rating": 4.7,
+      "reviews": 46,
+      "produced_count": 12,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/machinery-departement/Furing-Jersey-1024x1024.webp",
+      "spec": {
+        "Bahan": "Taslan",
+        "Kerah": "Kerah Berdiri & Hoodie",
+        "Saku": "Saku Resleting",
+        "Manset": "Manset Badan & Lengan",
+        "Furing": "Furing Jersey"
+      }
     },
     {
       "title": "Hang Tuah",
       "slug": "hang-tuah",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Full-view-4.jpg",
-      "desc": "Jaket varsity yang di desain khusus untuk Hang Tuah",
+      "desc": "Fleece PE empuk, kerah-lengan strip + kancing cetekan, model tahu — varsity kampus yang stylish.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/hang-tuah/Full-view-4.webp"
+      "heroImageLocal": "/images/portfolio/hang-tuah/Full-view-4.webp",
+      "rating": 4.6,
+      "reviews": 138,
+      "produced_count": 5,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/hang-tuah/Bordir-4-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece PE",
+        "Manset": "Kerah dan Lengan Manset Strip",
+        "Saku": "Saku Racis",
+        "Model": "Model Tahu",
+        "Kancing": "Kancing Cetekan Plastik"
+      }
     },
     {
       "title": "SMA Kemala Bhayangkari",
       "slug": "sma-kemala-bhayangkari",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/baner-1.jpg",
-      "desc": "Jaket varsity yang di desain khusus untuk SMA Kemala Bhayangkari",
+      "desc": "Fleece CVC adem, kerah-manset strip + saku racis — varsity sekolah yang bersih.",
       "pdpSlug": "jaket-varsity",
       "sectionCount": 5,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/sma-kemala-bhayangkari/Bordir-Komputer-600x600.webp"
+      "heroImageLocal": "/images/portfolio/sma-kemala-bhayangkari/Bordir-Komputer-600x600.webp",
+      "rating": 4.8,
+      "reviews": 122,
+      "produced_count": 33,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/sma-kemala-bhayangkari/Fleece-CVC-1024x1024.webp",
+      "spec": {
+        "Bahan": "Fleece CVC",
+        "Manset": "Kerah dan Lengan Manset Strip",
+        "Saku": "Saku Racis"
+      }
     },
     {
       "title": "MBI Amanatul Ummah",
       "slug": "mbi-amanatul-ummah-2",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Full-View-3.jpg",
-      "desc": "Jaket varsity yang di desain khusus untuk MBI Amanatul Ummah",
+      "desc": "Canvas Marsoto kuat, emblem dua posisi, lengan panjang plus saku racis dan segi-5 — varsity gagah.",
       "pdpSlug": "jaket-varsity",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/mbi-amanatul-ummah-2/Full-View-3.webp"
+      "heroImageLocal": "/images/portfolio/mbi-amanatul-ummah-2/Full-View-3.webp",
+      "rating": 4.8,
+      "reviews": 88,
+      "produced_count": 4,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/mbi-amanatul-ummah-2/Bordir-1-600x600.webp",
+      "spec": {
+        "Bahan": "Canvas Marsoto",
+        "Saku": "Saku Racis 2 Posisi",
+        "Lengan": "Lengan Panjang",
+        "Variasi": "Emblem 2 Posisi",
+        "Kancing": "Kancing Cetekan Plastik"
+      }
     },
     {
       "title": "Universitas Airlangga",
       "slug": "universitas-airlangga",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner_1_11zon-5.jpg",
-      "desc": "Jaket varsity yang di desain khusus untuk Universitas Airlangga",
+      "desc": "Varsity bahan Micro, manset kerah-lengan, saku racis bibir, furing katun — bordir komputer kampus.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/universitas-airlangga/Banner_1_11zon-5.webp"
+      "heroImageLocal": "/images/portfolio/universitas-airlangga/Banner_1_11zon-5.webp",
+      "rating": 4.8,
+      "reviews": 34,
+      "produced_count": 28,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/universitas-airlangga/Bordir_1_2_11zon-2-600x600.webp",
+      "spec": {
+        "Bahan": "Micro",
+        "Manset": "Kerah dan Lengan Manset",
+        "Saku": "Saku Racis Bibir",
+        "Kancing": "Kancing Cetekan Plastik"
+      }
     },
     {
       "title": "Tenis Meja Universitas Airlangga",
       "slug": "tenis-meja-universitas-airlangga",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner_1_11zon-4.jpg",
-      "desc": "Jaket premium yang di desain khusus untuk komunitas Tenis Meja Universitas Airlangga",
+      "desc": "Diadora ringan, kerah berdiri, furing drifit adem plus manset—jaket komunitas yang gesit.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 7,
       "imageCount": 7,
-      "heroImageLocal": "/images/portfolio/tenis-meja-universitas-airlangga/Banner_1_11zon-4.webp"
+      "heroImageLocal": "/images/portfolio/tenis-meja-universitas-airlangga/Banner_1_11zon-4.webp",
+      "rating": 4.9,
+      "reviews": 26,
+      "produced_count": 17,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/tenis-meja-universitas-airlangga/Diadora_3_11zon-1024x1024.webp",
+      "spec": {
+        "Bahan": "Diadora",
+        "Kerah": "Kerah Berdiri",
+        "Manset": "Manset pada Ujung Badan dan Lengan",
+        "Resleting": "Resleting Plastik Standar"
+      }
     },
     {
       "title": "Superindo",
       "slug": "superindo",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner_2_11zon.jpg",
-      "desc": "Jaket varsity yang di desain khusus untuk Superindo",
+      "desc": "Micro ringan, raglan dua warna, rib kerah-lengan + saku 2 posisi — varsity yang dinamis.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 9,
       "imageCount": 7,
-      "heroImageLocal": "/images/portfolio/superindo/Banner_2_11zon.webp"
+      "heroImageLocal": "/images/portfolio/superindo/Banner_2_11zon.webp",
+      "rating": 4.8,
+      "reviews": 90,
+      "produced_count": 24,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/superindo/Bordir1_3_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Micro",
+        "Rib / Strip": "Rib pada Lengan, Kerah, dan Badan",
+        "Saku": "Saku 2 Posisi",
+        "Kombinasi Warna": "Raglan dengan Kombinasi 2 Warna",
+        "Kancing": "Kancing Cetekan Plastik"
+      }
     },
     {
       "title": "PT Adi Surya Sempurna",
       "slug": "shell",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner_1_11zon-3.jpg",
-      "desc": "Jaket regular yang di desain khusus untuk perusahaan Shell",
+      "desc": "Parasut anti angin, kerah shanghai + furing peles, lis resleting — jaket lapangan yang gesit.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/shell/Banner_1_11zon-3.webp"
+      "heroImageLocal": "/images/portfolio/shell/Banner_1_11zon-3.webp",
+      "rating": 4.7,
+      "reviews": 176,
+      "produced_count": 10,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/shell/Bordir_1_2_11zon-1-600x600.webp",
+      "spec": {
+        "Kerah": "Kerah Shanghai",
+        "Bahan": "Parasut",
+        "Furing": "Furing Peles",
+        "Resleting": "Lis Bagian Resleting"
+      }
     },
     {
       "title": "MBI Amanatul Ummah",
       "slug": "mbi-amanatul-ummah",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner_1_11zon-2.jpg",
-      "desc": "Jaket premium yang di desain khusus untuk MBI Amanatul Ummah",
+      "desc": "Canvas Marsoto kokoh, emblem dua posisi, saku racis + segi lima — jaket gagah berwibawa.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 7,
       "imageCount": 7,
-      "heroImageLocal": "/images/portfolio/mbi-amanatul-ummah/Banner_1_11zon-2.webp"
+      "heroImageLocal": "/images/portfolio/mbi-amanatul-ummah/Banner_1_11zon-2.webp",
+      "rating": 4.7,
+      "reviews": 26,
+      "produced_count": 32,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/mbi-amanatul-ummah/Canvas-Marsoto_2_11zon-1024x1024.webp",
+      "spec": {
+        "Bahan": "Canvas Marsoto",
+        "Saku": "Saku Racis 2 Posisi",
+        "Lengan": "Lengan Panjang",
+        "Variasi": "Emblem 2 Posisi",
+        "Kancing": "Kancing Cetekan Plastik"
+      }
     },
     {
       "title": "Kalpasaga",
       "slug": "kalpasaga",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner_6_11zon.jpg",
-      "desc": "Jaket regular yang di desain khusus untuk komunitas Kalpasaga",
+      "desc": "American Drill berhoodie, furing peles, saku resleting plus kerah berdiri velcro — jaket komunitas serbaguna.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 9,
       "imageCount": 8,
-      "heroImageLocal": "/images/portfolio/kalpasaga/Banner_6_11zon.webp"
+      "heroImageLocal": "/images/portfolio/kalpasaga/Banner_6_11zon.webp",
+      "rating": 4.8,
+      "reviews": 56,
+      "produced_count": 23,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/kalpasaga/American-Drill_5_11zon-1024x1024.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Kerah": "Kerah Berdiri dan Velcro",
+        "Saku": "Saku 2 Posisi dengan Resleting",
+        "Lengan": "Ujung Lengan dengan Velcro",
+        "Kerudung / Hoodie": "Hoodie",
+        "Furing": "Furing Peles",
+        "Ujung Badan": "Ujung Badan dengan Stopper"
+      }
     },
     {
       "title": "FTMM Universitas Airlangga",
       "slug": "ftmm-universitas-airlangga",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner_1_11zon-1.jpg",
-      "desc": "Jaket keren yang di desain khusus untuk FTMM Universitas Airlangga (Unair)",
+      "desc": "Taslan ringan, ujung badan berstopper-tali + kancing cetekan, sablon DTF — kasual yang adjustable.",
       "pdpSlug": "jaket-outdoor",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/ftmm-universitas-airlangga/Banner_1_11zon-1.webp"
+      "heroImageLocal": "/images/portfolio/ftmm-universitas-airlangga/Banner_1_11zon-1.webp",
+      "rating": 4.8,
+      "reviews": 178,
+      "produced_count": 25,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/ftmm-universitas-airlangga/Sablon-DTF_1_3_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Taslan",
+        "Ujung Badan": "Ujung Badan dengan Stopper dan Tali",
+        "Kancing": "Kancing Cetekan Plastik"
+      }
     },
     {
       "title": "AIESEC",
       "slug": "aiesec",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner_1_11zon.jpg",
-      "desc": "Jaket varsity yang di desain khusus untuk komunitas AIESEC",
+      "desc": "Fleece PE tebal, emblem lengan, kerah dan manset strip, saku dua posisi—varsity yang nendang.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/aiesec/Banner_1_11zon.webp"
+      "heroImageLocal": "/images/portfolio/aiesec/Banner_1_11zon.webp",
+      "rating": 4.9,
+      "reviews": 48,
+      "produced_count": 24,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/aiesec/Bordir_1_2_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece PE",
+        "Manset": "Manset Trip",
+        "Saku": "Saku 2 Posisi",
+        "Lengan": "Emblem di Bagian Lengan"
+      }
     },
     {
       "title": "BEM Universitas Katolik Darma Cendika",
       "slug": "bem-universitas-katolik-darma-cendika",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner_6_11zon.jpg",
-      "desc": "Jaket premium untuk BEM Universitas Katolik Darma Cendika",
+      "desc": "Nagata drill, furing peles, saku tutup 2 posisi + cetekan plastik — jaket organisasi yang solid.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 7,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/bem-universitas-katolik-darma-cendika/Banner_6_11zon.webp"
+      "heroImageLocal": "/images/portfolio/bem-universitas-katolik-darma-cendika/Banner_6_11zon.webp",
+      "rating": 4.7,
+      "reviews": 176,
+      "produced_count": 20,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/bem-universitas-katolik-darma-cendika/Bordir1_7_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Saku": "Saku Tempel dengan Penutup 2 Posisi",
+        "Furing": "Furing Peles",
+        "Kancing": "Kancing Cetekan Plastik",
+        "Resleting": "Resleting Plastik Standar"
+      }
     },
     {
       "title": "ITTS DigiKnow",
       "slug": "digiknow-telkom-indonesia",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/08/Banner_1_11zon.jpg",
-      "desc": "Jaket Premium untuk ITTS DigiKnow",
+      "desc": "Cotton Combed 24s nyaman, kombinasi DTF + plastisol — jaket komunitas yang detail tajam.",
       "pdpSlug": "jaket-outdoor",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/digiknow-telkom-indonesia/Banner_1_11zon.webp"
+      "heroImageLocal": "/images/portfolio/digiknow-telkom-indonesia/Banner_1_11zon.webp",
+      "rating": 4.9,
+      "reviews": 164,
+      "produced_count": 22,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/digiknow-telkom-indonesia/Bordir_3_4_11zon-600x600.webp",
+      "spec": {
+        "Bahan": "Cotton Combed 24s"
+      }
     },
     {
       "title": "PT HM Sampoerna",
       "slug": "open-plus",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/gambar.jpg",
-      "desc": "Jaket varsity yang di desain untuk komunitas GTR",
+      "desc": "Fleece CVC, resleting YKK premium + kerah custom — varsity komunitas yang awet.",
       "pdpSlug": "jaket-varsity",
       "sectionCount": 6,
       "imageCount": 6,
-      "heroImageLocal": "/images/portfolio/open-plus/Bordir-1-1024x1024.webp"
+      "heroImageLocal": "/images/portfolio/open-plus/Bordir-1-1024x1024.webp",
+      "rating": 4.9,
+      "reviews": 24,
+      "produced_count": 20,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/open-plus/Kancing-1024x1024.webp",
+      "spec": {
+        "Bahan": "Fleece CVC",
+        "Kerah": "Kerah Custom",
+        "Model": "Varsity",
+        "Resleting": "Resleting Besi YKK"
+      }
     },
     {
       "title": "SMA Mumammadiyah 2 Sidoarjo",
       "slug": "sma-mumammadiyah-2-sidoarjo",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bordir.webp",
-      "desc": "Hoodie premium untuk SMA Muhammadiyah 2 Sidoarjo",
+      "desc": "Fleece PE hangat berhoodie dengan bordir komputer rapi — hoodie sekolah yang simpel dan adem dipakai.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 4,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/sma-mumammadiyah-2-sidoarjo/Banner-11.webp"
+      "heroImageLocal": "/images/portfolio/sma-mumammadiyah-2-sidoarjo/Banner-11.webp",
+      "rating": 4.6,
+      "reviews": 46,
+      "produced_count": 21,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/sma-mumammadiyah-2-sidoarjo/Bordir-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece PE",
+        "Kerudung / Hoodie": "Hoodie"
+      }
     },
     {
       "title": "Untag Sastra Jepang",
       "slug": "untag-sastra-jepang",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-2-1.webp",
-      "desc": "Hoodie premium dengan bahan fleece CVC pesanan dari UNTAG Sastra Jepang",
+      "desc": "Hoodie Fleece CVC tebal hangat, sablon plastisol pekat — nyaman dipakai sepanjang hari.",
       "pdpSlug": "jaket-varsity",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/untag-sastra-jepang/Banner-2-1.webp"
+      "heroImageLocal": "/images/portfolio/untag-sastra-jepang/Banner-2-1.webp",
+      "rating": 4.9,
+      "reviews": 80,
+      "produced_count": 22,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/untag-sastra-jepang/Dtf-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece CVC"
+      }
     },
     {
       "title": "PT Tanto Intim Line",
       "slug": "pt-tanto-intim-line",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-5.webp",
-      "desc": "Jaket premium untuk PT Tanto Intim Line",
+      "desc": "Scott Puma anti angin, furing jala adem, scotlite reflektif di belakang—aman buat malam.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 5,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/pt-tanto-intim-line/Banner-5.webp"
+      "heroImageLocal": "/images/portfolio/pt-tanto-intim-line/Banner-5.webp",
+      "rating": 4.8,
+      "reviews": 56,
+      "produced_count": 30,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-tanto-intim-line/Bordir2-600x600.webp",
+      "spec": {
+        "Scotlite": [
+          "Scott Puma",
+          "Scotlite Bagian Belakang"
+        ],
+        "Furing": "Furing Jala"
+      }
     },
     {
       "title": "PT Industri Kemasan Semen Gresik",
       "slug": "pt-industri-kemasan-semen-gresik-jaket",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-4.webp",
-      "desc": "Jaket premium dengan variasi unik untuk PT Industri Kemasan Semen Gresik",
+      "desc": "American drill, furing kotak-kotak, kerah berdiri + saku racis — jaket yang detailnya beda.",
       "pdpSlug": "jaket-bomber",
       "sectionCount": 7,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/pt-industri-kemasan-semen-gresik-jaket/Banner-4.webp"
+      "heroImageLocal": "/images/portfolio/pt-industri-kemasan-semen-gresik-jaket/Banner-4.webp",
+      "rating": 4.8,
+      "reviews": 84,
+      "produced_count": 12,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-industri-kemasan-semen-gresik-jaket/American20Drill.JPG-1024x1024.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Kerah": "Kerah Berdiri",
+        "Saku": "Saku Racis dengan Bagian Dalam Kotak-Kotak",
+        "Furing": "Furing Peles Kombinasi Kotak-Kotak",
+        "Resleting": "Resleting Plastik YEE"
+      }
     },
     {
       "title": "Troline",
       "slug": "troline-jaket",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bordir_3-3.webp",
-      "desc": "Jaket varsity dengan berbagai variasi untuk Troline",
+      "desc": "Taslan furing padding, kerah-saku racis beda warna + bordir — varsity dua tone yang berani.",
       "pdpSlug": "jaket-outdoor",
       "sectionCount": 7,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/troline-jaket/Banner-3.webp"
+      "heroImageLocal": "/images/portfolio/troline-jaket/Banner-3.webp",
+      "rating": 4.9,
+      "reviews": 83,
+      "produced_count": 25,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/troline-jaket/Bordir_3-3-600x600.webp",
+      "spec": {
+        "Bahan": "Taslan",
+        "Kerah": "Kerah Beda Warna",
+        "Saku": "Saku Racis Beda Warna",
+        "Manset": "Manset Senada",
+        "Furing": "Furing Padding"
+      }
     },
     {
       "title": "Sheraton Hotels and Resorts",
       "slug": "sheraton-jaket",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Varsity-.webp",
-      "desc": "Jaket varsity dengan berbagai variasi untuk Sheraton",
+      "desc": "Fleece CVC, variasi strip + saku racis bibir atas-bawah — varsity rapi penuh detail.",
       "pdpSlug": "jaket-varsity",
       "sectionCount": 6,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/sheraton-jaket/Banner-2-600x600.webp"
+      "heroImageLocal": "/images/portfolio/sheraton-jaket/Banner-2-600x600.webp",
+      "rating": 4.9,
+      "reviews": 124,
+      "produced_count": 8,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/sheraton-jaket/Bordir_3-2-600x600.webp",
+      "spec": {
+        "Bahan": "Fleece CVC",
+        "Saku": "Saku Racis Bibir Atas Bawah",
+        "Model": "Varsity",
+        "Rib / Strip": "Strip"
+      }
     },
     {
       "title": "RS Semen Gresik",
       "slug": "rs-semen-gresik-jaket__trashed",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/02/Varsity.webp",
-      "desc": "Jaket Varsity untuk RS Semen Gresik",
+      "desc": "Fleece CVC tebal gaya varsity, strip kerah-lengan-badan plus saku racis dua posisi — klasik dan rapi.",
       "pdpSlug": "jaket-varsity",
       "sectionCount": 6,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/rs-semen-gresik-jaket__trashed/Depan-Belakang.webp"
+      "heroImageLocal": "/images/portfolio/rs-semen-gresik-jaket__trashed/Depan-Belakang.webp",
+      "rating": 4.6,
+      "reviews": 38,
+      "produced_count": 20,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/rs-semen-gresik-jaket__trashed/Fleece_CVC.webp",
+      "spec": {
+        "Bahan": "Fleece CVC",
+        "Rib / Strip": "Strip Kerah, Lengan & Badan",
+        "Saku": "Saku Racis 2 Posisi",
+        "Model": "Varsity"
+      }
     },
     {
       "title": "PT Perusahaan Listrik Negara",
       "slug": "pln-ulp-ngagel",
       "garment_type": "jaket",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/pecah-pola.jpg",
-      "desc": "Jaket yang di desain untuk PLN ULP Ngagel",
+      "desc": "Taslan furing Drifit, variasi pecah pola + bordir komputer — desain dinamis tahan cuaca.",
       "pdpSlug": "jaket-outdoor",
       "sectionCount": 5,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/pln-ulp-ngagel/Bordir-2-2-600x600.webp"
+      "heroImageLocal": "/images/portfolio/pln-ulp-ngagel/Bordir-2-2-600x600.webp",
+      "rating": 4.7,
+      "reviews": 132,
+      "produced_count": 8,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pln-ulp-ngagel/furing-1024x1024.webp",
+      "spec": {
+        "Bahan": "Taslan",
+        "Variasi": "Pecah Pola"
+      }
     },
     {
       "title": "PT Bumi Gresik Sukses",
       "slug": "pt-bumi-gresik-sukses",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Full-view-4.jpg",
-      "desc": "Rompi premium yang didesain khusus untuk PT Bumi Gresik Sukses",
+      "desc": "American Drill kuat, furing peles, saku tempel tertutup plus pecah pola—rompi kerja yang rapi.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/pt-bumi-gresik-sukses/Full-view-4.webp"
+      "heroImageLocal": "/images/portfolio/pt-bumi-gresik-sukses/Full-view-4.webp",
+      "rating": 4.8,
+      "reviews": 102,
+      "produced_count": 4,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-bumi-gresik-sukses/American-drill-1024x1024.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Saku": "Saku Tempel Segi 4 Tertutup",
+        "Furing": "Furing Peles",
+        "Resleting": "Resleting YEE",
+        "Pecah Pola": "Dengan Pecah Pola"
+      }
     },
     {
       "title": "Bin Dawood Tour & Travel",
       "slug": "bin-dawood-tour-travel",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/04/Banner-1.jpg",
-      "desc": "Rompi premium yang didesain khusus untuk Bin Dawood Tour & Travel",
+      "desc": "Japan drill, saku floi segi enam tertutup, lis cepit + furing peles — rompi travel yang rapi.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 6,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/bin-dawood-tour-travel/Banner-1.webp"
+      "heroImageLocal": "/images/portfolio/bin-dawood-tour-travel/Banner-1.webp",
+      "rating": 4.7,
+      "reviews": 124,
+      "produced_count": 10,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bin-dawood-tour-travel/1-2-1024x1024.webp",
+      "spec": {
+        "Bahan": "Japan Drill",
+        "Saku": "Saku Floi Segi 6 Tertutup",
+        "Furing": "Furing Peles",
+        "Variasi": [
+          "Lis Cepit"
+        ]
+      }
     },
     {
       "title": "PJB Service",
       "slug": "pjb-service",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Banner-3.jpg",
-      "desc": "Rompi premium yang didesain khusus untuk PJB Service",
+      "desc": "Nagata Drill kokoh furing dri-fit, saku segi enam + resleting YKK — rompi kerja yang rapi tahan banting.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 7,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/pjb-service/Banner-3.webp"
+      "heroImageLocal": "/images/portfolio/pjb-service/Banner-3.webp",
+      "rating": 4.8,
+      "reviews": 134,
+      "produced_count": 24,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pjb-service/Bordir-1-1-600x600.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Saku": "Saku Segi",
+        "Furing": "Furing Dri-fit",
+        "Pecah Pola": "Dengan Pecah Pola",
+        "Resleting": "Resleting YEE"
+      }
     },
     {
       "title": "Kementrian PUPR",
       "slug": "kementrian-pupr",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/Baner-4.jpg",
-      "desc": "Rompi premium yang didesain khusus untuk Kementrian PUPR",
+      "desc": "American Drill, lis cepit + anci pundak, kancing tertutup melet — rompi lapangan presisi.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 8,
       "imageCount": 7,
-      "heroImageLocal": "/images/portfolio/kementrian-pupr/Baner-4.webp"
+      "heroImageLocal": "/images/portfolio/kementrian-pupr/Baner-4.webp",
+      "rating": 4.8,
+      "reviews": 159,
+      "produced_count": 17,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/kementrian-pupr/IMG_9891-Copy-1024x1024.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Saku": "Saku Floi dengan Penutup 2 Posisi",
+        "Variasi": [
+          "Pengait Lengan",
+          "Lis Cepit",
+          "Kancing Tertutup dengan Variasi Melet",
+          "Ujung Badan Oval"
+        ],
+        "Pecah Pola": "Dengan Pecah Pola",
+        "Anci Pundak": "Dengan Anci/Pangkat di Pundak"
+      }
     },
     {
       "title": "PT. Pertamina",
       "slug": "pt-pertamina",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/Baner-3.jpg",
-      "desc": "Rompi premium yang didesain khusus untuk PT. Pertamina",
+      "desc": "Nagata Drill berfuring peles, saku kompol dan racis, resleting plastik plus scotlite 3M — rompi lapangan aman.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 10,
       "imageCount": 9,
-      "heroImageLocal": "/images/portfolio/pt-pertamina/Baner-3.webp"
+      "heroImageLocal": "/images/portfolio/pt-pertamina/Baner-3.webp",
+      "rating": 4.7,
+      "reviews": 152,
+      "produced_count": 22,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-pertamina/Bordir-1024x1024.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Saku": "Saku Kompol 2 Posisi",
+        "Furing": "Furing Peles",
+        "Resleting": "Resleting Plastik",
+        "Scotlite": "Scotlite 3M",
+        "Kombinasi Warna": "Kombinasi 3 Warna",
+        "Anci Pundak": "Dengan Anci/Pangkat di Pundak"
+      }
     },
     {
       "title": "Seribu Senyum",
       "slug": "seribu-senyum-rompi",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner-4.jpg",
-      "desc": "Rompi yang didesain khusus untuk Seribu Senyum",
+      "desc": "Rompi saku floi dua posisi plus bordir komputer — ringkas dan praktis buat aktivitas.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 6,
       "imageCount": 5,
-      "heroImageLocal": "/images/portfolio/seribu-senyum-rompi/Banner-4.webp"
+      "heroImageLocal": "/images/portfolio/seribu-senyum-rompi/Banner-4.webp",
+      "rating": 4.6,
+      "reviews": 100,
+      "produced_count": 18,
+      "segment": "community",
+      "heroImageLocal2": "/images/portfolio/seribu-senyum-rompi/Bordir2-2-600x600.webp",
+      "spec": {
+        "Saku": "Saku dengan Floi 2 Posisi"
+      }
     },
     {
       "title": "PT PLN Pusat Pemeliharaan Ketenagalistrikan UWP VI",
       "slug": "pln-rompi",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-1-2.webp",
-      "desc": "Rompi premium untuk PT PLN Pusat Pemeliharaan Ketenagalistrikan UWP VI",
+      "desc": "American Drill kokoh, saku kompol dua posisi berkancing cetekan—rompi lapangan yang muat banyak.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 5,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pln-rompi/Banner-1-2.webp"
+      "heroImageLocal": "/images/portfolio/pln-rompi/Banner-1-2.webp",
+      "rating": 4.9,
+      "reviews": 58,
+      "produced_count": 5,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pln-rompi/American_Drill-1024x1024.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Saku": "Saku Kompol 2 Posisi dengan Kancing Cetekan",
+        "Resleting": "Resleting Plastik"
+      }
     },
     {
       "title": "PT Pembangkit Jawa Bali",
       "slug": "lazis-pjb",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner-1-1.webp",
-      "desc": "Rompi dengan furing peles pesanan dari Lazis PJB",
+      "desc": "Taipan tropical, airflow adem, anci pundak, saku bolpoin + pengait HT — rompi lapangan praktis.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 6,
       "imageCount": 3,
-      "heroImageLocal": "/images/portfolio/lazis-pjb/Banner-1-1.webp"
+      "heroImageLocal": "/images/portfolio/lazis-pjb/Banner-1-1.webp",
+      "rating": 4.8,
+      "reviews": 140,
+      "produced_count": 13,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/lazis-pjb/Resleting_utama_plastik_standar-600x600.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Saku": "Saku Bolpoin",
+        "Variasi": [
+          "Lengan Panjang dengan Ujung Resleting YKK",
+          "Airflow",
+          "Pengait untuk HT"
+        ],
+        "Anci Pundak": "Dengan Anci/Pangkat di Pundak"
+      }
     },
     {
       "title": "PT Pembangkit Jawa Bali",
       "slug": "pjb-rompi",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bordir_3.webp",
-      "desc": "Rompi untuk PJB Total Patrol",
+      "desc": "Taipan Tropical airflow adem, saku bolpoin + pengait HT, resleting YKK — rompi patroli yang fungsional.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 3,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/pjb-rompi/Bordir_3-600x600.webp"
+      "heroImageLocal": "/images/portfolio/pjb-rompi/Bordir_3-600x600.webp",
+      "rating": 4.9,
+      "reviews": 122,
+      "produced_count": 32,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pjb-rompi/Cover-1.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Saku": "Saku Bolpoin",
+        "Variasi": [
+          "Lengan Panjang dengan Ujung Resleting YKK",
+          "Airflow",
+          "Pengait untuk HT"
+        ],
+        "Anci Pundak": "Dengan Anci/Pangkat di Pundak"
+      }
     },
     {
       "title": "PT Nipsea Paint and Chemicals",
       "slug": "nippon-paint-rompi",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bordir_2.webp",
-      "desc": "Rompi yang digunakan untuk tim penegak protokel kesehatan Nippon Paint",
+      "desc": "Nagata Drill kuat, bordir komputer — rompi tugas yang sigap dan tahan.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 3,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/nippon-paint-rompi/Bordir_1-1024x1024.webp"
+      "heroImageLocal": "/images/portfolio/nippon-paint-rompi/Bordir_1-1024x1024.webp",
+      "rating": 4.9,
+      "reviews": 94,
+      "produced_count": 8,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/nippon-paint-rompi/Bordir_2.webp",
+      "spec": {
+        "Bahan": "Nagata Drill"
+      }
     },
     {
       "title": "PT Gloster Furniture",
       "slug": "gloster",
       "garment_type": "rompi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/bordir-depan-rompi-gloster.webp",
-      "desc": "Rompi yang digunakan untuk tim penegak protokol kesehatan Gloster",
+      "desc": "Canvas sueding lembut tapi kokoh dengan bordir komputer — rompi tim yang ringkas dan gampang dipakai.",
       "pdpSlug": "rompi-corporate",
       "sectionCount": 3,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/gloster/bordir-belakang-rompi-gloster.webp"
+      "heroImageLocal": "/images/portfolio/gloster/bordir-belakang-rompi-gloster.webp",
+      "rating": 4.8,
+      "reviews": 160,
+      "produced_count": 22,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/gloster/bordir-depan-rompi-gloster-1024x1024.webp",
+      "spec": {
+        "Bahan": "Canvas Sueding"
+      }
     },
     {
       "title": "PT. PJB",
       "slug": "pt-pjb",
       "garment_type": "wearpack",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Banner-5.jpg",
-      "desc": "Coverall Wearpack yang didesain khusus untuk PT.PJB",
+      "desc": "Coverall Nagata Drill, karet pinggang, scotlite reflektif lengan, zip YKK — aman di lapangan.",
       "pdpSlug": "wearpack-industrial",
       "sectionCount": 12,
       "imageCount": 11,
-      "heroImageLocal": "/images/portfolio/pt-pjb/Banner-5.webp"
+      "heroImageLocal": "/images/portfolio/pt-pjb/Banner-5.webp",
+      "rating": 4.7,
+      "reviews": 162,
+      "produced_count": 33,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-pjb/American-Drill.webp",
+      "spec": {
+        "Bahan": "Nagata Drill",
+        "Saku": "Saku Tempel 2 Posisi",
+        "Scotlite": [
+          "Scotlite Lengan 3 cm",
+          "Scotlite Celana 5 cm"
+        ],
+        "Karet Pinggang": "Karet Bagian Belakang",
+        "Velcro / Ampil": "Ampil dengan Velcro",
+        "Resleting": "Resleting Utama YKK",
+        "Airflow / Ventilasi": "Airflow"
+      }
     },
     {
       "title": "PT Senku",
       "slug": "pt-senku",
       "garment_type": "wearpack",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Banner_2_11zon-6.jpg",
-      "desc": "Wearpack Premium dengan Bahan Taipan Tropical untuk PT Senku",
+      "desc": "Taipan Tropical adem, airflow jala putih, kerah bordir plus resleting—wearpack sejuk buat kerja seharian.",
       "pdpSlug": "wearpack-industrial",
       "sectionCount": 11,
       "imageCount": 11,
-      "heroImageLocal": "/images/portfolio/pt-senku/Banner_2_11zon-6.webp"
+      "heroImageLocal": "/images/portfolio/pt-senku/Banner_2_11zon-6.webp",
+      "rating": 4.9,
+      "reviews": 96,
+      "produced_count": 16,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-senku/Bordir_3_11zon-1-1024x1024.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Kerah": "Kerah Bordir",
+        "Saku": "Saku Variasi Depan",
+        "Lengan": "Lengan Panjang",
+        "Airflow / Ventilasi": "Airflow Jala Putih",
+        "Resleting": "Resleting Utama Plastik",
+        "Kancing": "Kancing Cetekan Plastik",
+        "Variasi": [
+          "Jahitan Dobel",
+          "Ban Jahitan Menyilang"
+        ]
+      }
     },
     {
       "title": "PT Pabrik Kertas Tjiwi Kimia Tbk",
       "slug": "tjiwi-kimia-wearpack",
       "garment_type": "wearpack",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/AnyConv.com__Bordir_3.webp",
-      "desc": "Kemeja untuk Tjiwi Kimia",
+      "desc": "Ravel wash kuat dengan pengait besi kokoh — wearpack kerja yang tahan banting di lapangan.",
       "pdpSlug": "wearpack-industrial",
       "sectionCount": 7,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/tjiwi-kimia-wearpack/AnyConv.com__Airflo-600x600.webp"
+      "heroImageLocal": "/images/portfolio/tjiwi-kimia-wearpack/AnyConv.com__Airflo-600x600.webp",
+      "rating": 4.7,
+      "reviews": 160,
+      "produced_count": 18,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/tjiwi-kimia-wearpack/AnyConv.com__Bordir_3-600x600.webp",
+      "spec": {
+        "Bahan": "Rafel Wash",
+        "Pengait": "Pengait Besi"
+      }
     },
     {
       "title": "Kementrian PUPR",
       "slug": "bbws-pupr-wearpack",
       "garment_type": "wearpack",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/02/kerah-berdiri.webp",
-      "desc": "Wearpack untuk BBWS PUPR",
+      "desc": "American Drill kuat, lis cepit + anci pundak, kancing tertutup melet — wearpack lapangan yang aman.",
       "pdpSlug": "wearpack-industrial",
       "sectionCount": 8,
       "imageCount": 2,
-      "heroImageLocal": "/images/portfolio/bbws-pupr-wearpack/bahan-1.webp"
+      "heroImageLocal": "/images/portfolio/bbws-pupr-wearpack/bahan-1.webp",
+      "rating": 4.7,
+      "reviews": 160,
+      "produced_count": 8,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bbws-pupr-wearpack/bordir3-600x600.webp",
+      "spec": {
+        "Bahan": "American Drill",
+        "Saku": "Saku Floi Penutup 2 Posisi",
+        "Lengan": "Pengait Lengan",
+        "Variasi": [
+          "Lis Cepit",
+          "Pecah Pola",
+          "Anci Pundak",
+          "Ujung Badan Oval"
+        ],
+        "Kancing": "Kancing Tertutup Variasi Melet"
+      }
     },
     {
       "title": "PT Cogindo Daya Bersama",
       "slug": "cogindo-daya-bersama",
       "garment_type": "wearpack",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/bordir1-7.webp",
-      "desc": "Seragam kerja dengan bahan taipan tropical premium untuk Cogindo Daya Bersama",
+      "desc": "Taipan Tropical, scotlite + emblem nama, ujung lengan velcro — wearpack siap kerja berat.",
       "pdpSlug": "wearpack-industrial",
       "sectionCount": 7,
       "imageCount": 4,
-      "heroImageLocal": "/images/portfolio/cogindo-daya-bersama/Banner_4_.webp"
+      "heroImageLocal": "/images/portfolio/cogindo-daya-bersama/Banner_4_.webp",
+      "rating": 4.7,
+      "reviews": 75,
+      "produced_count": 8,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/cogindo-daya-bersama/bordir1-7.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Lengan": "Ujung Lengan & Ban Velcro",
+        "Variasi": [
+          "Emblem Nama"
+        ],
+        "Pengait": "Pengait Pundak",
+        "Scotlite": [
+          "Scotlite Badan"
+        ]
+      }
     },
     {
       "title": "PT Pembangkit Jawa Bali",
       "slug": "pjb-uphar-jatim",
       "garment_type": "wearpack",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/Cover.webp",
-      "desc": "Seragam kerja yang digunakan untuk mepresentasikan identitas PJB",
+      "desc": "Taipan Tropical airflow adem, lengan resleting YKK, saku bolpoin plus pengait HT — wearpack kerja yang lengkap.",
       "pdpSlug": "wearpack-industrial",
       "sectionCount": 8,
       "imageCount": 7,
-      "heroImageLocal": "/images/portfolio/pjb-uphar-jatim/Cover.webp"
+      "heroImageLocal": "/images/portfolio/pjb-uphar-jatim/Cover.webp",
+      "rating": 4.7,
+      "reviews": 176,
+      "produced_count": 26,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pjb-uphar-jatim/Salinan20IMG_1703.JPG-600x600.webp",
+      "spec": {
+        "Bahan": "Taipan Tropical",
+        "Saku": "Saku Bolpoin",
+        "Lengan": "Lengan Panjang Ujung Resleting YKK",
+        "Airflow / Ventilasi": "Airflow",
+        "Variasi": [
+          "Anci Pundak"
+        ],
+        "Pengait": "Pengait untuk HT"
+      }
     },
     {
       "title": "Universitas Airlangga",
       "slug": "universitas-airlangga-3",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Banner-6.jpg",
-      "desc": "Topi Premium untuk Universitas Airlangga",
+      "desc": "Topi bahan Micro, bordir komputer rapi, furing katun adem — finishing kampus yang solid.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 5,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/universitas-airlangga-3/Banner-6.webp"
+      "heroImageLocal": "/images/portfolio/universitas-airlangga-3/Banner-6.webp",
+      "rating": 4.9,
+      "reviews": 126,
+      "produced_count": 29,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/universitas-airlangga-3/Bordir_1-3-600x600.webp",
+      "spec": {}
     },
     {
       "title": "PT Teknik Surya Teknik",
       "slug": "pt-teknik-surya-teknik",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/tm-1.webp",
-      "desc": "Topi premium untuk PT Teknik Surya Teknik",
+      "desc": "Rafel wash adem dengan pengait besi yang gampang disetel—topi simpel yang pas di kepala.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/pt-teknik-surya-teknik/tm-banner.webp"
+      "heroImageLocal": "/images/portfolio/pt-teknik-surya-teknik/tm-banner.webp",
+      "rating": 4.8,
+      "reviews": 122,
+      "produced_count": 16,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-teknik-surya-teknik/tm-1-600x600.webp",
+      "spec": {}
     },
     {
       "title": "PT Pabrik Kertas Tjiwi Kimia Tbk",
       "slug": "tjiwi-kimia-topi",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/tp-1.webp",
-      "desc": "Topi premium untuk Tjiwi Kimia",
+      "desc": "Ravel wash kokoh, pengait besi rapat — topi lapangan yang awet menemani kerja harian.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/tjiwi-kimia-topi/tp-banner.webp"
+      "heroImageLocal": "/images/portfolio/tjiwi-kimia-topi/tp-banner.webp",
+      "rating": 4.6,
+      "reviews": 50,
+      "produced_count": 32,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/tjiwi-kimia-topi/tp-1-600x600.webp",
+      "spec": {}
     },
     {
       "title": "PT Indonesia Tri Sembilan",
       "slug": "indonesia-tri-sembilan",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/t-banner.webp",
-      "desc": "Topi premium untuk PT Indonesia Tri Sembilan",
+      "desc": "American Drill kaku, setelan karet pas di kepala — topi kerja yang kokoh dan adem.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/indonesia-tri-sembilan/t-banner.webp"
+      "heroImageLocal": "/images/portfolio/indonesia-tri-sembilan/t-banner.webp",
+      "rating": 4.9,
+      "reviews": 52,
+      "produced_count": 13,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/indonesia-tri-sembilan/t-1-600x600.webp",
+      "spec": {}
     },
     {
       "title": "PT Sarana Karya Solusindo",
       "slug": "bandell-lighting",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/tb-1.webp",
-      "desc": "Topi premium dengan bahan rafel wash untuk Bandell Lighting",
+      "desc": "American Drill, pengait rel plastik — topi kerja simpel yang pas di kepala.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/bandell-lighting/tb-banner.webp"
+      "heroImageLocal": "/images/portfolio/bandell-lighting/tb-banner.webp",
+      "rating": 4.9,
+      "reviews": 166,
+      "produced_count": 31,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bandell-lighting/tb-1-600x600.webp",
+      "spec": {}
     },
     {
       "title": "PT Tanto Intim Line",
       "slug": "pt-tanto-intim-line-topi",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Banner_1_11zon-1.jpg",
-      "desc": "Topi Premium untuk PT Tanto Intime Line",
+      "desc": "Scott Puma berfuring jala adem dengan scotlite belakang plus bordir — topi lapangan yang aman dan ringan.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/pt-tanto-intim-line-topi/Banner_1_11zon-1.webp"
+      "heroImageLocal": "/images/portfolio/pt-tanto-intim-line-topi/Banner_1_11zon-1.webp",
+      "rating": 4.7,
+      "reviews": 38,
+      "produced_count": 4,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pt-tanto-intim-line-topi/Ravel-Wash1_2_11zon-600x600.webp",
+      "spec": {}
     },
     {
       "title": "Univ Petra Desporev",
       "slug": "univ-petra-desporev-topi",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/american-drill2_1_11zon.jpg",
-      "desc": "Topi Premium untuk Universitas Petra Event Desporev",
+      "desc": "Topi Cotton Combed 30s ringan, print DTF tajam — pelengkap seru atribut event kampus.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/univ-petra-desporev-topi/Banner_2_11zon-1.webp"
+      "heroImageLocal": "/images/portfolio/univ-petra-desporev-topi/Banner_2_11zon-1.webp",
+      "rating": 4.7,
+      "reviews": 78,
+      "produced_count": 7,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/univ-petra-desporev-topi/Pengait-rel-Plastik_3_11zon-600x600.webp",
+      "spec": {}
     },
     {
       "title": "PT Bina Karya Prima",
       "slug": "bina-karya-prima",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/American-Drill_1.webp",
-      "desc": "Topi Karet untuk kebutuhan Bina Karya Prima",
+      "desc": "American Drill kokoh dengan logo full karet timbul—topi tegas yang awet dipakai harian.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/bina-karya-prima/Banner.webp"
+      "heroImageLocal": "/images/portfolio/bina-karya-prima/Banner.webp",
+      "rating": 4.7,
+      "reviews": 50,
+      "produced_count": 29,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/bina-karya-prima/American-Drill_1-600x600.webp",
+      "spec": {}
     },
     {
       "title": "Politeknik Pelayaran",
       "slug": "politeknik-pelayaran-topi",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/02/ezgif.com-gif-maker-1.webp",
-      "desc": "Topi Premium untuk Politeknik Pelayaran",
+      "desc": "Rafel wash padat, pengait besi kuat — topi taruna yang gagah dan tahan cuaca pelabuhan.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/politeknik-pelayaran-topi/ezgif.com-gif-maker-1.webp"
+      "heroImageLocal": "/images/portfolio/politeknik-pelayaran-topi/ezgif.com-gif-maker-1.webp",
+      "rating": 4.9,
+      "reviews": 170,
+      "produced_count": 22,
+      "segment": "campus",
+      "heroImageLocal2": "/images/portfolio/politeknik-pelayaran-topi/ezgif.com-gif-maker-2-600x600.webp",
+      "spec": {}
     },
     {
       "title": "Kementrian PUPR",
       "slug": "pupr-topi",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/02/ezgif.com-gif-maker-2-1.webp",
-      "desc": "Topi premium untuk PU Wiyung",
+      "desc": "American Drill kuat, bordir komputer + lis cepit rapi — topi dinas yang tegas di lapangan.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/pupr-topi/ezgif.com-gif-maker-2-1-600x600.webp"
+      "heroImageLocal": "/images/portfolio/pupr-topi/ezgif.com-gif-maker-2-1-600x600.webp",
+      "rating": 4.9,
+      "reviews": 138,
+      "produced_count": 22,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/pupr-topi/ezgif.com-gif-maker-3-600x600.webp",
+      "spec": {}
     },
     {
       "title": "PT Pabrik Kertas Tjiwi Kimia Tbk",
       "slug": "tjiwi-kimia",
       "garment_type": "topi",
       "heroImage": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/depan.jpg",
-      "desc": "Topi yang didesain dengan bahan premium untuk tim Tjiwi Kimia",
+      "desc": "Ravel wash, pengait besi kokoh — topi tim yang kuat dan tahan cuaca.",
       "pdpSlug": "topi-corporate",
       "sectionCount": 3,
       "imageCount": 1,
-      "heroImageLocal": "/images/portfolio/tjiwi-kimia/Belakang-600x600.webp"
+      "heroImageLocal": "/images/portfolio/tjiwi-kimia/Belakang-600x600.webp",
+      "rating": 4.7,
+      "reviews": 138,
+      "produced_count": 12,
+      "segment": "business",
+      "heroImageLocal2": "/images/portfolio/tjiwi-kimia/Gambar-2.webp",
+      "spec": {}
     }
   ]
 }

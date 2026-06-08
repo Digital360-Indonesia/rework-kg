@@ -13,9 +13,11 @@ const clients = biz.clients;
 
 // Portfolio grid — 156 real client items, each links to its base template PDP.
 const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kaos', jaket: 'Jaket', rompi: 'Rompi', wearpack: 'Wearpack', topi: 'Topi' };
-const presentTypes = [...new Set((portfolio.items as any[]).map((p) => p.garment_type))] as string[];
-const lineupFilters = [{ id: 'all', label: 'Semua' }, ...presentTypes.map((t) => ({ id: t, label: GTL[t] || t }))];
-const portfolioItems = portfolio.items as any[];
+const portfolioItems = (portfolio.items as any[]).filter((p) => p.segment === 'business');
+const presentTypes = [...new Set(portfolioItems.map((p) => p.garment_type))] as string[];
+const LINEUP_ICON = (label: string) => `/images/lineup/20250428-Business_Line-Up_${label}-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp`;
+const HAS_ICON = new Set(['Kemeja', 'Polo', 'Kaos', 'Jaket', 'Rompi', 'Wearpack']);
+const lineupFilters = [{ id: 'all', label: 'Semua', thumb: '' }, ...presentTypes.map((t) => ({ id: t, label: GTL[t] || t, thumb: HAS_ICON.has(GTL[t] || '') ? LINEUP_ICON(GTL[t]) : '' }))];
 
 // Comparison — Kustom Garment vs the alternatives. KG is always ✓; the alternative is
 // 'no' (✗), 'partial' (– = terbatas/tergantung), or 'yes' (✓) per row.
@@ -88,8 +90,12 @@ const compare = {
         <div class="cat-lineup-row reveal">
           {lineupFilters.map((f, i) => (
             <button class:list={["cat-lineup-item", { 'is-active': i === 0 }]} data-filter={f.id} type="button">
+              <span class="cat-lineup-thumb">
+                {(f.id === 'all' || !(f as any).thumb)
+                  ? (<span class="cat-lineup-all"><i></i><i></i><i></i><i></i></span>)
+                  : (<img src={(f as any).thumb} alt={f.label} loading="lazy" />)}
+              </span>
               <span class="cat-lineup-label">{f.label}</span>
-              <span class="cat-lineup-count">{f.id === 'all' ? portfolioItems.length : portfolioItems.filter((p) => p.garment_type === f.id).length}</span>
             </button>
           ))}
         </div>
@@ -101,12 +107,13 @@ const compare = {
       <div class="cat-wrap">
         <div class="cat-shop-grid">
           {portfolioItems.map((p, i) => (
-            <a class="cat-shop-card reveal" style={`transition-delay:${(i % 6) * 50}ms`} data-category={p.garment_type} href={`/produk/${p.pdpSlug}`}>
+            <a class="cat-shop-card reveal" style={`transition-delay:${(i % 6) * 50}ms`} data-category={p.garment_type} href={`/${p.segment}/${p.slug}`}>
               <div class="cat-shop-frame">
                 <img class="cat-shop-base" src={p.heroImageLocal || p.heroImage} alt={p.title} loading="lazy" />
+                {p.heroImageLocal2 && <img class="cat-shop-weared" src={p.heroImageLocal2} alt="" loading="lazy" />}
               </div>
               <h3 class="cat-shop-name">{p.title}</h3>
-              <p class="cat-shop-color">{GTL[p.garment_type] || p.garment_type}</p>
+              <p class="cat-shop-color">{p.desc}</p>
             </a>
           ))}
         </div>
@@ -202,20 +209,26 @@ const compare = {
   .cat-lineup { padding: 4.5rem 0 0.5rem; }
   @media (min-width: 1024px) { .cat-lineup { padding: 6rem 0 0.5rem; } }
   .cat-lineup-row {
-    display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center;
+    display: flex; gap: 1.25rem; overflow-x: auto; scroll-snap-type: x proximity;
+    scrollbar-width: none; padding-top: 0.5rem; padding-bottom: 0.5rem;
+    margin: 0 -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem;
   }
+  .cat-lineup-row::-webkit-scrollbar { display: none; }
+  @media (min-width: 1024px) { .cat-lineup-row { margin: 0 -2.5rem; padding-left: 2.5rem; padding-right: 2.5rem; justify-content: flex-start; } }
   .cat-lineup-item {
-    background: none; border: 1px solid #ececec; border-radius: 999px; padding: 0.55rem 1.2rem;
-    cursor: pointer; display: flex; align-items: center; gap: 0.4rem;
-    transition: background 200ms ease, color 200ms ease, border-color 200ms ease;
+    flex: 0 0 auto; width: 6rem; background: none; border: none; padding: 0; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 0.55rem; scroll-snap-align: start;
   }
-  .cat-lineup-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.875rem; color: #6b7280; }
-  .cat-lineup-count { font-family: var(--font-sans); font-weight: 600; font-size: 0.75rem; color: #9ca3af; }
-  .cat-lineup-item.is-active { background: #ff4c00; border-color: #ff4c00; }
-  .cat-lineup-item.is-active .cat-lineup-label,
-  .cat-lineup-item.is-active .cat-lineup-count { color: #ffffff; }
+  .cat-lineup-thumb { width: 100%; aspect-ratio: 1 / 1; border-radius: 50%; overflow: hidden; background: #f4f4f4; display: grid; place-items: center; padding: 16%; box-shadow: 0 0 0 2px transparent, 0 0 0 4px transparent; transition: box-shadow 200ms ease; }
+  .cat-lineup-thumb img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 600ms cubic-bezier(0.19,1,0.22,1); }
+  .cat-lineup-all { display: grid; grid-template-columns: 1fr 1fr; gap: 22%; width: 64%; height: 64%; }
+  .cat-lineup-all i { background: #c4c4c4; border-radius: 0.2rem; transition: background 200ms ease; }
+  .cat-lineup-label { font-family: var(--font-sans); font-weight: 700; font-size: 0.8125rem; color: #6b7280; transition: color 200ms ease; }
+  .cat-lineup-item.is-active .cat-lineup-thumb { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ff4c00; }
+  .cat-lineup-item.is-active .cat-lineup-all i { background: #ff4c00; }
+  .cat-lineup-item.is-active .cat-lineup-label { color: #1a1a1a; }
   @media (hover: hover) {
-    .cat-lineup-item:hover { border-color: #ff4c00; }
+    .cat-lineup-item:hover .cat-lineup-thumb img { transform: scale(1.06); }
     .cat-lineup-item:hover .cat-lineup-label { color: #ff4c00; }
   }
 
@@ -225,19 +238,22 @@ const compare = {
   @media (min-width: 1024px) { .cat-shop { padding: 3rem 0 7rem; } }
   .cat-shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 1.25rem; }
   @media (min-width: 768px) { .cat-shop-grid { grid-template-columns: repeat(3, 1fr); gap: 2.75rem 1.5rem; } }
-  @media (min-width: 1024px) { .cat-shop-grid { grid-template-columns: repeat(4, 1fr); } }
-  @media (min-width: 1280px) { .cat-shop-grid { grid-template-columns: repeat(5, 1fr); } }
-  .cat-shop-card { display: block; text-decoration: none; color: inherit; }
+  @media (min-width: 1024px) { .cat-shop-grid { grid-template-columns: repeat(5, 1fr); } }
+  .cat-shop-card { display: block; min-width: 0; text-decoration: none; color: inherit; }
   .cat-shop-card.is-hidden { display: none; }
   .cat-shop-card.cat-shop-anim { animation: cat-shop-pop 460ms cubic-bezier(0.19,1,0.22,1) both; }
   @keyframes cat-shop-pop { from { opacity: 0; transform: translateY(12px) scale(0.985); } to { opacity: 1; transform: none; } }
   .cat-shop-frame { position: relative; border-radius: 1rem; overflow: hidden; aspect-ratio: 3 / 4; background: #f4f4f4; }
-  .cat-shop-base { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 450ms cubic-bezier(0.19,1,0.22,1); }
+  .cat-shop-base, .cat-shop-weared { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 450ms ease; }
+  .cat-shop-weared { opacity: 0; }
   @media (hover: hover) {
-    .cat-shop-card:hover .cat-shop-base { transform: scale(1.04); }
+    .cat-shop-card:hover .cat-shop-base { opacity: 0; }
+    .cat-shop-card:hover .cat-shop-weared { opacity: 1; }
   }
-  .cat-shop-name { font-family: var(--font-sans); font-weight: 600; font-size: 0.9375rem; line-height: 1.25; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.75rem 0 0; }
-  .cat-shop-color { font-family: var(--font-sans); font-weight: 500; font-size: 0.8125rem; color: #9ca3af; margin: 0.2rem 0 0; }
+  .cat-shop-name { font-family: var(--font-sans); font-weight: 700; font-size: 1.0625rem; line-height: 1.25; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.9rem 0 0;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .cat-shop-color { font-family: var(--font-sans); font-weight: 400; font-size: 0.875rem; line-height: 1.4; color: #9ca3af; margin: 0.3rem 0 0;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.45em; }
 
   /* COMPARISON */
   .cat-cmp { padding: 2.5rem 0 1rem; }

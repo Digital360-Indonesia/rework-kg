@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import EndCta from '../components/sections/EndCta.astro';
 import ClientLogos from '../components/sections/ClientLogos.astro';
 import catalog from '../data/products/catalog-source.mjs';
+import portfolio from '../data/portfolio.json';
 import camp from '../data/campus.json';
 
 const metaTitle = camp.meta.title;
@@ -14,7 +15,7 @@ const clients = camp.clients ?? [];
 // Product grid — driven by the real catalog (archetypes for this segment → /produk/[slug]).
 const SEG = 'campus';
 const rpFmt = (n: number) => 'Rp ' + new Intl.NumberFormat('id-ID').format(n);
-const shopItems = (catalog.archetypes as any[]).filter((a) => a.segment === SEG && !a.hidden);
+const shopItems = (portfolio.items as any[]).filter((p) => p.segment === SEG);
 const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kaos', jaket: 'Jaket', rompi: 'Rompi', wearpack: 'Wearpack' };
 const LU = (name: string) => `/images/placeholder/forproducts/20250428-Business_Line-Up_${name}-r544xqu3jmqddg603jussaip9yxnizaejhckc01cdk.webp`;
 const presentTypes = [...new Set(shopItems.map((a) => a.garment_type))] as string[];
@@ -100,15 +101,13 @@ const compare = {
       <div class="cat-wrap">
         <div class="cat-shop-grid">
           {shopItems.map((p, i) => (
-            <a class="cat-shop-card reveal" style={`transition-delay:${(i % 4) * 60}ms`} data-category={p.garment_type} href={`/produk/${p.slug}`}>
+            <a class="cat-shop-card reveal" style={`transition-delay:${(i % 4) * 60}ms`} data-category={p.garment_type} href={`/${p.segment}/${p.slug}`}>
               <div class="cat-shop-frame">
-                {p.badge && <span class="cat-shop-badge">{p.badge}</span>}
-                <img class="cat-shop-base" src={p.gallery[0]} alt={p.name} loading="lazy" />
-                {p.gallery[1] && <img class="cat-shop-weared" src={p.gallery[1]} alt="" loading="lazy" />}
+                <img class="cat-shop-base" src={p.heroImageLocal || p.heroImage} alt={p.title} loading="lazy" />
+                {p.heroImageLocal2 && <img class="cat-shop-weared" src={p.heroImageLocal2} alt="" loading="lazy" />}
               </div>
-              <h3 class="cat-shop-name">{p.name}</h3>
-              <p class="cat-shop-color">{p.positioning}</p>
-              {!p.hide_price && (<p class="cat-shop-price"><span class="cat-shop-price-pre">from</span> <span class="cat-shop-price-amt">{rpFmt(p.price_min)}</span></p>)}
+              <h3 class="cat-shop-name">{p.title}</h3>
+              <p class="cat-shop-color">{p.desc}</p>
             </a>
           ))}
         </div>
@@ -254,7 +253,7 @@ const compare = {
   .cat-shop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem 1.25rem; }
   @media (min-width: 768px) { .cat-shop-grid { grid-template-columns: repeat(3, 1fr); gap: 2.75rem 1.5rem; } }
   @media (min-width: 1024px) { .cat-shop-grid { grid-template-columns: repeat(5, 1fr); } }
-  .cat-shop-card { display: block; text-decoration: none; color: inherit; }
+  .cat-shop-card { display: block; min-width: 0; text-decoration: none; color: inherit; }
   .cat-shop-card.is-hidden { display: none; }
   .cat-shop-badge { position: absolute; top: 0.7rem; left: 0.7rem; z-index: 2; font-family: var(--font-sans); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #1a1a1a; background: rgba(255,255,255,0.94); padding: 0.25rem 0.5rem; border-radius: 0.3rem; }
   .cat-shop-card.cat-shop-anim { animation: cat-shop-pop 460ms cubic-bezier(0.19,1,0.22,1) both; }
@@ -266,7 +265,7 @@ const compare = {
     .cat-shop-card:hover .cat-shop-base { opacity: 0; }
     .cat-shop-card:hover .cat-shop-weared { opacity: 1; }
   }
-  .cat-shop-name { font-family: var(--font-sans); font-weight: 400; font-size: 1.0625rem; line-height: 1.2; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.9rem 0 0; }
+  .cat-shop-name { font-family: var(--font-sans); font-weight: 700; font-size: 1.0625rem; line-height: 1.25; letter-spacing: -0.01em; color: #1a1a1a; margin: 0.9rem 0 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   /* tagline uses system fallback (SF Pro Display has no Regular loaded → falls back to Semibold) */
   .cat-shop-color { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight: 400; font-size: 0.875rem; line-height: 1.4; color: #9ca3af; margin: 0.3rem 0 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.45em; }
   .cat-shop-swatches { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.7rem; }
