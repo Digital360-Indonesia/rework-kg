@@ -42,12 +42,12 @@ jobs:
           find public/images/uploads -type f \( -iname '*.jpg' -o -iname '*.jpeg' \) -print0 \
             | xargs -0 -r mogrify -resize '1600x1600>' -strip -quality 70 || true
 
-      # PMS_SOURCE=pb tells catalog-source.mjs to build from PocketBase (via the
-      # adapter) instead of catalog.json. It auto-falls-back to catalog.json if
-      # PB is unreachable or returns no products, so this is safe to leave on.
-      - name: Build site (PMS source = PocketBase)
-        env:
-          PMS_SOURCE: pb
+      # Build from the committed catalog.json (the authoritative source — it carries
+      # the full curated style_options, illustrations, per-product specs, etc.).
+      # NOTE: PMS_SOURCE=pb (build from PocketBase) is intentionally OFF — PB's
+      # style_options are stale/unmapped, which produced empty customizers (WA-only
+      # buttons). Re-enable only after the PB sync + adapter are fixed to match catalog.json.
+      - name: Build site (source = catalog.json)
         run: npm run build
 
       - name: Set up restricted deploy key
