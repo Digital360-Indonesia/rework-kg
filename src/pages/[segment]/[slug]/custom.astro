@@ -39,9 +39,17 @@ const defaultDecos = (product.default_decoration || []).map((d: any) => {
 });
 
 const waBase = (siteConfig as any)?.contact?.whatsappUrl || 'https://wa.me/6285117049918';
-const lockedSpec = Object.entries(product.locked_spec) as [string, string][];
 const styleOptions = (garment as any).style_options || {};
-const styleAttrs = lockedSpec.map(([k]) => k).filter((k) => styleOptions[k]);
+const styleSelect = (garment as any).style_select || {};
+// variations are LOCKED TO THE GARMENT TYPE — every product of a type offers the same axes,
+// pre-selected to this product's real config, single-select axes defaulting to the first option.
+const styleAttrs = Object.keys(styleOptions);
+const filledSpec: Record<string, any> = { ...product.locked_spec };
+styleAttrs.forEach((k) => {
+  if (filledSpec[k] == null && styleSelect[k] !== 'multi' && styleOptions[k][0]) filledSpec[k] = styleOptions[k][0].name;
+});
+product.locked_spec = filledSpec;
+const lockedSpec = Object.entries(product.locked_spec) as [string, string][];
 
 // decoration placement map — where each placement sits on the garment diagram (% of the SVG box)
 const PLACE_MAP: Record<string, { view: string; x: number; y: number; label: string }> = {
