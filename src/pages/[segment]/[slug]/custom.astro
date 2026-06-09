@@ -198,7 +198,7 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
                       <div class="st-optgrid">
                         {(styleOptions[k] || []).map((o: any) => (
                           <button class:list={['st-opt', { sel: o.name === (product.locked_spec as any)[k] }]} data-attr={k} data-opt={o.name}>
-                            <span class="st-opt-ill"><img src={o.illustration} alt="" /><span class="st-opt-check">✓</span></span>
+                            <span class="st-opt-ill">{o.illustration ? <img src={o.illustration} alt="" /> : <span class="st-opt-ph">{o.name}</span>}<span class="st-opt-check">✓</span></span>
                             <span class="st-opt-name">{o.name}</span>
                           </button>
                         ))}
@@ -504,6 +504,7 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
   .st-opt:hover .st-opt-ill { opacity: 1; box-shadow: 0 6px 16px rgba(0,0,0,0.1); }
   .st-opt.sel .st-opt-ill { opacity: 1; border-color: #1a1a1a; border-width: 2px; }
   .st-opt-ill img { width: 66%; height: 66%; object-fit: contain; }
+  .st-opt-ph { font-size: 0.72rem; font-weight: 600; color: #9ca3af; padding: 0.4rem; line-height: 1.25; }
   .st-opt-check { position: absolute; top: 0.4rem; right: 0.4rem; width: 1.4rem; height: 1.4rem; border-radius: 999px; background: #1a1a1a; color: #fff; font-size: 0.72rem; display: flex; align-items: center; justify-content: center; opacity: 0; transform: scale(0); transition: opacity 180ms ease, transform 260ms cubic-bezier(0.34,1.56,0.64,1); }
   .st-opt.sel .st-opt-check { opacity: 1; transform: scale(1); }
   .st-opt-name { display: block; font-size: 0.82rem; font-weight: 600; color: #9ca3af; margin-top: 0.5rem; }

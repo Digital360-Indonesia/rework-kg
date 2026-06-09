@@ -36,6 +36,7 @@ const styleSel = gt?.style_select || {};
 // Design summary = the axes this product actually uses, rendered as dropdowns (its real config as the default)
 const ORDER = ['Bahan','Kerah','Lengan','Saku','Manset','Resleting','Furing','Placket / Kancing','Placket & Kancing','Rib / Strip','Kombinasi Warna','Scotlite','Kerudung / Hoodie','Model','Ujung Badan','Kancing','Emblem','Belahan','Belahan & Pecah Pola','Anci Pundak','Pecah Pola','Jahitan','Airflow / Ventilasi','Karet Pinggang','Velcro / Ampil','Pengait','Variasi'];
 const designAxes = Object.keys(spec)
+  .filter((ax) => ax !== 'Bahan')
   .sort((a, b) => { const ia = ORDER.indexOf(a), ib = ORDER.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); })
   .map((ax) => {
     const multi = styleSel[ax] === 'multi';
