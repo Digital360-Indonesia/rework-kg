@@ -3232,7 +3232,14 @@
       "produced_count": 29,
       "segment": "campus",
       "heroImageLocal2": "/images/portfolio/universitas-airlangga-3/Bordir_1-3-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "Micro",
+        "Kerah": "Kerah dan Lengan Manset",
+        "Saku": "Saku Racis Bibir",
+        "Variasi": [
+          "Kancing Cetekan Plastik"
+        ]
+      }
     },
     {
       "title": "PT Teknik Surya Teknik",
@@ -3249,7 +3256,12 @@
       "produced_count": 16,
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/pt-teknik-surya-teknik/tm-1-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "Rafel Wash",
+        "Variasi": [
+          "Pengait Besi"
+        ]
+      }
     },
     {
       "title": "PT Pabrik Kertas Tjiwi Kimia Tbk",
@@ -3266,7 +3278,12 @@
       "produced_count": 32,
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/tjiwi-kimia-topi/tp-1-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "Rafel Wash",
+        "Variasi": [
+          "Pengait Besi"
+        ]
+      }
     },
     {
       "title": "PT Indonesia Tri Sembilan",
@@ -3283,7 +3300,12 @@
       "produced_count": 13,
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/indonesia-tri-sembilan/t-1-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "American Drill",
+        "Variasi": [
+          "Karet"
+        ]
+      }
     },
     {
       "title": "PT Sarana Karya Solusindo",
@@ -3300,7 +3322,12 @@
       "produced_count": 31,
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/bandell-lighting/tb-1-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "American Drill",
+        "Variasi": [
+          "Pengait Rel Plastik"
+        ]
+      }
     },
     {
       "title": "PT Tanto Intim Line",
@@ -3317,7 +3344,13 @@
       "produced_count": 4,
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/pt-tanto-intim-line-topi/Ravel-Wash1_2_11zon-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Variasi": [
+          "Scott Puma",
+          "Furing Jala",
+          "Scotlie Bagian Belakang"
+        ]
+      }
     },
     {
       "title": "Univ Petra Desporev",
@@ -3334,7 +3367,9 @@
       "produced_count": 7,
       "segment": "campus",
       "heroImageLocal2": "/images/portfolio/univ-petra-desporev-topi/Pengait-rel-Plastik_3_11zon-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "Cotton Combed 30s"
+      }
     },
     {
       "title": "PT Bina Karya Prima",
@@ -3351,7 +3386,12 @@
       "produced_count": 29,
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/bina-karya-prima/American-Drill_1-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "American Drill",
+        "Variasi": [
+          "Full Karet"
+        ]
+      }
     },
     {
       "title": "Politeknik Pelayaran",
@@ -3368,7 +3408,12 @@
       "produced_count": 22,
       "segment": "campus",
       "heroImageLocal2": "/images/portfolio/politeknik-pelayaran-topi/ezgif.com-gif-maker-2-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "Rafel Wash",
+        "Variasi": [
+          "Pengait Besi"
+        ]
+      }
     },
     {
       "title": "Kementrian PUPR",
@@ -3385,7 +3430,18 @@
       "produced_count": 22,
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/pupr-topi/ezgif.com-gif-maker-3-600x600.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "American Drill",
+        "Saku": "Saku Floi dengan Penutup 2 Posisi",
+        "Lengan": "Pengait Lengan",
+        "Variasi": [
+          "Lis Cepit",
+          "Pecah Pola",
+          "Anci Pundak",
+          "Kancing Tertutup dengan Variasi Melet",
+          "Ujung Badan Oval"
+        ]
+      }
     },
     {
       "title": "PT Pabrik Kertas Tjiwi Kimia Tbk",
@@ -3402,7 +3458,12 @@
       "produced_count": 12,
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/tjiwi-kimia/Gambar-2.webp",
-      "spec": {}
+      "spec": {
+        "Bahan": "Rafel Wash",
+        "Variasi": [
+          "Pengait Besi"
+        ]
+      }
     }
   ]
 }
