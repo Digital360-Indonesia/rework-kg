@@ -1,5 +1,10 @@
 # Kustom Garment — products & content flow (READ THIS FIRST)
 
+> ⚠️ **June 2026 update — partially superseded.** The live build currently sources from
+> **`catalog.json`, NOT PocketBase** (`PMS_SOURCE=pb` is off), and products are now the
+> 156 portfolio clients. **Read `docs/DEVS-HANDOFF-2026-06.md` first** — it explains the
+> PocketBase bypass, the broken CI deploy, and the new per-item product model.
+
 > For everyone (devs + AI agents) touching products, the catalog, or site content.
 > KG runs **two managed systems**. Editing the wrong place = your change won't go live.
 
