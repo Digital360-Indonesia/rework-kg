@@ -51,7 +51,7 @@ const waText = `Halo Kustom Garment, saya tertarik dengan produk ${GTL[item.garm
 const waHref = `${waBase}?text=${encodeURIComponent(waText)}`;
 // "Custom Sekarang" → the existing custom configurator app (per garment-type template). Falls back to WA for garments without a customizer (topi).
 const hasCustomizer = Object.keys(styleOpts).length > 0;
-const customHref = hasCustomizer ? `/produk/${item.pdpSlug}/custom` : waHref;
+const customHref = hasCustomizer ? `/${item.segment}/${item.slug}/custom` : waHref;
 const related = (portfolio.items as any[]).filter((p) => p.segment === item.segment && p.slug !== item.slug && p.heroImageLocal).slice(0, 4);
 
 const metaTitle = `${item.title} | Kustom Garment`;
