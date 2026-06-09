@@ -220,10 +220,15 @@ const currentPath = Astro.url.pathname;
     // navigated away — scripts don't re-run on bfcache restore, so it sticks.
     // On restore, cancel any leftover curtain animation and hide it.
     window.addEventListener('pageshow', (e) => {
-      if (!e.persisted || !curtain) return;
-      curtain.getAnimations().forEach((a) => a.cancel());
-      curtain.style.animation = 'none';
-      curtain.style.transform = 'translateY(-100%)';
+      if (!curtain) return;
+      if (e.persisted) {
+        curtain.getAnimations().forEach((a) => a.cancel());
+        curtain.style.animation = 'none';
+        curtain.style.transform = 'translateY(-100%)';
+      }
+      // safety net: however the page was shown (bfcache, slow/interrupted reveal),
+      // force the curtain hidden shortly after — it must never stay covering on back-nav.
+      setTimeout(() => { if (curtain) curtain.style.transform = 'translateY(-100%)'; }, 900);
     });
   </script>
 </body>

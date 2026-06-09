@@ -3,6 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import catalog from '../../../data/products/catalog-source.mjs';
 import siteConfig from '../../../data/site-config.json';
 import portfolio from '../../../data/portfolio.json';
+import fs from 'node:fs';
+import path from 'node:path';
 
 export function getStaticPaths() {
   // one customizer per real product (portfolio item), keyed under its segment; uses its template archetype for pricing/fabrics
@@ -10,12 +12,21 @@ export function getStaticPaths() {
   const archBySlug = Object.fromEntries((catalog.archetypes as any[]).map((a) => [a.slug, a]));
   return (portfolio.items as any[])
     .filter((it) => gtIds.has(it.garment_type) && archBySlug[it.pdpSlug])
-    .map((it) => ({ params: { segment: it.segment, slug: it.slug }, props: { item: it, archetype: archBySlug[it.pdpSlug] } }));
+    .map((it) => {
+      // the SAME gallery the product page shows, so the preview image matches
+      let gallery: string[] = [];
+      try {
+        const dir = path.join(process.cwd(), 'public/images/portfolio', it.slug);
+        gallery = fs.readdirSync(dir).filter((f) => /\.(webp|jpe?g|png)$/i.test(f)).map((f) => `/images/portfolio/${it.slug}/${f}`);
+      } catch (e) {}
+      if (it.heroImageLocal) gallery = [it.heroImageLocal, ...gallery.filter((g) => g !== it.heroImageLocal)];
+      return { params: { segment: it.segment, slug: it.slug }, props: { item: it, archetype: archBySlug[it.pdpSlug], gallery } };
+    });
 }
 
-const { item, archetype } = Astro.props;
-// the configurator runs on the template archetype, but seeded with THIS product's real config + name
-const product = { ...archetype, name: item.title, slug: item.slug, locked_spec: (item.spec && Object.keys(item.spec).length ? item.spec : archetype.locked_spec) };
+const { item, archetype, gallery } = Astro.props;
+// the configurator runs on the template archetype, but seeded with THIS product's real config, name, and photos
+const product = { ...archetype, name: item.title, slug: item.slug, locked_spec: (item.spec && Object.keys(item.spec).length ? item.spec : archetype.locked_spec), gallery: (gallery && gallery.length ? gallery : archetype.gallery) };
 const garment = catalog.garment_types.find((g) => g.id === product.garment_type)!;
 const fabrics = catalog.fabrics.filter((f) => f.garment_type === product.garment_type);
 const colors = catalog.colors;
