@@ -49,6 +49,9 @@ const designAxes = Object.keys(spec)
 const waBase = (siteConfig as any)?.contact?.whatsappUrl || 'https://wa.me/6285117049918';
 const waText = `Halo Kustom Garment, saya tertarik dengan produk ${GTL[item.garment_type] || ''} seperti ${item.title}. Boleh info lebih lanjut?`;
 const waHref = `${waBase}?text=${encodeURIComponent(waText)}`;
+// "Custom Sekarang" → the existing custom configurator app (per garment-type template). Falls back to WA for garments without a customizer (topi).
+const hasCustomizer = Object.keys(styleOpts).length > 0;
+const customHref = hasCustomizer ? `/produk/${item.pdpSlug}/custom` : waHref;
 const related = (portfolio.items as any[]).filter((p) => p.segment === item.segment && p.slug !== item.slug && p.heroImageLocal).slice(0, 4);
 
 const metaTitle = `${item.title} | Kustom Garment`;
@@ -89,8 +92,10 @@ const metaDescription = item.desc || '';
         <p class="pdp-desc">{item.desc}</p>
 
         <div class="pdp-actions">
-          <a class="pdp-btn pdp-btn-wa" data-wa href={waHref} target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a>
-          <a class="pdp-btn pdp-btn-custom" data-wa href={waHref} target="_blank" rel="noopener noreferrer">Custom Sekarang</a>
+          <a class="pdp-btn pdp-btn-wa" href={waHref} target="_blank" rel="noopener noreferrer">Hubungi via WhatsApp</a>
+          {hasCustomizer
+            ? <a class="pdp-btn pdp-btn-custom" href={customHref}>Custom Sekarang</a>
+            : <a class="pdp-btn pdp-btn-custom" href={waHref} target="_blank" rel="noopener noreferrer">Kustom via WhatsApp</a>}
         </div>
         <p class="pdp-reassure">Tanpa minimum order · Desain dibantu gratis · Made-by-order</p>
 
@@ -99,35 +104,18 @@ const metaDescription = item.desc || '';
             <summary>Desain & Variasi<span class="chev" aria-hidden="true"></span></summary>
             <div class="pdp-acc-body">
               {designAxes.length > 0 ? (
-                <div class="pdp-config">
+                <ul class="pdp-spec">
                   {designAxes.map((d) => (
-                    <div class="pdp-config-row">
-                      <span class="pdp-config-k">{d.axis}</span>
-                      {d.multi ? (
-                        <div class="pdp-config-multi" data-axis={d.axis}>
-                          {d.options.map((o: string) => {
-                            const checked = Array.isArray(d.value) ? d.value.includes(o) : d.value === o;
-                            return (
-                              <label class:list={['pdp-chip', { on: checked }]}>
-                                <input type="checkbox" value={o} checked={checked} /> {o}
-                              </label>
-                            );
-                          })}
-                        </div>
-                      ) : (
-                        <select class="pdp-config-sel" data-axis={d.axis}>
-                          {d.options.map((o: string) => (
-                            <option value={o} selected={o === d.value}>{o}</option>
-                          ))}
-                        </select>
-                      )}
-                    </div>
+                    <li>
+                      <span class="pdp-spec-k">{d.axis}</span>
+                      <span class="pdp-spec-v">{Array.isArray(d.value) ? d.value.join(', ') : d.value}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               ) : (
                 <p class="pdp-acc-hint">Desain custom penuh — bahas detail langsung via WhatsApp.</p>
               )}
-              <p class="pdp-acc-hint">Konfigurasi di atas adalah spesifikasi asli produk ini. Ubah sesuai kebutuhan, lalu lanjutkan via WhatsApp.</p>
+              <p class="pdp-acc-hint">Mau ubah bahan, warna, kerah, atau detail lain? Klik <strong>Custom Sekarang</strong>.</p>
             </div>
           </details>
           <details>
@@ -223,17 +211,11 @@ const metaDescription = item.desc || '';
   .pdp-acc-body p { margin: 0 0 0.7rem; }
   .pdp-acc-hint { color: #6b7280; font-size: 0.82rem; font-style: italic; }
 
-  /* Design dropdowns (the customizer) */
-  .pdp-config { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 0.9rem; }
-  .pdp-config-row { display: grid; grid-template-columns: 7.5rem 1fr; align-items: start; gap: 0.75rem; }
-  @media (max-width: 480px) { .pdp-config-row { grid-template-columns: 1fr; gap: 0.35rem; } }
-  .pdp-config-k { font-size: 0.85rem; font-weight: 700; color: #1a1a1a; padding-top: 0.5rem; }
-  .pdp-config-sel { width: 100%; font-family: var(--font-sans); font-size: 0.88rem; color: #1a1a1a; padding: 0.6rem 0.7rem; border: 1px solid #e2e2e2; border-radius: 0.55rem; background: #fff; cursor: pointer; }
-  .pdp-config-sel:focus { outline: none; border-color: #ff4c00; }
-  .pdp-config-multi { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .pdp-chip { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.8rem; font-weight: 600; color: #6b7280; background: #f6f6f6; border: 1px solid #ececec; border-radius: 999px; padding: 0.4rem 0.7rem; cursor: pointer; transition: all 160ms ease; }
-  .pdp-chip.on { color: #ff4c00; border-color: #ff4c00; background: #fff5f0; }
-  .pdp-chip input { accent-color: #ff4c00; }
+  /* Design summary (read-only — full customizer lives behind "Custom Sekarang") */
+  .pdp-spec { list-style: none; padding: 0; margin: 0 0 0.8rem; }
+  .pdp-spec li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.5rem 0; border-bottom: 1px dashed #f0f0f0; font-size: 0.88rem; }
+  .pdp-spec-k { color: #6b7280; }
+  .pdp-spec-v { color: #1a1a1a; font-weight: 600; text-align: right; }
 
   .pdp-card { background: #f7f7f7; border-radius: 0.85rem; padding: 1.1rem 1.15rem; margin-top: 0.9rem; }
   .pdp-card-h { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: #1a1a1a; margin: 0 0 0.7rem; }
@@ -256,37 +238,10 @@ const metaDescription = item.desc || '';
 </style>
 
 <script>
+  // thumbnail → main image swap
   const main = document.getElementById('pdp-main-img') as HTMLImageElement | null;
   const thumbs = Array.from(document.querySelectorAll<HTMLButtonElement>('.pdp-thumb'));
   if (main && thumbs.length) thumbs.forEach((t) => t.addEventListener('click', () => {
     const s = t.dataset.src; if (!s) return; main.src = s; thumbs.forEach((x) => x.classList.toggle('active', x === t));
   }));
-
-  // build the WhatsApp message from the current design selection
-  const root = document.getElementById('pdp-config-root') as HTMLElement | null;
-  const waLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-wa]'));
-  if (root) {
-    const base = root.dataset.wabase || '', baseText = root.dataset.watext || '';
-    const build = () => {
-      const parts: string[] = [];
-      document.querySelectorAll<HTMLSelectElement>('.pdp-config-sel').forEach((s) => parts.push(`${s.dataset.axis}: ${s.value}`));
-      document.querySelectorAll<HTMLElement>('.pdp-config-multi').forEach((m) => {
-        const vals = Array.from(m.querySelectorAll<HTMLInputElement>('input:checked')).map((i) => i.value);
-        if (vals.length) parts.push(`${m.dataset.axis}: ${vals.join(', ')}`);
-      });
-      return parts.join('\n');
-    };
-    const update = () => {
-      const cfg = build();
-      const text = baseText + (cfg ? '\n\nKonfigurasi:\n' + cfg : '');
-      const href = base + '?text=' + encodeURIComponent(text);
-      waLinks.forEach((a) => a.setAttribute('href', href));
-    };
-    document.querySelectorAll('.pdp-config-sel').forEach((el) => el.addEventListener('change', update));
-    document.querySelectorAll('.pdp-config-multi input').forEach((el) => el.addEventListener('change', (e) => {
-      const lbl = (e.target as HTMLElement).closest('.pdp-chip'); if (lbl) lbl.classList.toggle('on', (e.target as HTMLInputElement).checked);
-      update();
-    }));
-    update();
-  }
 </script>
