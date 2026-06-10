@@ -750,102 +750,101 @@
       "style_options": {
         "Saku": [
           {
-            "name": "Saku Tempel Segi 4 Tertutup",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Saku-tempel-segi-4-tertutup-600x600.jpg"
+            "nama": "Saku Kompol 2 Posisi",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/saku-kompol-2-sisi-1024x1024.jpg"
           },
           {
-            "name": "Saku Floi Segi 6 Tertutup",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Saku-floi-segi-6.jpg"
+            "nama": "Saku Tempel Segi 4 Tertutup",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Saku-tempel-segi-4-tertutup-600x600.jpg"
           },
           {
-            "name": "Saku Floi dengan Penutup 2 Posisi"
+            "nama": "Saku Floi Segi 6 Tertutup",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Saku-floi-segi-6.jpg"
           },
           {
-            "name": "Saku dengan Floi 2 Posisi",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Saku-dengan-floi-2-posisi.jpg"
+            "nama": "Saku Floi dengan Penutup 2 Posisi"
           },
           {
-            "name": "Saku Kompol 2 Posisi",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/saku-kompol-2-sisi-1024x1024.jpg"
+            "nama": "Saku dengan Floi 2 Posisi",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Saku-dengan-floi-2-posisi.jpg"
           },
           {
-            "name": "Saku Kompol 2 Posisi dengan Kancing Cetekan",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/il_dengan_kancing_cetekan_atas_bawah-600x600.webp"
-          },
-          {
-            "name": "Saku Segi"
-          },
-          {
-            "name": "Saku Bolpoin",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Saku-Bolpoin-1.jpg"
+            "nama": "Saku Kompol 2 Posisi dengan Kancing Cetekan",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/il_dengan_kancing_cetekan_atas_bawah-600x600.webp"
           }
         ],
         "Resleting": [
           {
-            "name": "Resleting Plastik",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/IMG_0333-1024x1024.jpg"
+            "nama": "Resleting Plastik",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/IMG_0333-1024x1024.jpg"
           },
           {
-            "name": "Resleting YEE",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Resleting-YEE-min-1024x1024.jpg"
+            "nama": "Resleting YEE",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Resleting-YEE-min-1024x1024.jpg"
+          },
+          {
+            "nama": "Resleting YKK"
           }
         ],
         "Furing": [
           {
-            "name": "Furing Peles",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Furing-peles-1024x1024.jpg"
+            "nama": "Tanpa Furing"
           },
           {
-            "name": "Furing Dri-fit",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Furing-Drifit-1.jpg"
-          }
-        ],
-        "Anci Pundak": [
+            "nama": "Furing Peles",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Furing-peles-1024x1024.jpg"
+          },
           {
-            "name": "Dengan Anci/Pangkat di Pundak"
-          }
-        ],
-        "Pecah Pola": [
+            "nama": "Furing Jala"
+          },
           {
-            "name": "Dengan Pecah Pola"
-          }
-        ],
-        "Scotlite": [
+            "nama": "Furing Dormil"
+          },
           {
-            "name": "Scotlite 3M",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/Scotliite-3M-1024x1024.jpg"
-          }
-        ],
-        "Kombinasi Warna": [
+            "nama": "Furing Combed"
+          },
           {
-            "name": "Kombinasi 3 Warna",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/Kombinasi-3-warna-1024x1024.jpg"
+            "nama": "Furing Polar"
           }
         ],
         "Variasi": [
           {
-            "name": "Airflow",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/AnyConv.com__Airflo-600x600.webp"
+            "nama": "Airflow",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/AnyConv.com__Airflo-600x600.webp"
           },
           {
-            "name": "Lis Cepit"
+            "nama": "Lis Cepit"
           },
           {
-            "name": "Kancing Tertutup dengan Variasi Melet"
+            "nama": "Kancing Tertutup dengan Variasi Melet"
           },
           {
-            "name": "Ujung Badan Oval",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Portofolio_Toto_Bawah_Oval_1_-600x600.webp"
+            "nama": "Ujung Badan Oval",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Portofolio_Toto_Bawah_Oval_1_-600x600.webp"
           },
           {
-            "name": "Pengait Lengan"
+            "nama": "Pengait Lengan"
           },
           {
-            "name": "Pengait untuk HT",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/pengait20HT20dada20kiri.JPG-1024x1024.webp"
+            "nama": "Pengait untuk HT",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/pengait20HT20dada20kiri.JPG-1024x1024.webp"
           },
           {
-            "name": "Lengan Panjang dengan Ujung Resleting YKK"
+            "nama": "Lengan Panjang dengan Ujung Resleting YKK"
+          },
+          {
+            "nama": "Saku Bolpoin",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Saku-Bolpoin-1.jpg"
+          },
+          {
+            "nama": "Dengan Anci/Pangkat di Pundak"
+          },
+          {
+            "nama": "Dengan Pecah Pola"
+          },
+          {
+            "nama": "Scotlite 3M",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/Scotliite-3M-1024x1024.jpg"
           }
         ]
       },
@@ -853,10 +852,6 @@
         "Saku": "single",
         "Resleting": "single",
         "Furing": "single",
-        "Anci Pundak": "single",
-        "Pecah Pola": "single",
-        "Scotlite": "single",
-        "Kombinasi Warna": "single",
         "Variasi": "multi"
       }
     },

@@ -2787,7 +2787,9 @@
         "Saku": "Saku Tempel Segi 4 Tertutup",
         "Furing": "Furing Peles",
         "Resleting": "Resleting YEE",
-        "Pecah Pola": "Dengan Pecah Pola"
+        "Variasi": [
+          "Dengan Pecah Pola"
+        ]
       }
     },
     {
@@ -2831,10 +2833,11 @@
       "heroImageLocal2": "/images/portfolio/pjb-service/Bordir-1-1-600x600.webp",
       "spec": {
         "Bahan": "Nagata Drill",
-        "Saku": "Saku Segi",
-        "Furing": "Furing Dri-fit",
-        "Pecah Pola": "Dengan Pecah Pola",
-        "Resleting": "Resleting YEE"
+        "Furing": "Furing Drifit",
+        "Resleting": "Resleting YEE",
+        "Variasi": [
+          "Dengan Pecah Pola"
+        ]
       }
     },
     {
@@ -2859,10 +2862,10 @@
           "Pengait Lengan",
           "Lis Cepit",
           "Kancing Tertutup dengan Variasi Melet",
-          "Ujung Badan Oval"
-        ],
-        "Pecah Pola": "Dengan Pecah Pola",
-        "Anci Pundak": "Dengan Anci/Pangkat di Pundak"
+          "Ujung Badan Oval",
+          "Dengan Anci/Pangkat di Pundak",
+          "Dengan Pecah Pola"
+        ]
       }
     },
     {
@@ -2885,9 +2888,10 @@
         "Saku": "Saku Kompol 2 Posisi",
         "Furing": "Furing Peles",
         "Resleting": "Resleting Plastik",
-        "Scotlite": "Scotlite 3M",
-        "Kombinasi Warna": "Kombinasi 3 Warna",
-        "Anci Pundak": "Dengan Anci/Pangkat di Pundak"
+        "Variasi": [
+          "Dengan Anci/Pangkat di Pundak",
+          "Scotlite 3M"
+        ]
       }
     },
     {
@@ -2947,13 +2951,13 @@
       "heroImageLocal2": "/images/portfolio/lazis-pjb/Resleting_utama_plastik_standar-600x600.webp",
       "spec": {
         "Bahan": "Taipan Tropical",
-        "Saku": "Saku Bolpoin",
         "Variasi": [
           "Lengan Panjang dengan Ujung Resleting YKK",
           "Airflow",
-          "Pengait untuk HT"
-        ],
-        "Anci Pundak": "Dengan Anci/Pangkat di Pundak"
+          "Pengait untuk HT",
+          "Saku Bolpoin",
+          "Dengan Anci/Pangkat di Pundak"
+        ]
       }
     },
     {
@@ -2973,13 +2977,13 @@
       "heroImageLocal2": "/images/portfolio/pjb-rompi/Cover-1.webp",
       "spec": {
         "Bahan": "Taipan Tropical",
-        "Saku": "Saku Bolpoin",
         "Variasi": [
           "Lengan Panjang dengan Ujung Resleting YKK",
           "Airflow",
-          "Pengait untuk HT"
-        ],
-        "Anci Pundak": "Dengan Anci/Pangkat di Pundak"
+          "Pengait untuk HT",
+          "Saku Bolpoin",
+          "Dengan Anci/Pangkat di Pundak"
+        ]
       }
     },
     {
