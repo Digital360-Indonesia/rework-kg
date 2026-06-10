@@ -31,12 +31,12 @@
         "Kerah": "Kerah Sapit",
         "Saku": "Saku Floi Segi 6 Tertutup",
         "Lengan": "Lengan Pendek",
-        "Placket / Kancing": [
-          "Ampil Kancing"
-        ],
         "Variasi": [
           "Emblem Velcro",
           "Anci Pundak"
+        ],
+        "Kancing": [
+          "Ampil Kancing"
         ]
       }
     },
@@ -64,12 +64,12 @@
           "Kombinasi Warna",
           "Lis Cepit"
         ],
-        "Placket / Kancing": [
-          "Ampil Kancing"
-        ],
         "Variasi": [
           "Scotlite",
           "Anci Pundak"
+        ],
+        "Kancing": [
+          "Ampil Kancing"
         ]
       }
     },
@@ -92,7 +92,7 @@
         "Bahan": "Micro",
         "Kerah": "Kerah Manset",
         "Saku": "Saku Racis Bibir",
-        "Placket / Kancing": [
+        "Kancing": [
           "Kancing Cetekan Plastik"
         ]
       }
@@ -115,11 +115,11 @@
       "spec": {
         "Bahan": "Nagata Drill",
         "Kombinasi Warna": "Lis Cepit",
-        "Placket / Kancing": [
-          "Ampil Kancing"
-        ],
         "Variasi": [
           "Anci Pundak"
+        ],
+        "Kancing": [
+          "Ampil Kancing"
         ]
       }
     },
@@ -143,11 +143,11 @@
         "Kerah": "Kerah Sapit",
         "Saku": "Saku Racis",
         "Lengan": "Lengan Panjang",
-        "Placket / Kancing": [
-          "Ampil Kancing"
-        ],
         "Variasi": [
           "Belahan Samping"
+        ],
+        "Kancing": [
+          "Ampil Kancing"
         ]
       }
     },
@@ -194,7 +194,7 @@
         "Bahan": "Micro",
         "Kerah": "Kerah Manset",
         "Saku": "Saku Racis Bibir",
-        "Placket / Kancing": [
+        "Kancing": [
           "Kancing Cetekan Plastik"
         ]
       }
@@ -261,7 +261,7 @@
         "Kerah": "Kerah Sapit",
         "Saku": "Saku Tempel",
         "Lengan": "Lengan Panjang",
-        "Placket / Kancing": [
+        "Kancing": [
           "Resleting Tertutup"
         ]
       }
@@ -285,7 +285,7 @@
         "Kerah": "Kerah Sapit",
         "Lengan": "Lengan Panjang",
         "Bahan": "Chronos",
-        "Placket / Kancing": [
+        "Kancing": [
           "Kancing Plastik Standar"
         ]
       }
@@ -354,7 +354,7 @@
       "spec": {
         "Kerah": "Kerah Shanghai",
         "Bahan": "Parasut",
-        "Placket / Kancing": [
+        "Kancing": [
           "Lis Resleting"
         ]
       }
@@ -659,10 +659,10 @@
         "Kombinasi Warna": [
           "Lis Cepit"
         ],
-        "Placket / Kancing": [
+        "Variasi": "Ujung Badan Oval",
+        "Kancing": [
           "Kancing Tertutup"
-        ],
-        "Variasi": "Ujung Badan Oval"
+        ]
       }
     },
     {
@@ -793,7 +793,7 @@
         "Kerah": "Kerah Standar Chef",
         "Saku": "Saku di Lengan",
         "Lengan": "Ujung Lengan Lipat",
-        "Placket / Kancing": [
+        "Kancing": [
           "Kancing Tertutup",
           "Kancing Biasa"
         ]
@@ -859,7 +859,7 @@
       "spec": {
         "Saku": "Saku Racis",
         "Bahan": "BSY",
-        "Placket / Kancing": [
+        "Kancing": [
           "Bagian Atas Tanpa Kancing"
         ]
       }
@@ -907,12 +907,12 @@
           "Lis Cepit",
           "Pecah Pola"
         ],
-        "Placket / Kancing": [
-          "Kancing Tertutup Variasi Melet"
-        ],
         "Variasi": [
           "Ujung Badan Oval",
           "Anci Pundak"
+        ],
+        "Kancing": [
+          "Kancing Tertutup Variasi Melet"
         ]
       }
     },
@@ -974,9 +974,7 @@
         "Bahan": "Lacoste 24s",
         "Kerah": "Manset Kerah",
         "Lengan": "Ujung Lengan dengan Manset Pita",
-        "Placket & Kancing": [
-          "Stol & Kancing"
-        ]
+        "Kancing": "Stol & Kancing"
       }
     },
     {
@@ -1019,9 +1017,7 @@
         "Bahan": "Lacoste 24s",
         "Kerah": "Manset Kerah",
         "Lengan": "Ujung Lengan dengan Manset Pita",
-        "Placket & Kancing": [
-          "Stol & Kancing"
-        ]
+        "Kancing": "Stol & Kancing"
       }
     },
     {
@@ -1042,9 +1038,7 @@
       "spec": {
         "Bahan": "Lacoste Katun 20s",
         "Kerah": "Kerah Warna Sama",
-        "Placket & Kancing": [
-          "Stol & Kancing"
-        ]
+        "Kancing": "Stol & Kancing"
       }
     },
     {
@@ -1066,9 +1060,7 @@
         "Bahan": "Lacoste Katun 24s",
         "Kerah": "Kerah Warna Sama",
         "Lengan": "Ujung Lengan dengan Manset Pita",
-        "Placket & Kancing": [
-          "Stol & Kancing"
-        ]
+        "Kancing": "Stol & Kancing"
       }
     },
     {
@@ -1151,7 +1143,7 @@
       "spec": {
         "Bahan": "Lacoste Katun 24s",
         "Lengan": "Ujung Lengan dengan Manset Pita",
-        "Belahan & Pecah Pola": "Belahan Samping"
+        "Bawah Badan": "Belahan Samping"
       }
     },
     {
@@ -1173,9 +1165,7 @@
         "Bahan": "Lacoste Katun 20s",
         "Kerah": "Kerah Lidi",
         "Lengan": "Lengan Pendek dengan Manset Pita dan Variasi Lidi",
-        "Placket & Kancing": [
-          "Kancing 3 Biji"
-        ]
+        "Kancing": "Kancing 3 Biji"
       }
     },
     {
@@ -1198,10 +1188,8 @@
         "Kerah": "Kerah Strip",
         "Saku": "Saku Tempel",
         "Lengan": "Lengan Panjang Overdeck",
-        "Placket & Kancing": [
-          "Kancing 3 Biji"
-        ],
-        "Belahan & Pecah Pola": "Belahan Samping"
+        "Kancing": "Kancing 3 Biji",
+        "Bawah Badan": "Belahan Samping"
       }
     },
     {
@@ -1242,9 +1230,7 @@
       "spec": {
         "Bahan": "Lacoste Katun 20s",
         "Lengan": "Ujung Lengan dengan Variasi Lidi",
-        "Placket & Kancing": [
-          "Kancing 3 Biji Warna Senada"
-        ]
+        "Kancing": "Kancing 3 Biji Warna Senada"
       }
     },
     {
@@ -1285,7 +1271,7 @@
         "Bahan": "Lacoste Katun 20s",
         "Kerah": "Kerah Beda Warna",
         "Lengan": "Ujung Lengan dengan Variasi Beda Warna",
-        "Placket & Kancing": [
+        "Variasi": [
           "Stol Kancing Beda Warna"
         ]
       }
@@ -1308,10 +1294,10 @@
       "spec": {
         "Bahan": "Lacoste CVC 20s",
         "Saku": "Saku Racis Beda Warna",
-        "Placket & Kancing": [
+        "Bawah Badan": "Pecah Pola Samping",
+        "Variasi": [
           "Stol Kancing Beda Warna"
-        ],
-        "Belahan & Pecah Pola": "Pecah Pola Samping"
+        ]
       }
     },
     {
@@ -1332,7 +1318,7 @@
       "spec": {
         "Bahan": "Lacoste CVC 20s",
         "Kerah": "Kerah Warna Hitam",
-        "Placket & Kancing": [
+        "Variasi": [
           "Stol Kancing Beda Warna"
         ]
       }
@@ -1392,7 +1378,7 @@
       "heroImageLocal2": "/images/portfolio/pt-naku-logistics/Lacoste-1.webp",
       "spec": {
         "Bahan": "Lacoste TC",
-        "Scotlite": "Scotlite"
+        "Variasi": "Scotlite"
       }
     },
     {
@@ -1411,8 +1397,7 @@
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/bandell-lighting-polo/Bordir1-1-600x600.webp",
       "spec": {
-        "Bahan": "American Drill",
-        "Variasi": "Pengait Rel Plastik"
+        "Bahan": "American Drill"
       }
     },
     {
@@ -1432,10 +1417,10 @@
       "heroImageLocal2": "/images/portfolio/pertamina-polo/Bis-leher-sesuai-warna-strip_2_11zon-600x600.webp",
       "spec": {
         "Bahan": "Lacoste CVC 20s",
-        "Placket & Kancing": [
+        "Variasi": [
+          "Bis Leher Beda Warna",
           "Stol Kancing Beda Warna"
-        ],
-        "Kombinasi Warna": "Bis Leher Beda Warna"
+        ]
       }
     },
     {
@@ -1457,9 +1442,7 @@
         "Bahan": "Drifit",
         "Kerah": "Manset Pita & Kerah Beda Warna",
         "Saku": "Saku Racis Beda Warna + Kancing",
-        "Placket & Kancing": [
-          "Kancing 2 Biji"
-        ]
+        "Kancing": "Kancing 2 Biji"
       }
     },
     {
@@ -1480,10 +1463,7 @@
       "spec": {
         "Bahan": "Lacoste Katun 20s",
         "Lengan": "Manset Pita Orange",
-        "Placket & Kancing": [
-          "Kancing 3 Biji",
-          "Stol Kancing Beda Warna"
-        ]
+        "Kancing": "Kancing 3 Biji"
       }
     },
     {

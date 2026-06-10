@@ -33,19 +33,27 @@ const fab = (fabricContent as any)[bahan] || null;
 const styleOpts = gt?.style_options || {};
 const styleSel = gt?.style_select || {};
 
-// Design summary = the axes this product actually uses, rendered as dropdowns (its real config as the default)
-const ORDER = ['Bahan','Kerah','Lengan','Saku','Manset','Resleting','Furing','Placket / Kancing','Placket & Kancing','Rib / Strip','Kombinasi Warna','Scotlite','Kerudung / Hoodie','Model','Ujung Badan','Kancing','Emblem','Belahan','Belahan & Pecah Pola','Anci Pundak','Pecah Pola','Jahitan','Airflow / Ventilasi','Karet Pinggang','Velcro / Ampil','Pengait','Variasi'];
-const designAxes = Object.keys(spec)
-  .filter((ax) => ax !== 'Bahan')
+// Design summary = ALL axes from the garment type, with the product's spec as the value
+// and the first option as fallback for single-select axes that have no spec value.
+const ORDER = ['Kerah','Lengan','Saku','Kancing','Kombinasi Warna','Jahitan','Manset','Resleting','Furing','Rib / Strip','Scotlite','Kerudung / Hoodie','Model','Ujung Badan','Emblem','Belahan','Belahan & Pecah Pola','Anci Pundak','Pecah Pola','Airflow / Ventilasi','Karet Pinggang','Velcro / Ampil','Pengait','Variasi'];
+const allAxes = Object.keys(styleOpts);
+const designAxes = allAxes
   .sort((a, b) => { const ia = ORDER.indexOf(a), ib = ORDER.indexOf(b); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); })
   .map((ax) => {
     const multi = styleSel[ax] === 'multi';
-    const value = spec[ax];
-    let options = (styleOpts[ax] || []).map((o: any) => o.name);
+    const specVal = spec[ax];
+    const options = (styleOpts[ax] || []).map((o: any) => o.name);
+    // If product has this spec, use it; otherwise fallback to first option for single-select
+    let value = specVal;
+    if (value == null && !multi && options[0]) value = options[0];
     const vals = Array.isArray(value) ? value : (value ? [value] : []);
-    vals.forEach((v) => { if (v && !options.includes(v)) options = [v, ...options]; });
-    return { axis: ax, value, multi, options };
-  });
+    // Ensure spec values that aren't in options are still shown
+    const allOptions = [...options];
+    vals.forEach((v) => { if (v && !allOptions.includes(v)) allOptions.unshift(v); });
+    return { axis: ax, value, multi, options: allOptions };
+  })
+  // Hide multi-select axes that have no value (no fallback, nothing to show)
+  .filter((ax) => !(ax.multi && !ax.value));
 
 const waBase = (siteConfig as any)?.contact?.whatsappUrl || 'https://wa.me/6285117049918';
 const waText = `Halo Kustom Garment, saya tertarik dengan produk ${GTL[item.garment_type] || ''} seperti ${item.title}. Boleh info lebih lanjut?`;

@@ -181,7 +181,7 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
                     {styleAttrs.length > 0 ? styleAttrs.map((k) => (
                       <button class="st-row" data-attr={k}>
                         <span class="st-row-k">{k}</span>
-                        <span class="st-row-r"><span class="st-row-v" data-valfor={k}>{(product.locked_spec as any)[k]}</span><span class="st-chev"></span></span>
+                        <span class="st-row-r"><span class="st-row-v" data-valfor={k}>{Array.isArray((product.locked_spec as any)[k]) ? ((product.locked_spec as any)[k] as string[]).join(', ') : (product.locked_spec as any)[k]}</span><span class="st-chev"></span></span>
                       </button>
                     )) : lockedSpec.map(([k, v]) => (
                       <div class="st-row st-row-locked"><span class="st-row-k">{k}</span><span class="st-row-r"><span class="st-row-v">{v}</span></span></div>
@@ -205,7 +205,7 @@ const metaTitle = `Custom ${product.name} | Kustom Garment`;
                       </div>
                       <div class="st-optgrid">
                         {(styleOptions[k] || []).map((o: any) => (
-                          <button class:list={['st-opt', { sel: o.name === (product.locked_spec as any)[k] }]} data-attr={k} data-opt={o.name}>
+                          <button class:list={['st-opt', { sel: Array.isArray((product.locked_spec as any)[k]) ? ((product.locked_spec as any)[k] as string[]).includes(o.name) : o.name === (product.locked_spec as any)[k] }]} data-attr={k} data-opt={o.name}>
                             <span class="st-opt-ill">{o.illustration ? <img src={o.illustration} alt="" /> : <span class="st-opt-ph">{o.name}</span>}<span class="st-opt-check">✓</span></span>
                             <span class="st-opt-name">{o.name}</span>
                           </button>

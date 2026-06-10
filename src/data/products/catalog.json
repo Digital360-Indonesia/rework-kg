@@ -130,39 +130,6 @@
             "name": "Ujung Lengan Lipat"
           }
         ],
-        "Placket / Kancing": [
-          {
-            "name": "Kancing Biasa"
-          },
-          {
-            "name": "Ampil Kancing",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Ampil-kancing.jpg"
-          },
-          {
-            "name": "Bagian Atas Tanpa Kancing",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bagian-Atas-Tanpa-Kancing-600x600.webp"
-          },
-          {
-            "name": "Kancing Cetekan Plastik",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Kancing-cetekan-plastik-1-1024x1024.jpg"
-          },
-          {
-            "name": "Kancing Plastik Standar"
-          },
-          {
-            "name": "Kancing Tertutup",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/kancing_tertutup-1-600x600.webp"
-          },
-          {
-            "name": "Kancing Tertutup Variasi Melet"
-          },
-          {
-            "name": "Resleting Tertutup"
-          },
-          {
-            "name": "Lis Resleting"
-          }
-        ],
         "Kombinasi Warna": [
           {
             "name": "Standar"
@@ -223,16 +190,49 @@
             "name": "Anci Pundak",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/variasi_anci_pundak-600x600.webp"
           }
+        ],
+        "Kancing": [
+          {
+            "name": "Kancing Biasa"
+          },
+          {
+            "name": "Ampil Kancing",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Ampil-kancing.jpg"
+          },
+          {
+            "name": "Bagian Atas Tanpa Kancing",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bagian-Atas-Tanpa-Kancing-600x600.webp"
+          },
+          {
+            "name": "Kancing Cetekan Plastik",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Kancing-cetekan-plastik-1-1024x1024.jpg"
+          },
+          {
+            "name": "Kancing Plastik Standar"
+          },
+          {
+            "name": "Kancing Tertutup",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/kancing_tertutup-1-600x600.webp"
+          },
+          {
+            "name": "Kancing Tertutup Variasi Melet"
+          },
+          {
+            "name": "Resleting Tertutup"
+          },
+          {
+            "name": "Lis Resleting"
+          }
         ]
       },
       "style_select": {
         "Kerah": "single",
         "Saku": "single",
         "Lengan": "single",
-        "Placket / Kancing": "single",
         "Kombinasi Warna": "single",
         "Jahitan": "single",
-        "Variasi": "multi"
+        "Variasi": "multi",
+        "Kancing": "single"
       }
     },
     {
@@ -255,6 +255,9 @@
       ],
       "style_options": {
         "Kerah": [
+          {
+            "name": "Kerah Polos"
+          },
           {
             "name": "Kerah Warna Sama"
           },
@@ -290,7 +293,10 @@
         ],
         "Saku": [
           {
-            "name": "Saku Tempel 1 Posisi",
+            "name": "Tanpa Saku"
+          },
+          {
+            "name": "Saku Tempel",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-29-at-11.03.26.jpeg"
           },
           {
@@ -330,7 +336,21 @@
             "name": "Manset Pita Orange"
           }
         ],
-        "Placket & Kancing": [
+        "Variasi": [
+          {
+            "name": "Bis Leher Beda Warna",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bis-leher-sesuai-warna-strip_2_11zon-600x600.jpg"
+          },
+          {
+            "name": "Scotlite",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/scotlite3-600x600.webp"
+          },
+          {
+            "name": "Stol Kancing Beda Warna",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Stol-kancing-beda-warna-1_7_11zon-600x600.jpg"
+          }
+        ],
+        "Kancing": [
           {
             "name": "Kancing 2 Biji"
           },
@@ -342,20 +362,13 @@
             "name": "Kancing 3 Biji Warna Senada"
           },
           {
-            "name": "Stol Kancing Beda Warna",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Stol-kancing-beda-warna-1_7_11zon-600x600.jpg"
-          },
-          {
             "name": "Stol & Kancing"
           }
         ],
-        "Kombinasi Warna": [
+        "Bawah Badan": [
           {
-            "name": "Bis Leher Beda Warna",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bis-leher-sesuai-warna-strip_2_11zon-600x600.jpg"
-          }
-        ],
-        "Belahan & Pecah Pola": [
+            "name": "Standar"
+          },
           {
             "name": "Belahan Samping",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Belahan-Samping-1.jpg"
@@ -363,29 +376,15 @@
           {
             "name": "Pecah Pola Samping"
           }
-        ],
-        "Scotlite": [
-          {
-            "name": "Scotlite",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/scotlite3-600x600.webp"
-          }
-        ],
-        "Variasi": [
-          {
-            "name": "Pengait Rel Plastik",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/tb-rel-plastik-600x600.webp"
-          }
         ]
       },
       "style_select": {
         "Kerah": "single",
         "Saku": "single",
         "Lengan": "single",
-        "Placket & Kancing": "multi",
-        "Kombinasi Warna": "single",
-        "Belahan & Pecah Pola": "single",
-        "Scotlite": "single",
-        "Variasi": "single"
+        "Variasi": "multi",
+        "Kancing": "single",
+        "Bawah Badan": "single"
       }
     },
     {
