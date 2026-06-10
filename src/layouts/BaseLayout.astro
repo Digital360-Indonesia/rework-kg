@@ -100,6 +100,22 @@ const currentPath = Astro.url.pathname;
   <!-- RSS Feed -->
   <link rel="alternate" type="application/rss+xml" title="Blog Kustom Garment" href="/blog/rss.xml">
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YP77LR2QDG"></script>
+  <script set:html={`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YP77LR2QDG');
+  `}></script>
+
+  <!-- Google Tag Manager -->
+  <script set:html={`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P4XD34L7');`}></script>
+
   <!-- Structured Data -->
   <script set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -138,6 +154,11 @@ const currentPath = Astro.url.pathname;
 </head>
 
 <body class="min-h-screen flex flex-col">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P4XD34L7"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <!-- Page-transition curtain: orange sweeps up (cover on leave, reveal on enter) -->
   {!noCurtain && <div class="page-curtain" aria-hidden="true"></div>}
 

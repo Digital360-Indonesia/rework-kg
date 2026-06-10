@@ -1,0 +1,5 @@
+---
+import fs from 'node:fs';
+const html = fs.readFileSync('public/go-ig.html', 'utf8');
+---
+<Fragment set:html={html} />
