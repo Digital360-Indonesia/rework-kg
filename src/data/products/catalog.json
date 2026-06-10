@@ -876,129 +876,119 @@
       "style_options": {
         "Kerah": [
           {
-            "name": "Kerah Bordir"
+            "nama": "Kerah Standar"
           }
         ],
         "Lengan": [
           {
-            "name": "Lengan Panjang",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Lengan-panjang-1-600x600.jpg"
+            "nama": "Lengan Panjang",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Lengan-panjang-1-600x600.jpg"
           },
           {
-            "name": "Lengan Panjang Ujung Resleting YKK"
+            "nama": "Lengan Panjang Ujung Resleting YKK"
           },
           {
-            "name": "Ujung Lengan & Ban Velcro"
+            "nama": "Ujung Lengan & Ban Velcro"
           },
           {
-            "name": "Pengait Lengan"
+            "nama": "Pengait Lengan"
           }
         ],
         "Saku": [
           {
-            "name": "Saku Bolpoin",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Saku-Bolpoin-1.jpg"
+            "nama": "Saku Tempel 2 Posisi",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Saku-tempel-2-posisi.jpg"
           },
           {
-            "name": "Saku Floi Penutup 2 Posisi"
+            "nama": "Saku Floi Penutup 2 Posisi"
           },
           {
-            "name": "Saku Tempel 2 Posisi",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Saku-tempel-2-posisi.jpg"
-          },
-          {
-            "name": "Saku Variasi Depan"
+            "nama": "Saku Variasi Depan"
           }
         ],
         "Scotlite": [
           {
-            "name": "Scotlite Lengan 3 cm"
+            "nama": "Scotlite Lengan 3 cm"
           },
           {
-            "name": "Scotlite Celana 5 cm"
+            "nama": "Scotlite Celana 5 cm"
           },
           {
-            "name": "Scotlite Badan"
+            "nama": "Scotlite Badan"
           }
         ],
         "Resleting": [
           {
-            "name": "Resleting Utama YKK"
+            "nama": "Resleting Utama Plastik",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Resleting-utama-plastik-1024x1024.jpg"
           },
           {
-            "name": "Resleting Utama Plastik",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Resleting-utama-plastik-1024x1024.jpg"
-          }
-        ],
-        "Velcro / Ampil": [
-          {
-            "name": "Ampil dengan Velcro",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/ampil-dengan-velcro.jpg"
-          }
-        ],
-        "Airflow / Ventilasi": [
-          {
-            "name": "Airflow",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/AnyConv.com__Airflo-600x600.webp"
-          },
-          {
-            "name": "Airflow Jala Putih"
-          }
-        ],
-        "Karet Pinggang": [
-          {
-            "name": "Karet Bagian Belakang",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/ada-karet-di-bagian-belakang.jpg"
+            "nama": "Resleting Utama YKK"
           }
         ],
         "Kancing": [
           {
-            "name": "Kancing Cetekan Plastik",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Kancing-cetekan-plastik-1-1024x1024.jpg"
+            "nama": "Kancing Cetekan Plastik",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Kancing-cetekan-plastik-1-1024x1024.jpg"
           },
           {
-            "name": "Kancing Tertutup Variasi Melet"
+            "nama": "Kancing Tertutup Variasi Melet"
           }
         ],
         "Pengait": [
           {
-            "name": "Pengait Besi",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/tm-pengait-besi-600x600.webp"
+            "nama": "Pengait Besi",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/tm-pengait-besi-600x600.webp"
           },
           {
-            "name": "Pengait Pundak"
+            "nama": "Pengait Pundak"
           },
           {
-            "name": "Pengait untuk HT",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/pengait20HT20dada20kiri.JPG-1024x1024.webp"
+            "nama": "Pengait untuk HT",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/pengait20HT20dada20kiri.JPG-1024x1024.webp"
           }
         ],
         "Variasi": [
           {
-            "name": "Anci Pundak",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/variasi_anci_pundak-600x600.webp"
+            "nama": "Anci Pundak",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/variasi_anci_pundak-600x600.webp"
           },
           {
-            "name": "Ban Jahitan Menyilang"
+            "nama": "Ban Jahitan Menyilang"
           },
           {
-            "name": "Emblem Nama",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/emblem_nama-1024x1024.webp"
+            "nama": "Emblem Nama",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/emblem_nama-1024x1024.webp"
           },
           {
-            "name": "Jahitan Dobel",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Jahitan-dobel_5_11zon-1024x1024.jpg"
+            "nama": "Jahitan Dobel",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Jahitan-dobel_5_11zon-1024x1024.jpg"
           },
           {
-            "name": "Lis Cepit"
+            "nama": "Lis Cepit"
           },
           {
-            "name": "Pecah Pola",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Jahitan-Dobel_2_11zon-600x600.jpg"
+            "nama": "Pecah Pola",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Jahitan-Dobel_2_11zon-600x600.jpg"
           },
           {
-            "name": "Ujung Badan Oval",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Portofolio_Toto_Bawah_Oval_1_-600x600.webp"
+            "nama": "Ujung Badan Oval",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Portofolio_Toto_Bawah_Oval_1_-600x600.webp"
+          },
+          {
+            "nama": "Saku Bolpoin",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Saku-Bolpoin-1.jpg"
+          },
+          {
+            "nama": "Ampil dengan Velcro",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/ampil-dengan-velcro.jpg"
+          },
+          {
+            "nama": "Airflow",
+            "foto": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/AnyConv.com__Airflo-600x600.webp"
+          },
+          {
+            "nama": "Airflow Jala Putih"
           }
         ]
       },
@@ -1008,9 +998,6 @@
         "Saku": "single",
         "Scotlite": "multi",
         "Resleting": "single",
-        "Velcro / Ampil": "single",
-        "Airflow / Ventilasi": "single",
-        "Karet Pinggang": "single",
         "Kancing": "single",
         "Pengait": "single",
         "Variasi": "multi"

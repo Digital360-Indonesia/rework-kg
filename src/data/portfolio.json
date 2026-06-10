@@ -3046,10 +3046,11 @@
           "Scotlite Lengan 3 cm",
           "Scotlite Celana 5 cm"
         ],
-        "Karet Pinggang": "Karet Bagian Belakang",
-        "Velcro / Ampil": "Ampil dengan Velcro",
         "Resleting": "Resleting Utama YKK",
-        "Airflow / Ventilasi": "Airflow"
+        "Variasi": [
+          "Ampil dengan Velcro",
+          "Airflow"
+        ]
       }
     },
     {
@@ -3069,15 +3070,15 @@
       "heroImageLocal2": "/images/portfolio/pt-senku/Bordir_3_11zon-1-1024x1024.webp",
       "spec": {
         "Bahan": "Taipan Tropical",
-        "Kerah": "Kerah Bordir",
+        "Kerah": "Kerah Standar",
         "Saku": "Saku Variasi Depan",
         "Lengan": "Lengan Panjang",
-        "Airflow / Ventilasi": "Airflow Jala Putih",
         "Resleting": "Resleting Utama Plastik",
         "Kancing": "Kancing Cetekan Plastik",
         "Variasi": [
           "Jahitan Dobel",
-          "Ban Jahitan Menyilang"
+          "Ban Jahitan Menyilang",
+          "Airflow Jala Putih"
         ]
       }
     },
@@ -3173,11 +3174,11 @@
       "heroImageLocal2": "/images/portfolio/pjb-uphar-jatim/Salinan20IMG_1703.JPG-600x600.webp",
       "spec": {
         "Bahan": "Taipan Tropical",
-        "Saku": "Saku Bolpoin",
         "Lengan": "Lengan Panjang Ujung Resleting YKK",
-        "Airflow / Ventilasi": "Airflow",
         "Variasi": [
-          "Anci Pundak"
+          "Anci Pundak",
+          "Saku Bolpoin",
+          "Airflow"
         ],
         "Pengait": "Pengait untuk HT"
       }
