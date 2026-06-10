@@ -419,37 +419,17 @@
           {
             "name": "Tanpa Lengan",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Tanpa_Lengan-600x600.webp"
-          },
-          {
-            "name": "Manset (Melet) pada Lengan"
-          },
-          {
-            "name": "Ujung Lengan Overdeck",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Jahitan-rantai-1024x1024.jpg"
           }
         ],
         "Kerah": [
           {
-            "name": "Kerah Beda Warna",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Variasi_Kerah_Warna-600x600.webp"
+            "name": "Standar"
           },
           {
-            "name": "Kerah Sapit",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Kerah-sapit-1.jpg"
+            "name": "O Neck"
           },
           {
-            "name": "Rib",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/04/Rib-leher-warna-kuning-1024x1024.jpg"
-          }
-        ],
-        "Saku": [
-          {
-            "name": "Saku Tempel 1 Posisi",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-29-at-11.03.26.jpeg"
-          },
-          {
-            "name": "Saku Bolpoin",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Saku-Bolpoin-1.jpg"
+            "name": "V Neck"
           }
         ],
         "Variasi": [
@@ -464,17 +444,13 @@
           {
             "name": "Pecah Pola",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Jahitan-Dobel_2_11zon-600x600.jpg"
-          },
-          {
-            "name": "Resleting Tertutup"
           }
         ]
       },
       "style_select": {
         "Lengan": "single",
         "Kerah": "single",
-        "Saku": "single",
-        "Variasi": "single"
+        "Variasi": "multi"
       }
     },
     {
@@ -497,6 +473,9 @@
       ],
       "style_options": {
         "Kerah": [
+          {
+            "name": "Kerah Standar"
+          },
           {
             "name": "Kerah Berdiri",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Kerah20Berdiri.JPG-600x600.webp"
@@ -530,6 +509,9 @@
         ],
         "Rib / Strip": [
           {
+            "name": "Tanpa Rib / Strip"
+          },
+          {
             "name": "Rib pada Kerah dan Badan",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/5-2-600x600.jpg"
           },
@@ -549,6 +531,9 @@
           }
         ],
         "Manset": [
+          {
+            "name": "Tanpa Manset"
+          },
           {
             "name": "Manset Senada",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Manset-Senada-600x600.webp"
@@ -592,6 +577,9 @@
           }
         ],
         "Saku": [
+          {
+            "name": "Tanpa Saku"
+          },
           {
             "name": "Saku 2 Posisi",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/saku-2-posisi_9_11zon-1-1024x1024.jpg"
@@ -639,22 +627,22 @@
         ],
         "Resleting": [
           {
+            "name": "Resleting Plastik Standar",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/resleting-plastik-standar_6_11zon-1024x1024.jpg"
+          },
+          {
             "name": "Resleting Besi YKK",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/4-2-1024x1024.jpg"
           },
           {
             "name": "Resleting Plastik YEE",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Resleting-YEE-1024x1024.jpg"
-          },
-          {
-            "name": "Resleting Plastik Standar",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/resleting-plastik-standar_6_11zon-1024x1024.jpg"
-          },
-          {
-            "name": "Lis Bagian Resleting"
           }
         ],
         "Furing": [
+          {
+            "name": "Tanpa Furing"
+          },
           {
             "name": "Furing Jala",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/05/IMG_9911-1024x1024.jpg"
@@ -680,16 +668,10 @@
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Furing-katun-1024x1024.jpg"
           }
         ],
-        "Scotlite": [
-          {
-            "name": "Scotlite Bagian Belakang"
-          },
-          {
-            "name": "Scott Puma",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Scott-Puma-1024x1024.jpg"
-          }
-        ],
         "Kerudung / Hoodie": [
+          {
+            "name": "Tanpa Hoodie"
+          },
           {
             "name": "Hoodie",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Penutup_Kepala-600x600.webp"
@@ -703,9 +685,15 @@
           {
             "name": "Kancing Cetekan Plastik",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/01/Kancing-cetekan-plastik-1-1024x1024.jpg"
+          },
+          {
+            "name": "Kancing Besi"
           }
         ],
         "Ujung Badan": [
+          {
+            "name": "Standar"
+          },
           {
             "name": "Ujung Badan dengan Stopper",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Variasi-ujung-bawah-baju_4_11zon-1024x1024.jpg"
@@ -713,20 +701,6 @@
           {
             "name": "Ujung Badan dengan Stopper dan Tali",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/01/Ujung-bada-dengan-stopertali_8_11zon-1024x1024.jpg"
-          }
-        ],
-        "Kombinasi Warna": [
-          {
-            "name": "Raglan dengan Kombinasi 2 Warna"
-          }
-        ],
-        "Model": [
-          {
-            "name": "Varsity",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/varsity-1-1024x1024.jpg"
-          },
-          {
-            "name": "Model Tahu"
           }
         ],
         "Variasi": [
@@ -737,6 +711,9 @@
           {
             "name": "Pecah Pola",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Jahitan-Dobel_2_11zon-600x600.jpg"
+          },
+          {
+            "name": "Scotlite Bagian Belakang"
           }
         ]
       },
@@ -748,13 +725,10 @@
         "Saku": "single",
         "Resleting": "single",
         "Furing": "single",
-        "Scotlite": "multi",
         "Kerudung / Hoodie": "single",
         "Kancing": "single",
         "Ujung Badan": "single",
-        "Kombinasi Warna": "single",
-        "Model": "single",
-        "Variasi": "single"
+        "Variasi": "multi"
       }
     },
     {

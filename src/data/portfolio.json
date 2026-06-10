@@ -1523,9 +1523,7 @@
       "spec": {
         "Bahan": "Nagata Drill",
         "Kerah": "Kerah Sapit",
-        "Saku": "Saku Tempel",
-        "Lengan": "Lengan Panjang",
-        "Variasi": "Resleting Tertutup"
+        "Lengan": "Lengan Panjang"
       }
     },
     {
@@ -1661,8 +1659,7 @@
       "heroImageLocal2": "/images/portfolio/frank-amachi/Katun-Combed-30s-1024x1024.webp",
       "spec": {
         "Bahan": "Cotton Combed 30s",
-        "Lengan": "Manset (Melet) pada Lengan",
-        "Kerah": "Rib"
+        "Kerah": "O Neck"
       }
     },
     {
@@ -1682,7 +1679,6 @@
       "heroImageLocal2": "/images/portfolio/pt-karyaterang-sedati-2/Katun-Combed-30s-1-1024x1024.webp",
       "spec": {
         "Kerah": "Kerah Beda Warna",
-        "Saku": "Saku Bolpoin",
         "Bahan": "TC"
       }
     },
@@ -1723,7 +1719,6 @@
       "heroImageLocal2": "/images/portfolio/suporter-ppns/Banner-1-2.webp",
       "spec": {
         "Bahan": "Cotton Combed 30s",
-        "Lengan": "Ujung Lengan Overdeck",
         "Variasi": "Jahitan Rantai"
       }
     },
@@ -1781,8 +1776,7 @@
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/pt-karyaterang-sedati/4-600x600.webp",
       "spec": {
-        "Kerah": "Kerah Beda Warna",
-        "Saku": "Saku Bolpoin",
+        "Kerah": "O Neck",
         "Bahan": "TC"
       }
     },
@@ -2116,9 +2110,6 @@
         "Kerah": "Kerah Berdiri",
         "Saku": "Saku Racis Tertutup",
         "Rib / Strip": "Rib pada Lengan",
-        "Scotlite": [
-          "Scott Puma"
-        ],
         "Resleting": "Resleting Plastik YEE"
       }
     },
@@ -2139,9 +2130,6 @@
       "heroImageLocal2": "/images/portfolio/pt-unicharm/1-3-1024x1024.webp",
       "spec": {
         "Rib / Strip": "Rib pada Kerah dan Badan",
-        "Scotlite": [
-          "Scott Puma"
-        ],
         "Resleting": "Resleting Besi YKK"
       }
     },
@@ -2210,7 +2198,6 @@
         "Bahan": "Fleece PE",
         "Manset": "Kerah dan Lengan Manset Strip",
         "Saku": "Saku Racis",
-        "Model": "Model Tahu",
         "Kancing": "Kancing Cetekan Plastik"
       }
     },
@@ -2323,7 +2310,6 @@
         "Bahan": "Fleece PE",
         "Manset": "Kerah dan Lengan Manset Strip",
         "Saku": "Saku Racis",
-        "Model": "Model Tahu",
         "Kancing": "Kancing Cetekan Plastik"
       }
     },
@@ -2434,7 +2420,6 @@
         "Bahan": "Micro",
         "Rib / Strip": "Rib pada Lengan, Kerah, dan Badan",
         "Saku": "Saku 2 Posisi",
-        "Kombinasi Warna": "Raglan dengan Kombinasi 2 Warna",
         "Kancing": "Kancing Cetekan Plastik"
       }
     },
@@ -2456,8 +2441,7 @@
       "spec": {
         "Kerah": "Kerah Shanghai",
         "Bahan": "Parasut",
-        "Furing": "Furing Peles",
-        "Resleting": "Lis Bagian Resleting"
+        "Furing": "Furing Peles"
       }
     },
     {
@@ -2611,7 +2595,6 @@
       "spec": {
         "Bahan": "Fleece CVC",
         "Kerah": "Kerah Custom",
-        "Model": "Varsity",
         "Resleting": "Resleting Besi YKK"
       }
     },
@@ -2670,11 +2653,10 @@
       "segment": "business",
       "heroImageLocal2": "/images/portfolio/pt-tanto-intim-line/Bordir2-600x600.webp",
       "spec": {
-        "Scotlite": [
-          "Scott Puma",
+        "Furing": "Furing Jala",
+        "Variasi": [
           "Scotlite Bagian Belakang"
-        ],
-        "Furing": "Furing Jala"
+        ]
       }
     },
     {
@@ -2741,7 +2723,6 @@
       "spec": {
         "Bahan": "Fleece CVC",
         "Saku": "Saku Racis Bibir Atas Bawah",
-        "Model": "Varsity",
         "Rib / Strip": "Strip"
       }
     },
@@ -2763,8 +2744,7 @@
       "spec": {
         "Bahan": "Fleece CVC",
         "Rib / Strip": "Strip Kerah, Lengan & Badan",
-        "Saku": "Saku Racis 2 Posisi",
-        "Model": "Varsity"
+        "Saku": "Saku Racis 2 Posisi"
       }
     },
     {
