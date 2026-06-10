@@ -23,6 +23,9 @@
       "style_options": {
         "Kerah": [
           {
+            "name": "Kerah Standar"
+          },
+          {
             "name": "Kerah Daun Bahan",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/09/Kerah-Daun-Bahan-min.jpg"
           },
@@ -54,7 +57,10 @@
         ],
         "Saku": [
           {
-            "name": "Saku Tempel 1 Posisi",
+            "name": "Tanpa Saku"
+          },
+          {
+            "name": "Saku Tempel",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/12/WhatsApp-Image-2023-12-29-at-11.03.26.jpeg"
           },
           {
@@ -126,22 +132,15 @@
         ],
         "Placket / Kancing": [
           {
+            "name": "Kancing Biasa"
+          },
+          {
             "name": "Ampil Kancing",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Ampil-kancing.jpg"
           },
           {
             "name": "Bagian Atas Tanpa Kancing",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Bagian-Atas-Tanpa-Kancing-600x600.webp"
-          },
-          {
-            "name": "Kancing Biasa"
-          },
-          {
-            "name": "Kancing 3 Biji",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/12/Kancing-3-biji_4_11zon.jpg"
-          },
-          {
-            "name": "Kancing 3 Biji Senada"
           },
           {
             "name": "Kancing Cetekan Plastik",
@@ -166,16 +165,15 @@
         ],
         "Kombinasi Warna": [
           {
+            "name": "Standar"
+          },
+          {
             "name": "Kombinasi Warna",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Variasi-pecah-pola-1.jpg"
           },
           {
             "name": "Kombinasi Kain Batik",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/2-5.jpg"
-          },
-          {
-            "name": "Anci Pundak",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/variasi_anci_pundak-600x600.webp"
           },
           {
             "name": "Lis Cepit"
@@ -195,24 +193,6 @@
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/pecah_pola_3_warna-600x600.webp"
           }
         ],
-        "Emblem": [
-          {
-            "name": "Emblem Velcro",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Emblem-velcro.jpg"
-          }
-        ],
-        "Belahan": [
-          {
-            "name": "Belahan Samping",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Belahan-Samping-1.jpg"
-          }
-        ],
-        "Scotlite": [
-          {
-            "name": "Scotlite",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/scotlite3-600x600.webp"
-          }
-        ],
         "Jahitan": [
           {
             "name": "Jahitan Dobel Semua Sisi"
@@ -224,19 +204,24 @@
         ],
         "Variasi": [
           {
-            "name": "Furing Peles",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/06/Furing-peles-1024x1024.jpg"
-          },
-          {
-            "name": "Jala di Belakang"
-          },
-          {
             "name": "Ujung Badan Oval",
             "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/Portofolio_Toto_Bawah_Oval_1_-600x600.webp"
           },
           {
-            "name": "Variasi",
-            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2021/12/variasi-lengan-600x600.jpg"
+            "name": "Emblem Velcro",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2024/05/Emblem-velcro.jpg"
+          },
+          {
+            "name": "Belahan Samping",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2023/07/Belahan-Samping-1.jpg"
+          },
+          {
+            "name": "Scotlite",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/scotlite3-600x600.webp"
+          },
+          {
+            "name": "Anci Pundak",
+            "illustration": "https://portfolio.kustomgarment.com/wp-content/uploads/2022/03/variasi_anci_pundak-600x600.webp"
           }
         ]
       },
@@ -244,13 +229,10 @@
         "Kerah": "single",
         "Saku": "single",
         "Lengan": "single",
-        "Placket / Kancing": "multi",
-        "Kombinasi Warna": "multi",
-        "Emblem": "single",
-        "Belahan": "single",
-        "Scotlite": "single",
+        "Placket / Kancing": "single",
+        "Kombinasi Warna": "single",
         "Jahitan": "single",
-        "Variasi": "single"
+        "Variasi": "multi"
       }
     },
     {

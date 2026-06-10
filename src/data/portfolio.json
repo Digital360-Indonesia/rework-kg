@@ -31,11 +31,11 @@
         "Kerah": "Kerah Sapit",
         "Saku": "Saku Floi Segi 6 Tertutup",
         "Lengan": "Lengan Pendek",
-        "Emblem": "Emblem Velcro",
         "Placket / Kancing": [
           "Ampil Kancing"
         ],
-        "Kombinasi Warna": [
+        "Variasi": [
+          "Emblem Velcro",
           "Anci Pundak"
         ]
       }
@@ -61,14 +61,16 @@
         "Saku": "Saku Floi",
         "Lengan": "Lengan Pendek",
         "Kombinasi Warna": [
-          "Anci Pundak",
           "Kombinasi Warna",
           "Lis Cepit"
         ],
         "Placket / Kancing": [
           "Ampil Kancing"
         ],
-        "Scotlite": "Scotlite"
+        "Variasi": [
+          "Scotlite",
+          "Anci Pundak"
+        ]
       }
     },
     {
@@ -112,12 +114,12 @@
       "heroImageLocal2": "/images/portfolio/kedokteran-gigi-universitas-hang-tuah/Anci-pundak-600x600.webp",
       "spec": {
         "Bahan": "Nagata Drill",
-        "Kombinasi Warna": [
-          "Anci Pundak",
-          "Lis Cepit"
-        ],
+        "Kombinasi Warna": "Lis Cepit",
         "Placket / Kancing": [
           "Ampil Kancing"
+        ],
+        "Variasi": [
+          "Anci Pundak"
         ]
       }
     },
@@ -141,9 +143,11 @@
         "Kerah": "Kerah Sapit",
         "Saku": "Saku Racis",
         "Lengan": "Lengan Panjang",
-        "Belahan": "Belahan Samping",
         "Placket / Kancing": [
           "Ampil Kancing"
+        ],
+        "Variasi": [
+          "Belahan Samping"
         ]
       }
     },
@@ -255,7 +259,7 @@
       "spec": {
         "Bahan": "Nagata Drill",
         "Kerah": "Kerah Sapit",
-        "Saku": "Saku Tempel 1 Posisi",
+        "Saku": "Saku Tempel",
         "Lengan": "Lengan Panjang",
         "Placket / Kancing": [
           "Resleting Tertutup"
@@ -350,7 +354,6 @@
       "spec": {
         "Kerah": "Kerah Shanghai",
         "Bahan": "Parasut",
-        "Variasi": "Furing Peles",
         "Placket / Kancing": [
           "Lis Resleting"
         ]
@@ -378,7 +381,9 @@
         "Kombinasi Warna": [
           "Kombinasi Kain Batik"
         ],
-        "Belahan": "Belahan Samping"
+        "Variasi": [
+          "Belahan Samping"
+        ]
       }
     },
     {
@@ -460,12 +465,12 @@
       "heroImageLocal2": "/images/portfolio/planet-printing-dili/Bagian-krah-dengan-list-600x600.webp",
       "spec": {
         "Bahan": "Taipan Tropical",
-        "Kombinasi Warna": [
-          "Anci Pundak",
-          "Melet"
-        ],
+        "Kombinasi Warna": "Melet",
         "Lengan": "Lengan Pengait",
-        "Belahan": "Belahan Samping"
+        "Variasi": [
+          "Belahan Samping",
+          "Anci Pundak"
+        ]
       }
     },
     {
@@ -486,10 +491,7 @@
       "spec": {
         "Bahan": "Lacoste Katun 20s",
         "Kerah": "Kerah Lidi",
-        "Lengan": "Manset Pita Variasi Lidi",
-        "Placket / Kancing": [
-          "Kancing 3 Biji"
-        ]
+        "Lengan": "Manset Pita Variasi Lidi"
       }
     },
     {
@@ -510,10 +512,7 @@
       "spec": {
         "Bahan": "Lacoste Katun 20s",
         "Kerah": "Kerah Lidi",
-        "Lengan": "Manset Pita Variasi Lidi",
-        "Placket / Kancing": [
-          "Kancing 3 Biji"
-        ]
+        "Lengan": "Manset Pita Variasi Lidi"
       }
     },
     {
@@ -533,10 +532,7 @@
       "heroImageLocal2": "/images/portfolio/pt-ace-hardware-indonesia-kemeja/Banner-6.webp",
       "spec": {
         "Bahan": "Lacoste Katun 20s",
-        "Lengan": "Ujung Lengan Lidi",
-        "Placket / Kancing": [
-          "Kancing 3 Biji Senada"
-        ]
+        "Lengan": "Ujung Lengan Lidi"
       }
     },
     {
@@ -598,8 +594,7 @@
         "Bahan": "Ribstop Drill",
         "Saku": "Saku Penutup Velcro",
         "Lengan": "Lengan Panjang",
-        "Jahitan": "Jahitan Dobel Semua Sisi",
-        "Variasi": "Jala di Belakang"
+        "Jahitan": "Jahitan Dobel Semua Sisi"
       }
     },
     {
@@ -706,9 +701,11 @@
       "heroImageLocal2": "/images/portfolio/pertamina/Nagata_Drill-2.webp",
       "spec": {
         "Bahan": "Nagata Drill",
-        "Scotlite": "Scotlite",
         "Kombinasi Warna": [
           "Pecah Pola 3 Warna"
+        ],
+        "Variasi": [
+          "Scotlite"
         ]
       }
     },
@@ -748,7 +745,7 @@
       "heroImageLocal2": "/images/portfolio/nurul-hayat/bordir-3-600x600.webp",
       "spec": {
         "Bahan": "Nagata Drill",
-        "Kombinasi Warna": [
+        "Variasi": [
           "Anci Pundak"
         ]
       }
@@ -771,7 +768,9 @@
       "spec": {
         "Bahan": "Ribstop Drill",
         "Lengan": "Lengan Pengait",
-        "Emblem": "Emblem Velcro"
+        "Variasi": [
+          "Emblem Velcro"
+        ]
       }
     },
     {
@@ -906,13 +905,15 @@
         "Lengan": "Lengan Pengait",
         "Kombinasi Warna": [
           "Lis Cepit",
-          "Pecah Pola",
-          "Anci Pundak"
+          "Pecah Pola"
         ],
         "Placket / Kancing": [
           "Kancing Tertutup Variasi Melet"
         ],
-        "Variasi": "Ujung Badan Oval"
+        "Variasi": [
+          "Ujung Badan Oval",
+          "Anci Pundak"
+        ]
       }
     },
     {
@@ -1195,7 +1196,7 @@
       "spec": {
         "Bahan": "Lacoste Katun 20s",
         "Kerah": "Kerah Strip",
-        "Saku": "Saku Tempel 1 Posisi",
+        "Saku": "Saku Tempel",
         "Lengan": "Lengan Panjang Overdeck",
         "Placket & Kancing": [
           "Kancing 3 Biji"
@@ -1542,7 +1543,7 @@
       "spec": {
         "Bahan": "Nagata Drill",
         "Kerah": "Kerah Sapit",
-        "Saku": "Saku Tempel 1 Posisi",
+        "Saku": "Saku Tempel",
         "Lengan": "Lengan Panjang",
         "Variasi": "Resleting Tertutup"
       }

@@ -43,9 +43,9 @@ mood: bold · professional · editorial · energetic
 - **Color:** **orange `#ff4c00`** is the signature — used with discipline (primary text/buttons in near-black `#1a1a1a`; orange for per-product accents, CTA arrows, checkmarks — not everywhere). Cream/light-navy for "soft" sections, near-black for chrome/CTAs.
 - **Type:** **SF Pro Display** self-hosted (Bold + Semibold loaded; Regular/Medium .woff2 still NEEDED — `font-weight:400` falls back to Semibold; use the system stack where true Regular is required).
 - **Corners:** mixed — **sharp ("lancip") is sometimes the answer**; don't default to rounded.
-- **Feel:** bold, editorial, motion-forward (one-page slides, scroll-snap, reels, the product customizer + PocketBase PMS).
+- **Feel:** bold, editorial, motion-forward (one-page slides, scroll-snap, reels, the product customizer).
 
 ## Stack note
-- Astro 5 static · **Tailwind v4 via `@theme` in `global.css`** (not tailwind.config) · self-hosted SF Pro · GSAP available (most motion is CSS/IntersectionObserver). Products are driven by the **PocketBase PMS** (`PMS_SOURCE=pb`), catalog.json as fallback.
+- Astro 5 static · **Tailwind v4 via `@theme` in `global.css`** (not tailwind.config) · self-hosted SF Pro · GSAP available (most motion is CSS/IntersectionObserver). Products driven by **`catalog.json`** (the single source of truth).
 
 > Standard rework-web DESIGN.md — UI work reads these tokens. Orange is the accent, near-black the ink, SF Pro the type. (Contrast: Level Garment = purple `#AF7AD5` + Inter, playful/youth.)
