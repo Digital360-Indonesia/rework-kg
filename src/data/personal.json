@@ -5,17 +5,11 @@
     "description": "Outfit harianmu, dibikin sesukamu. Kaos, hoodie, kemeja, sampai totebag — desain bebas, satu pun jadi, tanpa minimum order. Bikin baju. Satu pun oke."
   },
   "hero": {
-    "image": "/images/placeholder/personal-hero.jpg",
+    "image": "/images/placeholder/personal-hero.png",
     "imageAlt": "OOTD custom Kustom Garment",
     "tagline": "personal wear",
     "line1": "Bikin",
     "line2": "Sesukamu."
   },
-  "lookbook": [
-    { "img": "/images/placeholder/personal-1.png", "alt": "OOTD custom Kustom Garment", "span": "tall" },
-    { "img": "/images/placeholder/personal-2.png", "alt": "OOTD custom Kustom Garment", "span": "tall" },
-    { "img": "/images/placeholder/personal-3.png", "alt": "OOTD custom Kustom Garment", "span": "wide" },
-    { "img": "/images/placeholder/personal-4.png", "alt": "OOTD custom Kustom Garment", "span": "tall" },
-    { "img": "/images/placeholder/personal-5.png", "alt": "OOTD custom Kustom Garment", "span": "tall" }
-  ]
+  "lookbook": []
 }
