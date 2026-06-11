@@ -1,0 +1,42 @@
+---
+/**
+ * SEO Redirect: old root-level URLs → /blog/{slug}/
+ *
+ * Website lama punya URL seperti /konveksi-batam yang sekarang
+ * berada di /blog/konveksi-batam/. File ini generate redirect page
+ * untuk setiap blog post agar SEO juice dari URL lama tidak hilang.
+ *
+ * Menggunakan meta refresh (0 detik) + canonical link.
+ * Tidak pakai BaseLayout supaya redirect instan tanpa load
+ * header/footer/curtain yang tidak perlu.
+ */
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { destination: `/blog/${post.slug}/`, title: post.data.title },
+  }));
+}
+
+const { destination, title } = Astro.props;
+const siteUrl = 'https://kustomgarment.com';
+const fullUrl = `${siteUrl}${destination}`;
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta http-equiv="refresh" content={`0;url=${destination}`} />
+  <link rel="canonical" href={fullUrl} />
+  <meta name="robots" content="noindex, follow" />
+</head>
+<body>
+  <p>Halaman telah dipindahkan ke <a href={destination}>{title}</a>.</p>
+  <script set:html={`window.location.href = "${destination}";`} />
+</body>
+</html>
