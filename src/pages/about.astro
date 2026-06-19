@@ -4,7 +4,7 @@ import about from '../data/about.json';
 
 const metaTitle = about.meta.title;
 const metaDescription = about.meta.description;
-const { stats, values, aboutImage, clientLogos } = about;
+const { stats, values, aboutImage, aboutImages, clientLogos } = about;
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>
@@ -42,8 +42,10 @@ const { stats, values, aboutImage, clientLogos } = about;
     <!-- IMAGE -->
     <section class="ab-imgband">
       <div class="ab-wrap">
-        <div class="ab-img reveal">
-          <img src={aboutImage} alt="Karya custom Kustom Garment" loading="lazy" />
+        <div class:list={['ab-img reveal', { 'ab-img-trio': aboutImages && aboutImages.length }]}>
+          {aboutImages && aboutImages.length
+            ? aboutImages.map((src) => <img src={src} alt="Karya custom Kustom Garment" loading="lazy" />)
+            : <img src={aboutImage} alt="Karya custom Kustom Garment" loading="lazy" />}
         </div>
       </div>
     </section>
@@ -188,6 +190,8 @@ const { stats, values, aboutImage, clientLogos } = about;
     background: #f4f4f4;
   }
   .ab-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* triptych: 3 images filling the SAME 16/7 band, sitting close together */
+  .ab-img-trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; background: #fff; }
 
   /* LOGOS */
   .ab-logos { padding: 4rem 0; }

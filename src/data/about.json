@@ -15,5 +15,6 @@
     { "title": "Bahan premium", "desc": "Cotton combed, fleece, drill, sampai bahan teknis — semua kualitas pilihan." }
   ],
   "aboutImage": "/images/portfolio/crazy-risk/Banner-1.webp",
+  "aboutImages": ["/images/about/about-1.webp", "/images/about/about-2.webp", "/images/about/about-3.webp"],
   "clientLogos": ["klien-1.png","klien-2.png","klien-3.png","klien-4.png","klien-5.png","klien-6.png","klien-7.png","klien-8.png","klien-9.png","klien-10.png"]
 }
