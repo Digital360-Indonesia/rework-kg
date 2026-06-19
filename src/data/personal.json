@@ -13,13 +13,13 @@
     "line2": "Sesukamu."
   },
   "lookbook": [
-    { "img": "/images/personal/lookbook/aida.webp", "alt": "Personal look — AIDA", "span": "look" },
-    { "img": "/images/personal/lookbook/biruu.webp", "alt": "Personal look — biru", "span": "look" },
-    { "img": "/images/personal/lookbook/kaos.webp", "alt": "Personal look — kaos", "span": "look" },
-    { "img": "/images/personal/lookbook/muslim.webp", "alt": "Personal look — muslim", "span": "look" },
-    { "img": "/images/personal/lookbook/old-money.webp", "alt": "Personal look — old money", "span": "look" },
-    { "img": "/images/personal/lookbook/oren.webp", "alt": "Personal look — oren", "span": "look" },
-    { "img": "/images/personal/lookbook/varsity.webp", "alt": "Personal look — varsity", "span": "look" },
-    { "img": "/images/personal/lookbook/zipper.webp", "alt": "Personal look — zipper", "span": "look" }
+    { "img": "/images/personal/lookbook/kaos.webp", "name": "T-Shirt" },
+    { "img": "/images/personal/lookbook/biruu.webp", "name": "Shirt" },
+    { "img": "/images/personal/lookbook/aida.webp", "name": "Hoodie" },
+    { "img": "/images/personal/lookbook/zipper.webp", "name": "Half-Zipper" },
+    { "img": "/images/personal/lookbook/old-money.webp", "name": "Old Money" },
+    { "img": "/images/personal/lookbook/varsity.webp", "name": "Varsity" },
+    { "img": "/images/personal/lookbook/oren.webp", "name": "Jacket" },
+    { "img": "/images/personal/lookbook/muslim.webp", "name": "Koko" }
   ]
 }
