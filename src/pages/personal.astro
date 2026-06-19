@@ -48,10 +48,12 @@ const lookbook = pers.lookbook;
     <!-- HERO (full-image lookbook) -->
     <section class="cat-hero is-image">
       <div class="cat-hero-frame">
-        <picture>
-          {(hero as any).imageMobile && <source srcset={(hero as any).imageMobile} media="(max-width: 1023px)" />}
-          <img class="cat-hero-bg" src={hero.image} alt={hero.imageAlt} loading="eager" />
-        </picture>
+        {(hero as any).images && (hero as any).images.length
+          ? <div class="cat-hero-split">{(hero as any).images.map((src: string) => <img class="cat-hero-bg" src={src} alt={hero.imageAlt} loading="eager" />)}</div>
+          : <picture>
+              {(hero as any).imageMobile && <source srcset={(hero as any).imageMobile} media="(max-width: 1023px)" />}
+              <img class="cat-hero-bg" src={hero.image} alt={hero.imageAlt} loading="eager" />
+            </picture>}
         <div class="cat-hero-center">
           <div class="cat-hero-lockup reveal">
             <img class="cat-hero-logo" src="/images/logos/kg-logo.png" alt="Kustom Garment" />
@@ -94,6 +96,10 @@ const lookbook = pers.lookbook;
   .cat-hero-frame { position: relative; min-height: calc(100svh - 0.6rem); display: grid; place-items: center; overflow: hidden; border-radius: 1.25rem; background: #141414; }
   @media (min-width: 1024px) { .cat-hero-frame { min-height: calc(100svh - 0.85rem); border-radius: 1.5rem; } }
   .cat-hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* 2-image split hero — each fills half the frame; soft center scrim keeps the white text readable */
+  .cat-hero-split { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; }
+  .cat-hero-split .cat-hero-bg { position: relative; inset: auto; }
+  .cat-hero-split::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 85% 60% at 50% 45%, rgba(0,0,0,.32) 0%, rgba(0,0,0,.14) 46%, rgba(0,0,0,0) 78%); }
   .cat-hero-center { position: relative; z-index: 1; text-align: center; padding: 0 1.5rem; color: #ffffff; }
   /* Header auto-hides over this full-screen hero; peeks on hover-to-top / scroll-up (personal only) */
   :global(#main-header) { position: fixed; left: 0; right: 0; top: 0; transform: translateY(-100%); transition: transform 320ms cubic-bezier(0.19, 1, 0.22, 1); will-change: transform; }
@@ -168,13 +174,15 @@ const lookbook = pers.lookbook;
   .cat-shop-price-pre { font-weight: 400; font-size: 0.8125rem; color: #6b7280; }
   .cat-shop-price-amt { font-weight: 600; color: #ff4c00; }
 
-  /* LOOKBOOK (editorial photo grid, full-bleed) */
-  .cat-look { background: #ffffff; padding: 2px 0.6rem 0; }
-  @media (min-width: 1024px) { .cat-look { padding: 2px 0.85rem 0; } }
-  .cat-look-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
-  .cat-look-cell { overflow: hidden; background: #f4f4f4; }
-  .cat-look-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  /* 2-up rows: full-width split, center grid line, height fits the screen exactly */
+  /* LOOKBOOK (full-body looks lineup — 2-up mobile, 4-up desktop; full outfit shown) */
+  .cat-look { background: #ffffff; padding: clamp(1.5rem,4vw,3.5rem) clamp(0.75rem,2vw,1.75rem) clamp(0.5rem,2vw,1.5rem); }
+  .cat-look-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(0.4rem,1.4vw,1rem); max-width: 96rem; margin: 0 auto; }
+  @media (min-width: 768px) { .cat-look-grid { grid-template-columns: repeat(4, 1fr); } }
+  .cat-look-cell { overflow: hidden; background: #f4f4f4; border-radius: 0.6rem; }
+  .cat-look-cell img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform 600ms cubic-bezier(0.19,1,0.22,1); }
+  .cat-look-cell.look { aspect-ratio: 2 / 5; }
+  @media (hover:hover) { .cat-look-cell.look:hover img { transform: scale(1.03); } }
+  /* legacy big-photo cells (kept for restore): */
   .cat-look-cell.tall { height: 62svh; }
   @media (min-width: 768px) { .cat-look-cell.tall { height: 100svh; } }
   .cat-look-cell.wide { grid-column: 1 / -1; aspect-ratio: 16 / 7; max-height: 90vh; }

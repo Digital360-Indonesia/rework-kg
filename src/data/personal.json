@@ -6,10 +6,20 @@
   },
   "hero": {
     "image": "/images/placeholder/personal-hero.png",
+    "images": ["/images/personal/hero-1.webp", "/images/personal/hero-2.webp"],
     "imageAlt": "OOTD custom Kustom Garment",
     "tagline": "personal wear",
     "line1": "Bikin",
     "line2": "Sesukamu."
   },
-  "lookbook": []
+  "lookbook": [
+    { "img": "/images/personal/lookbook/aida.webp", "alt": "Personal look — AIDA", "span": "look" },
+    { "img": "/images/personal/lookbook/biruu.webp", "alt": "Personal look — biru", "span": "look" },
+    { "img": "/images/personal/lookbook/kaos.webp", "alt": "Personal look — kaos", "span": "look" },
+    { "img": "/images/personal/lookbook/muslim.webp", "alt": "Personal look — muslim", "span": "look" },
+    { "img": "/images/personal/lookbook/old-money.webp", "alt": "Personal look — old money", "span": "look" },
+    { "img": "/images/personal/lookbook/oren.webp", "alt": "Personal look — oren", "span": "look" },
+    { "img": "/images/personal/lookbook/varsity.webp", "alt": "Personal look — varsity", "span": "look" },
+    { "img": "/images/personal/lookbook/zipper.webp", "alt": "Personal look — zipper", "span": "look" }
+  ]
 }
