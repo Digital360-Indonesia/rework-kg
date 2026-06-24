@@ -1,25 +1,52 @@
 {
   "_note": "CMS-editable content for the /personal category page. Product grid is driven by src/data/products/catalog.json (managed separately) and is NOT here.",
   "meta": {
-    "title": "Personal — Custom Satuan & OOTD | Kustom Garment",
-    "description": "Outfit harianmu, dibikin sesukamu. Kaos, hoodie, kemeja, sampai totebag — desain bebas, satu pun jadi, tanpa minimum order. Bikin baju. Satu pun oke."
+    "title": "Personal — Custom Apparel & OOTD | Kustom Garment",
+    "description": "Outfit harianmu, dibikin sesukamu. Kaos, hoodie, kemeja, sampai totebag — desain bebas, finishing manufaktur."
   },
   "hero": {
     "image": "/images/placeholder/personal-hero.png",
-    "images": ["/images/personal/hero-1.webp", "/images/personal/hero-2.webp"],
+    "images": [
+      "/images/personal/hero-1.webp",
+      "/images/personal/hero-2.webp"
+    ],
     "imageAlt": "OOTD custom Kustom Garment",
     "tagline": "personal wear",
     "line1": "Bikin",
     "line2": "Sesukamu."
   },
   "lookbook": [
-    { "img": "/images/personal/lookbook/kaos.webp", "name": "T-Shirt" },
-    { "img": "/images/personal/lookbook/biruu.webp", "name": "Shirt" },
-    { "img": "/images/personal/lookbook/aida.webp", "name": "Hoodie" },
-    { "img": "/images/personal/lookbook/zipper.webp", "name": "Half-Zipper" },
-    { "img": "/images/personal/lookbook/old-money.webp", "name": "Old Money" },
-    { "img": "/images/personal/lookbook/varsity.webp", "name": "Varsity" },
-    { "img": "/images/personal/lookbook/oren.webp", "name": "Jacket" },
-    { "img": "/images/personal/lookbook/muslim.webp", "name": "Koko" }
+    {
+      "img": "/images/personal/lookbook/kaos.webp",
+      "name": "T-Shirt"
+    },
+    {
+      "img": "/images/personal/lookbook/biruu.webp",
+      "name": "Shirt"
+    },
+    {
+      "img": "/images/personal/lookbook/aida.webp",
+      "name": "Hoodie"
+    },
+    {
+      "img": "/images/personal/lookbook/zipper.webp",
+      "name": "Half-Zipper"
+    },
+    {
+      "img": "/images/personal/lookbook/old-money.webp",
+      "name": "Old Money"
+    },
+    {
+      "img": "/images/personal/lookbook/varsity.webp",
+      "name": "Varsity"
+    },
+    {
+      "img": "/images/personal/lookbook/oren.webp",
+      "name": "Jacket"
+    },
+    {
+      "img": "/images/personal/lookbook/muslim.webp",
+      "name": "Koko"
+    }
   ]
 }
