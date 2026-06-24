@@ -56,6 +56,7 @@ const compare = {
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>
+  <script set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kustomgarment.com/"},{"@type":"ListItem","position":2,"name":"Business","item":"https://kustomgarment.com/business/"}]})} type="application/ld+json" />
   <main class="cat">
     <!-- HERO (banner) -->
     <section class="cat-hero2">
@@ -78,7 +79,7 @@ const compare = {
       <div class="cat-clients-marquee">
         <div class="cat-clients-track">
           {[...clients, ...clients].map((l) => (
-            <div class="cat-client-card"><img src={`/images/clients/${l}`} alt="Klien Kustom Garment" loading="lazy" /></div>
+            <div class="cat-client-card"><img src={`/images/clients/${l}`} alt="" loading="lazy" /></div>
           ))}
         </div>
       </div>

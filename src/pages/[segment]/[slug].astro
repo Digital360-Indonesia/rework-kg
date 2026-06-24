@@ -63,11 +63,42 @@ const hasCustomizer = Object.keys(styleOpts).length > 0;
 const customHref = hasCustomizer ? `/${item.segment}/${item.slug}/custom` : waHref;
 const related = (portfolio.items as any[]).filter((p) => p.segment === item.segment && p.slug !== item.slug && p.heroImageLocal).slice(0, 4);
 
-const metaTitle = `${item.title} | Kustom Garment`;
+const metaTitle = `${item.title} — ${GTL[item.garment_type] || item.garment_type} | Kustom Garment`;
 const metaDescription = item.desc || '';
+
+// Product structured data — portfolio item (no price, but rating + image for rich results)
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": `${item.title} — ${GTL[item.garment_type] || item.garment_type}`,
+  "description": item.desc || '',
+  "image": [new URL(gallery[0] || '/images/og-default.png', siteConfig.siteUrl).toString()],
+  "brand": { "@type": "Brand", "name": siteConfig.siteName },
+  "category": GTL[item.garment_type] || 'Apparel',
+  ...(item.rating > 0 && {
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": item.rating,
+      "reviewCount": item.reviews
+    }
+  })
+};
+
+// Breadcrumb
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteConfig.siteUrl },
+    { "@type": "ListItem", "position": 2, "name": segLabel[item.segment] || item.segment, "item": new URL(`/${item.segment}/`, siteConfig.siteUrl).toString() },
+    { "@type": "ListItem", "position": 3, "name": item.title }
+  ]
+};
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>
+  <script set:html={JSON.stringify(productSchema)} type="application/ld+json" />
+  <script set:html={JSON.stringify(breadcrumbSchema)} type="application/ld+json" />
   <section class="pdp">
     <nav class="pdp-crumb"><a href={`/${item.segment}`}>{segLabel[item.segment] || item.segment}</a> <span>/</span> {item.title}</nav>
     <div class="pdp-grid">

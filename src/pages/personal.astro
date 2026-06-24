@@ -44,6 +44,7 @@ const lookbook = pers.lookbook;
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>
+  <script set:html={JSON.stringify({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kustomgarment.com/"},{"@type":"ListItem","position":2,"name":"Personal","item":"https://kustomgarment.com/personal/"}]})} type="application/ld+json" />
   <main class="cat">
     <!-- HERO (full-image lookbook) -->
     <section class="cat-hero is-image">

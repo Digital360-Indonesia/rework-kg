@@ -1,0 +1,501 @@
+---
+/**
+ * Search Page - Kustom Garment
+ * Client-side filter across portfolio items (156) + catalog archetypes (13).
+ * Reads ?q= on load, live-filters as user types.
+ * Items link to their PDP: portfolio -> /{segment}/{slug}, archetype -> /produk/{slug}
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import portfolio from '../data/portfolio.json';
+import catalogData from '../data/products/catalog.json';
+import siteConfig from '../data/site-config.json';
+
+const GTL: Record<string, string> = { kemeja: 'Kemeja', polo: 'Polo', kaos: 'Kaos', jaket: 'Jaket', rompi: 'Rompi', wearpack: 'Wearpack', topi: 'Topi' };
+const SEG: Record<string, string> = { business: 'Bisnis', campus: 'Kampus', community: 'Komunitas', personal: 'Personal' };
+
+// Build searchable index — portfolio items
+const portfolioItems = (portfolio.items as any[]).map((p) => ({
+  type: 'portfolio',
+  title: p.title,
+  desc: p.desc || '',
+  img: p.heroImageLocal || p.heroImage || '',
+  href: `/${p.segment}/${p.slug}`,
+  garment: GTL[p.garment_type] || p.garment_type,
+  segment: SEG[p.segment] || p.segment,
+  // haystack for matching
+  tags: `${p.title} ${p.desc || ''} ${GTL[p.garment_type] || ''} ${p.segment}`.toLowerCase(),
+}));
+
+// Catalog archetypes
+const archetypeItems = (catalogData.archetypes as any[]).filter((a) => !a.hidden).map((a) => ({
+  type: 'archetype',
+  title: a.name,
+  desc: a.positioning || a.description || '',
+  img: a.gallery?.[0] || '',
+  href: `/produk/${a.slug}`,
+  garment: GTL[a.garment_type] || a.garment_type,
+  segment: SEG[a.segment] || a.segment,
+  tags: `${a.name} ${a.positioning || ''} ${a.description || ''} ${GTL[a.garment_type] || ''} ${a.segment}`.toLowerCase(),
+}));
+
+const allItems = [...portfolioItems, ...archetypeItems];
+const wa = siteConfig.contact.whatsappUrl;
+---
+
+<BaseLayout
+  title="Cari Produk — Kaos, Jaket, Kemeja Custom | Kustom Garment"
+  description="Cari produk custom apparel Kustom Garment. Telusuri 150+ portfolio klien dan katalog produk kami."
+>
+  <main class="sr">
+    <!-- HERO + SEARCH INPUT -->
+    <section class="sr-hero">
+      <div class="sr-wrap">
+        <span class="sr-eyebrow">Cari Produk</span>
+        <h1 class="sr-title">Cari produk custom apparel.</h1>
+        <p class="sr-sub">Ketik nama produk, jenis bahan, atau kategori. Mau kaos, jaket, kemeja, atau seragam — semua ada di sini.</p>
+
+        <form class="sr-form" role="search" id="sr-form">
+          <div class="sr-input-wrap">
+            <svg class="sr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path stroke-linecap="round" d="m20 20-3-3"></path>
+            </svg>
+            <input
+              type="search"
+              name="q"
+              id="sr-input"
+              class="sr-input"
+              placeholder="Cth: kemeja corporate, jaket varsity, polo…"
+              autocomplete="off"
+              autofocus
+            />
+            <button type="submit" class="sr-submit" aria-label="Cari">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="sr-results">
+      <div class="sr-wrap">
+        <p class="sr-count" id="sr-count" aria-live="polite"></p>
+        <div class="sr-grid" id="sr-grid"></div>
+
+        <!-- Empty state -->
+        <div class="sr-empty" id="sr-empty" hidden>
+          <div class="sr-empty-box">
+            <p class="sr-empty-lead">Tidak ada hasil untuk <strong id="sr-empty-q"></strong>.</p>
+            <p class="sr-empty-sub">Coba kata kunci lain, atau chat langsung kami bantu cari yang pas.</p>
+            <a class="sr-empty-cta" href={wa} target="_blank" rel="noopener noreferrer">
+              Tanya via WhatsApp <span aria-hidden="true">→</span>
+            </a>
+            <div class="sr-empty-chips">
+              <span class="sr-empty-label">Atau jelajah:</span>
+              <a href="/business/">Business</a>
+              <a href="/community/">Community</a>
+              <a href="/campus/">Campus</a>
+              <a href="/personal/">Personal</a>
+              <a href="/produk/">Semua Produk</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Initial state (no query yet) -->
+        <div class="sr-initial" id="sr-initial">
+          <p class="sr-initial-label">Pencarian populer</p>
+          <div class="sr-chips">
+            <button type="button" class="sr-chip" data-q="kemeja">Kemeja</button>
+            <button type="button" class="sr-chip" data-q="jaket">Jaket</button>
+            <button type="button" class="sr-chip" data-q="kaos">Kaos</button>
+            <button type="button" class="sr-chip" data-q="polo">Polo</button>
+            <button type="button" class="sr-chip" data-q="rompi">Rompi</button>
+            <button type="button" class="sr-chip" data-q="wearpack">Wearpack</button>
+            <button type="button" class="sr-chip" data-q="seragam">Seragam</button>
+            <button type="button" class="sr-chip" data-q="corporate">Corporate</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .sr { background: #ffffff; }
+  .sr-wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  @media (min-width: 1024px) { .sr-wrap { padding: 0 2.5rem; } }
+
+  /* HERO */
+  .sr-hero {
+    background: #ff4c00;
+    color: #ffffff;
+    padding: 5rem 0 5rem;
+    text-align: center;
+  }
+  @media (min-width: 1024px) { .sr-hero { padding: 7rem 0 7rem; } }
+  .sr-eyebrow {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 1rem;
+  }
+  .sr-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0 auto 1rem;
+    max-width: 18ch;
+  }
+  .sr-sub {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: clamp(1rem, 1.4vw, 1.0625rem);
+    line-height: 1.55;
+    color: rgba(255,255,255,0.92);
+    max-width: 38rem;
+    margin: 0 auto 2.5rem;
+  }
+
+  /* SEARCH FORM */
+  .sr-form { max-width: 40rem; margin: 0 auto; }
+  .sr-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 999px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 0.25rem 0.25rem 0.25rem 1.5rem;
+  }
+  .sr-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #9ca3af;
+    flex-shrink: 0;
+  }
+  .sr-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 1rem 0.75rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1a1a1a;
+    outline: none;
+  }
+  .sr-input::placeholder { color: #9ca3af; font-weight: 500; }
+  .sr-input::-webkit-search-cancel-button { -webkit-appearance: none; }
+  .sr-submit {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 999px;
+    background: #ff4c00;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background 180ms ease;
+  }
+  .sr-submit:hover { background: #d63e00; }
+  .sr-submit svg { width: 1.1rem; height: 1.1rem; }
+
+  /* RESULTS SECTION */
+  .sr-results { padding: 3rem 0 6rem; }
+  @media (min-width: 1024px) { .sr-results { padding: 4rem 0 8rem; } }
+  .sr-count {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #6b7280;
+    margin: 0 0 2rem;
+  }
+
+  /* GRID */
+  .sr-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem 1.75rem;
+  }
+  @media (min-width: 640px) { .sr-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .sr-grid { grid-template-columns: repeat(3, 1fr); } }
+
+  /* CARD styles moved to <style is:global> below — they apply to JS-rendered result cards */
+
+  /* EMPTY STATE */
+  .sr-empty { padding-top: 2rem; }
+  .sr-empty-box {
+    text-align: center;
+    max-width: 36rem;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    background: #fafafa;
+    border-radius: 1.5rem;
+  }
+  .sr-empty-lead {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem;
+  }
+  .sr-empty-lead strong { color: #ff4c00; }
+  .sr-empty-sub {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: #6b7280;
+    margin: 0 0 1.75rem;
+  }
+  .sr-empty-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: #ffffff;
+    background: #1a1a1a;
+    padding: 0.85rem 1.75rem;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: background 180ms ease;
+  }
+  .sr-empty-cta:hover { background: #000; }
+  .sr-empty-cta span { color: #ff4c00; }
+  .sr-empty-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    margin-top: 2rem;
+  }
+  .sr-empty-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    color: #9ca3af;
+    width: 100%;
+  }
+  .sr-empty-chips a {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    color: #1a1a1a;
+    background: #ffffff;
+    border: 1px solid #ececec;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    text-decoration: none;
+    transition: all 180ms ease;
+  }
+  .sr-empty-chips a:hover { border-color: #ff4c00; color: #ff4c00; }
+
+  /* INITIAL STATE (popular searches) */
+  .sr-initial { padding-top: 1rem; }
+  .sr-initial[hidden] { display: none; }
+  .sr-initial-label {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0 0 1rem;
+  }
+  .sr-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .sr-chip {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: #1a1a1a;
+    background: #ffffff;
+    border: 1.5px solid #ececec;
+    border-radius: 999px;
+    padding: 0.6rem 1.25rem;
+    cursor: pointer;
+    transition: all 180ms ease;
+  }
+  .sr-chip:hover { border-color: #ff4c00; color: #ff4c00; }
+
+  /* Card animation moved to <style is:global> below */
+</style>
+
+<!-- is:global because result cards are created via JS (innerHTML) — Astro scoped styles
+     use data-astro-cid-* attributes that don't apply to dynamically created elements -->
+<style is:global>
+  .sr .sr-card { display: block; text-decoration: none; color: inherit; }
+  .sr .sr-card-frame {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background: #f4f4f4;
+    margin-bottom: 1rem;
+  }
+  .sr .sr-card-frame img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 600ms cubic-bezier(0.19,1,0.22,1);
+  }
+  .sr .sr-card-badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.625rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(4px);
+    border-radius: 999px;
+    padding: 0.3rem 0.65rem;
+  }
+  .sr .sr-card-meta {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ff4c00;
+  }
+  .sr .sr-card-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.0625rem;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: #1a1a1a;
+    margin: 0.4rem 0 0.4rem;
+    transition: color 200ms ease;
+  }
+  .sr .sr-card-desc {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #6b7280;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+  }
+  @media (hover: hover) {
+    .sr .sr-card:hover .sr-card-frame img { transform: scale(1.05); }
+    .sr .sr-card:hover .sr-card-title { color: #ff4c00; }
+  }
+  .sr .sr-card-enter { animation: sr-fade-in 400ms cubic-bezier(0.19,1,0.22,1) both; }
+  @keyframes sr-fade-in { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sr .sr-card-frame img, .sr .sr-card-enter { transition: none; animation: none; }
+  }
+</style>
+
+<!-- Searchable data embedded for client-side filter -->
+<script define:vars={{ items: allItems }}>
+  const grid = document.getElementById('sr-grid');
+  const count = document.getElementById('sr-count');
+  const empty = document.getElementById('sr-empty');
+  const emptyQ = document.getElementById('sr-empty-q');
+  const initial = document.getElementById('sr-initial');
+  const input = document.getElementById('sr-input');
+  const form = document.getElementById('sr-form');
+
+  const Norm = (s) => (s || '').toLowerCase().trim();
+
+  function render(q) {
+    const query = Norm(q);
+    grid.innerHTML = '';
+
+    if (!query) {
+      count.textContent = '';
+      empty.hidden = true;
+      initial.hidden = false;
+      return;
+    }
+    initial.hidden = true;
+
+    // Multi-word AND match: every space-separated term must be in haystack
+    const terms = query.split(/\s+/).filter(Boolean);
+    const matches = items.filter((it) => terms.every((t) => it.tags.includes(t)));
+
+    count.textContent = `${matches.length} hasil untuk "${q}"`;
+
+    if (matches.length === 0) {
+      empty.hidden = false;
+      emptyQ.textContent = q;
+      return;
+    }
+    empty.hidden = true;
+
+    matches.slice(0, 60).forEach((it, i) => {
+      const card = document.createElement('a');
+      card.className = 'sr-card sr-card-enter';
+      card.href = it.href;
+      card.style.animationDelay = `${Math.min(i * 30, 400)}ms`;
+      card.innerHTML = `
+        <div class="sr-card-frame">
+          ${it.img ? `<img src="${it.img}" alt="${it.title}" loading="lazy" />` : ''}
+          <span class="sr-card-badge">${it.type === 'archetype' ? 'Produk' : 'Portfolio'}</span>
+        </div>
+        <span class="sr-card-meta">${it.garment} · ${it.segment}</span>
+        <h2 class="sr-card-title">${it.title}</h2>
+        <p class="sr-card-desc">${it.desc}</p>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // Init from URL ?q=
+  const params = new URLSearchParams(location.search);
+  const initialQ = params.get('q') || '';
+  if (initialQ) input.value = initialQ;
+  render(initialQ);
+
+  // Live filter (debounced)
+  let t;
+  input.addEventListener('input', () => {
+    clearTimeout(t);
+    t = setTimeout(() => {
+      render(input.value);
+      // Update URL without reload
+      const u = new URL(location.href);
+      if (input.value) u.searchParams.set('q', input.value);
+      else u.searchParams.delete('q');
+      history.replaceState(null, '', u);
+    }, 150);
+  });
+
+  // Form submit (e.g. Enter / header redirect)
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    render(input.value);
+  });
+
+  // Popular search chips
+  document.querySelectorAll('.sr-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      input.value = chip.dataset.q;
+      render(chip.dataset.q);
+      const u = new URL(location.href);
+      u.searchParams.set('q', chip.dataset.q);
+      history.replaceState(null, '', u);
+      input.focus();
+    });
+  });
+</script>

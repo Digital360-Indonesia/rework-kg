@@ -40,9 +40,48 @@ const relatedArchetypes = (catalog.archetypes as any[]).filter((a) => a.segment 
 // "Sudah diproduksi untuk X klien" — uses the per-product produced_count (varied), falls back to real portfolio count
 const portfolioCount = (product as any).produced_count || thisPortfolioItems.length;
 const baseItem = product.portfolio_refs?.base_item_title || '';
+
+// Product structured data — for rich results (price, rating, availability in SERP)
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": product.name,
+  "description": product.positioning || product.description,
+  "image": [new URL(product.gallery?.[0] || '/images/og-default.png', siteConfig.siteUrl).toString()],
+  "brand": { "@type": "Brand", "name": siteConfig.siteName },
+  "category": GTL[product.garment_type] || 'Apparel',
+  ...(product.rating > 0 && {
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": product.rating,
+      "reviewCount": product.reviews
+    }
+  }),
+  "offers": {
+    "@type": "Offer",
+    "url": new URL(`/produk/${product.slug}/`, siteConfig.siteUrl).toString(),
+    "priceCurrency": "IDR",
+    "price": product.price_min,
+    "availability": "https://schema.org/InStock",
+    "seller": { "@type": "Organization", "name": siteConfig.siteName }
+  }
+};
+
+// Breadcrumb
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteConfig.siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "Produk", "item": new URL('/produk/', siteConfig.siteUrl).toString() },
+    { "@type": "ListItem", "position": 3, "name": product.name }
+  ]
+};
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>
+  <script set:html={JSON.stringify(productSchema)} type="application/ld+json" />
+  <script set:html={JSON.stringify(breadcrumbSchema)} type="application/ld+json" />
   <section class="pdp">
     <div class="pdp-grid">
       <!-- Gallery: thumbnail rail + main preview -->

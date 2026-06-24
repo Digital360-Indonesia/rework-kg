@@ -19,7 +19,7 @@ const { clients = [], label } = Astro.props;
       {label && <p class="cl-label reveal">{label}</p>}
       <div class="cl-row reveal">
         {clients.map((l) => (
-          <div class="cl-card"><img src={`/images/clients/${l}`} alt="Klien Kustom Garment" loading="lazy" /></div>
+          <div class="cl-card"><img src={`/images/clients/${l}`} alt="" loading="lazy" /></div>
         ))}
       </div>
     </div>

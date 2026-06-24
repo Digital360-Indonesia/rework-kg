@@ -12,14 +12,67 @@ import SceneGallery from '../components/sections/SceneGallery.astro';
 import SocialProof from '../components/sections/SocialProof.astro';
 import EndCta from '../components/sections/EndCta.astro';
 import { categories } from '../data/categories';
+import siteConfig from '../data/site-config.json';
 
 const metaTitle = 'Konveksi Custom Satuan Surabaya | Kustom Garment – Desain Bebas, Tanpa Minimal Order';
 const metaDescription = 'Kustom Garment adalah konveksi custom satuan di Surabaya yang melayani pembuatan kaos, jaket, kemeja, dan seragam tanpa minimal order. Desain bebas, bahan premium, dan layanan cepat.';
-const metaImage = '/images/hero/banner-kustomgarment.png';
+const metaImage = '/images/og-default.png';
+
+// LocalBusiness structured data — for local SEO / Google Maps / Knowledge Graph
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  "name": siteConfig.siteName,
+  "description": siteConfig.description,
+  "url": siteConfig.siteUrl,
+  "logo": new URL('/images/logos/kg-logo.png', siteConfig.siteUrl).toString(),
+  "image": new URL('/images/og-default.png', siteConfig.siteUrl).toString(),
+  "telephone": "+62" + siteConfig.contact.whatsapp.slice(2),
+  "email": siteConfig.contact.email,
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": siteConfig.contact.address,
+    "addressLocality": siteConfig.contact.city,
+    "addressRegion": siteConfig.contact.province,
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -7.3083568,
+    "longitude": 112.7551446
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "08:00",
+      "closes": "15:00"
+    }
+  ],
+  "sameAs": [
+    siteConfig.social.instagram,
+    siteConfig.social.tiktok,
+    siteConfig.social.facebook,
+    siteConfig.social.youtube,
+    siteConfig.social.twitter
+  ]
+};
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription} image={metaImage}>
+  <!-- LocalBusiness / ClothingStore structured data -->
+  <script set:html={JSON.stringify(localBusinessSchema)} type="application/ld+json" />
   <main>
+    <!-- H1 for SEO (visually hidden — design uses image hero, but search engines need a text H1) -->
+    <h1 class="sr-only">Konveksi Custom Satuan Surabaya — Kustom Garment</h1>
+
     <!-- Ticker (LED-style perks) -->
     <Ticker />
 

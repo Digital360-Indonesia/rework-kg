@@ -25,7 +25,7 @@ export interface Props {
 const {
   title,
   description = siteConfig.description,
-  image = '/images/hero/no-min-order-banner.webp',
+  image = '/images/og-default.png',
   noIndex = false,
   type = 'website',
   publishedTime,
@@ -61,7 +61,7 @@ const currentPath = Astro.url.pathname;
   <meta name="keywords" content={siteConfig.seo.keywords.join(', ')}>
   <link rel="canonical" href={fullCanonicalURL}>
 
-  {noIndex && <meta name="robots" content="noindex, nofollow">}
+  {noIndex && <meta name="robots" content="noindex, follow">}
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content={pageType}>

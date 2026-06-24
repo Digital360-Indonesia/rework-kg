@@ -1,14 +1,30 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import faqData from '../data/faq.json';
+import siteConfig from '../data/site-config.json';
 
 const metaTitle = faqData.meta.title;
 const metaDescription = faqData.meta.description;
 const { faqs } = faqData;
 const wa = 'https://wa.me/6285117049918?text=' + encodeURIComponent(faqData.waText);
+
+// FAQPage structured data — for FAQ rich results (expandable Q&A in SERP)
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f: any) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": f.a
+    }
+  }))
+};
 ---
 
 <BaseLayout title={metaTitle} description={metaDescription}>
+  <script set:html={JSON.stringify(faqSchema)} type="application/ld+json" />
   <main class="fq">
     <section class="fq-head">
       <span class="fq-eyebrow reveal">FAQ</span>
