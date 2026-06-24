@@ -2,7 +2,7 @@
   "_note": "CMS-editable content for the /personal category page. Product grid is driven by src/data/products/catalog.json (managed separately) and is NOT here.",
   "meta": {
     "title": "Personal — Custom Apparel & OOTD | Kustom Garment",
-    "description": "Outfit harianmu, dibikin sesukamu. Kaos, hoodie, kemeja, sampai totebag — desain bebas, finishing manufaktur."
+    "description": "Outfit harianmu, dibikin sesukamu. Kaos, hoodie, kemeja, sampai totebag — bahan pilihan, desain bebas, finishing premium."
   },
   "hero": {
     "image": "/images/placeholder/personal-hero.png",
